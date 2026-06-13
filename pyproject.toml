@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "beyond-brier"
+version = "0.1.0"
+description = "Rank forecasters by the information they add over the market price, not by Brier."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Vaticinus T." }]
+keywords = ["forecasting", "calibration", "scoring-rules", "brier", "skill-score", "llm-evaluation", "prediction-markets"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+    "numpy>=1.21",
+    "pandas>=1.3",
+    "scipy>=1.7",
+    "statsmodels>=0.13",
+    "scikit-learn>=1.0",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.4"]
+dev = ["pytest>=7", "matplotlib>=3.4"]
+
+[project.urls]
+Homepage = "https://github.com/vaticinus/beyond-brier"
+Paper = "https://github.com/vaticinus/beyond-brier/blob/main/docs/paper.pdf"
+Issues = "https://github.com/vaticinus/beyond-brier/issues"
+
+[project.scripts]
+beyond-brier = "beyond_brier.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["beyond_brier*"]

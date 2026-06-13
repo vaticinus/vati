@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: "beyond-brier: a marginal-edge skill score for forecasting"
+message: "If you use this software or metric, please cite the paper."
+type: software
+authors:
+  - name: "Vaticinus"
+repository-code: "https://github.com/vaticinus/beyond-brier"
+license: Apache-2.0
+version: 0.1.0
+preferred-citation:
+  type: article
+  title: "Beyond Brier: A Marginal-Edge Skill Score for Forecasting, and What It Does to a Leaderboard"
+  authors:
+    - name: "Vaticinus"
+  year: 2026

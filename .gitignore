@@ -1,0 +1,19 @@
+# Raw ForecastBench data (public, but heavy — fetch with `python -m data.fetch`)
+data/forecastbench/*.json
+data/forecastbench/*.csv
+
+# Generated outputs
+out/
+*.png
+!docs/*.png
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+build/
+dist/
