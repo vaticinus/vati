@@ -1,0 +1,55 @@
+{
+  "entries": [
+    {
+      "n": 56,
+      "edge": 0.04633,
+      "edge_lo": 0.01046,
+      "edge_hi": 0.084,
+      "boot_p": 0.0106,
+      "mean_brier": 0.08439,
+      "score": "brier",
+      "b_fc": 1.0027,
+      "b_fc_p": 0.02257,
+      "unpriced": true,
+      "name": "Superforecaster median (ForecastBench 2024-07-21)",
+      "kind": "human",
+      "track": "market",
+      "date": "2024-07-21",
+      "notes": ""
+    },
+    {
+      "n": 56,
+      "edge": 0.00924,
+      "edge_lo": -0.00565,
+      "edge_hi": 0.02617,
+      "boot_p": 0.2516,
+      "mean_brier": 0.12148,
+      "score": "brier",
+      "b_fc": 1.4762,
+      "b_fc_p": 0.14929,
+      "unpriced": false,
+      "name": "Public median (ForecastBench 2024-07-21)",
+      "kind": "human",
+      "track": "market",
+      "date": "2024-07-21",
+      "notes": ""
+    },
+    {
+      "n": 56,
+      "edge": 0.00263,
+      "edge_lo": -0.00091,
+      "edge_hi": 0.00637,
+      "boot_p": 0.1464,
+      "mean_brier": 0.12809,
+      "score": "brier",
+      "b_fc": 0.773,
+      "b_fc_p": 0.69528,
+      "unpriced": false,
+      "name": "Market-copier LLM (demo)",
+      "kind": "llm",
+      "track": "market",
+      "date": "",
+      "notes": "sets p_f = market freeze value"
+    }
+  ]
+}
