@@ -2,7 +2,7 @@
 
 **A lot of "AI beats the crowd" results are smaller than a statistical artifact. Here is the one-line check, and a reorder of the only public board.**
 
-A forecaster can post a near-superforecaster Brier score by quietly echoing a market price or a crowd median, while contributing nothing of its own. Brier cannot tell the copyist apart from the contributor. `beyond-brier` scores the thing you actually want: the **marginal edge**, the calibrated information a forecast adds *over the strongest freely available prior*, ranked by a strictly proper rule and split into a *priced* part (recoverable from the prior) and an *unpriced* part (the forecaster's own contribution).
+A forecaster can post a near-superforecaster Brier score by quietly echoing the market price or a crowd median, and contribute nothing of its own. Brier can't tell that copyist apart from a real contributor. `beyond-brier` measures what you actually care about: the marginal edge, the information a forecast adds over the best free prior. It splits that into a priced part (already in the prior) and an unpriced part (the forecaster's own).
 
 It is the reference implementation for the paper *Beyond Brier: A Marginal-Edge Skill Score for Forecasting, and What It Does to a Leaderboard* ([`docs/paper.pdf`](docs/paper.pdf)).
 
@@ -12,25 +12,25 @@ pip install beyond-brier
 
 ![A good Brier can still add zero information](docs/edge_with_ci.png)
 
-*Real ForecastBench data. The market-copier has a perfectly respectable Brier (0.128) and an edge over the price that is indistinguishable from zero. Only the superforecasters clear the line.*
+*Real ForecastBench data. The market-copier posts a fine Brier (0.128), but its edge over the price is indistinguishable from zero. Only the superforecasters clear the line.*
 
 ---
 
 ## The 0.5/N free lunch
 
-Here is the trap, in one line. Take any forecaster, add its prediction as a single extra regressor to a model that already has the market price. Under the null that the forecast adds **nothing**, the in-sample log-likelihood still rises by `0.5/N` nats in expectation (Wilks' theorem: the likelihood-ratio statistic for one parameter has mean 1, i.e. half a nat of log-likelihood, spread across `N` questions).
+Here's the trap, in one line. Take any forecaster, add its prediction as a single extra regressor to a model that already has the market price. Even under the null that the forecast adds nothing, the in-sample log-likelihood still rises by `0.5/N` nats in expectation (Wilks' theorem: the likelihood-ratio statistic for one parameter has mean 1, so half a nat of log-likelihood, spread across `N` questions).
 
-A lot of reported "LLMs beat the crowd" edges are smaller than this artifact. `beyond_brier.debias_logscore` subtracts it. Honest out-of-sample edges do not need the correction; in-sample ones do, and most leaderboards never apply it.
+A lot of reported "LLMs beat the crowd" edges are smaller than that artifact. `beyond_brier.debias_logscore` subtracts it. Honest out-of-sample edges don't need the correction. In-sample ones do, and most leaderboards never apply it.
 
 ---
 
 ## The board reorders
 
-Score is not rank. On the one public, leak-free ForecastBench slice (2024-07-21, 540 human forecasters, 33,271 binary rows), ranking the 23 rankable superforecasters by marginal edge instead of Brier moves the board substantially: **Spearman rho = 0.66 (p = 0.0006)**. One forecaster sits **17th by Brier and 4th by the information it adds**, because it beat the market on hard questions instead of padding its Brier on easy ones.
+Score is not rank. On the one public, leak-free ForecastBench slice (2024-07-21, 540 human forecasters, 33,271 binary rows), ranking the 23 rankable superforecasters by marginal edge instead of Brier moves the board a lot: **Spearman rho = 0.66 (p = 0.0006)**. One forecaster sits 17th by Brier and 4th by the information it adds. It got there by beating the market on hard questions instead of padding its Brier on easy ones.
 
 ![Same 23 superforecasters, two rankings](docs/reorder.png)
 
-Of the 23, **7 have an edge interval strictly above zero** and **6 survive Benjamini-Hochberg FDR** at q = 0.10. The pooled forecast-encompassing regression confirms superforecasters carry information beyond the market price (`b_fc = +0.57`, question-clustered `p = 0.005`) while the price adds little to them.
+Of the 23, seven have an edge interval strictly above zero and six survive Benjamini-Hochberg FDR at q = 0.10. The pooled forecast-encompassing regression confirms superforecasters carry information beyond the market price (`b_fc = +0.57`, question-clustered `p = 0.005`), while the price adds little to them.
 
 Regenerate both figures from the public files with `python examples/make_figures.py`.
 
@@ -82,7 +82,7 @@ Seeded from the public ForecastBench human round, the board already makes the po
 | Public median | +0.009 | [-0.006, +0.026] | 0.121 | no |
 | Market-copier LLM (demo) | +0.003 | [-0.001, +0.006] | 0.128 | no |
 
-The copier's raw Brier looks respectable. Its edge is indistinguishable from zero. That is the whole idea.
+The copier's raw Brier looks fine. Its edge is statistically zero. That's the whole point.
 
 ---
 
@@ -116,9 +116,9 @@ For the full treatment, including the prior art we build on (skill scores, Murph
 
 ## What this is, and what it is not
 
-This is a **ruler**, not a racehorse. It tells you how to *score* a forecaster against the market. It contains no forecasting model, no data feeds, and no alpha: nothing here helps you *be* a better forecaster, only measure one honestly. That is deliberate. Better measurement is a public good; we are happy to give it away.
+This is a ruler, not a racehorse. It tells you how to score a forecaster against the market. There's no forecasting model in here, no data feeds, no alpha. Nothing helps you *be* a better forecaster, only measure one honestly. That's on purpose. Better measurement is a public good, so it's free.
 
-We are also explicit about scope. The natural target, recomputing the *LLM* leaderboard under marginal edge, is not possible from public data today: ForecastBench releases per-question forecasts only for humans, on one round. So we demonstrate on humans and **pre-register** the LLM result as a forward, falsifiable prediction with this exact code as the fixed instrument. See [`docs/PROTOCOL.md`](docs/PROTOCOL.md).
+A note on scope, because it matters. The obvious target is the LLM leaderboard, and we can't touch it from public data today: ForecastBench releases per-question forecasts only for humans, on one round. So we show the result on humans and pre-register the LLM version as a forward, falsifiable prediction, using this exact code as the fixed instrument. See [`docs/PROTOCOL.md`](docs/PROTOCOL.md).
 
 ---
 
