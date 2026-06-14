@@ -1,14 +1,18 @@
 # beyond-brier
 
-**Rank forecasters by the information they add over the market, not by how close they land to the truth.**
+**A lot of "AI beats the crowd" results are smaller than a statistical artifact. Here is the one-line check, and a reorder of the only public board.**
 
-A model can post a near-superforecaster Brier score by quietly copying a market price or a crowd median, while contributing nothing of its own. Brier rewards the copyist over the contributor. `beyond-brier` scores the quantity you actually want: the **marginal edge**, the calibrated information a forecast adds over the strongest freely available prior, ranked by a strictly proper rule and split into a *priced* part (recoverable from the prior) and an *unpriced* part (the forecaster's own contribution).
+A forecaster can post a near-superforecaster Brier score by quietly echoing a market price or a crowd median, while contributing nothing of its own. Brier cannot tell the copyist apart from the contributor. `beyond-brier` scores the thing you actually want: the **marginal edge**, the calibrated information a forecast adds *over the strongest freely available prior*, ranked by a strictly proper rule and split into a *priced* part (recoverable from the prior) and an *unpriced* part (the forecaster's own contribution).
 
 It is the reference implementation for the paper *Beyond Brier: A Marginal-Edge Skill Score for Forecasting, and What It Does to a Leaderboard* ([`docs/paper.pdf`](docs/paper.pdf)).
 
 ```bash
 pip install beyond-brier
 ```
+
+![A good Brier can still add zero information](docs/edge_with_ci.png)
+
+*Real ForecastBench data. The market-copier has a perfectly respectable Brier (0.128) and an edge over the price that is indistinguishable from zero. Only the superforecasters clear the line.*
 
 ---
 
@@ -20,13 +24,25 @@ A lot of reported "LLMs beat the crowd" edges are smaller than this artifact. `b
 
 ---
 
+## The board reorders
+
+Score is not rank. On the one public, leak-free ForecastBench slice (2024-07-21, 540 human forecasters, 33,271 binary rows), ranking the 23 rankable superforecasters by marginal edge instead of Brier moves the board substantially: **Spearman rho = 0.66 (p = 0.0006)**. One forecaster sits **17th by Brier and 4th by the information it adds**, because it beat the market on hard questions instead of padding its Brier on easy ones.
+
+![Same 23 superforecasters, two rankings](docs/reorder.png)
+
+Of the 23, **7 have an edge interval strictly above zero** and **6 survive Benjamini-Hochberg FDR** at q = 0.10. The pooled forecast-encompassing regression confirms superforecasters carry information beyond the market price (`b_fc = +0.57`, question-clustered `p = 0.005`) while the price adds little to them.
+
+Regenerate both figures from the public files with `python examples/make_figures.py`.
+
+---
+
 ## 60-second tour
 
 ```python
 import numpy as np
 from beyond_brier import marginal_edge
 
-y      = np.array([1, 0, 1, 0, 1])          # resolved outcomes
+y      = np.array([1, 0, 1, 0, 1])                  # resolved outcomes
 price  = np.array([0.55, 0.40, 0.60, 0.35, 0.70])  # the free prior (market / crowd)
 mine   = np.array([0.80, 0.25, 0.75, 0.30, 0.85])  # my forecast
 
@@ -44,7 +60,7 @@ board = build_leaderboard(df, min_n=20)
 print(reorder_stats(board))
 ```
 
-Run `python examples/quickstart.py` to see the punchline on synthetic data: a market-copier wins on Brier but has ~zero edge, while a noisier independent forecaster carries real signal. And the identity that keeps the metric honest: on a *constant* prior, ranking by edge is exactly ranking by Brier, so the metric can only reorder a board where the prior is informative and question-varying.
+Run `python examples/quickstart.py` to see the punchline on synthetic data: a market-copier inherits the market's Brier exactly and adds zero edge, while a contributor at a comparable Brier carries real signal. And the identity that keeps the metric honest: on a *constant* prior, ranking by edge is exactly ranking by Brier, so the metric can only reorder a board where the prior is informative and question-varying.
 
 ---
 
@@ -60,11 +76,11 @@ python -m leaderboard.submit add --name "My bot" --kind bot --forecasts mine.csv
 
 Seeded from the public ForecastBench human round, the board already makes the point:
 
-| Forecaster | Edge over market | 95% CI | Unpriced signal? |
-|---|---:|---|:---:|
-| Superforecaster median | **+0.046** | [+0.011, +0.084] | **yes** |
-| Public median | +0.009 | [-0.006, +0.026] | no |
-| Market-copier LLM (demo) | +0.003 | [-0.001, +0.006] | no |
+| Forecaster | Edge over market | 95% CI | Mean Brier | Unpriced signal? |
+|---|---:|---|---:|:---:|
+| Superforecaster median | **+0.046** | [+0.011, +0.084] | 0.084 | **yes** |
+| Public median | +0.009 | [-0.006, +0.026] | 0.121 | no |
+| Market-copier LLM (demo) | +0.003 | [-0.001, +0.006] | 0.128 | no |
 
 The copier's raw Brier looks respectable. Its edge is indistinguishable from zero. That is the whole idea.
 
@@ -77,9 +93,9 @@ python -m data.fetch
 python examples/reproduce_paper.py
 ```
 
-On the one public, leak-free ForecastBench slice (2024-07-21, 540 human forecasters, 33,271 binary rows), the tool reproduces the paper's headline:
+On the public, leak-free ForecastBench slice the tool reproduces the paper's headline:
 
-- **Market track** (informative prior): ranking by the difficulty-adjusted edge reorders the Brier ranking at **Spearman rho = 0.66 (p = 0.0006)**. Of 23 rankable superforecasters, **7** have an edge interval strictly above zero, and the pooled encompassing regression shows superforecasters carry information beyond the market price (`b_fc > 0`, question-clustered `p = 0.005`) while the price adds little to them.
+- **Market track** (informative prior): ranking by the difficulty-adjusted edge reorders the Brier ranking at **Spearman rho = 0.66 (p = 0.0006)**. Of 23 rankable superforecasters, 7 have an edge interval strictly above zero (6 survive FDR), and the pooled encompassing regression shows superforecasters carry information beyond the market price (`b_fc > 0`, question-clustered `p = 0.005`) while the price adds little to them.
 - **Data track** (no informative prior, constant 0.5): edge ranking equals Brier ranking to machine precision (`rho = 1.000`). This is the identity check, not a result, and the tool reports it as such.
 
 ---
@@ -112,17 +128,18 @@ We are also explicit about scope. The natural target, recomputing the *LLM* lead
 git clone https://github.com/vaticinus/beyond-brier
 cd beyond-brier
 pip install -e ".[dev]"
-pytest -q
+pytest -q          # 40 tests
 ```
 
 ## Cite
 
 ```bibtex
-@article{beyondbrier2026,
+@misc{beyondbrier2026,
   title  = {Beyond Brier: A Marginal-Edge Skill Score for Forecasting, and What It Does to a Leaderboard},
-  author = {Vaticinus},
-  year   = {2026}
+  author = {Vaticinus T.},
+  year   = {2026},
+  note   = {https://github.com/vaticinus/beyond-brier}
 }
 ```
 
-Apache-2.0. Contributions and adversarial replications welcome: the metric earns trust by surviving them.
+Apache-2.0. Contributions, replications, and adversarial bug reports are all welcome.

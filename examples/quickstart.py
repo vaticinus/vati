@@ -1,8 +1,8 @@
 """60-second tour, no downloads. Run: python examples/quickstart.py
 
 Shows the three ideas that make marginal edge different from Brier:
-  1. A market-copier has a great Brier and ~zero edge.
-  2. A contributor with a slightly worse Brier can have a real, positive edge.
+  1. A market-copier inherits the market's (good) Brier but adds ~zero edge.
+  2. A contributor with its own read carries real, positive edge over the price.
   3. On a *constant* prior the edge ranking is identical to Brier (the identity).
 """
 import numpy as np
@@ -19,17 +19,19 @@ y = (rng.uniform(size=N) < truth).astype(int)
 price = np.clip(truth + rng.normal(0, 0.14, N), 0.02, 0.98)   # mediocre market
 
 # Three forecasters:
-copier = np.clip(price + rng.normal(0, 0.01, N), 0.02, 0.98)  # just tracks the price
-contributor = np.clip(truth + rng.normal(0, 0.07, N), 0.02, 0.98)  # its OWN, sharper read
+copier = price.copy()                                         # pure echo of the price
+contributor = np.clip(truth + rng.normal(0, 0.06, N), 0.02, 0.98)  # its OWN, sharper read
 noise = np.clip(rng.uniform(size=N), 0.02, 0.98)             # clueless
 
+print(f"Market (the free prior):   Brier={float(((price - y) ** 2).mean()):.4f}\n")
 print("Per-forecaster marginal edge over the market price (Brier units):")
 for name, p in [("copier", copier), ("contributor", contributor), ("noise", noise)]:
     er = marginal_edge(p, price, y)
     bs = float(((p - y) ** 2).mean())
     print(f"  {name:12s}  Brier={bs:.4f}   edge={er.edge:+.4f}  (n={er.n})")
 
-print("\nThe copier wins on Brier but adds ~nothing; the contributor adds real signal.\n")
+print("\nThe copier inherits the market's Brier and adds exactly zero edge;\n"
+      "the contributor's Brier is in the same ballpark but it carries real signal.\n")
 
 # Same three as a leaderboard.
 long = pd.concat([
