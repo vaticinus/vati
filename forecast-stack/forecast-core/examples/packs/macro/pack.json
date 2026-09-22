@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "config": {
+    "kind": "macro",
+    "series": "LNS14000000",
+    "target_month": "2026-09",
+    "resolution_date": "2026-10-15",
+    "threshold": 4.5,
+    "unit": "percent"
+  },
+  "question": {
+    "id": "bls-LNS14000000-2026-09-2026-10-15",
+    "question": "Will BLS series LNS14000000 for 2026-09 be at least 4.5 percent in the 2026-10-15 snapshot?",
+    "resolution_date": "2026-10-15",
+    "dated_metric": "BLS public API series LNS14000000, year 2026, period M09. Use a saved API snapshot captured during 2026-10-15 UTC. YES iff published value >= 4.5 percent. If that period is absent or no snapshot was captured that day, leave unresolved. Later revisions are excluded; this is the chosen snapshot vintage, not a claim about the first release.",
+    "event_type": "quantity_threshold",
+    "conditions": [
+      "specified API snapshot vintage",
+      "missing target period remains unresolved"
+    ],
+    "numeric_clause": {
+      "threshold": 4.5,
+      "threshold_dir": ">=",
+      "ci_unit": "percent"
+    },
+    "baseline": {
+      "probability": 0.0625,
+      "description": "Jeffreys-smoothed exceedance frequency: (1 + 0.5) / (23 + 1) using the last 23 monthly values in the current vintage. No first-release or seasonal independence claim."
+    }
+  },
+  "metadata": {
+    "source": "US Bureau of Labor Statistics",
+    "terms": "https://www.bls.gov/bls/linksite.htm",
+    "time_semantics": "year/period describe the reference month. They are never treated as publication dates. The API returns the current vintage; captured_at is the observation of that vintage.",
+    "limitations": [
+      "Current-vintage history contains revisions and cannot substitute for a historical release archive.",
+      "Confirm the chosen series unit and release schedule before issuing.",
+      "The simple frequency baseline ignores serial dependence and structural change."
+    ],
+    "baseline_sample_size": 23
+  },
+  "snapshots": [
+    {
+      "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/LNS14000000?startyear=2024&endyear=2026",
+      "captured_at": "2026-09-22T11:39:15.901Z",
+      "sha256": "a2ff0946d7999c40239cb04f8c989e413b1da62a943cb980457a24ecf33b4723",
+      "body_file": "snapshot-0.json"
+    }
+  ],
+  "evidence": {
+    "schema_version": 1,
+    "collected_at": "2026-09-22T11:39:15.925Z",
+    "sources": [
+      {
+        "id": "macro",
+        "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/LNS14000000?startyear=2024&endyear=2026",
+        "title": "US Bureau of Labor Statistics live snapshot",
+        "text": "{\n  \"source\": \"US Bureau of Labor Statistics\",\n  \"time_semantics\": \"year/period describe the reference month. They are never treated as publication dates. The API returns the current vintage; captured_at is the observation of that vintage.\",\n  \"limitations\": [\n    \"Current-vintage history contains revisions and cannot substitute for a historical release archive.\",\n    \"Confirm the chosen series unit and release schedule before issuing.\",\n    \"The simple frequency baseline ignores serial dependence and structural change.\"\n  ],\n  \"summary\": {\n    \"series\": \"LNS14000000\",\n    \"current_vintage_months\": [\n      {\n        \"month\": \"2024-09\",\n        \"value\": 4.1,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2024-10\",\n        \"value\": 4.1,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2024-11\",\n        \"value\": 4.2,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2024-12\",\n        \"value\": 4.1,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2025-01\",\n        \"value\": 4,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2025-02\",\n        \"value\": 4.2,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2025-03\",\n        \"value\": 4.2,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2025-04\",\n        \"value\": 4.2,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2025-05\",\n        \"value\": 4.3,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2025-06\",\n        \"value\": 4.1,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2025-07\",\n        \"value\": 4.3,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2025-08\",\n        \"value\": 4.3,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2025-09\",\n        \"value\": 4.4,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2025-11\",\n        \"value\": 4.5,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2025-12\",\n        \"value\": 4.4,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2026-01\",\n        \"value\": 4.3,\n        \"footnotes\": [\n          {\n            \"code\": \"12\",\n            \"text\": \"January 2026 estimates were revised to incorporate updated population controls. For more information, see www.bls.gov/cps/documentation.htm#pop.\"\n          }\n        ]\n      },\n      {\n        \"month\": \"2026-02\",\n        \"value\": 4.4,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2026-03\",\n        \"value\": 4.3,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2026-04\",\n        \"value\": 4.3,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2026-05\",\n        \"value\": 4.3,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2026-06\",\n        \"value\": 4.2,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2026-07\",\n        \"value\": 4.1,\n        \"footnotes\": [\n          {}\n        ]\n      },\n      {\n        \"month\": \"2026-08\",\n        \"value\": 4.1,\n        \"footnotes\": [\n          {}\n        ]\n      }\n    ],\n    \"missing_months\": [\n      {\n        \"month\": \"2025-10\",\n        \"footnotes\": [\n          {\n            \"code\": \"9\",\n            \"text\": \"Data unavailable due to the 2025 lapse in appropriations.\"\n          }\n        ]\n      }\n    ],\n    \"baseline\": {\n      \"probability\": 0.0625,\n      \"description\": \"Jeffreys-smoothed exceedance frequency: (1 + 0.5) / (23 + 1) using the last 23 monthly values in the current vintage. No first-release or seasonal independence claim.\"\n    }\n  }\n}",
+        "fetched_at": "2026-09-22T11:39:15.901Z",
+        "published_at": null,
+        "publication_basis": "unknown",
+        "kind": "structured",
+        "content_sha256": "cafefe2cbe63f1b78e8631ea4e9b4904adb783460a4382421486fa527d81140d",
+        "snapshot_sha256": "d8d107d8e82d99ce6bfd03140a16cdaf2a14511cb0af582b0c5f66bddbc23110"
+      }
+    ],
+    "failures": [],
+    "sha256": "15dd6ff21a65eaebd7d68a970fad610efb2eb7afb91eb1c3653e1f88f61e4453"
+  }
+}

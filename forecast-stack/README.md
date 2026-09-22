@@ -6,6 +6,10 @@ An open toolkit from Vaticinus, maintained in [`vaticinus/vati`](https://github.
 
 The goal is better forecasts at a measured cost, not more agent calls. We have **not established an accuracy advantage over strong direct-model or human baselines**. Help test that claim, including by disproving it.
 
+## Run the complete forecasting workflow
+
+The [reference CLI](forecast-core/WORKFLOW.md) now connects public-source research, personal-key model execution, the review harness, immutable forecast revisions, resolution and scoring. It includes frozen model × harness comparisons and replayable NWS, BLS and USGS data packs. Start with its offline demo before spending model credits. The code is MIT; source data retains its own terms.
+
 ## Start without keys
 
 Python 3.10+; no runtime dependencies:

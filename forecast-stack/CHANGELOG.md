@@ -1,3 +1,7 @@
+# 0.2.0 reference workflow (2026-09-22)
+
+- Added installable `vati` CLI, metered streaming execution, evidence collection, immutable lifecycle, frozen model/harness evaluation, real government-data starter packs and installed-artifact acceptance. Existing registered studies remain unchanged. See `forecast-core/WORKFLOW.md`. Python package remains 0.1.0.
+
 # Changelog
 
 ## 0.1.0 release candidate

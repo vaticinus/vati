@@ -1,0 +1,9 @@
+{
+  "id": "replace-with-your-event-id",
+  "question": "Will the specified project be completed by 2030-12-31?",
+  "resolution_date": "2030-12-31",
+  "dated_metric": "Replace this example with a named project, a public completion register, the exact completion criterion, deadline timezone and missing-data rule before using it.",
+  "event_type": "occurrence",
+  "conditions": [],
+  "baseline": {"probability": 0.5, "description": "Uninformed example comparator; replace or justify before registration."}
+}
