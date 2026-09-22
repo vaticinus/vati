@@ -1,6 +1,8 @@
 # 0.2.0 reference workflow (2026-09-22)
 
 - Added installable `vati` CLI, metered streaming execution, evidence collection, immutable lifecycle, frozen model/harness evaluation, real government-data starter packs and installed-artifact acceptance. Existing registered studies remain unchanged. See `forecast-core/WORKFLOW.md`. Python package remains 0.1.0.
+- Reworked the public Space as a Vaticinus forecasting workbench with guided scenario inputs, OpenRouter personal-key forecasting, per-attempt spending limits, cancellation and downloadable success/failure records. Reuses the metered runtime; no hosted-key fallback or automatic retries. Added HTTP regressions for credential rejection, pre-request budget refusal and typed issuance.
+- Rewrote the repository landing page around the forecasting mission, linked the live workbench, and moved the original Beyond Brier study documentation to `BEYOND_BRIER.md`. Its Python package metadata points to that document; code and licenses are unchanged.
 
 # Changelog
 

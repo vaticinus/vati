@@ -4,7 +4,7 @@
 
 **GitHub:** the allowlisted `forecast-stack/` component in the existing [`vaticinus/vati`](https://github.com/vaticinus/vati) repository: Python package, typed core, tests, examples, community policies, roadmap, release tooling and workbench. No private monorepo history or private data. Beyond Brier remains at the repository root under Apache-2.0; this component is MIT.
 
-**Hugging Face:** the [Forecast Stack Docker Space](https://huggingface.co/spaces/vaticinus/forecast-stack), assembled from the same core and workbench. This is a CPU keyless demo, not a model checkpoint. GitHub remains the source of truth; update the Space from a reviewed release, not independent edits.
+**Hugging Face:** the [Vaticinus Forecast Workbench](https://huggingface.co/spaces/vaticinus/forecast-stack), assembled from the same core and workbench. It has a keyless scenario lab and a personal-key OpenRouter forecasting workflow on CPU Basic. No model weights or hosted API keys are deployed. GitHub remains the source of truth; update the Space from a reviewed release.
 
 **Package artifacts:** a Python wheel/sdist and compiled npm tarball. Build and install-test locally. Publishing to PyPI/npm is a separate action requiring namespace ownership and release credentials; this run does not assume either.
 

@@ -1,55 +1,67 @@
-# Vati
+# Vaticinus
 
-**Build AI forecasters. Make their reasoning inspectable. Measure their edge.**
+### Building superforecaster AI in the open.
 
-An open forecasting toolkit from Vaticinus: evidence, probability models, LLM review, and a record you can score against reality.
+We're working on forecasts that help people decide what to build, where to invest, and which research is worth pursuing. This repository contains the tools and experiments behind that work.
 
-**[Try the live workbench](https://huggingface.co/spaces/vaticinus/forecast-stack)** · [Get started](#run-it-yourself) · [Evaluation guide](forecast-stack/docs/SUPERFORECASTING.md) · [Download the release](https://github.com/vaticinus/vati/releases/tag/forecast-stack-v0.1.0)
+**[Vaticinus.com](https://vaticinus.com)** · [Try the workbench](https://huggingface.co/spaces/vaticinus/forecast-stack) · [Run the code](#run-it-yourself) · [Results](#what-weve-learned-so-far)
 
-## A forecast should survive more than a good conversation
+![Blue signal lines across a dark layered surface](https://vaticinus.com/images/vaticinus-harness-dark.webp)
 
-“Likely” is not enough when a decision has a deadline and a cost.
+## Why work on this now?
 
-What exactly has to happen? What evidence supports the estimate? Which assumptions move the probability? And once the outcome arrives, did the forecast beat a simpler alternative?
+In July 2026, the Forecasting Research Institute reported that several AI systems were statistically indistinguishable from its superforecaster reference on ForecastBench. The comparison has limits: the human forecasts date from 2024, and the results support parity more strongly than outperformance. [Their report explains both the progress and the uncertainty.](https://forecastingresearch.substack.com/p/ai-models-have-likely-reached-parity)
 
-Vati gives developers and researchers the tools to work through those questions. Use a quantitative baseline or bring an LLM. Define the event, challenge the reasoning, compute the probability from explicit assumptions, and keep the original forecast for evaluation.
+We want to find out how much of that progress can carry into everyday decisions. Could a small research team get a useful second opinion on its next program? Could a developer spot the assumption most likely to delay a project? How early could a forecast flag a supply constraint that people are still treating as temporary?
 
-```text
-Define the event  →  Gather dated evidence  →  Form a forecast
-                                                    ↓
-Compare with a baseline  ←  Resolve and score  ←  Save the record
+Those questions need more than access to a capable model. Someone has to choose the evidence, define the outcome, and check whether the forecast helped. Vati is our attempt to make that work easier to do and easier for someone else to examine.
+
+## Where we look
+
+We're interested in what happens after a new capability arrives: who adopts it, where demand runs ahead of supply, and how people respond.
+
+```mermaid
+flowchart LR
+    A[What becomes possible?] --> B[What gets adopted?]
+    B --> C[Where does the system strain?]
+    C --> D[How do people respond?]
+    D --> E[What changes next?]
+    E --> F[What decision depends on it?]
 ```
 
-The goal is AI that earns trust through a forecasting record, not the confidence of its prose.
+Consider cheaper AI. More use could increase demand for compute and electricity; efficiency gains could offset some of it. Grid access and equipment lead times might then matter more than another improvement in the model. That gives you several different things to investigate before forecasting which projects get built.
 
-## What you can build with it
+This is an example of the reasoning we want to test, not a published prediction about energy demand.
 
-| Task | Tools in Vati |
+| Area | Questions to investigate |
 |---|---|
-| **Ground a forecast in evidence** | Public-data collectors across economics, energy, markets, science and physical constraints; quantitative, weather and crowd-aware baselines. |
-| **Put an LLM's reasoning under review** | A TypeScript harness that extracts the event contract, reviews proposed answers and checks supported probability models. Bring your own completion function or use supported providers. |
-| **Make the assumptions inspectable** | Binary judgments, conditional scenarios, Bayesian updates, normal thresholds and growth models, with saved computational snapshots. |
-| **Find out whether it helped** | Forecast records, outcome scoring, direct-model comparisons, cost accounting and reference-relative evaluation. |
+| Technology & infrastructure | What becomes practical? What prevents deployment from scaling? |
+| Economics & markets | Where does supply fall short? Who can expand it, and how quickly? |
+| Politics & institutions | Which decision would change the path? What could force a reversal? |
+| Science & research | Which milestone is credible? What evidence would change the estimate? |
 
-[Explore the forecasting toolkit](forecast-stack/README.md) · [Use the TypeScript core](forecast-stack/forecast-core/README.md) · [Understand the architecture](forecast-stack/docs/ARCHITECTURE.md)
+## From a question to a forecasting record
 
-## Try one calculation before connecting a model
+The open toolkit includes public-data collectors and forecasting baselines, plus a harness for reviewing model answers. You can use the probability engine separately, or run the workflow with your own model key.
 
-Suppose a project has a 60% chance of finishing on time in one scenario and a 10% chance in another. Give those scenarios weights of 30% and 70%:
+1. Define the event, its deadline, and the source that will settle it.
+2. Collect evidence and state the assumptions the forecast depends on.
+3. Generate an estimate. Compare the direct model with additional review, rather than assuming review improves it.
+4. Save the original forecast. When the outcome arrives, score it against a baseline and examine the misses.
 
-| Scenario | Scenario weight | Chance of finishing | Contribution |
-|---|---:|---:|---:|
-| A | 30% | 60% | 18% |
-| B | 70% | 10% | 7% |
-| **Total** | **100%** | | **25%** |
+The record keeps the question and evidence alongside the estimate. Revisions link to earlier forecasts so you can see how the view changed.
 
-Change the assumptions in the **[live probability workbench](https://vaticinus-forecast-stack.hf.space)** and download the computed snapshot. You can also explore Bayesian updates and threshold models.
+[Forecasting workflow](forecast-stack/forecast-core/WORKFLOW.md) · [Toolkit contents](forecast-stack/README.md) · [Architecture](forecast-stack/docs/ARCHITECTURE.md)
 
-No login or API key needed. This demo is a calculator over stated assumptions, not an LLM making a real-world prediction.
+## Try it on a question you know well
 
-## Run it yourself
+In the **[live workbench](https://huggingface.co/spaces/vaticinus/forecast-stack)**, you can change a scenario's assumptions and download the resulting calculation. The scenario tools need no API key.
 
-**Start with the workbench.** Node 22.18 or newer; no npm install required:
+The [model-backed workflow](forecast-stack/forecast-core/WORKFLOW.md) uses your own OpenRouter key and a spending limit. It supports evidence packets, forecast revisions, and comparisons between a direct model and the harness. You can run it on your own machine.
+
+### Run it yourself
+
+Node 22.18 or newer. The workbench starts without installing dependencies:
 
 ```sh
 git clone https://github.com/vaticinus/vati.git
@@ -58,46 +70,32 @@ node --experimental-strip-types space/server.mts
 # Open http://localhost:7860
 ```
 
-**Run an offline forecast lifecycle.** From `vati/forecast-stack/`, with Python 3.10 or newer:
+[Python quickstart](forecast-stack/README.md#start-without-keys) · [Model setup](forecast-stack/forecast-core/WORKFLOW.md#collect-evidence-and-issue-a-real-forecast) · [Release downloads](https://github.com/vaticinus/vati/releases)
 
-```sh
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -e .
-python examples/quickstart.py
-```
+## There are parts of this you'll understand better than we do
 
-The Python example creates a synthetic forecast, seals its record, adds an outcome and scores it. It uses temporary storage and makes no paid model calls.
+A power-systems researcher may spot a grid assumption we should never have made. Someone who follows a region closely may know why the English-language reporting is misleading. That knowledge can change a forecast more than another round of model calls.
 
-Ready to use your own evidence and model? Follow the [provider setup](forecast-stack/README.md#use-your-model-and-data). Python baselines and the TypeScript harness are independent components; this repository is not a one-command copy of the hosted chat service.
+The repository leaves room to work on a small, concrete piece: a source with reliable publication dates, a better baseline for one question class, or a test that catches a convincing but wrong answer. You don't need a paid API account to reproduce the offline examples or inspect the released results.
 
-## Does the harness actually improve forecasts?
+[Open work](forecast-stack/docs/ROADMAP.md) · [Run a comparison](forecast-stack/docs/SUPERFORECASTING.md) · [Working on the project](forecast-stack/CONTRIBUTING.md)
 
-That is the question the project is testing, not a result we assume.
+## What we've learned so far
 
-The [evaluation walkthrough](forecast-stack/docs/SUPERFORECASTING.md) separates three things: **model skill**, **harness reliability**, and **decision usefulness**. It explains how to freeze a comparison, retain failed attempts, measure proper scores and costs, and move to external benchmarks.
+Vati has not demonstrated superforecaster-level performance, a reliable harness advantage, or readiness for major decisions. The field's results are a reason to pursue this project; they are not results for our system.
 
-The current record is public:
+Our experiments include:
 
-- **[Historical replay](forecast-stack/benchmarks/historical-2025-fomc/RESULTS.md):** 32 forecasts across all eight 2025 FOMC meetings using older checkpoints. Mixed harness results, with material reasoning failures. The report documents retrospective selection and checkpoint-serving uncertainty.
-- **[Prospective pilot](forecast-stack/benchmarks/prospective-2026-09-22/RESULTS.md):** future macro events, issued direct forecasts, and every failed harness attempt retained. No paired accuracy result is available.
-- **[Synthetic red-team study](forecast-stack/benchmarks/2026-09-22/RESULTS.md):** controlled reasoning problems, corrections and failure analysis. These are engineering diagnostics, not a real-world leaderboard.
+- [All eight 2025 FOMC meetings](forecast-stack/benchmarks/historical-2025-fomc/RESULTS.md), using older checkpoints. The harness results were mixed, and the report describes reasoning failures and contamination limits.
+- [A prospective macro pilot](forecast-stack/benchmarks/prospective-2026-09-22/RESULTS.md), with issued forecasts and failed attempts preserved. It does not provide a paired accuracy result.
+- [Controlled reasoning tests](forecast-stack/benchmarks/2026-09-22/RESULTS.md), used to find and repair errors. These do not measure real-world forecasting skill.
 
-**No reliable harness advantage or major-decision readiness has been established.** Correct arithmetic cannot rescue bad evidence, and a model reviewer can miss a false explanation. The useful contribution is a system whose assumptions and failures can be examined and improved.
+The [evaluation guide](forecast-stack/docs/SUPERFORECASTING.md) describes the evidence we'd need before making a stronger claim, including fresh outcomes and independent replication.
 
 ## Beyond Brier
 
-A forecast can score well by repeating the market. Did it add information?
+The independent [Beyond Brier package](BEYOND_BRIER.md) measures what a forecast adds over a declared reference, such as a market price. Its paper, figures and leaderboard documentation are available separately.
 
-The independent **[Beyond Brier package](BEYOND_BRIER.md)** measures performance against a declared reference using differences of proper scores. Its original paper, figures, examples and leaderboard documentation have their own home. It is the evaluation component, not the whole Vati project.
+The forecasting tools live in [`forecast-stack/`](forecast-stack/) under [MIT](forecast-stack/LICENSE). Installing the root Python package installs Beyond Brier, which retains [Apache-2.0](LICENSE). Third-party data and models retain their own terms.
 
-Installing the root Python package installs Beyond Brier. Install from `forecast-stack/` for the forecasting toolkit.
-
-## Help build the forecasting record
-
-Bring a stronger baseline, a reproducible failure, a dated evidence source, or an independent replication. You do not need a paid API account to contribute.
-
-[Contributing](forecast-stack/CONTRIBUTING.md) · [Open work](forecast-stack/docs/ROADMAP.md) · [Security](forecast-stack/SECURITY.md)
-
-**Licenses:** Forecast Stack is [MIT](forecast-stack/LICENSE). Beyond Brier retains [Apache-2.0](LICENSE). Model weights and third-party data are not bundled; their own terms apply.
-
+[Vaticinus.com](https://vaticinus.com) · [Security](forecast-stack/SECURITY.md) · [Governance](forecast-stack/GOVERNANCE.md)

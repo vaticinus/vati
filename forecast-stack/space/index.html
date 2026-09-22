@@ -1,27 +1,76 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Forecast Stack · Probability workbench</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Ask a sharper question. Build a forecast with your own model, explore its assumptions, and take the record with you.">
+  <meta name="theme-color" content="#F4F0E8"><title>Vaticinus | Forecast workbench</title>
+  <link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script>
+</head>
 <body>
-<header><a class="wordmark" href="/">forecast-stack</a><a href="https://github.com/vaticinus/vati/tree/main/forecast-stack">Source code</a></header>
+<a class="skip-link" href="#workspace">Skip to workbench</a>
+<header class="site-header">
+  <a class="wordmark" href="https://vaticinus.com" target="_blank" rel="noopener noreferrer">Vaticinus<span>.</span></a>
+  <nav aria-label="Main navigation"><a href="https://github.com/vaticinus/vati" target="_blank" rel="noopener noreferrer">Open source</a><a class="site-link" href="https://vaticinus.com" target="_blank" rel="noopener noreferrer">Visit Vaticinus <span aria-hidden="true">↗</span></a></nav>
+</header>
 <main>
-<section class="intro"><p class="eyebrow">OPEN FORECASTING TOOLS</p><h1>What would you like<br>to predict?</h1><p>Make the assumptions explicit. Inspect the probability they imply.</p></section>
-<div class="workbench">
-<form id="model-form">
-<label for="example">Start with a model</label>
-<select id="example"><option value="conditional">Project completion · conditional states</option><option value="bayes">Positive screening result · Bayes</option><option value="normal">Measured capacity · normal distribution</option><option value="binary">Your own event · stated probability</option></select>
-<div class="editor-label"><label for="spec">Assumptions as JSON</label><button id="reset" type="button" class="quiet">Reset example</button></div>
-<textarea id="spec" spellcheck="false" aria-describedby="input-help"></textarea>
-<p id="input-help" class="hint">Edit the values. Conditional weights must sum to 1; overlapping states need a different model.</p>
-<button id="compute" type="submit">Compute probability <span aria-hidden="true">→</span></button>
-</form>
-<section class="result-panel" aria-labelledby="result-heading" aria-busy="false">
-<h2 id="result-heading">Under these assumptions</h2>
-<div id="empty"><p class="empty-number">P(event)</p><p>Compute a model to see its result and save an inspectable snapshot.</p></div>
-<div id="result" hidden><p id="probability" role="status" aria-live="polite"></p><p id="question"></p><p id="method"></p><button id="download" type="button" class="secondary">Download snapshot</button><details><summary>Inspect computed result</summary><pre id="details"></pre></details></div>
-<p id="error" role="alert" hidden></p>
-</section>
-</div>
-<aside><strong>A calculator, not an oracle.</strong> These are synthetic examples and user-supplied assumptions, not measured forecasting skill. No LLM calls, API keys, external data fetches or persistent user storage. The full repository also includes data collectors, baselines and evaluation tools.</aside>
+  <section class="hero" aria-labelledby="page-title">
+    <div><p class="eyebrow">THE OPEN FORECAST WORKBENCH</p><h1 id="page-title">What does your<br>next decision hinge on?</h1><p class="hero-copy">Bring a question and the evidence you have. Use your own model, or try the free scenario tools.</p></div>
+    <figure class="hero-art"><img src="https://vaticinus.com/images/vaticinus-harness-dark.webp" alt="Layered dark surfaces crossed by blue signal lines" width="640" height="420" fetchpriority="high"></figure>
+  </section>
+  <section id="workspace" class="workspace" aria-label="Forecast workspace">
+    <div class="workspace-heading"><div class="tabs" role="tablist" aria-label="Workbench mode"><button id="forecast-tab" role="tab" aria-selected="true" aria-controls="forecast-panel">AI forecast</button><button id="lab-tab" role="tab" aria-selected="false" aria-controls="lab-panel" tabindex="-1">Scenario lab <span>Free</span></button></div><p id="mode-caption">Uses your OpenRouter key and credits.</p></div>
+    <div class="workbench">
+      <div class="input-panel">
+        <section id="forecast-panel" role="tabpanel" aria-labelledby="forecast-tab">
+          <form id="forecast-form" method="post">
+            <label for="forecast-question">The question</label><textarea id="forecast-question" rows="2" maxlength="1000" required placeholder="Will our product reach 1,000 paying customers by the deadline?"></textarea>
+            <div class="prompts" aria-label="Question starters"><button type="button" data-prompt="launch">Product launch</button><button type="button" data-prompt="policy">Policy decision</button><button type="button" data-prompt="research">Research milestone</button></div>
+            <div class="field-row"><div><label for="resolution-date">When does it settle?</label><input id="resolution-date" type="date" required></div><div><label for="forecast-arm">How much review?</label><select id="forecast-arm"><option value="direct">Direct · one model call</option><option value="harness">Reviewed · up to four calls</option></select></div></div>
+            <label for="resolution-rule">What exactly counts as YES?</label><textarea id="resolution-rule" rows="2" maxlength="2000" required placeholder="Name the observable outcome, its source, and the deadline. Missing data is not automatically NO."></textarea>
+            <label for="evidence">What do you know so far?</label><textarea id="evidence" rows="5" maxlength="12000" required placeholder="Paste the evidence, source URLs and dates, base rates, and constraints. Separate observations from assumptions."></textarea>
+            <p class="hint">This workbench uses the context you provide. It does not browse the web or independently verify sources.</p>
+            <details class="connection" open><summary>Your OpenRouter connection</summary>
+              <label for="api-key">API key</label><div class="key-row"><input id="api-key" type="password" autocomplete="off" spellcheck="false" autocapitalize="none" maxlength="512" required placeholder="sk-or-…" aria-describedby="key-help"><button id="forget-key" class="quiet" type="button">Clear</button></div>
+              <p id="key-help" class="hint">Not saved in this browser. Sent over HTTPS to this Space and OpenRouter for the request. <a href="https://openrouter.ai/settings/keys" target="_blank" rel="noopener noreferrer">Get a limited key ↗</a></p>
+              <div class="field-row"><div><label for="model">Model</label><select id="model" required disabled><option value="">Loading available models…</option></select></div><div><label for="max-cost">Spending ceiling / forecast</label><select id="max-cost"><option value="0.05">$0.05</option><option value="0.10" selected>$0.10</option><option value="0.25">$0.25</option><option value="0.50">$0.50</option></select></div></div>
+              <p id="model-pricing" class="hint" role="status">Checking current OpenRouter prices.</p><button id="reload-models" type="button" class="quiet" hidden>Retry model discovery</button>
+            </details>
+            <div class="submit-row"><button id="forecast-submit" class="primary" type="submit" disabled>Make a forecast <span aria-hidden="true">↗</span></button><button id="cancel" class="secondary" type="button" hidden>Stop request</button></div>
+            <p class="hint">Uses your OpenRouter credits. No hosted-key fallback or automatic retries. A ceiling is not a quote; extra review is not proven more accurate.</p>
+          </form>
+        </section>
+        <section id="lab-panel" role="tabpanel" aria-labelledby="lab-tab" hidden>
+          <form id="model-form">
+            <label for="example">Explore a probability model</label><select id="example"><option value="conditional">Two scenarios</option><option value="bayes">Update with evidence</option><option value="normal">Cross a threshold</option><option value="binary">State your estimate</option></select>
+            <div class="lab-intro"><h2 id="lab-title">Compare two scenarios</h2><p id="lab-description">Set each scenario's chance and the event's probability within it. Scenario B takes the remaining weight.</p></div>
+            <div id="lab-fields"></div>
+            <button id="compute" class="primary" type="submit">Calculate <span aria-hidden="true">↗</span></button><button id="reset" type="button" class="quiet reset">Reset example</button>
+            <details><summary>Edit the full model</summary><label class="sr-only" for="spec">Assumptions as JSON</label><textarea id="spec" spellcheck="false" rows="12"></textarea></details>
+          </form>
+          <p class="hint">Synthetic examples. No API key, model calls or forecasting claims. Values describe your assumptions, not measured uncertainty about the estimate.</p>
+        </section>
+      </div>
+      <section class="result-panel" aria-labelledby="result-heading" aria-busy="false">
+        <div class="result-top"><h2 id="result-heading">Forecast</h2><span id="result-label" class="result-label">Waiting for input</span></div>
+        <div id="empty" class="empty-state"><p class="empty-symbol" aria-hidden="true">P<span>(event)</span></p><h3>Your result appears here.</h3><p>You'll be able to read the assumptions and download the forecast. To try the tools without a key, start with an example.</p><button id="try-example" type="button" class="secondary">Try a free example</button></div>
+        <div id="loading" class="loading-state" hidden><div class="loading-line" aria-hidden="true"></div><h3 id="loading-title">Working through your question</h3><p id="loading-status" role="status" aria-live="polite">Waiting for your model.</p><p class="hint">No repeated requests. Closing or cancelling may still incur charges for work already processed.</p></div>
+        <div id="result" hidden>
+          <p id="probability" role="status" aria-live="polite"></p><p id="question" class="result-question"></p><p id="method" class="result-method"></p>
+          <dl id="result-meta" class="result-meta"></dl>
+          <section id="assumptions-section" class="result-section" hidden><h3>What this rests on</h3><ul id="assumptions"></ul></section>
+          <section id="cruxes-section" class="result-section" hidden><h3>What would change the view</h3><ul id="cruxes"></ul></section>
+          <details id="decision-check"><summary>What would make acting worthwhile?</summary><p class="hint">A simplified two-outcome payoff check, before other costs. Inaction has payoff zero. This is not a recommendation.</p><div class="field-row"><div><label for="upside">Gain if YES</label><input id="upside" type="number" value="100" min="0" max="1000000000" step="any"></div><div><label for="downside">Loss if NO</label><input id="downside" type="number" value="100" min="0" max="1000000000" step="any"></div></div><p id="decision-output" aria-live="polite"></p></details>
+          <div class="result-actions"><button id="download" type="button" class="secondary">Download record</button><button id="copy-result" type="button" class="quiet">Copy summary</button></div>
+          <details id="explanation-section" hidden><summary>Model explanation · not independently verified</summary><pre id="explanation"></pre></details>
+          <details><summary>Inspect the saved calculation</summary><pre id="details"></pre></details>
+        </div>
+        <div id="error-panel" hidden><h3 id="error-heading">No forecast issued</h3><p id="error" role="alert"></p><p id="error-cost" class="hint"></p><button id="download-failure" type="button" class="secondary" hidden>Download attempt</button></div>
+        <p id="copy-status" class="hint" role="status"></p>
+      </section>
+    </div>
+  </section>
+  <section class="about"><div><h2>Working on a question<br>with real stakes?</h2><p>Vaticinus is building forecasting tools for research and investment decisions. If you have a question you'd like us to work on, tell us what you need to decide and when.</p><a class="text-link" href="https://vaticinus.com/#contact" target="_blank" rel="noopener noreferrer">Talk to Vaticinus ↗</a></div><div class="boundaries"><h3>Before you use a forecast</h3><p>Check the evidence yourself. A model reviewer can miss errors, and this system has not demonstrated forecasting superiority or suitability for major decisions.</p><p>The app does not save your key. It uses temporary files to process your question and response, then deletes them when the request finishes. Hugging Face, OpenRouter and the selected provider have their own infrastructure and policies. Do not submit confidential material.</p><a href="https://github.com/vaticinus/vati/blob/main/forecast-stack/docs/SUPERFORECASTING.md" target="_blank" rel="noopener noreferrer">Results and evaluation method ↗</a></div></section>
 </main>
-<footer>MIT-licensed code. Bring a better model, a useful source, or a counterexample.</footer>
-</body></html>
+<footer><span>Vaticinus · Forecasting tools</span><a href="https://github.com/vaticinus/vati/tree/main/forecast-stack" target="_blank" rel="noopener noreferrer">MIT-licensed source ↗</a></footer>
+</body>
+</html>

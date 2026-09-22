@@ -218,6 +218,7 @@
     "forecast-core/examples/packs/weather/snapshot-0.json",
     "forecast-core/examples/packs/weather/snapshot-26.json",
     "forecast-core/WORKFLOW.md",
+    "forecast-core/test/space.test.ts",
     "forecast-core/scripts/install-smoke.mjs"
   ],
   "space": [
@@ -234,6 +235,9 @@
     "forecast-core/src/lib/metering.ts",
     "forecast-core/src/lib/model.ts",
     "forecast-core/src/lib/needle.ts",
+    "forecast-core/src/lib/runtime.ts",
+    "forecast-core/src/lib/evidence.ts",
+    "forecast-core/src/lib/workflow.ts",
     "space/README.md",
     "space/app.js",
     "space/index.html",

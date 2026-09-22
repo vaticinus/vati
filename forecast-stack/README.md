@@ -1,10 +1,10 @@
 # forecast-stack
 
-**Build forecasts people can inspect, reproduce, and score.**
+Tools for building forecasts and keeping the evidence needed to evaluate them.
 
-An open toolkit from Vaticinus, maintained in [`vaticinus/vati`](https://github.com/vaticinus/vati/tree/main/forecast-stack): public-data collectors, Python baselines, a typed probability engine, an event-contract LLM review harness, and tamper-evident forecast records. Bring your own model. Keep your data. Fork this component, self-host it, or use it commercially under MIT.
+This component of [Vaticinus](https://vaticinus.com) contains public-data collectors, Python baselines, a probability engine and an LLM review harness. You can run it with your own model or use the individual parts in another application. The code is MIT-licensed.
 
-The goal is better forecasts at a measured cost, not more agent calls. We have **not established an accuracy advantage over strong direct-model or human baselines**. Help test that claim, including by disproving it.
+We have not established an accuracy advantage over strong direct-model or human baselines. The [released experiments](docs/SUPERFORECASTING.md) explain what we tested and where it failed.
 
 ## Run the complete forecasting workflow
 
@@ -41,7 +41,7 @@ node --experimental-strip-types space/server.mts
 # http://localhost:7860
 ```
 
-Edit a conditional partition, apply Bayes' rule, or change a numeric threshold. The demo computes the result and downloads the actual saved snapshot. It uses no LLM, keys, external requests, or persistent user storage. [Hugging Face deployment](docs/RELEASE.md) uses this exact app.
+The scenario lab computes probabilities from editable assumptions and exports the saved calculation without model credits. The AI tab uses your personal OpenRouter key, supplied evidence and a per-attempt spending ceiling. It does not browse or independently verify sources. Keys are not saved by the app; request traces use temporary files deleted at completion. See the [Space documentation](space/README.md) for privacy, cancellation and hosting details.
 
 ## What is in the repo
 
@@ -102,7 +102,7 @@ Contributors keep copyright, receive named release credit, and can propose compo
 
 ## Release status
 
-Source and downloadable Python/npm artifacts are [published on GitHub](https://github.com/vaticinus/vati/releases/tag/forecast-stack-v0.1.0). The [keyless workbench is live on Hugging Face](https://huggingface.co/spaces/vaticinus/forecast-stack). PyPI/npm registry publication remains separate. The independent Apache-2.0 Beyond Brier package lives alongside this component, with [its own documentation](../BEYOND_BRIER.md). [Release runbook](docs/RELEASE.md) · [Changelog](CHANGELOG.md). Cite the version or commit you actually used via `CITATION.cff`.
+Source and downloadable Python/npm artifacts are [published on GitHub](https://github.com/vaticinus/vati/releases). The [forecast workbench is live on Hugging Face](https://huggingface.co/spaces/vaticinus/forecast-stack). PyPI/npm registry publication remains separate. The independent Apache-2.0 Beyond Brier package has [its own documentation](../BEYOND_BRIER.md). [Release runbook](docs/RELEASE.md) · [Changelog](CHANGELOG.md). Cite the version or commit you used via `CITATION.cff`.
 
 ## License
 
