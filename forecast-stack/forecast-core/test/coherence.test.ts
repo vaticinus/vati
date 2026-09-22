@@ -152,7 +152,7 @@ test('correction may remove an unjustified scalar rather than replace it with an
 });
 
 test('omitting a card does not bypass substantive review or malformed block checks', async () => {
-  for (const draft of ['The answer is 99%, trust me.', 'An answer.\n```vaticinus-forecast\n{broken}\n```', fence(spec).replace('vaticinus-forecast', 'json')]) {
+  for (const draft of ['The answer is 99%, trust me.', 'An answer.\n```vaticinus-forecast\n{broken}\n```']) {
     const result = await finalizeForecastAnswer(draft, {
       request:contract.request, contract,
       complete:async () => draft.includes('```') ? JSON.stringify({valid:true, issues:[]}) : null,
@@ -191,4 +191,38 @@ test('a permissive review cannot approve a card-free scalar without a no-point c
     assert.notEqual(result.text, draft);
     assert.ok(result.issues.length > 0);
   }
+});
+
+test('a generic JSON forecast is validated and issued through the same review boundary', async () => {
+  const result = await finalizeForecastAnswer(fence(spec).replace('vaticinus-forecast', 'json'), {
+    request:contract.request, contract,
+    complete:async (_system, _user, stage) => stage === 'forecast_review'
+      ? JSON.stringify({valid:true, issues:[]}) : null,
+  });
+  assert.ok(result.spec);
+  assert.equal(readForecastSnapshot(result.spec).result!.probability, validateForecastCandidate(spec, contract).result!.probability);
+  assert.equal((result.text.match(/```vaticinus-forecast/g) ?? []).length, 1);
+  assert.ok(!result.text.includes('```json'));
+});
+
+test('a corrected forecast block still requires successful semantic review', async () => {
+  for (const approve of [true, false]) {
+    const result = await finalizeForecastAnswer(fence({...spec, threshold:2}), {
+      request:contract.request, contract,
+      complete:async (_system, _user, stage) => stage === 'forecast_correct'
+        ? fence(spec).replace('vaticinus-forecast', 'json')
+        : JSON.stringify({valid:approve, issues:approve ? [] : ['Unsupported assumption']}),
+    });
+    assert.equal(result.spec !== null, approve);
+    if (result.spec) assert.equal(readForecastSnapshot(result.spec).result!.probability, validateForecastCandidate(spec, contract).result!.probability);
+  }
+});
+
+test('mixed forecast encodings cannot hide a conflicting second estimate', async () => {
+  const result = await finalizeForecastAnswer(fence(spec) + '\n' + fence({...spec, mean:5}).replace('vaticinus-forecast', 'json'), {
+    request:contract.request, contract,
+    complete:async (_system, _user, stage) => stage === 'forecast_review'
+      ? JSON.stringify({valid:true, issues:[]}) : null,
+  });
+  assert.equal(result.spec, null);
 });

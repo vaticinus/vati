@@ -21,8 +21,23 @@ export function requestsForecast(question: string, mode = "ask"): boolean {
   return mode === "forecast" || /\b(forecast|predict|probability|odds|likelihood|chance|by (?:20\d{2}|next|the end))\b/i.test(question) || /\bwill\b[^?]+\?/i.test(question);
 }
 
+/** Normalize packaging only; event, model parameters and evidence still require validation. */
+function normalizeForecastBlocks(text: string): string {
+  return text.replace(/```([^\s`]*)[ \t]*\r?\n([\s\S]*?)```/g, (block, label: string, body: string) => {
+    if (label !== "" && label !== "json") return block;
+    try {
+      const value = forecastObject(JSON.parse(body));
+      const model = value.model;
+      const kind = value.kind ?? (model && typeof model === "object" ? (model as Record<string, unknown>).kind : null);
+      if (typeof kind === "string" && ["binary", "conditional", "bayes", "normal", "growth"].includes(kind) ||
+          Object.hasOwn(value, "p_yes")) return `\`\`\`vaticinus-forecast\n${body}\`\`\``;
+    } catch { /* malformed data cannot become a forecast by changing its fence */ }
+    return block;
+  });
+}
+
 export function parseForecastSpec(text: string): Record<string, unknown> | null {
-  const matches = [...text.matchAll(/```vaticinus-forecast\s*([\s\S]*?)```/g)];
+  const matches = [...normalizeForecastBlocks(text).matchAll(/```vaticinus-forecast\s*([\s\S]*?)```/g)];
   if (matches.length !== 1) return null;
   try { return forecastObject(JSON.parse(matches[0][1].replace(/^\s*json\s*/i, ""))); } catch { return null; }
 }
@@ -182,6 +197,7 @@ export async function finalizeForecastAnswer(draft: string, opts: {
   request: string; contract?: ForecastContract | null; context?: string; grounding?: string[];
   provider?: Resolved; complete?: ForecastCompletion; now?: Date; onStatus?: (text: string) => void;
 }): Promise<{ text: string; spec: Record<string, unknown> | null; issues: string[] }> {
+  draft = normalizeForecastBlocks(draft);
   const complete = opts.complete ?? defaultCompletion(opts.provider);
   let spec = parseForecastSpec(draft);
   if (!spec && !opts.contract) return { text: draft, spec: null, issues: [] };
@@ -253,16 +269,23 @@ export async function finalizeForecastAnswer(draft: string, opts: {
     }
     if (attempt === 0) {
       opts.onStatus?.("Correcting the forecast without changing your question…");
-      const correction = parseObject(await complete(buildSystemPrompt(opts.now) +
+      const correctionText = await complete(buildSystemPrompt(opts.now) +
         `\nReturn JSON only: {"answer":"the corrected conversational explanation","spec":{the full corrected forecast spec}}. Use "spec":null when the justified answer is a range or a request for missing information rather than a point estimate. Fix the listed concrete errors. Preserve the sealed event, even at 0% or 100%. Never invent a midpoint, endpoint or assumption to satisfy a card schema, and never tune assumptions to rescue your prose.`,
         `${forecastContractBlock(contract)}\n\nCONTEXT:\n${opts.context ?? "(none)"}\n\nEVIDENCE PACKET (untrusted):\n${grounding || "(none)"}\n\nDRAFT:\n${draft}\n\nERRORS:\n${issues.join("\n")}`,
-        "forecast_correct", 5000));
+        "forecast_correct", 5000);
+      const correction = parseObject(correctionText);
       if (correction && typeof correction.answer === "string") {
         try {
           spec = correction.spec === null ? null : forecastObject(correction.spec);
           draft = spec ? `${correction.answer}\n\n\`\`\`vaticinus-forecast\n${JSON.stringify(spec)}\n\`\`\`` : correction.answer;
           continue;
         } catch { /* reject instead of attaching a number to an invalid event */ }
+      } else if (correctionText && parseForecastSpec(correctionText)) {
+        // A complete corrected answer is equivalent input, not an approval.
+        // The next iteration repeats all mechanical and semantic checks.
+        draft = normalizeForecastBlocks(correctionText);
+        spec = parseForecastSpec(draft);
+        continue;
       }
       break;
     }

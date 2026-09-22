@@ -33,6 +33,8 @@ The example URL and model identifier are placeholders, not working sources or re
 
 An issued run saves the probability, explanation, typed calculation, exact question, evidence, hashes, actual creation time and issue cutoff. Errors, rejections and abstentions remain records with a null probability. They are not silently changed into 50% forecasts. The direct comparator uses the same prompt and evidence with mechanical validation; the harness adds model review and at most one correction.
 
+The output parser accepts a typed forecast in a `vaticinus-forecast`, `json` or unlabelled fenced block. Generic blocks must identify a forecast model or contain `p_yes`; recognition is not validation. Missing kinds, invalid parameters, changed events and conflicting multiple candidates still fail. A correction may return the requested `{answer, spec}` envelope or a complete corrected forecast block with prose. Both paths repeat validation, and the harness still requires successful semantic review. Reviewed answers use the canonical forecast block; historical experiment records are never rescored silently after parser changes.
+
 The CLI reads only explicitly named environment variables, never a local `.env` or hosted funding fallback. For a compatible endpoint, set `VATI_MODEL_API_KEY` and pass `--endpoint`, `--input-rate` and `--output-rate` in USD per million tokens. HTTPS is required except for explicitly configured localhost providers. Remote model IDs are aliases, not proof of served weights.
 
 ### Budget and failure behavior
