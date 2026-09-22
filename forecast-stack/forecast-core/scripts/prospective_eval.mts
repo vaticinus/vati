@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 // Prospective issue-only pilot. Outcomes are never inferred or graded here.
+// Post-run safety fix: the registered historical version is commit 581be0a.
+// Its protocol remains immutable; changed source requires a new registration.
 import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
@@ -62,10 +64,12 @@ try {
      const entry:any={study:'prospective-2026-09-22',case_id:c.id,arm,stage,at:new Date().toISOString(),model,request:body,reserved_usd:reserve,cost_upper_usd:reserve};
      ledger.spent_upper_usd+=reserve;ledger.calls.push(entry);checkpoint();
      const begin=Date.now();
+     let bodyRead=false;
      try{
       const response=await originalFetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(90000)});
       entry.status=response.status;
       const data=await response.json() as any;entry.returned_model=data.model;entry.returned_provider=data.provider;entry.usage=data.usage;entry.response=data.choices?.[0]?.message?.content;entry.finish_reason=data.choices?.[0]?.finish_reason;
+      bodyRead=true;
       const u=data.usage;
       if(u&&Number.isFinite(u.prompt_tokens)&&u.prompt_tokens>=0&&Number.isFinite(u.completion_tokens)&&u.completion_tokens>=0){
        const actual=Math.max((u.prompt_tokens*rate.prompt+u.completion_tokens*rate.completion)/1e6,Number.isFinite(u.cost)&&u.cost>=0?u.cost:0);
@@ -75,7 +79,7 @@ try {
       if(!response.ok)throw new Error(`OpenRouter HTTP ${response.status}; no retry`);
       if(data.choices?.[0]?.finish_reason==='length')throw new Error('Output limit reached; truncated answer is missing');
       return typeof entry.response==='string'?entry.response.trim():null;
-     }catch(e){entry.error=String(e);if(!entry.status||[401,402,403].includes(entry.status))terminal=true;throw e;}finally{entry.ms=Date.now()-begin;checkpoint();}
+     }catch(e){entry.error=String(e);if(!bodyRead||[401,402,403].includes(entry.status))terminal=true;throw e;}finally{entry.ms=Date.now()-begin;checkpoint();}
     };
     const request=`${c.question}\nScheduled settlement date: ${c.resolution_date}. ${cohort.resolution_policy}`;
     const user=`ISSUED ${now.toISOString()}\nREQUEST\n${request}\n\nFROZEN EVIDENCE\n${c.packet}\n\n${cohort.evidence_policy}`;
