@@ -1,0 +1,27 @@
+name: Forecast Stack baseline, source or experiment
+description: Propose a bounded contribution with a falsifiable acceptance rule.
+body:
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: What changes, and why should it help?
+    validations:
+      required: true
+  - type: textarea
+    id: protocol
+    attributes:
+      label: Frozen comparison and acceptance rule
+      description: Specify cohort, baseline, information cutoff, failure/abstention policy and uncertainty. Null results count.
+    validations:
+      required: true
+  - type: textarea
+    id: rights
+    attributes:
+      label: Data provenance, rights and publication dates
+  - type: textarea
+    id: resources
+    attributes:
+      label: Cost and resources
+      description: Default is no funded budget. Do not spend expecting reimbursement.
+    validations:
+      required: true

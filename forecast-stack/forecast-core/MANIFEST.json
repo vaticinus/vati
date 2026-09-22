@@ -1,0 +1,58 @@
+{
+  "scope": "MIT applies to this exported package. No repository history, credentials, customer data, datasets, frontend, billing or contact systems are included.",
+  "limitation": "Mathematical and event-contract correctness are not evidence of real-world forecasting skill. The semantic reviewer is an LLM, not a proof of truth.",
+  "files": [
+    {
+      "path": "src/lib/forecastEngine.ts",
+      "sha256": "d8689c935408240c5d6658b9c8b12a4bac6e34a4ebf3b0191803138b308cbb3d"
+    },
+    {
+      "path": "src/lib/forecastSnapshot.ts",
+      "sha256": "44d1d2b5c464659af63ae1c87c59376130fce125d86035fc3c17815fc190d1e1"
+    },
+    {
+      "path": "src/lib/coherence.ts",
+      "sha256": "5596f9e1707328a90657e73518940e88bba663c8b0c5fdbe26e6dcd5be5591ff"
+    },
+    {
+      "path": "src/lib/mc.ts",
+      "sha256": "07e4815be1ca1bdcdfcab5786673e34a73d6bbfaf6fcf7b9a2247ffaf71f00e6"
+    },
+    {
+      "path": "src/lib/forecastUnits.ts",
+      "sha256": "6aaaad3fb5ed1176d8dcc58a8b10fb1dc891927228f855f5826fc75fe0b88b67"
+    },
+    {
+      "path": "src/lib/model.ts",
+      "sha256": "4424f7c1fbf87dbd6f0b2a644627419725d3a0a543289e516bbaa18d1534f528"
+    },
+    {
+      "path": "src/lib/byokContext.ts",
+      "sha256": "0d629dd9c0c405a2c04c03878e2ec5bace0f2001aa92d2a6ac6477d72943d4a0"
+    },
+    {
+      "path": "src/lib/metering.ts",
+      "sha256": "eeb04b320088a53909de7a699cb7f26ab362724bf142d49399b62bd4eb7852e0"
+    },
+    {
+      "path": "src/lib/needle.ts",
+      "sha256": "c9b561e0c6d2804fb5f172a27f56acc74062bda11a1d71f4444a41ee81ec0493"
+    },
+    {
+      "path": "test/forecast_engine.test.ts",
+      "sha256": "3b5489822f4a3a5a21a39636720b793381f5afa7dbb06d6aade64c056ae0f1b7"
+    },
+    {
+      "path": "test/coherence.test.ts",
+      "sha256": "7856cf62a2db3026ed1879747d0313f545fb00ead45b4cfe66579a38afc53f76"
+    },
+    {
+      "path": "test/forecast_contract.test.ts",
+      "sha256": "3f31edce2ef9b2b46a39e3ee03d5cb79f284bac389a8abc8cfaef76a989656d1"
+    },
+    {
+      "path": "scripts/forecast_eval.mts",
+      "sha256": "103d1d7b0c867aef4f41aa3d3462edf9e286b06d8969794c51a3ef31c25fc815"
+    }
+  ]
+}

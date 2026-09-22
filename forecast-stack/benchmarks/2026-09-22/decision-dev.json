@@ -1,0 +1,78 @@
+[
+  {
+    "id": "net-loss",
+    "family": "decision-recovery",
+    "request": "Closed-world synthetic problem. Use only the stipulated information; no external research or additional assumptions. Will a shipment be delayed by 2035-12-31? Resolve from the experiment's initial official log on that date; later revisions are excluded. Explain the probability, or sharp bounds if no point is identified. Choose action do_nothing or prevent. Give the chosen expected loss and break-even delay probability. Also include exactly one evaluation-json fenced object with these fields: action, expected_loss, break_even. Use numeric probabilities in [0,1] and money in millions. This object records your calculations, not a second forecast card.",
+    "packet": "P(delay)=0.15. Do nothing has zero loss without delay and a gross loss of 10 million with delay, with guaranteed recovery of 4 million. Prevention costs 2 million in every state and eliminates all delay losses. Minimize expected loss.",
+    "oracle": 0.15,
+    "tolerance": 0.0001,
+    "checks": {
+      "action": "do_nothing",
+      "expected_loss": 0.9,
+      "break_even": 0.3333333333333333
+    }
+  },
+  {
+    "id": "joint-bounds",
+    "family": "partial-identification",
+    "request": "Closed-world synthetic problem. Use only the stipulated information; no external research or additional assumptions. Will both dependent components fail by 2035-12-31? Resolve from the experiment's initial official log on that date; later revisions are excluded. Explain the probability, or sharp bounds if no point is identified.  Also include exactly one evaluation-json fenced object with these fields: bounds. Use numeric probabilities in [0,1] and money in millions. This object records your calculations, not a second forecast card.",
+    "packet": "P(A fails)=0.6 and P(B fails)=0.5. Dependence is unspecified; no independence assumption permitted.",
+    "oracle": null,
+    "tolerance": 0.0001,
+    "checks": {
+      "bounds": [
+        0.1,
+        0.5
+      ]
+    }
+  },
+  {
+    "id": "missing-state-bounds",
+    "family": "partial-identification",
+    "request": "Closed-world synthetic problem. Use only the stipulated information; no external research or additional assumptions. Will a permitting programme succeed by 2035-12-31? Resolve from the experiment's initial official log on that date; later revisions are excluded. Explain the probability, or sharp bounds if no point is identified.  Also include exactly one evaluation-json fenced object with these fields: bounds. Use numeric probabilities in [0,1] and money in millions. This object records your calculations, not a second forecast card.",
+    "packet": "Three disjoint exhaustive states: A weight .35, success .8; B weight .35, success .2; C weight .30 and success probability unknown in [0,1].",
+    "oracle": null,
+    "tolerance": 0.0001,
+    "checks": {
+      "bounds": [
+        0.35,
+        0.65
+      ]
+    }
+  },
+  {
+    "id": "regime-common-cause",
+    "family": "common-cause",
+    "request": "Closed-world synthetic problem. Use only the stipulated information; no external research or additional assumptions. Will both supply nodes fail by 2035-12-31? Resolve from the experiment's initial official log on that date; later revisions are excluded. Explain the probability, or sharp bounds if no point is identified.  Also include exactly one evaluation-json fenced object with these fields: joint. Use numeric probabilities in [0,1] and money in millions. This object records your calculations, not a second forecast card.",
+    "packet": "A stress regime occurs with probability .2. Conditional on stress, nodes fail independently with probabilities .8 and .7. Conditional on no stress, they fail independently with probabilities .1 and .05. Conditional independence only holds within each regime.",
+    "oracle": 0.11600000000000002,
+    "tolerance": 0.0001,
+    "checks": {
+      "joint": 0.116
+    }
+  },
+  {
+    "id": "forecast-versus-action",
+    "family": "decision-asymmetry",
+    "request": "Closed-world synthetic problem. Use only the stipulated information; no external research or additional assumptions. Will demand be high by 2035-12-31? Resolve from the experiment's initial official log on that date; later revisions are excluded. Explain the probability, or sharp bounds if no point is identified. Choose expand or wait and calculate the chosen expected loss and the high-demand break-even probability. Also include exactly one evaluation-json fenced object with these fields: action, expected_loss, break_even. Use numeric probabilities in [0,1] and money in millions. This object records your calculations, not a second forecast card.",
+    "packet": "P(high demand)=.4. Loss table in millions: expand has loss 8 if demand is low and 0 if high; wait has loss 0 if low and 20 if high. Minimize expected loss.",
+    "oracle": 0.4,
+    "tolerance": 0.0001,
+    "checks": {
+      "action": "expand",
+      "expected_loss": 4.8,
+      "break_even": 0.2857142857142857
+    }
+  },
+  {
+    "id": "negative-test",
+    "family": "negative-evidence",
+    "request": "Closed-world synthetic problem. Use only the stipulated information; no external research or additional assumptions. Will a sampled unit be defective given a negative test by 2035-12-31? Resolve from the experiment's initial official log on that date; later revisions are excluded. Explain the probability, or sharp bounds if no point is identified.  Also include exactly one evaluation-json fenced object with these fields: posterior. Use numeric probabilities in [0,1] and money in millions. This object records your calculations, not a second forecast card.",
+    "packet": "Prior defect probability .2. P(positive|defect)=.9; P(positive|sound)=.1. A single test is negative. No repeated independent tests.",
+    "oracle": 0.02702702702702703,
+    "tolerance": 0.0001,
+    "checks": {
+      "posterior": 0.02702702702702703
+    }
+  }
+]

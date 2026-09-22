@@ -1,0 +1,62 @@
+{
+  "frozen_at_utc": "2026-09-22T00:27:42.719570+00:00",
+  "before_first_transfer_inference": true,
+  "registered_locally_not_independently_timestamped": true,
+  "source_and_fixture_sha256": {
+    "forecast-core/scripts/forecast_eval.mts": "02fa762f2b54f26daaa3208355434b67454a2dd9342d8a210203d8b561986ad9",
+    "forecast-core/src/lib/model.ts": "057fc33a2c252f5ee6d6826a2259e027d793481a6c5bfaf1967e681a785bd851",
+    "forecast-core/src/lib/coherence.ts": "fa0a12b344c044e1815b9db7b9a7189698c6cad976f56c3041f9abe8ea276e2a",
+    "forecast-core/src/lib/forecastEngine.ts": "d8689c935408240c5d6658b9c8b12a4bac6e34a4ebf3b0191803138b308cbb3d",
+    "forecast-core/src/lib/forecastSnapshot.ts": "44d1d2b5c464659af63ae1c87c59376130fce125d86035fc3c17815fc190d1e1",
+    "forecast-core/src/lib/mc.ts": "07e4815be1ca1bdcdfcab5786673e34a73d6bbfaf6fcf7b9a2247ffaf71f00e6",
+    "benchmarks/analyze.py": "de2f259c3d49a3397b0b96fc4db68e77629904e049e1924793b435d670666219",
+    "benchmarks/2026-09-22/protocol.json": "c9b509beb8cd327adfee3acd8543b4e272099c12824b773d10f303016e579951",
+    "benchmarks/2026-09-22/development-amendment.json": "9f7acfc6bf00d4a83c5ee6626970cc1be2d02aa3f92e7cd10190db5cd1f2699d",
+    "benchmarks/2026-09-22/boundary-amendment.json": "a93b9f7ce267bb7347976b9bc536569cd67e569d361bec698c85f33941bd7195",
+    "benchmarks/2026-09-22/decision-dev.json": "9c6101b13f3670357170471c13c5dc757cbf681a678a79e9700d3f5369e22ac8",
+    "benchmarks/2026-09-22/transfer-cases.json": "2b313bc03505269dd274ff3715839afcf510774e9573bd743e14259c832a9673"
+  },
+  "runner_fixture_hash": "ae149b8f061a39775a76139dc5dc4de45c7233ce2acff2003a4b8f2fe7f883f6",
+  "models": [
+    "xiaomi/mimo-v2.6-flash",
+    "xiaomi/mimo-v2.6-pro"
+  ],
+  "arms": [
+    "direct_thinking",
+    "direct_budget",
+    "harness"
+  ],
+  "cases_per_model_per_arm": 16,
+  "review_thinking": false,
+  "draft_thinking": true,
+  "output_token_limits": {
+    "direct_thinking": 8400,
+    "direct_budget": 23800,
+    "harness_total_ceiling": 23800,
+    "contract": 2200,
+    "possible_contract_calls": 2,
+    "draft": 8400,
+    "reviews_each": 3000,
+    "possible_reviews": 2,
+    "correction": 5000
+  },
+  "selection": {
+    "promoted_model": null,
+    "numerical_delivery_and_cost_candidate": "xiaomi/mimo-v2.6-flash",
+    "basis": "Both standard-review MiMo harnesses delivered 14/15 correct development headline outcomes and 6/6 explicit decision checks. Flash conservative cost was 0.0806071 USD versus Pro 0.0903511 USD on those 15 cases. This is not a full-semantic or forecasting win.",
+    "semantic_veto": "Neither clears major-decision readiness. Flash reversed the recovery effect on the break-even threshold and misstated posterior odds despite correct checked values. Pro exposed a false upper bound in withheld-review diagnostics and overstated what a single resolution reveals about dependence. Correct scalars do not certify explanations.",
+    "thinking_review": "Pro thinking review delivered 6/6 headlines but 5/6 checked outputs versus standard 6/6; common-cause evaluation used the wrong fence. Fresh drafts make this a small configuration-level ablation, not an isolated critic experiment. No reliable substantive improvement established; retain standard."
+  },
+  "last_source_adjustment": "Only the final withholding presentation changed after the last development replay: review objections are explicitly unverified diagnostics, not established facts or validated corrections; the extracted rule is not claimed to be a proven faithful extraction. Requests, approval logic and mathematical outputs unchanged. Actual failure-path smoke and all 36 core tests plus build passed before freeze.",
+  "budget": {
+    "user_ceiling_usd": 2,
+    "runner_ceiling_usd": 1.8,
+    "shared_ledger": "budget.json (private, excluded from release)",
+    "conservative_spend_before_transfer_usd": 0.9207717000000004,
+    "price_ceiling_per_million": {
+      "prompt": 0.5,
+      "completion": 1.2
+    }
+  },
+  "interpretation": "One fixed transfer run per model; retain every row, error and abstention. No transfer-driven changes. Local synthetic transfer is not prospective prediction, an independent preregistration or a global leaderboard. Matched output ceilings are not matched actual compute or cost."
+}

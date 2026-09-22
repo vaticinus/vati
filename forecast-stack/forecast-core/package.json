@@ -1,0 +1,42 @@
+{
+  "name": "@vaticinus/forecast-core",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "description": "Typed probability models, event-preserving review, and immutable forecast snapshots. No claim of empirical calibration.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaticinus/vati.git",
+    "directory": "forecast-stack/forecast-core"
+  },
+  "homepage": "https://github.com/vaticinus/vati/tree/main/forecast-stack/forecast-core",
+  "bugs": {
+    "url": "https://github.com/vaticinus/vati/issues"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "exports": {
+    "./engine": "./dist/forecastEngine.js",
+    "./harness": "./dist/coherence.js",
+    "./snapshot": "./dist/forecastSnapshot.js",
+    "./prompt": "./dist/model.js",
+    "./provider-context": "./dist/byokContext.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepack": "npm run build",
+    "test": "node --test --experimental-strip-types test/*.test.ts",
+    "example": "node --experimental-strip-types example.mts",
+    "eval:list": "node --experimental-strip-types scripts/forecast_eval.mts --list"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.15",
+    "typescript": "5.9.3"
+  },
+  "files": [
+    "dist/",
+    "LICENSE",
+    "README.md"
+  ]
+}

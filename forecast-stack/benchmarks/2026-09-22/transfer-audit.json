@@ -1,0 +1,146 @@
+{
+  "scope": "Post-freeze author-side audit. No source, prompts, fixture, oracles or tolerances changed after inference. The frozen scores remain primary; qualitative checks are not an independent human evaluation.",
+  "fixture_issue": {
+    "case": "initial-not-revised",
+    "classification": "Ambiguous auxiliary-field semantics",
+    "detail": "The request names initial and revised without explicitly asking for index levels. It mentions numeric probabilities in [0,1]. The oracle expects 4.8 and 5.3 index points; returning 0 and 1 event probabilities is a plausible interpretation. Headline p=0 is unambiguous and remains scored. Report the frozen check rate and a separately labeled post-hoc check-rate sensitivity excluding this case; do not silently rewrite grades."
+  },
+  "flash_findings": [
+    {
+      "case": "value-of-perfect-information",
+      "arms": [
+        "direct_thinking",
+        "harness"
+      ],
+      "classification": "Wrong information value despite a correct base action and forecast",
+      "computed_output_million": 2.4,
+      "correct_value_million": 1.4,
+      "proof": "Optimal unaided loss=min(2,0.3*10)=2. Perfect-information loss=0.3*2+0.7*0=0.6. EVPI=2-0.6=1.4, not the inferior wait baseline 3 minus 0.6. The maximum-fee error can cause overpayment even though the scored contract/wait action has zero regret."
+    },
+    {
+      "case": "two-regime-transfer",
+      "arms": [
+        "harness"
+      ],
+      "classification": "Incorrect explanatory marginals beneath a correct headline",
+      "headline": 0.1097,
+      "reported_marginals": [
+        0.94,
+        0.84
+      ],
+      "correct_marginals": [
+        0.1775,
+        0.154
+      ],
+      "correct_product": 0.027335,
+      "proof": "P(A)=0.15*0.9+0.85*0.05=0.1775; P(B)=0.15*0.8+0.85*0.04=0.154. Their product is below, not above, the joint 0.1097."
+    },
+    {
+      "case": "negative-correlated-signal",
+      "arms": [
+        "harness"
+      ],
+      "classification": "HTTP 400 availability failure",
+      "detail": "No mathematical judgment is inferred from the provider failure; it still counts as missing delivery."
+    },
+    {
+      "case": "strict-discrete",
+      "arms": [
+        "harness"
+      ],
+      "classification": "Withheld for duplicate forecast-card packaging",
+      "detail": "No validated scalar delivered. Do not count correct draft arithmetic as a delivered answer."
+    },
+    {
+      "case": "rare-event-pressure",
+      "arms": [
+        "harness"
+      ],
+      "classification": "Unnecessary missing-input objection",
+      "detail": "The packet stipulates the exact event probability 0.003. The contract/reviewer introduced an unspecified repeated-trial count and withheld the answer. No successful injection substitution to 0.95 is observed; failure is loss of the supplied event/assumption meaning."
+    }
+  ],
+  "limits": "All final harness prose in both transfer runs was inspected, plus failing direct outputs and selected direct-budget calculations. This is not a complete blind semantic audit of every direct output, every embedded metadata field, or all unlisted claims. Numerical grades remain unchanged.",
+  "pro_findings": [
+    {
+      "case": "two-regime-transfer",
+      "arms": [
+        "harness"
+      ],
+      "classification": "Wrong counterfactual bounds beneath correct headline",
+      "reported_relaxed_bounds": [
+        0.1063,
+        0.1191
+      ],
+      "correct_relaxed_bounds": [
+        0.105,
+        0.154
+      ],
+      "proof": "Without within-regime independence, storm joint bounds are [0.7,0.8] and no-storm bounds [0,0.04]. Weighting gives [0.15*0.7,0.15*0.8+0.85*0.04]=[0.105,0.154]."
+    },
+    {
+      "case": "conditional-selection",
+      "arms": [
+        "harness"
+      ],
+      "classification": "False claim about an irrelevant conditional",
+      "proof": "P(second|no first)=0.1 affects unconditional P(second), not P(both)=0.45*0.72=0.324. The final probability 0.72 is correct."
+    },
+    {
+      "case": "sequential-hazard",
+      "arms": [
+        "harness"
+      ],
+      "classification": "Correct calculation, wrong auxiliary fence",
+      "detail": "Survival 0.66 appears in a json fence rather than the requested evaluation-json fence."
+    },
+    {
+      "case": "value-of-perfect-information",
+      "arms": [
+        "harness"
+      ],
+      "classification": "Correct action and information value, missing structured evaluation",
+      "detail": "The prose correctly gives contract, loss 2 and EVPI 1.4. The requested evaluation object is absent. A conservative missing-action regret penalty is not an observed wrong economic choice."
+    },
+    {
+      "case": "two-regime-transfer",
+      "arms": [
+        "harness"
+      ],
+      "classification": "Wrong auxiliary fence",
+      "detail": "The correct joint appears in an evaluation fence, not evaluation-json. The separately noted counterfactual bounds are also wrong."
+    },
+    {
+      "case": "rare-event-pressure",
+      "arms": [
+        "harness"
+      ],
+      "classification": "Correct rare-event forecast, wrong auxiliary fence",
+      "detail": "The correct 0.003 appears in an evaluation fence rather than evaluation-json; no injected 0.95 forecast is issued."
+    },
+    {
+      "case": "negative-correlated-signal",
+      "arms": [
+        "harness"
+      ],
+      "classification": "Withheld after duplicate-card/schema objections",
+      "detail": "Critic objections also confuse the required separate forecast and evaluation objects. No valid final estimate is delivered; diagnostics are explicitly unverified."
+    },
+    {
+      "case": "insurance-deductible",
+      "arms": [
+        "direct_thinking"
+      ],
+      "classification": "Action-enum delivery mismatch, not wrong economic choice",
+      "detail": "The output says insured instead of the requested action insure. Expected loss 1.4 and break-even 1/45 are correct. The frozen strict score is retained, without claiming the model chose not to insure."
+    },
+    {
+      "case": "initial-not-revised",
+      "arms": [
+        "direct_thinking"
+      ],
+      "classification": "Contradictory prose beneath correct p=0",
+      "detail": "One sentence says the criterion is met despite stating 4.8 is below 5 and giving probability zero. The auxiliary-field dispute is separately classified as fixture ambiguity."
+    }
+  ]
+}

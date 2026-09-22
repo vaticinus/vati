@@ -1,0 +1,8 @@
+*
+!Dockerfile
+!space/
+!space/**
+!forecast-core/
+!forecast-core/src/
+!forecast-core/src/lib/
+!forecast-core/src/lib/**

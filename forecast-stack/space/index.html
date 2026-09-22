@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Forecast Stack · Probability workbench</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body>
+<header><a class="wordmark" href="/">forecast-stack</a><a href="https://github.com/vaticinus/vati/tree/main/forecast-stack">Source code</a></header>
+<main>
+<section class="intro"><p class="eyebrow">OPEN FORECASTING TOOLS</p><h1>What would you like<br>to predict?</h1><p>Make the assumptions explicit. Inspect the probability they imply.</p></section>
+<div class="workbench">
+<form id="model-form">
+<label for="example">Start with a model</label>
+<select id="example"><option value="conditional">Project completion · conditional states</option><option value="bayes">Positive screening result · Bayes</option><option value="normal">Measured capacity · normal distribution</option><option value="binary">Your own event · stated probability</option></select>
+<div class="editor-label"><label for="spec">Assumptions as JSON</label><button id="reset" type="button" class="quiet">Reset example</button></div>
+<textarea id="spec" spellcheck="false" aria-describedby="input-help"></textarea>
+<p id="input-help" class="hint">Edit the values. Conditional weights must sum to 1; overlapping states need a different model.</p>
+<button id="compute" type="submit">Compute probability <span aria-hidden="true">→</span></button>
+</form>
+<section class="result-panel" aria-labelledby="result-heading" aria-busy="false">
+<h2 id="result-heading">Under these assumptions</h2>
+<div id="empty"><p class="empty-number">P(event)</p><p>Compute a model to see its result and save an inspectable snapshot.</p></div>
+<div id="result" hidden><p id="probability" role="status" aria-live="polite"></p><p id="question"></p><p id="method"></p><button id="download" type="button" class="secondary">Download snapshot</button><details><summary>Inspect computed result</summary><pre id="details"></pre></details></div>
+<p id="error" role="alert" hidden></p>
+</section>
+</div>
+<aside><strong>A calculator, not an oracle.</strong> These are synthetic examples and user-supplied assumptions, not measured forecasting skill. No LLM calls, API keys, external data fetches or persistent user storage. The full repository also includes data collectors, baselines and evaluation tools.</aside>
+</main>
+<footer>MIT-licensed code. Bring a better model, a useful source, or a counterexample.</footer>
+</body></html>

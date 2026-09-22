@@ -1,0 +1,21 @@
+{
+  "registered_on_local_date": "2026-09-22",
+  "before_transfer_inference": true,
+  "observed_development_failures": [
+    "A MiMo Pro answer gave the correct 0.116 joint probability in prose without a forecast card; a permissive review approved it. Its extra marginal calculations were wrong (0.33 and 0.23 instead of 0.24 and 0.18).",
+    "The planner sometimes misclassified a fully defined hypothetical future event as non-forecast arithmetic, leading to an untyped response or needless clarification."
+  ],
+  "repairs": [
+    "A sealed card-free answer requires explicit no_point:true approval. A typed point and a no_point:true review are inconsistent. Preserve the review's substantive errors alongside this mechanical rejection reason.",
+    "Classify by the resolving event, not by whether the task involves arithmetic. Respect stipulated identities and settling rules. Check explanatory arithmetic beyond the headline.",
+    "Include the possible second contract extraction in output-ceiling accounting: 23800 tokens with standard review, 33800 with thinking review. Earlier 21600 descriptions omitted this branch; those old reports are retained unchanged."
+  ],
+  "development_comparison": [
+    "Replay all six decision and nine adversarial development cases with both MiMo variants, harness arm only. Direct reasoning controls from the immediately preceding round retain identical direct instructions and evidence.",
+    "Additionally run MiMo Pro with thinking review on the six decision development cases. Select this more expensive profile only if substantive review improves; otherwise retain standard review. This is a development ablation, not fresh generalization evidence."
+  ],
+  "transfer_rule": "Freeze final source/configuration/fixture hashes and candidate selection before running either MiMo variant once on the 16 transfer cases. Keep all outcomes. No further transfer-driven tuning.",
+  "oracles_tolerances_unchanged": true,
+  "same_ledger_and_1_8_usd_cap": true,
+  "scope": "Fixing mechanical delivery failures does not establish forecasting skill. A no_point flag is an LLM classification, not proof of truth."
+}
