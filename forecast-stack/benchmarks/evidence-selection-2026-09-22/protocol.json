@@ -1,0 +1,53 @@
+{
+  "study": "evidence-selection-2026-09-22",
+  "registered_at": "2026-09-22T15:44:25.705158+00:00",
+  "registered_before_inference": true,
+  "model": "google/gemma-3-27b-it",
+  "checkpoint_release": "2025-03-12",
+  "checkpoint_release_source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-3/",
+  "served_weight_provenance": "Model ID and Parasail FP8 routing pinned, not a cryptographic attestation of served checkpoint weights; exploratory only.",
+  "provider": "Parasail",
+  "rates": {
+    "input": 0.08,
+    "output": 0.45
+  },
+  "seed": 20260922,
+  "temperature": 0,
+  "top_p": 1,
+  "max_total_usd": 0.25,
+  "max_row_usd": 0.004,
+  "planned_rows": 54,
+  "max_calls": 72,
+  "selection_output_tokens": 512,
+  "forecast_output_tokens": {
+    "recency": 512,
+    "selected": 512,
+    "recency_long": 1024
+  },
+  "budget_interpretation": "Identical per-contract per-arm spending ceilings, not identical realized spend. Selected includes catalog reading and selection cost. recency_long supplies a doubled forecast output allowance, not equal actual compute. No padding or waste calls. Report all costs; do not attribute the entire effect to selection independently of extra compute.",
+  "catalog_policy": "Last three employment and last three CPI releases published before issue time. Deterministic SHA256(id) catalog order. Select exactly two original excerpts; no selector reasoning passed forward. Recency selects latest two publication timestamps. Forecast packet ordering is identical for identical selected sets.",
+  "excerpts": "Employment: opening paragraph plus first paragraphs mentioning all-employee hourly earnings and monthly revisions, normalized and capped at 1800 characters. CPI: first four paragraphs capped at 1800.",
+  "forecast_system": "You are issuing a binary probability forecast at the supplied as_of time. Use only knowledge available then and the dated evidence supplied. Do not treat an earlier reference month as the target month. Report the probability of YES for the exact threshold and original-release rule, not confidence in your preferred answer. Return only JSON with numeric p_yes in [0,1] and a concise reason string explaining uncertainty.",
+  "selection_system": "Select the two original documents most useful for forecasting the exact binary question at as_of. Consider relevance, timeliness, revisions, and complementary information. Do not answer the event or assume later facts. Return only JSON with ids: an array of exactly two distinct catalog IDs.",
+  "cohort": "All March-August 2025 reference months; issue at 00:00 UTC on the first of the following month; three fixed inclusive thresholds per month: payroll >=150000 jobs, U-3 >=4.2%, all-employee hourly earnings monthly change >=0.3%.",
+  "exposure_audit": "No matching US monthly contracts found in searched public benchmark manifests, time-capsule G1 question fields, no-wait HTR JSON question fields and local ForecastBench q_*.json question fields. Related macro questions and later evidence exist. This is not an independently sealed holdout; retrospective design and assembler hindsight remain risks.",
+  "label_separation": "Runner reads only manifest and protocol. Catalog construction is deterministic and does not use labels. Earlier target releases legitimately serve as dated evidence for later cases; their outcomes are thus visible to the assembler. No labels, later catalogs, scoring baselines or selector rationale enter a forecast prompt.",
+  "evidence_provenance": "Retrospectively retrieved dated BLS release narratives. Publication and current retrieval times are separate. No independent pre-issue capture attestation; do not call this strictly vintage-certified.",
+  "primary": "Selected minus recency paired mean binary-event Brier; negative favors selection.",
+  "secondary": [
+    "selected minus recency_long paired Brier",
+    "log loss clipped to [1e-6,1-1e-6] for scoring only",
+    "constant 0.5 Brier baseline",
+    "coverage and all-case Brier bounds; retain every registered row",
+    "cost, latency, selection overlap, early/late and per-metric differences"
+  ],
+  "uncertainty": "10000 paired release-month cluster-bootstrap resamples, seed 20260922; six correlated monthly blocks in one economy, so intervals are exploratory, not broad certification. Also report leave-one-month-out differences.",
+  "success_rule": "Worth independent replication only if both paired Brier improvements are at least 0.002, both exploratory CI upper bounds are below zero, selected log loss is not worse, coverage is 100%, and selected-minus-recency signs favor selection in both temporal halves. No production promotion from this pilot regardless of scores; independent domains and weight/vintage provenance are missing.",
+  "failures": "No automatic retries, repair calls, replacements, new model routes or sample extension. Unknown charges stay reserved; stop on uncertain transport or budget failure. All unissued rows remain registered.",
+  "manifest_sha256": "9d568335ae4ad512e98749c1532f25f237038f5564149579a9956ba316d42f15",
+  "runner_sha256": "29157d4bbdb56f4ce69d28cb6eb49bd2c9a6c80f5b27c9d937e8dd97a5beb9d2",
+  "starting_ledger_sha256": "c11f95e7e288878b0c1e190355b1fdbbb10f9d95946cc0490b25bf6e487dda5b",
+  "ai_disclosure": "AI-assisted design, extraction, execution and analysis; no independent human review. BLS source narratives are US federal government material.",
+  "pre_inference_amendment": "No-spend preflight rejected same-day August 1 issue/release using date-only lexical comparison. Added actual 12:30 UTC release timestamps and numerical timestamp comparison before any model call. No question, threshold, evidence, prompt, or scoring rule changed.",
+  "initial_registration_sha256": "d35a07db412789aa9c93d365970678f1cff95390b61424b0a1893d169ed69ee7"
+}

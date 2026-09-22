@@ -1,0 +1,671 @@
+{
+  "study": "evidence-selection-2026-09-22",
+  "model": "google/gemma-3-27b-it",
+  "arms": [
+    "recency",
+    "selected",
+    "recency_long"
+  ],
+  "cases": [
+    {
+      "id": "bls-2025-03-payroll",
+      "cluster": "2025-03",
+      "as_of": "2025-04-01T00:00:00Z",
+      "period": "March 2025",
+      "metric": "payroll",
+      "threshold": 150000,
+      "question": "Will the first BLS Employment Situation release for March 2025 report that the seasonally adjusted monthly change in total US nonfarm payroll employment is at least 150,000 jobs?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-04-04",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_04042025.htm",
+      "catalog_ids": [
+        "cpi-2025-02-12",
+        "cpi-2025-03-12",
+        "empsit-2025-01-10",
+        "empsit-2025-03-07",
+        "empsit-2025-02-07",
+        "cpi-2025-01-15"
+      ],
+      "fixed_ids": [
+        "cpi-2025-03-12",
+        "empsit-2025-03-07"
+      ],
+      "resolution_at": "2025-04-04T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-03-unemployment",
+      "cluster": "2025-03",
+      "as_of": "2025-04-01T00:00:00Z",
+      "period": "March 2025",
+      "metric": "unemployment",
+      "threshold": 4.2,
+      "question": "Will the first BLS Employment Situation release for March 2025 report that the seasonally adjusted US civilian unemployment rate (U-3) is at least 4.2 percent?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-04-04",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_04042025.htm",
+      "catalog_ids": [
+        "cpi-2025-02-12",
+        "cpi-2025-03-12",
+        "empsit-2025-01-10",
+        "empsit-2025-03-07",
+        "empsit-2025-02-07",
+        "cpi-2025-01-15"
+      ],
+      "fixed_ids": [
+        "cpi-2025-03-12",
+        "empsit-2025-03-07"
+      ],
+      "resolution_at": "2025-04-04T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-03-earnings",
+      "cluster": "2025-03",
+      "as_of": "2025-04-01T00:00:00Z",
+      "period": "March 2025",
+      "metric": "earnings",
+      "threshold": 0.3,
+      "question": "Will the first BLS Employment Situation release for March 2025 report that the seasonally adjusted monthly percentage change in average hourly earnings of all employees on private nonfarm payrolls is at least 0.3 percent?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-04-04",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_04042025.htm",
+      "catalog_ids": [
+        "cpi-2025-02-12",
+        "cpi-2025-03-12",
+        "empsit-2025-01-10",
+        "empsit-2025-03-07",
+        "empsit-2025-02-07",
+        "cpi-2025-01-15"
+      ],
+      "fixed_ids": [
+        "cpi-2025-03-12",
+        "empsit-2025-03-07"
+      ],
+      "resolution_at": "2025-04-04T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-04-payroll",
+      "cluster": "2025-04",
+      "as_of": "2025-05-01T00:00:00Z",
+      "period": "April 2025",
+      "metric": "payroll",
+      "threshold": 150000,
+      "question": "Will the first BLS Employment Situation release for April 2025 report that the seasonally adjusted monthly change in total US nonfarm payroll employment is at least 150,000 jobs?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-05-02",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_05022025.htm",
+      "catalog_ids": [
+        "cpi-2025-04-10",
+        "cpi-2025-02-12",
+        "cpi-2025-03-12",
+        "empsit-2025-04-04",
+        "empsit-2025-03-07",
+        "empsit-2025-02-07"
+      ],
+      "fixed_ids": [
+        "cpi-2025-04-10",
+        "empsit-2025-04-04"
+      ],
+      "resolution_at": "2025-05-02T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-04-unemployment",
+      "cluster": "2025-04",
+      "as_of": "2025-05-01T00:00:00Z",
+      "period": "April 2025",
+      "metric": "unemployment",
+      "threshold": 4.2,
+      "question": "Will the first BLS Employment Situation release for April 2025 report that the seasonally adjusted US civilian unemployment rate (U-3) is at least 4.2 percent?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-05-02",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_05022025.htm",
+      "catalog_ids": [
+        "cpi-2025-04-10",
+        "cpi-2025-02-12",
+        "cpi-2025-03-12",
+        "empsit-2025-04-04",
+        "empsit-2025-03-07",
+        "empsit-2025-02-07"
+      ],
+      "fixed_ids": [
+        "cpi-2025-04-10",
+        "empsit-2025-04-04"
+      ],
+      "resolution_at": "2025-05-02T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-04-earnings",
+      "cluster": "2025-04",
+      "as_of": "2025-05-01T00:00:00Z",
+      "period": "April 2025",
+      "metric": "earnings",
+      "threshold": 0.3,
+      "question": "Will the first BLS Employment Situation release for April 2025 report that the seasonally adjusted monthly percentage change in average hourly earnings of all employees on private nonfarm payrolls is at least 0.3 percent?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-05-02",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_05022025.htm",
+      "catalog_ids": [
+        "cpi-2025-04-10",
+        "cpi-2025-02-12",
+        "cpi-2025-03-12",
+        "empsit-2025-04-04",
+        "empsit-2025-03-07",
+        "empsit-2025-02-07"
+      ],
+      "fixed_ids": [
+        "cpi-2025-04-10",
+        "empsit-2025-04-04"
+      ],
+      "resolution_at": "2025-05-02T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-05-payroll",
+      "cluster": "2025-05",
+      "as_of": "2025-06-01T00:00:00Z",
+      "period": "May 2025",
+      "metric": "payroll",
+      "threshold": 150000,
+      "question": "Will the first BLS Employment Situation release for May 2025 report that the seasonally adjusted monthly change in total US nonfarm payroll employment is at least 150,000 jobs?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-06-06",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_06062025.htm",
+      "catalog_ids": [
+        "cpi-2025-04-10",
+        "empsit-2025-05-02",
+        "cpi-2025-03-12",
+        "empsit-2025-04-04",
+        "empsit-2025-03-07",
+        "cpi-2025-05-13"
+      ],
+      "fixed_ids": [
+        "cpi-2025-05-13",
+        "empsit-2025-05-02"
+      ],
+      "resolution_at": "2025-06-06T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-05-unemployment",
+      "cluster": "2025-05",
+      "as_of": "2025-06-01T00:00:00Z",
+      "period": "May 2025",
+      "metric": "unemployment",
+      "threshold": 4.2,
+      "question": "Will the first BLS Employment Situation release for May 2025 report that the seasonally adjusted US civilian unemployment rate (U-3) is at least 4.2 percent?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-06-06",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_06062025.htm",
+      "catalog_ids": [
+        "cpi-2025-04-10",
+        "empsit-2025-05-02",
+        "cpi-2025-03-12",
+        "empsit-2025-04-04",
+        "empsit-2025-03-07",
+        "cpi-2025-05-13"
+      ],
+      "fixed_ids": [
+        "cpi-2025-05-13",
+        "empsit-2025-05-02"
+      ],
+      "resolution_at": "2025-06-06T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-05-earnings",
+      "cluster": "2025-05",
+      "as_of": "2025-06-01T00:00:00Z",
+      "period": "May 2025",
+      "metric": "earnings",
+      "threshold": 0.3,
+      "question": "Will the first BLS Employment Situation release for May 2025 report that the seasonally adjusted monthly percentage change in average hourly earnings of all employees on private nonfarm payrolls is at least 0.3 percent?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-06-06",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_06062025.htm",
+      "catalog_ids": [
+        "cpi-2025-04-10",
+        "empsit-2025-05-02",
+        "cpi-2025-03-12",
+        "empsit-2025-04-04",
+        "empsit-2025-03-07",
+        "cpi-2025-05-13"
+      ],
+      "fixed_ids": [
+        "cpi-2025-05-13",
+        "empsit-2025-05-02"
+      ],
+      "resolution_at": "2025-06-06T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-06-payroll",
+      "cluster": "2025-06",
+      "as_of": "2025-07-01T00:00:00Z",
+      "period": "June 2025",
+      "metric": "payroll",
+      "threshold": 150000,
+      "question": "Will the first BLS Employment Situation release for June 2025 report that the seasonally adjusted monthly change in total US nonfarm payroll employment is at least 150,000 jobs?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-07-03",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_07032025.htm",
+      "catalog_ids": [
+        "cpi-2025-04-10",
+        "empsit-2025-05-02",
+        "empsit-2025-04-04",
+        "cpi-2025-06-11",
+        "empsit-2025-06-06",
+        "cpi-2025-05-13"
+      ],
+      "fixed_ids": [
+        "cpi-2025-06-11",
+        "empsit-2025-06-06"
+      ],
+      "resolution_at": "2025-07-03T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-06-unemployment",
+      "cluster": "2025-06",
+      "as_of": "2025-07-01T00:00:00Z",
+      "period": "June 2025",
+      "metric": "unemployment",
+      "threshold": 4.2,
+      "question": "Will the first BLS Employment Situation release for June 2025 report that the seasonally adjusted US civilian unemployment rate (U-3) is at least 4.2 percent?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-07-03",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_07032025.htm",
+      "catalog_ids": [
+        "cpi-2025-04-10",
+        "empsit-2025-05-02",
+        "empsit-2025-04-04",
+        "cpi-2025-06-11",
+        "empsit-2025-06-06",
+        "cpi-2025-05-13"
+      ],
+      "fixed_ids": [
+        "cpi-2025-06-11",
+        "empsit-2025-06-06"
+      ],
+      "resolution_at": "2025-07-03T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-06-earnings",
+      "cluster": "2025-06",
+      "as_of": "2025-07-01T00:00:00Z",
+      "period": "June 2025",
+      "metric": "earnings",
+      "threshold": 0.3,
+      "question": "Will the first BLS Employment Situation release for June 2025 report that the seasonally adjusted monthly percentage change in average hourly earnings of all employees on private nonfarm payrolls is at least 0.3 percent?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-07-03",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_07032025.htm",
+      "catalog_ids": [
+        "cpi-2025-04-10",
+        "empsit-2025-05-02",
+        "empsit-2025-04-04",
+        "cpi-2025-06-11",
+        "empsit-2025-06-06",
+        "cpi-2025-05-13"
+      ],
+      "fixed_ids": [
+        "cpi-2025-06-11",
+        "empsit-2025-06-06"
+      ],
+      "resolution_at": "2025-07-03T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-07-payroll",
+      "cluster": "2025-07",
+      "as_of": "2025-08-01T00:00:00Z",
+      "period": "July 2025",
+      "metric": "payroll",
+      "threshold": 150000,
+      "question": "Will the first BLS Employment Situation release for July 2025 report that the seasonally adjusted monthly change in total US nonfarm payroll employment is at least 150,000 jobs?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-08-01",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_08012025.htm",
+      "catalog_ids": [
+        "cpi-2025-07-15",
+        "empsit-2025-05-02",
+        "empsit-2025-07-03",
+        "cpi-2025-06-11",
+        "empsit-2025-06-06",
+        "cpi-2025-05-13"
+      ],
+      "fixed_ids": [
+        "cpi-2025-07-15",
+        "empsit-2025-07-03"
+      ],
+      "resolution_at": "2025-08-01T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-07-unemployment",
+      "cluster": "2025-07",
+      "as_of": "2025-08-01T00:00:00Z",
+      "period": "July 2025",
+      "metric": "unemployment",
+      "threshold": 4.2,
+      "question": "Will the first BLS Employment Situation release for July 2025 report that the seasonally adjusted US civilian unemployment rate (U-3) is at least 4.2 percent?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-08-01",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_08012025.htm",
+      "catalog_ids": [
+        "cpi-2025-07-15",
+        "empsit-2025-05-02",
+        "empsit-2025-07-03",
+        "cpi-2025-06-11",
+        "empsit-2025-06-06",
+        "cpi-2025-05-13"
+      ],
+      "fixed_ids": [
+        "cpi-2025-07-15",
+        "empsit-2025-07-03"
+      ],
+      "resolution_at": "2025-08-01T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-07-earnings",
+      "cluster": "2025-07",
+      "as_of": "2025-08-01T00:00:00Z",
+      "period": "July 2025",
+      "metric": "earnings",
+      "threshold": 0.3,
+      "question": "Will the first BLS Employment Situation release for July 2025 report that the seasonally adjusted monthly percentage change in average hourly earnings of all employees on private nonfarm payrolls is at least 0.3 percent?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-08-01",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_08012025.htm",
+      "catalog_ids": [
+        "cpi-2025-07-15",
+        "empsit-2025-05-02",
+        "empsit-2025-07-03",
+        "cpi-2025-06-11",
+        "empsit-2025-06-06",
+        "cpi-2025-05-13"
+      ],
+      "fixed_ids": [
+        "cpi-2025-07-15",
+        "empsit-2025-07-03"
+      ],
+      "resolution_at": "2025-08-01T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-08-payroll",
+      "cluster": "2025-08",
+      "as_of": "2025-09-01T00:00:00Z",
+      "period": "August 2025",
+      "metric": "payroll",
+      "threshold": 150000,
+      "question": "Will the first BLS Employment Situation release for August 2025 report that the seasonally adjusted monthly change in total US nonfarm payroll employment is at least 150,000 jobs?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-09-05",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_09052025.htm",
+      "catalog_ids": [
+        "cpi-2025-07-15",
+        "empsit-2025-08-01",
+        "empsit-2025-07-03",
+        "cpi-2025-08-12",
+        "cpi-2025-06-11",
+        "empsit-2025-06-06"
+      ],
+      "fixed_ids": [
+        "cpi-2025-08-12",
+        "empsit-2025-08-01"
+      ],
+      "resolution_at": "2025-09-05T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-08-unemployment",
+      "cluster": "2025-08",
+      "as_of": "2025-09-01T00:00:00Z",
+      "period": "August 2025",
+      "metric": "unemployment",
+      "threshold": 4.2,
+      "question": "Will the first BLS Employment Situation release for August 2025 report that the seasonally adjusted US civilian unemployment rate (U-3) is at least 4.2 percent?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-09-05",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_09052025.htm",
+      "catalog_ids": [
+        "cpi-2025-07-15",
+        "empsit-2025-08-01",
+        "empsit-2025-07-03",
+        "cpi-2025-08-12",
+        "cpi-2025-06-11",
+        "empsit-2025-06-06"
+      ],
+      "fixed_ids": [
+        "cpi-2025-08-12",
+        "empsit-2025-08-01"
+      ],
+      "resolution_at": "2025-09-05T12:30:00Z"
+    },
+    {
+      "id": "bls-2025-08-earnings",
+      "cluster": "2025-08",
+      "as_of": "2025-09-01T00:00:00Z",
+      "period": "August 2025",
+      "metric": "earnings",
+      "threshold": 0.3,
+      "question": "Will the first BLS Employment Situation release for August 2025 report that the seasonally adjusted monthly percentage change in average hourly earnings of all employees on private nonfarm payrolls is at least 0.3 percent?",
+      "resolution_rule": "YES iff the first published seasonally adjusted figure for the named reference month meets the stated inclusive threshold. Use the original release narrative, not later revisions. If the original value cannot be verified, leave unresolved.",
+      "resolution_date": "2025-09-05",
+      "resolution_url": "https://www.bls.gov/news.release/archives/empsit_09052025.htm",
+      "catalog_ids": [
+        "cpi-2025-07-15",
+        "empsit-2025-08-01",
+        "empsit-2025-07-03",
+        "cpi-2025-08-12",
+        "cpi-2025-06-11",
+        "empsit-2025-06-06"
+      ],
+      "fixed_ids": [
+        "cpi-2025-08-12",
+        "empsit-2025-08-01"
+      ],
+      "resolution_at": "2025-09-05T12:30:00Z"
+    }
+  ],
+  "sources": [
+    {
+      "id": "cpi-2025-01-15",
+      "kind": "cpi",
+      "published_at": "2025-01-15T13:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:26.390057+00:00",
+      "url": "https://www.bls.gov/news.release/archives/cpi_01152025.htm",
+      "title": "Consumer Price Index — release 2025-01-15",
+      "text": "The Consumer Price Index for All Urban Consumers (CPI-U) increased 0.4 percent on a seasonally adjusted basis in December, after rising 0.3 percent in November, the U.S. Bureau of Labor Statistics reported today. Over the last 12 months, the all items index increased 2.9 percent before seasonal adjustment.\n\nThe index for energy rose 2.6 percent in December, accounting for over forty percent of the monthly all items increase. The gasoline index increased 4.4 percent over the month. The index for food also increased in December, rising 0.3 percent as both the index for food at home and the index for food away from home increased 0.3 percent each.\n\nThe index for all items less food and energy rose 0.2 percent in December, after increasing 0.3 percent in each of the previous 4 months. Indexes that increased in December include shelter, airline fares, used cars and trucks, new vehicles, motor vehicle insurance, and medical care. The indexes for personal care, communication, and alcoholic beverages were among the few major indexes that decreased over the month.\n\nThe all items index rose 2.9 percent for the 12 months ending December, after rising 2.7 percent over the 12 months ending November. The all items less food and energy index rose 3.2 percent over the last 12 months. The energy index decreased 0.5 percent for the 12 months ending December. The food index increased 2.5 percent over the last year.",
+      "narrative_sha256": "853761f3702bbb432564f854ef15203fbbc1365a02d8f88e58843776292f5803",
+      "text_sha256": "a14a94b2add6bd26d9a812b73b0cbf8a0ae5042506cf487fab2439cc2f6b7dbc",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "cpi-2025-02-12",
+      "kind": "cpi",
+      "published_at": "2025-02-12T13:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:26.696916+00:00",
+      "url": "https://www.bls.gov/news.release/archives/cpi_02122025.htm",
+      "title": "Consumer Price Index — release 2025-02-12",
+      "text": "The Consumer Price Index for All Urban Consumers (CPI-U) increased 0.5 percent on a seasonally adjusted basis in January, after rising 0.4 percent in December, the U.S. Bureau of Labor Statistics reported today. Over the last 12 months, the all items index increased 3.0 percent before seasonal adjustment.\n\nThe index for shelter rose 0.4 percent in January, accounting for nearly 30 percent of the monthly all items increase. The energy index rose 1.1 percent over the month, as the gasoline index increased 1.8 percent. The index for food also increased in January, rising 0.4 percent as the index for food at home rose 0.5 percent and the index for food away from home increased 0.2 percent.\n\nThe index for all items less food and energy rose 0.4 percent in January. Indexes that increased over the month include motor vehicle insurance, recreation, used cars and trucks, medical care, communication, and airline fares. The indexes for apparel, personal care, and household furnishings and operations were among the few major indexes that decreased in January.\n\nThe all items index rose 3.0 percent for the 12 months ending January, after rising 2.9 percent over the 12 months ending December. The all items less food and energy index rose 3.3 percent over the last 12 months. The energy index increased 1.0 percent for the 12 months ending January. The food index increased 2.5 percent over the last year.",
+      "narrative_sha256": "b550f271584e4e77310a6743e97bcecf7c00da5d2f98a6eed774181db345bea8",
+      "text_sha256": "52219bf9f4f8d6a4b0e9cc1eadfca57a781f49f96f4ab6fe98d242073135997d",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "cpi-2025-03-12",
+      "kind": "cpi",
+      "published_at": "2025-03-12T12:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:26.743922+00:00",
+      "url": "https://www.bls.gov/news.release/archives/cpi_03122025.htm",
+      "title": "Consumer Price Index — release 2025-03-12",
+      "text": "The Consumer Price Index for All Urban Consumers (CPI-U) increased 0.2 percent on a seasonally adjusted basis in February, after rising 0.5 percent in January, the U.S. Bureau of Labor Statistics reported today. Over the last 12 months, the all items index increased 2.8 percent before seasonal adjustment.\n\nThe index for shelter rose 0.3 percent in February, accounting for nearly half of the monthly all items increase. The shelter increase was partially offset by a 4.0-percent decrease in the index for airline fares and a 1.0-percent decline in the index for gasoline. Despite the decrease in the gasoline index, the energy index rose 0.2 percent over the month as the indexes for electricity and natural gas increased. The index for food also increased in February, rising 0.2 percent as the index for food away from home increased 0.4 percent. The food at home index was unchanged over the month.\n\nThe index for all items less food and energy rose 0.2 percent in February, following a 0.4-percent increase in January. Indexes that increased over the month include medical care, used cars and trucks, household furnishings and operations, recreation, apparel, and personal care. The indexes for airline fares and new vehicles were among the few major indexes that decreased in February.\n\nThe all items index rose 2.8 percent for the 12 months ending February, after rising 3.0 percent over the 12 months ending January. The all items less food and energy index rose 3.1 percent over the last 12 months. The energy index decreased 0.2 percent for the 12 months ending February. The food index increased 2.6 percent over the last year.",
+      "narrative_sha256": "8ba643f540296908a501278d228ccda3c12cdf29f849f1e28a1d593dc90273ea",
+      "text_sha256": "acdac7317728af39a56b11a63231a4a822b46f51b6d5824d97d25a38515d80bc",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "cpi-2025-04-10",
+      "kind": "cpi",
+      "published_at": "2025-04-10T12:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:26.784751+00:00",
+      "url": "https://www.bls.gov/news.release/archives/cpi_04102025.htm",
+      "title": "Consumer Price Index — release 2025-04-10",
+      "text": "The Consumer Price Index for All Urban Consumers (CPI-U) decreased 0.1 percent on a seasonally adjusted basis in March, after rising 0.2 percent in February, the U.S. Bureau of Labor Statistics reported today. Over the last 12 months, the all items index increased 2.4 percent before seasonal adjustment.\n\nThe index for energy fell 2.4 percent in March, as a 6.3-percent decline in the index for gasoline more than offset increases in the indexes for electricity and natural gas. The food index, in contrast, rose 0.4 percent in March as the food at home index increased 0.5 percent and the food away from home index rose 0.4 percent over the month.\n\nThe index for all items less food and energy rose 0.1 percent in March, following a 0.2-percent increase in February. Indexes that increased over the month include personal care, medical care, education, apparel, and new vehicles. The indexes for airline fares, motor vehicle insurance, used cars and trucks, and recreation were among the major indexes that decreased in March.\n\nThe all items index rose 2.4 percent for the 12 months ending March, after rising 2.8 percent over the 12 months ending February. The all items less food and energy index rose 2.8 percent over the last 12 months, the smallest 12-month increase since March 2021. The energy index decreased 3.3 percent for the 12 months ending March. The food index increased 3.0 percent over the last year.",
+      "narrative_sha256": "946c6cefc6bd31ebaab287d7358417a2a7bb969bc13ee88ad764e41f66f1161d",
+      "text_sha256": "f757f9077f0b3b1bc78c6e714a2a354db8a7d46ebb5e8e86df012d97b5f06ebd",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "cpi-2025-05-13",
+      "kind": "cpi",
+      "published_at": "2025-05-13T12:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:26.926876+00:00",
+      "url": "https://www.bls.gov/news.release/archives/cpi_05132025.htm",
+      "title": "Consumer Price Index — release 2025-05-13",
+      "text": "The Consumer Price Index for All Urban Consumers (CPI-U) increased 0.2 percent on a seasonally adjusted basis in April, after falling 0.1 percent in March, the U.S. Bureau of Labor Statistics reported today. Over the last 12 months, the all items index increased 2.3 percent before seasonal adjustment.\n\nThe index for shelter rose 0.3 percent in April, accounting for more than half of the all items monthly increase. The energy index also increased over the month, rising 0.7 percent as increases in the natural gas index and the electricity index more than offset a decline in the gasoline index. The index for food, in contrast, fell 0.1 percent in April as the food at home index decreased 0.4 percent and the food away from home index rose 0.4 percent over the month.\n\nThe index for all items less food and energy rose 0.2 percent in April, following a 0.1-percent increase in March. Indexes that increased over the month include household furnishings and operations, medical care, motor vehicle insurance, education, and personal care. The indexes for airline fares, used cars and trucks, communication, and apparel were among the major indexes that decreased in April.\n\nThe all items index rose 2.3 percent for the 12 months ending April, after rising 2.4 percent over the 12 months ending March. The April change was the smallest 12-month increase in the all items index since February 2021. The all items less food and energy index rose 2.8 percent over the last 12 months. The energy index decreased 3.7 percent for the 12 months ending April. The food index increased 2.8 percent over the last year.",
+      "narrative_sha256": "cbc1b384f0813a92563879125c842ad42f4948d312ae1722f94900afc70a3b17",
+      "text_sha256": "3682fb7bf0cf43753abf6fa19247219fd97d2b04ea044558a9a21948d2f0ea8b",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "cpi-2025-06-11",
+      "kind": "cpi",
+      "published_at": "2025-06-11T12:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:27.337284+00:00",
+      "url": "https://www.bls.gov/news.release/archives/cpi_06112025.htm",
+      "title": "Consumer Price Index — release 2025-06-11",
+      "text": "The Consumer Price Index for All Urban Consumers (CPI-U) increased 0.1 percent on a seasonally adjusted basis in May, after rising 0.2 percent in April, the U.S. Bureau of Labor Statistics reported today. Over the last 12 months, the all items index increased 2.4 percent before seasonal adjustment.\n\nThe index for shelter rose 0.3 percent in May and was the primary factor in the all items monthly increase. The food index increased 0.3 percent as both of its major components, the index for food at home and the index for food away from home also rose 0.3 percent in May. In contrast, the energy index declined 1.0 percent in May as the gasoline index fell over the month.\n\nThe index for all items less food and energy rose 0.1 percent in May, following a 0.2-percent increase in April. Indexes that increased over the month include medical care, motor vehicle insurance, household furnishings and operations, personal care, and education. The indexes for airline fares, used cars and trucks, new vehicles, and apparel were among the major indexes that decreased in May.\n\nThe all items index rose 2.4 percent for the 12 months ending May, after rising 2.3 percent over the 12 months ending April. The all items less food and energy index rose 2.8 percent over the last 12 months. The energy index decreased 3.5 percent for the 12 months ending May. The food index increased 2.9 percent over the last year.",
+      "narrative_sha256": "3693f117698be340befe1c7e1211cf916790b6a9d31989eb849b94fc1790bb8e",
+      "text_sha256": "18fc6b94e6883820497f6cca0ef25941772a4999ffe387852094ce69b0e37df9",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "cpi-2025-07-15",
+      "kind": "cpi",
+      "published_at": "2025-07-15T12:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:27.338386+00:00",
+      "url": "https://www.bls.gov/news.release/archives/cpi_07152025.htm",
+      "title": "Consumer Price Index — release 2025-07-15",
+      "text": "The Consumer Price Index for All Urban Consumers (CPI-U) increased 0.3 percent on a seasonally adjusted basis in June, after rising 0.1 percent in May, the U.S. Bureau of Labor Statistics reported today. Over the last 12 months, the all items index increased 2.7 percent before seasonal adjustment.\n\nThe index for shelter rose 0.2 percent in June and was the primary factor in the all items monthly increase. The energy index rose 0.9 percent in June as the gasoline index increased 1.0 percent over the month. The index for food increased 0.3 percent as the index for food at home rose 0.3 percent and the index for food away from home rose 0.4 percent in June.\n\nThe index for all items less food and energy rose 0.2 percent in June, following a 0.1-percent increase in May. Indexes that increased over the month include household furnishings and operations, medical care, recreation, apparel, and personal care. The indexes for used cars and trucks, new vehicles, and airline fares were among the major indexes that decreased in June.\n\nThe all items index rose 2.7 percent for the 12 months ending June, after rising 2.4 percent over the 12 months ending May. The all items less food and energy index rose 2.9 percent over the last 12 months. The energy index decreased 0.8 percent for the 12 months ending June. The food index increased 3.0 percent over the last year.",
+      "narrative_sha256": "598a3ea1c1f761aed5f91d3472b12771f167559a282b440311823fc01a392371",
+      "text_sha256": "8a42090d850ab443f5f0f181368857b691de23a7b2ed7e687a2c9253e548c03f",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "cpi-2025-08-12",
+      "kind": "cpi",
+      "published_at": "2025-08-12T12:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:27.336114+00:00",
+      "url": "https://www.bls.gov/news.release/archives/cpi_08122025.htm",
+      "title": "Consumer Price Index — release 2025-08-12",
+      "text": "The Consumer Price Index for All Urban Consumers (CPI-U) increased 0.2 percent on a seasonally adjusted basis in July, after rising 0.3 percent in June, the U.S. Bureau of Labor Statistics reported today. Over the last 12 months, the all items index increased 2.7 percent before seasonal adjustment.\n\nThe index for shelter rose 0.2 percent in July and was the primary factor in the all items monthly increase. The food index was unchanged over the month as the food away from home index rose 0.3 percent while the food at home index fell 0.1 percent. In contrast, the index for energy fell 1.1 percent in July as the index for gasoline decreased 2.2 percent over the month.\n\nThe index for all items less food and energy rose 0.3 percent in July, following a 0.2-percent increase in June. Indexes that increased over the month include medical care, airline fares, recreation, household furnishings and operations, and used cars and trucks. The indexes for lodging away from home and communication were among the few major indexes that decreased in July.\n\nThe all items index rose 2.7 percent for the 12 months ending July, after rising 2.7 percent over the 12 months ending June. The all items less food and energy index rose 3.1 percent over the last 12 months. The energy index decreased 1.6 percent for the 12 months ending July. The food index increased 2.9 percent over the last year.",
+      "narrative_sha256": "b9e40e6cf65fb43f2bebf608fbce1a59d8ec57a520863ca59d38f35e4928913f",
+      "text_sha256": "508387534fa78dcd6267d4e4b90dee32613d9afbd84faf319e6ac94b7a49eb23",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "empsit-2025-01-10",
+      "kind": "empsit",
+      "published_at": "2025-01-10T13:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:39:13.409315+00:00",
+      "url": "https://www.bls.gov/news.release/archives/empsit_01102025.htm",
+      "title": "Employment Situation — release 2025-01-10",
+      "text": "Total nonfarm payroll employment increased by 256,000 in December, and the unemployment rate changed little at 4.1 percent, the U.S. Bureau of Labor Statistics reported today. Employment trended up in health care, government, and social assistance. Retail trade added jobs in December, following a job loss in November.\n\nIn December, average hourly earnings for all employees on private nonfarm payrolls rose by 10 cents, or 0.3 percent, to $35.69. Over the past 12 months, average hourly earnings have increased by 3.9 percent. In December, average hourly earnings of private-sector production and nonsupervisory employees, at $30.62, were little changed (+6 cents). (See tables B-3 and B-8.)\n\nThe change in total nonfarm payroll employment for October was revised up by 7,000, from +36,000 to +43,000, and the change for November was revised down by 15,000, from +227,000 to +212,000. With these revisions, employment in October and November combined is 8,000 lower than previously reported. (Monthly revisions result from additional reports received from businesses and government agencies since the last published estimates and from the recalculation of seasonal factors.)",
+      "narrative_sha256": "1479dfd7e98ae31b44bd0c3171409bda8a2e674c695d4eee782bd4e6de4e6284",
+      "text_sha256": "8e651f106617c67504869d04a4a79ddadabaf50300329f29f75bc3c7a1f3848e",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "empsit-2025-02-07",
+      "kind": "empsit",
+      "published_at": "2025-02-07T13:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:39:13.750177+00:00",
+      "url": "https://www.bls.gov/news.release/archives/empsit_02072025.htm",
+      "title": "Employment Situation — release 2025-02-07",
+      "text": "Total nonfarm payroll employment rose by 143,000 in January, and the unemployment rate edged down to 4.0 percent, the U.S. Bureau of Labor Statistics reported today. Job gains occurred in health care, retail trade, and social assistance. Employment declined in the mining, quarrying, and oil and gas extraction industry.\n\nIn January, average hourly earnings for all employees on private nonfarm payrolls rose by 17 cents, or 0.5 percent, to $35.87. Over the past 12 months, average hourly earnings have increased by 4.1 percent. In January, average hourly earnings of private-sector production and nonsupervisory employees rose by 16 cents, or 0.5 percent, to $30.84. (See tables B-3 and B-8.)\n\nThe change in total nonfarm payroll employment for November was revised up by 49,000, from +212,000 to +261,000, and the change for December was revised up by 51,000, from +256,000 to +307,000. With these revisions, employment in November and December combined is 100,000 higher than previously reported. (Monthly revisions result from additional reports received from businesses and government agencies since the last published estimates and from the recalculation of seasonal factors. The annual benchmark process also contributed to the November and December revisions.)",
+      "narrative_sha256": "4ea6ea920304c8385c77dd93850a235d9c8f33e57cef9683f3cd01ebab733807",
+      "text_sha256": "392189b68066049bc39da59ca1bbf2577c77932e133f19670a0358cb7b613810",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "empsit-2025-03-07",
+      "kind": "empsit",
+      "published_at": "2025-03-07T13:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:25.530338+00:00",
+      "url": "https://www.bls.gov/news.release/archives/empsit_03072025.htm",
+      "title": "Employment Situation — release 2025-03-07",
+      "text": "Total nonfarm payroll employment rose by 151,000 in February, and the unemployment rate changed little at 4.1 percent, the U.S. Bureau of Labor Statistics reported today. Employment trended up in health care, financial activities, transportation and warehousing, and social assistance. Federal government employment declined.\n\nIn February, average hourly earnings for all employees on private nonfarm payrolls rose by 10 cents, or 0.3 percent, to $35.93. Over the past 12 months, average hourly earnings have increased by 4.0 percent. In February, average hourly earnings of private-sector production and nonsupervisory employees rose by 9 cents, or 0.3 percent, to $30.89. (See tables B-3 and B-8.)\n\nThe change in total nonfarm payroll employment for December was revised up by 16,000, from +307,000 to +323,000, and the change for January was revised down by 18,000, from +143,000 to +125,000. With these revisions, employment in December and January combined is 2,000 lower than previously reported. (Monthly revisions result from additional reports received from businesses and government agencies since the last published estimates and from the recalculation of seasonal factors.)",
+      "narrative_sha256": "732ca23e6b606e18d522fa6582b09da2f60da6b9359b738e4e10bd7fa8157cd0",
+      "text_sha256": "83ae8a1ecf321afabbf8d00b83af755f3e65ca0d61643080c5d89f843e3b4534",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "empsit-2025-04-04",
+      "kind": "empsit",
+      "published_at": "2025-04-04T12:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:25.624212+00:00",
+      "url": "https://www.bls.gov/news.release/archives/empsit_04042025.htm",
+      "title": "Employment Situation — release 2025-04-04",
+      "text": "Total nonfarm payroll employment rose by 228,000 in March, and the unemployment rate changed little at 4.2 percent, the U.S. Bureau of Labor Statistics reported today. Job gains occurred in health care, in social assistance, and in transportation and warehousing. Employment also increased in retail trade, partially reflecting the return of workers from a strike. Federal government employment declined.\n\nIn March, average hourly earnings for all employees on private nonfarm payrolls rose by 9 cents, or 0.3 percent, to $36.00. Over the past 12 months, average hourly earnings have increased by 3.8 percent. In March, average hourly earnings of private-sector production and nonsupervisory employees edged up by 5 cents, or 0.2 percent, to $30.96. (See tables B-3 and B-8.)\n\nThe change in total nonfarm payroll employment for January was revised down by 14,000, from +125,000 to +111,000, and the change for February was revised down by 34,000, from +151,000 to +117,000. With these revisions, employment in January and February combined is 48,000 lower than previously reported. (Monthly revisions result from additional reports received from businesses and government agencies since the last published estimates and from the recalculation of seasonal factors.)",
+      "narrative_sha256": "39a2c167fda930007a1e336627c972a4f0f35e7130140a6e8982a096c4a9c42d",
+      "text_sha256": "20529e64116693a682d63321a28692f4272b442794c588b52de79bbbbb4d9f53",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "empsit-2025-05-02",
+      "kind": "empsit",
+      "published_at": "2025-05-02T12:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:26.240453+00:00",
+      "url": "https://www.bls.gov/news.release/archives/empsit_05022025.htm",
+      "title": "Employment Situation — release 2025-05-02",
+      "text": "Total nonfarm payroll employment increased by 177,000 in April, and the unemployment rate was unchanged at 4.2 percent, the U.S. Bureau of Labor Statistics reported today. Employment continued to trend up in health care, transportation and warehousing, financial activities, and social assistance. Federal government employment declined.\n\nIn April, average hourly earnings for all employees on private nonfarm payrolls rose by 6 cents, or 0.2 percent, to $36.06. Over the past 12 months, average hourly earnings have increased by 3.8 percent. In April, average hourly earnings of private-sector production and nonsupervisory employees rose by 10 cents, or 0.3 percent, to $31.06. (See tables B-3 and B-8.)\n\nThe change in total nonfarm payroll employment for February was revised down by 15,000, from +117,000 to +102,000, and the change for March was revised down by 43,000, from +228,000 to +185,000. With these revisions, employment in February and March combined is 58,000 lower than previously reported. (Monthly revisions result from additional reports received from businesses and government agencies since the last published estimates and from the recalculation of seasonal factors.)",
+      "narrative_sha256": "9a25b93226cbe6c51297f6576fc89ebc6e7ba4a230d9fc61cf6e9af12329b147",
+      "text_sha256": "d451c8642d06ad97434c4bf14fa07978d0b2f4cb5e7e24660d19d66e43ae6daf",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "empsit-2025-06-06",
+      "kind": "empsit",
+      "published_at": "2025-06-06T12:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:26.000574+00:00",
+      "url": "https://www.bls.gov/news.release/archives/empsit_06062025.htm",
+      "title": "Employment Situation — release 2025-06-06",
+      "text": "Total nonfarm payroll employment increased by 139,000 in May, and the unemployment rate was unchanged at 4.2 percent, the U.S. Bureau of Labor Statistics reported today. Employment continued to trend up in health care, leisure and hospitality, and social assistance. Federal government continued to lose jobs.\n\nAverage hourly earnings for all employees on private nonfarm payrolls rose by 15 cents, or 0.4 percent, to $36.24 in May. Over the past 12 months, average hourly earnings have increased by 3.9 percent. In May, average hourly earnings of private-sector production and nonsupervisory employees rose by 12 cents, or 0.4 percent, to $31.18. (See tables B-3 and B-8.)\n\nThe change in total nonfarm payroll employment for March was revised down by 65,000, from +185,000 to +120,000, and the change for April was revised down by 30,000, from +177,000 to +147,000. With these revisions, employment in March and April combined is 95,000 lower than previously reported. (Monthly revisions result from additional reports received from businesses and government agencies since the last published estimates and from the recalculation of seasonal factors.)",
+      "narrative_sha256": "6ec9cb1e9b0f98e83b290233bc39657f06845b7867abdf632e34182fd787f600",
+      "text_sha256": "8bbf435446ce4489b32f7c9ec8cc814a168b2336a4d2b5df900b6e144e0575be",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "empsit-2025-07-03",
+      "kind": "empsit",
+      "published_at": "2025-07-03T12:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:26.160813+00:00",
+      "url": "https://www.bls.gov/news.release/archives/empsit_07032025.htm",
+      "title": "Employment Situation — release 2025-07-03",
+      "text": "Total nonfarm payroll employment increased by 147,000 in June, and the unemployment rate changed little at 4.1 percent, the U.S. Bureau of Labor Statistics reported today. Job gains occurred in state government and health care. Federal government continued to lose jobs.\n\nAverage hourly earnings for all employees on private nonfarm payrolls rose by 8 cents, or 0.2 percent, to $36.30 in June. Over the past 12 months, average hourly earnings have increased by 3.7 percent. In June, average hourly earnings of private-sector production and nonsupervisory employees rose by 9 cents, or 0.3 percent, to $31.24. (See tables B-3 and B-8.)\n\nThe change in total nonfarm payroll employment for April was revised up by 11,000, from +147,000 to +158,000, and the change for May was revised up by 5,000, from +139,000 to +144,000. With these revisions, employment in April and May combined is 16,000 higher than previously reported. (Monthly revisions result from additional reports received from businesses and government agencies since the last published estimates and from the recalculation of seasonal factors.)",
+      "narrative_sha256": "1325978fd4e8b401173d0ddce7a6fc12f70853eff68bd5f6032bdb2fbcb34702",
+      "text_sha256": "ff59896ed80cb26b4d2683d3ca5f824ea29046610246b22a7c794f14d707f60e",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    },
+    {
+      "id": "empsit-2025-08-01",
+      "kind": "empsit",
+      "published_at": "2025-08-01T12:30:00Z",
+      "publication_time_note": "08:30 Eastern embargo time printed in the dated release; converted with America/New_York.",
+      "retrieved_at": "2026-09-22T15:38:26.221351+00:00",
+      "url": "https://www.bls.gov/news.release/archives/empsit_08012025.htm",
+      "title": "Employment Situation — release 2025-08-01",
+      "text": "Total nonfarm payroll employment changed little in July (+73,000) and has shown little change since April, the U.S. Bureau of Labor Statistics (BLS) reported today. The unemployment rate, at 4.2 percent, also changed little in July. Employment continued to trend up in health care and in social assistance. Federal government continued to lose jobs.\n\nAverage hourly earnings for all employees on private nonfarm payrolls rose by 12 cents, or 0.3 percent, to $36.44 in July. Over the past 12 months, average hourly earnings have increased by 3.9 percent. In July, average hourly earnings of private-sector production and nonsupervisory employees rose by 8 cents, or 0.3 percent, to $31.34. (See tables B-3 and B-8.)\n\nRevisions for May and June were larger than normal. The change in total nonfarm payroll employment for May was revised down by 125,000, from +144,000 to +19,000, and the change for June was revised down by 133,000, from +147,000 to +14,000. With these revisions, employment in May and June combined is 258,000 lower than previously reported. (Monthly revisions result from additional reports received from businesses and government agencies since the last published estimates and from the recalculation of seasonal factors.)",
+      "narrative_sha256": "14d6d63c4b2f8d80b6fa98c3c250f5b729d006198b6305022ed42fd6db2635bf",
+      "text_sha256": "aac36c0ffb472664d1ced3fa4677cbf94c52ef2641eb7a6e35d0c8df3ac98d29",
+      "vintage_basis": "BLS dated release archive, retrieved retrospectively; no independent pre-issue capture attestation."
+    }
+  ]
+}

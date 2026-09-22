@@ -4,6 +4,7 @@
 - Separated scoring-only question baselines from inference. Dated baseline evidence remains available when explicitly supplied in the evidence packet.
 - Indexed benchmark rows and resampled cluster sufficient statistics. The 10,000-row synthetic scorer ran 11.5 times faster in the recorded measurement; all score fields agreed within 8.2e-16.
 - Published a zero-cost, 131-forecast historical calibration comparison with source/event exclusion and full numerical inputs. The residual candidate failed its promotion criteria; calibration defaults are unchanged. See [measurements and limits](docs/SUPERFORECASTING.md#measured-improvement-and-rejected-calibration-22-september).
+- Published a $0.010183, 54-forecast evidence-selection diagnostic. Selection lowered point Brier but failed uncertainty and naive-baseline checks; its packets matched a free topic/recency filter in all 18 cases. Preserved original-release outcomes, exact prompts, semantic failures and offline scoring. No production forecasting policy changed. See [results and limits](docs/SUPERFORECASTING.md#evidence-selection-pilot-lower-point-score-failed-success-gate).
 
 # 0.2.0 reference workflow (2026-09-22)
 

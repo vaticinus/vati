@@ -1,0 +1,113 @@
+{
+  "study": "evidence-selection-2026-09-22",
+  "checks": {
+    "forecast_prompts_checked": 54,
+    "outcome_blind_selection_prompts_checked": 18,
+    "all_original_excerpts_and_pre_issue_timestamps_match": true,
+    "no_scoring_labels_baselines_other_case_catalogs_or_selector_rationale_in_forecast_inputs": true,
+    "all_recency_control_prompts_identical_across_output_allowances": true,
+    "all_row_and_total_spending_caps_respected": true,
+    "calls": 72,
+    "mechanical_latest_two_employment_set_matches": 18,
+    "mechanical_comparison_post_hoc_not_independent_forecast_run": true
+  },
+  "red_team_basis": "Post-hoc AI inspection of all 54 reasons and exact prompts; not independent human review.",
+  "certainty_errors": {
+    "recency": 2,
+    "selected": 0,
+    "recency_long": 2
+  },
+  "selection_accounted_usd": 0.0040722300000000005,
+  "reference_month_substitution": {
+    "recency": [
+      {
+        "id": "bls-2025-03-earnings",
+        "p_yes": 1,
+        "reason": "The February 2025 Employment Situation release (published 2025-03-07) reported a 0.3% increase in average hourly earnings, meeting the threshold. This is the relevant data as it is the most recent employment situation release prior to the target month of March 2025.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      },
+      {
+        "id": "bls-2025-04-unemployment",
+        "p_yes": 1,
+        "reason": "The April 4th Employment Situation release reported the unemployment rate at 4.2 percent, meeting the threshold. This is the original release and thus satisfies the resolution rule.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      },
+      {
+        "id": "bls-2025-04-earnings",
+        "p_yes": 1,
+        "reason": "The April 4th Employment Situation release reported a 0.3% increase in average hourly earnings for March 2025, meeting the threshold. This is the original release.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      },
+      {
+        "id": "bls-2025-05-unemployment",
+        "p_yes": 1,
+        "reason": "The first BLS Employment Situation release for May 2025 (published 2025-05-02) reported the unemployment rate as 4.2 percent, meeting the threshold of at least 4.2 percent.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      },
+      {
+        "id": "bls-2025-06-unemployment",
+        "p_yes": 1,
+        "reason": "The June 6th Employment Situation release reported the unemployment rate at 4.2 percent, meeting the threshold.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      },
+      {
+        "id": "bls-2025-08-unemployment",
+        "p_yes": 1,
+        "reason": "The August 1st BLS release directly states the unemployment rate was 4.2 percent in July, meeting the threshold.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      }
+    ],
+    "selected": [
+      {
+        "id": "bls-2025-05-unemployment",
+        "p_yes": 1,
+        "reason": "The April 2025 Employment Situation release (published 2025-05-02) reported the unemployment rate as 4.2 percent, meeting the threshold.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      },
+      {
+        "id": "bls-2025-08-unemployment",
+        "p_yes": 1,
+        "reason": "The August 2025 release reports the unemployment rate at 4.2 percent, meeting the threshold. Uncertainty is low as this is a direct report from the source.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      }
+    ],
+    "recency_long": [
+      {
+        "id": "bls-2025-03-earnings",
+        "p_yes": 1,
+        "reason": "The February 2025 Employment Situation release (published 2025-03-07) reported a 0.3% increase in average hourly earnings, meeting the threshold. This is the relevant data as it is the most recent employment situation release prior to the target month of March 2025.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      },
+      {
+        "id": "bls-2025-04-unemployment",
+        "p_yes": 1,
+        "reason": "The April 4th Employment Situation release reported the unemployment rate at 4.2 percent, meeting the threshold. This is the original release and thus satisfies the resolution rule.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      },
+      {
+        "id": "bls-2025-04-earnings",
+        "p_yes": 1,
+        "reason": "The April 4th Employment Situation release reported a 0.3% increase in average hourly earnings for March 2025, meeting the threshold. This is the original release and directly addresses the question.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      },
+      {
+        "id": "bls-2025-05-unemployment",
+        "p_yes": 1,
+        "reason": "The first BLS Employment Situation release for May 2025 (published 2025-05-02) reported the unemployment rate was 4.2 percent, meeting the threshold.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      },
+      {
+        "id": "bls-2025-06-unemployment",
+        "p_yes": 1,
+        "reason": "The June 6th Employment Situation release reported the unemployment rate at 4.2 percent, meeting the threshold.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      },
+      {
+        "id": "bls-2025-08-unemployment",
+        "p_yes": 1,
+        "reason": "The August 1st BLS release directly states the unemployment rate was 4.2 percent in July, meeting the threshold.",
+        "diagnosis": "Treats an earlier reference month or release-month label as resolving the target reference month."
+      }
+    ]
+  }
+}

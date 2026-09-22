@@ -189,6 +189,37 @@ Gemma 3 is another candidate for this design. Google's [model card](https://ai.g
 
 Self-hosting can provide exact weight control and credit-funded bulk inference, but it is not inherently free or cheaper than an API. Record the checkpoint, tokenizer, quantization, serving version, billed GPU time, storage and achieved throughput. Verify current credit eligibility and require a spending ceiling and automatic shutdown before launch. A neutral endpoint name changes neither model knowledge nor cost.
 
+## Evidence selection pilot: lower point score, failed success gate
+
+The [18-contract Gemma 27B experiment](../benchmarks/evidence-selection-2026-09-22/protocol.json) compared evidence policies on six consecutive US employment releases, March–August 2025 reference months. All 54 forecasts issued. The same model, forecast prompt, sampling settings and two-document packet limit were used. Each case supplied a catalog of the last three employment and three CPI releases available before its issue time. Selection cost counted toward the same $0.004 per-contract, per-arm ceiling; total authorization was $0.25.
+
+| Policy | Binary-event Brier ↓ | Clipped log loss ↓ | Accounted cost, 18 contracts |
+|---|---:|---:|---:|
+| Latest two releases | 0.307917 | 2.062714 | $0.002063 |
+| Model selects two releases | 0.266944 | 0.708175 | $0.006055 |
+| Latest two, doubled forecast output allowance | 0.310278 | 2.067548 | $0.002065 |
+| Constant 50% reference | 0.250000 | — | No inference |
+
+Selection-minus-recency Brier was **−0.040972**, with an exploratory month-cluster interval of **[−0.106111, +0.031944]**. The doubled-output comparator gave **−0.043333**, interval **[−0.108472, +0.030000]**. Both intervals cross zero; all model arms lost to constant 50%. The registered success gate failed. No production forecasting policy changed.
+
+The useful diagnosis is narrower than “LLM selection works”:
+
+- The selector chose the latest two **employment** reports in all 18 cases. A free topic-and-recency filter would have produced identical packets on this catalog. This is a post-hoc packet-equivalence check, not another forecasting run. The experiment does not establish an advantage over that stronger mechanical comparator.
+- Post-hoc review found six clear reference-month substitutions in each recency arm and two in the selected arm. Models sometimes treated last month's observation as resolving this month's question, despite an explicit instruction against it. Four of the six recency substitutions happened to predict the eventual outcome correctly; their Brier scores conceal the semantic error.
+- Each recency arm made two wrong 100% predictions. Their unclipped log loss is infinite; the table uses the preregistered `1e-6` scoring clip, without changing issued probabilities. Selection made no wrong absolute-certainty predictions but still lost to the naive Brier baseline.
+- Selection improved unemployment and earnings point scores but worsened payroll forecasting. Realized cost was about 2.9 times recency. Doubling the forecast output allowance did not meaningfully improve results; that control is an allowance comparison, not equal consumed compute.
+
+Total accounted cost was **$0.010183** across 72 calls. This was a sparse, retrospective, short-horizon diagnostic in one economy—not a domain-balanced holdout or an external leaderboard result. Google's documented March 12, 2025 release predates the simulated issues; Parasail's exact served weights are not independently attested. Evidence uses dated BLS original-release archives retrieved later, without independently witnessed pre-issue captures. Neither limitation is repaired by an as-of prompt.
+
+[Manifest and excerpts](../benchmarks/evidence-selection-2026-09-22/manifest.json), [all forecasts and completion traces](../benchmarks/evidence-selection-2026-09-22/issued.json), [original-release outcomes](../benchmarks/evidence-selection-2026-09-22/outcomes.json), [scores](../benchmarks/evidence-selection-2026-09-22/scores.json), and [prompt/semantic audit](../benchmarks/evidence-selection-2026-09-22/audit.json) are preserved. From `forecast-stack/`, reproduce the scores without inference:
+
+```bash
+python benchmarks/evidence-selection-2026-09-22/score.py
+node --experimental-strip-types benchmarks/evidence-selection-2026-09-22/run.mts
+```
+
+The second command checks registration without spending. `--run` requires explicit credentials, the registered starting ledger and a new output path; an independent paid replication needs its own authorization and separately named registration. Do not reset the original ledger or tune on these now-exposed contracts. The next hypothesis is explicit reference-period handling and a mechanical relevance baseline, not more selector agents.
+
 ## External proof and the route to 9/10
 
 ### ForecastBench

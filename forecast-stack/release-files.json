@@ -246,6 +246,16 @@
     "benchmarks/performance-2026-09-22/harness_benchmark.mts",
     "benchmarks/performance-2026-09-22/harness-before.json",
     "benchmarks/performance-2026-09-22/harness-after.json",
+    "benchmarks/evidence-selection-2026-09-22/manifest.json",
+    "benchmarks/evidence-selection-2026-09-22/protocol.json",
+    "benchmarks/evidence-selection-2026-09-22/sources.json",
+    "benchmarks/evidence-selection-2026-09-22/run.mts",
+    "benchmarks/evidence-selection-2026-09-22/score.py",
+    "benchmarks/evidence-selection-2026-09-22/issued.json",
+    "benchmarks/evidence-selection-2026-09-22/outcomes.json",
+    "benchmarks/evidence-selection-2026-09-22/resolutions.json",
+    "benchmarks/evidence-selection-2026-09-22/scores.json",
+    "benchmarks/evidence-selection-2026-09-22/audit.json",
     "forecast-core/scripts/install-smoke.mjs"
   ],
   "space": [
