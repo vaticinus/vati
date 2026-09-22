@@ -34,7 +34,7 @@ npm --prefix forecast-core run example
 npm --prefix forecast-core run eval:list   # lists synthetic reasoning cases; no model calls
 ```
 
-Try the same engine in a browser:
+Try the [live probability workbench](https://huggingface.co/spaces/vaticinus/forecast-stack), or run it locally:
 
 ```bash
 node --experimental-strip-types space/server.mts
@@ -102,7 +102,7 @@ Contributors keep copyright, receive named release credit, and can propose compo
 
 ## Release status
 
-Source lives in the existing Vaticinus repository alongside the independent Apache-2.0 Beyond Brier package. Package-registry and Hugging Face publication are separate steps. The [release runbook](docs/RELEASE.md) defines the component export boundary, verification gates and first forward evaluation. [Changelog](CHANGELOG.md). Cite the version or commit you actually used via `CITATION.cff`.
+Source and downloadable Python/npm artifacts are [published on GitHub](https://github.com/vaticinus/vati/releases/tag/forecast-stack-v0.1.0). The [keyless workbench is live on Hugging Face](https://huggingface.co/spaces/vaticinus/forecast-stack). PyPI/npm registry publication remains separate. The independent Apache-2.0 Beyond Brier package lives alongside this component, with [its own documentation](../BEYOND_BRIER.md). [Release runbook](docs/RELEASE.md) · [Changelog](CHANGELOG.md). Cite the version or commit you actually used via `CITATION.cff`.
 
 ## License
 

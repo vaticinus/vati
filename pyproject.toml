@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "beyond-brier"
 version = "0.1.0"
 description = "Rank forecasters by the information they add over the market price, not by Brier."
-readme = "README.md"
+readme = "BEYOND_BRIER.md"
 requires-python = ">=3.9"
 license = { text = "Apache-2.0" }
 authors = [{ name = "Vaticinus T." }]
