@@ -10,6 +10,10 @@
 
 The [evaluation walkthrough](SUPERFORECASTING.md) and allowlisted synthetic benchmark artifacts ship with the source. Raw provider responses, paid-request ledgers, private operational forecast records and trained weights do not. Reproducing numerical analysis from released rows is different from independently reproducing stochastic provider generations.
 
+## Reference workflow 0.2.0
+
+The Node package now includes the compiled `vati` CLI and all ten exports. Its version is 0.2.0; the independently packaged Python API remains 0.1.0. Build with `npm --prefix forecast-core run test:install` and replay the government snapshots with `node forecast-core/examples/replay-packs.mjs`. The install acceptance uses a new directory and local tarball, with no registry or model calls. Version this release as `forecast-core-v0.2.0`; attach the npm tarball and its SHA-256 digest. Do not claim npm publication merely because the source and GitHub asset are public.
+
 ## Local gate
 
 From `vati/forecast-stack/` in the public source checkout:

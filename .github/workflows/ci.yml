@@ -51,7 +51,7 @@ jobs:
         working-directory: forecast-stack/forecast-core
       - run: npm test && npm run example && npm run eval:list && npm run build
         working-directory: forecast-stack/forecast-core
-      - run: npm pack --dry-run
+      - run: node examples/replay-packs.mjs && npm run test:install
         working-directory: forecast-stack/forecast-core
   space:
     runs-on: ubuntu-latest

@@ -1,6 +1,8 @@
 # Vaticinus forecast core
 
-MIT TypeScript probability and review machinery extracted from Vaticinus chat. Node 22.18+; zero runtime dependencies. This package is not the hosted app and does not contain a retrieval service, accounts or billing.
+MIT forecasting workflow and probability engine. Node 22.18+; zero runtime dependencies. Research with public sources, run a model with your own key and an explicit budget, save revisions, resolve outcomes and compare a model against its harness. Accounts and billing remain outside this package.
+
+**[Complete runnable workflow](WORKFLOW.md)**: installation, real data packs, evidence collection, budgeted execution, updates, scoring and frozen benchmarks. Start free with `npm ci && npm run build && node dist/cli.js demo`. Version 0.2.0 adds the installed `vati` command and reusable `/runtime`, `/evidence`, `/workflow`, `/benchmark` and `/data-packs` exports. The old provider callback below remains a compatibility path; use the new metered runtime for bounded execution.
 
 ```bash
 npm test

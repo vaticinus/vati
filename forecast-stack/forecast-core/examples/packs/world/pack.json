@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "config": {
+    "kind": "world",
+    "start": "2026-09-24T00:00:00Z",
+    "end": "2026-10-01T00:00:00Z",
+    "minimum_magnitude": 6
+  },
+  "question": {
+    "id": "usgs-m6-2026-09-24T00:00:00.000Z-2026-10-01T00:00:00.000Z",
+    "question": "Will USGS record at least one magnitude 6+ earthquake worldwide between 2026-09-24T00:00:00.000Z and 2026-10-01T00:00:00.000Z?",
+    "resolution_date": "2026-10-01",
+    "dated_metric": "USGS earthquake catalog, eventtype=earthquake, origin time >= 2026-09-24T00:00:00.000Z and < 2026-10-01T00:00:00.000Z, magnitude >= 6, worldwide. Capture a catalog snapshot between 7 and 8 days after the window ends. YES iff at least one matching event is present. If the snapshot is missing/incomplete, leave unresolved. Freeze that catalog vintage; subsequent revisions do not change the outcome.",
+    "event_type": "occurrence",
+    "conditions": [
+      "worldwide",
+      "specified origin-time window and catalog vintage"
+    ],
+    "baseline": {
+      "probability": 0.928955187881973,
+      "description": "Homogeneous Poisson baseline: 1 - exp(-34/90 × 7 days), from the preceding 90-day current catalog."
+    }
+  },
+  "metadata": {
+    "source": "US Geological Survey earthquake catalog",
+    "terms": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+    "time_semantics": "properties.time is event origin time; properties.updated is the latest catalog update, not first publication. Neither proves when a historical forecaster could have known the event.",
+    "limitations": [
+      "Natural world-event starter; this does not model geopolitical events.",
+      "Poisson independence is a deliberately simple baseline; earthquakes cluster.",
+      "Magnitudes and catalog coverage can change. No earthquake warning capability is claimed."
+    ],
+    "baseline_sample_size": 34
+  },
+  "snapshots": [
+    {
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-06-24T11%3A39%3A15.926Z&endtime=2026-09-22T11%3A39%3A15.926Z&minmagnitude=6&eventtype=earthquake&limit=20000&orderby=time-asc",
+      "captured_at": "2026-09-22T11:39:16.595Z",
+      "sha256": "f6899698a45fa61d2403f0eeef3ef2feed8759e79bc24fecc998965fb3974f5d",
+      "body_file": "snapshot-0.json"
+    }
+  ],
+  "evidence": {
+    "schema_version": 1,
+    "collected_at": "2026-09-22T11:39:16.597Z",
+    "sources": [
+      {
+        "id": "world",
+        "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-06-24T11%3A39%3A15.926Z&endtime=2026-09-22T11%3A39%3A15.926Z&minmagnitude=6&eventtype=earthquake&limit=20000&orderby=time-asc",
+        "title": "US Geological Survey earthquake catalog live snapshot",
+        "text": "{\n  \"source\": \"US Geological Survey earthquake catalog\",\n  \"time_semantics\": \"properties.time is event origin time; properties.updated is the latest catalog update, not first publication. Neither proves when a historical forecaster could have known the event.\",\n  \"limitations\": [\n    \"Natural world-event starter; this does not model geopolitical events.\",\n    \"Poisson independence is a deliberately simple baseline; earthquakes cluster.\",\n    \"Magnitudes and catalog coverage can change. No earthquake warning capability is claimed.\"\n  ],\n  \"summary\": {\n    \"history_start\": \"2026-06-24T11:39:15.926Z\",\n    \"history_end\": \"2026-09-22T11:39:15.926Z\",\n    \"events\": [\n      {\n        \"id\": \"us6000t7zc\",\n        \"occurred_at\": \"2026-06-24T22:04:31.806Z\",\n        \"updated_at\": \"2026-09-04T15:40:50.040Z\",\n        \"magnitude\": 7.2\n      },\n      {\n        \"id\": \"us6000t7zp\",\n        \"occurred_at\": \"2026-06-24T22:05:04.053Z\",\n        \"updated_at\": \"2026-09-21T18:32:06.295Z\",\n        \"magnitude\": 7.5\n      },\n      {\n        \"id\": \"us6000t7zq\",\n        \"occurred_at\": \"2026-06-24T22:30:12.962Z\",\n        \"updated_at\": \"2026-09-04T15:40:50.040Z\",\n        \"magnitude\": 6.9\n      },\n      {\n        \"id\": \"us6000t8ec\",\n        \"occurred_at\": \"2026-06-26T11:34:41.463Z\",\n        \"updated_at\": \"2026-09-15T23:40:39.040Z\",\n        \"magnitude\": 6.5\n      },\n      {\n        \"id\": \"us6000t8pa\",\n        \"occurred_at\": \"2026-06-27T13:34:52.204Z\",\n        \"updated_at\": \"2026-09-15T23:40:51.040Z\",\n        \"magnitude\": 6.1\n      },\n      {\n        \"id\": \"us6000t99j\",\n        \"occurred_at\": \"2026-06-30T19:45:39.422Z\",\n        \"updated_at\": \"2026-09-15T23:41:27.040Z\",\n        \"magnitude\": 6\n      },\n      {\n        \"id\": \"us6000t9ej\",\n        \"occurred_at\": \"2026-07-01T12:08:29.154Z\",\n        \"updated_at\": \"2026-09-15T23:41:36.040Z\",\n        \"magnitude\": 6\n      },\n      {\n        \"id\": \"us6000t9r5\",\n        \"occurred_at\": \"2026-07-03T02:31:27.674Z\",\n        \"updated_at\": \"2026-09-19T21:50:25.040Z\",\n        \"magnitude\": 6.2\n      },\n      {\n        \"id\": \"us6000t9sj\",\n        \"occurred_at\": \"2026-07-03T04:04:48.166Z\",\n        \"updated_at\": \"2026-09-19T21:50:25.040Z\",\n        \"magnitude\": 6.1\n      },\n      {\n        \"id\": \"us7000szpb\",\n        \"occurred_at\": \"2026-07-11T10:26:42.630Z\",\n        \"updated_at\": \"2026-07-25T11:14:19.914Z\",\n        \"magnitude\": 6.4\n      },\n      {\n        \"id\": \"us7000szzy\",\n        \"occurred_at\": \"2026-07-13T08:53:27.219Z\",\n        \"updated_at\": \"2026-08-04T12:20:09.316Z\",\n        \"magnitude\": 6.4\n      },\n      {\n        \"id\": \"us7000t01n\",\n        \"occurred_at\": \"2026-07-13T14:45:49.568Z\",\n        \"updated_at\": \"2026-08-17T21:32:18.199Z\",\n        \"magnitude\": 6.3\n      },\n      {\n        \"id\": \"us7000t0d0\",\n        \"occurred_at\": \"2026-07-14T15:49:39.376Z\",\n        \"updated_at\": \"2026-09-14T18:11:17.828Z\",\n        \"magnitude\": 6.2\n      },\n      {\n        \"id\": \"us7000t1bu\",\n        \"occurred_at\": \"2026-07-17T14:48:39.881Z\",\n        \"updated_at\": \"2026-08-27T16:35:46.354Z\",\n        \"magnitude\": 7.3\n      },\n      {\n        \"id\": \"us7000t1cc\",\n        \"occurred_at\": \"2026-07-17T15:20:06.584Z\",\n        \"updated_at\": \"2026-08-27T17:27:13.130Z\",\n        \"magnitude\": 6.4\n      },\n      {\n        \"id\": \"us7000t37a\",\n        \"occurred_at\": \"2026-07-24T21:37:51.634Z\",\n        \"updated_at\": \"2026-08-27T22:48:21.507Z\",\n        \"magnitude\": 6\n      },\n      {\n        \"id\": \"us6000tgb9\",\n        \"occurred_at\": \"2026-07-28T07:27:14.640Z\",\n        \"updated_at\": \"2026-09-20T19:10:08.775Z\",\n        \"magnitude\": 6.8\n      },\n      {\n        \"id\": \"us6000ti6x\",\n        \"occurred_at\": \"2026-08-05T04:14:06.079Z\",\n        \"updated_at\": \"2026-09-03T21:57:38.613Z\",\n        \"magnitude\": 6.3\n      },\n      {\n        \"id\": \"us6000ti8i\",\n        \"occurred_at\": \"2026-08-05T07:43:23.574Z\",\n        \"updated_at\": \"2026-09-10T14:03:05.075Z\",\n        \"magnitude\": 6.3\n      },\n      {\n        \"id\": \"us6000tjl2\",\n        \"occurred_at\": \"2026-08-10T12:34:28.009Z\",\n        \"updated_at\": \"2026-09-21T18:20:17.649Z\",\n        \"magnitude\": 7.4\n      },\n      {\n        \"id\": \"us6000tk74\",\n        \"occurred_at\": \"2026-08-12T11:47:12.188Z\",\n        \"updated_at\": \"2026-09-14T18:38:20.040Z\",\n        \"magnitude\": 6\n      },\n      {\n        \"id\": \"us6000tkt2\",\n        \"occurred_at\": \"2026-08-14T21:58:21.561Z\",\n        \"updated_at\": \"2026-09-21T19:30:06.252Z\",\n        \"magnitude\": 7.8\n      },\n      {\n        \"id\": \"us6000tkuc\",\n        \"occurred_at\": \"2026-08-14T22:28:37.743Z\",\n        \"updated_at\": \"2026-09-01T02:22:31.551Z\",\n        \"magnitude\": 6.1\n      },\n      {\n        \"id\": \"us6000tkyk\",\n        \"occurred_at\": \"2026-08-15T10:54:51.798Z\",\n        \"updated_at\": \"2026-08-22T12:01:46.810Z\",\n        \"magnitude\": 6.9\n      },\n      {\n        \"id\": \"us6000tl4w\",\n        \"occurred_at\": \"2026-08-16T03:20:19.914Z\",\n        \"updated_at\": \"2026-09-18T22:50:23.477Z\",\n        \"magnitude\": 6.1\n      },\n      {\n        \"id\": \"us6000tm81\",\n        \"occurred_at\": \"2026-08-20T18:00:18.619Z\",\n        \"updated_at\": \"2026-09-13T14:37:14.816Z\",\n        \"magnitude\": 6.7\n      },\n      {\n        \"id\": \"us6000tmrw\",\n        \"occurred_at\": \"2026-08-22T08:22:37.923Z\",\n        \"updated_at\": \"2026-09-15T12:32:25.146Z\",\n        \"magnitude\": 6.2\n      },\n      {\n        \"id\": \"us6000tmz6\",\n        \"occurred_at\": \"2026-08-23T13:44:53.389Z\",\n        \"updated_at\": \"2026-08-29T21:49:33.051Z\",\n        \"magnitude\": 6\n      },\n      {\n        \"id\": \"us6000tn41\",\n        \"occurred_at\": \"2026-08-24T14:10:17.347Z\",\n        \"updated_at\": \"2026-09-03T14:22:52.981Z\",\n        \"magnitude\": 6\n      },\n      {\n        \"id\": \"us7000tdrv\",\n        \"occurred_at\": \"2026-09-02T23:46:56.213Z\",\n        \"updated_at\": \"2026-09-18T04:34:00.228Z\",\n        \"magnitude\": 6.2\n      },\n      {\n        \"id\": \"us7000tdvt\",\n        \"occurred_at\": \"2026-09-03T11:17:24.056Z\",\n        \"updated_at\": \"2026-09-22T11:27:26.805Z\",\n        \"magnitude\": 6.3\n      },\n      {\n        \"id\": \"us7000tgrk\",\n        \"occurred_at\": \"2026-09-11T21:23:55.907Z\",\n        \"updated_at\": \"2026-09-12T21:29:59.017Z\",\n        \"magnitude\": 6.5\n      },\n      {\n        \"id\": \"us7000ti1p\",\n        \"occurred_at\": \"2026-09-17T14:19:52.210Z\",\n        \"updated_at\": \"2026-09-21T14:29:57.823Z\",\n        \"magnitude\": 6.5\n      },\n      {\n        \"id\": \"us7000tiqc\",\n        \"occurred_at\": \"2026-09-20T09:17:35.624Z\",\n        \"updated_at\": \"2026-09-21T09:25:25.530Z\",\n        \"magnitude\": 6.4\n      }\n    ],\n    \"baseline\": {\n      \"probability\": 0.928955187881973,\n      \"description\": \"Homogeneous Poisson baseline: 1 - exp(-34/90 × 7 days), from the preceding 90-day current catalog.\"\n    }\n  }\n}",
+        "fetched_at": "2026-09-22T11:39:16.595Z",
+        "published_at": null,
+        "publication_basis": "unknown",
+        "kind": "structured",
+        "content_sha256": "2fa64e0e86605cd4d361d36fde0dc7604b96255d0dc6469fe48d7c8cd7e63202",
+        "snapshot_sha256": "e11c938dfd7fd9c1cf78b93b1928a7f53cb86df441ed2eb7e10737af66c7bba3"
+      }
+    ],
+    "failures": [],
+    "sha256": "9e3a1fa7d1c107ad78204095531287b2d0eb575c8d5ac9cc548201d930405a16"
+  }
+}
