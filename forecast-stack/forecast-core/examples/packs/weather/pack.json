@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "config": {
+    "kind": "weather",
+    "station": "KJFK",
+    "target_date": "2026-09-24",
+    "threshold_c": 25
+  },
+  "question": {
+    "id": "nws-KJFK-2026-09-24-25",
+    "question": "Will reported temperature at KJFK reach 25 °C on 2026-09-24 UTC?",
+    "resolution_date": "2026-09-24",
+    "dated_metric": "Maximum valid temperature.value in wmoUnit:degC among NWS API observations at KJFK with timestamp in [2026-09-24T00:00:00Z, 2026-09-25T00:00:00.000Z). Capture at least 24 hours after the window ends. Require observations in at least 18 distinct UTC hours; otherwise leave unresolved. Settle on that saved snapshot, without later revisions. YES iff maximum >= 25 °C.",
+    "event_type": "quantity_threshold",
+    "conditions": [
+      "reported station observations, not grid forecasts",
+      "at least 18 distinct observed UTC hours"
+    ],
+    "numeric_clause": {
+      "threshold": 25,
+      "threshold_dir": ">=",
+      "ci_unit": "°C"
+    },
+    "baseline": {
+      "probability": 0.35714285714285715,
+      "description": "Jeffreys-smoothed exceedance frequency: (2 + 0.5) / (6 + 1) from eligible days in the previous 10 UTC days. A short-window comparator, not an NWS probability forecast."
+    }
+  },
+  "metadata": {
+    "source": "NOAA National Weather Service",
+    "terms": "https://www.weather.gov/documentation/services-web-api",
+    "time_semantics": "Observation timestamp is measurement time, not publication time. The API does not provide a first-publication timestamp for each row. captured_at records this retrieval only.",
+    "limitations": [
+      "Short recent climatology ignores seasonality and forecast dynamics.",
+      "Incomplete days are excluded explicitly. This is a reported-temperature event, not certified daily climatology.",
+      "NWS observations may arrive late or be revised. This live snapshot cannot prove historical availability."
+    ],
+    "baseline_sample_size": 6
+  },
+  "snapshots": [
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?start=2026-09-12T00%3A00%3A00.000Z&end=2026-09-13T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:55.596Z",
+      "sha256": "a59a1df06b9b1bd3629d880e75e40784a40d5c9c7be28a87a9bd4c48ad39169e",
+      "body_file": "snapshot-0.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?start=2026-09-13T00%3A00%3A00.000Z&end=2026-09-14T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:55.617Z",
+      "sha256": "a59a1df06b9b1bd3629d880e75e40784a40d5c9c7be28a87a9bd4c48ad39169e",
+      "body_file": "snapshot-1.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?start=2026-09-14T00%3A00%3A00.000Z&end=2026-09-15T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:55.639Z",
+      "sha256": "a59a1df06b9b1bd3629d880e75e40784a40d5c9c7be28a87a9bd4c48ad39169e",
+      "body_file": "snapshot-2.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?start=2026-09-15T00%3A00%3A00.000Z&end=2026-09-16T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:55.661Z",
+      "sha256": "848e0f2f2a5855b1faba67fff20a32c9594d6cb19d5b99b65af5f975fe80e00d",
+      "body_file": "snapshot-3.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xNVQxMToyNTowMCswMDowMCJ9&start=2026-09-15T00%3A00%3A00.000Z&end=2026-09-16T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:55.825Z",
+      "sha256": "a59a1df06b9b1bd3629d880e75e40784a40d5c9c7be28a87a9bd4c48ad39169e",
+      "body_file": "snapshot-4.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?start=2026-09-16T00%3A00%3A00.000Z&end=2026-09-17T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:55.932Z",
+      "sha256": "3af8358983129e632106de8f344c0c8170a4650861c5158ffee4475e4dd70078",
+      "body_file": "snapshot-5.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xNlQxNDowNTowMCswMDowMCJ9&start=2026-09-16T00%3A00%3A00.000Z&end=2026-09-17T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:56.284Z",
+      "sha256": "2e6ba626c1f677bd8e77260123b07f2b1103bfc3c65cce21455655127efbbccd",
+      "body_file": "snapshot-6.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xNlQwNjoyNTowMCswMDowMCJ9&start=2026-09-16T00%3A00%3A00.000Z&end=2026-09-17T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:56.610Z",
+      "sha256": "a1fa45096dee005c26d2c2f4f729f6dac681d8fb1d984deca80b96a2cade0080",
+      "body_file": "snapshot-7.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xNlQwMDowMDowMCswMDowMCJ9&start=2026-09-16T00%3A00%3A00.000Z&end=2026-09-17T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:56.777Z",
+      "sha256": "a59a1df06b9b1bd3629d880e75e40784a40d5c9c7be28a87a9bd4c48ad39169e",
+      "body_file": "snapshot-8.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?start=2026-09-17T00%3A00%3A00.000Z&end=2026-09-18T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:56.800Z",
+      "sha256": "5f66124f47d9eecd8a259c59d8f1edf3067da8bf3246005b33678ddae73091d7",
+      "body_file": "snapshot-9.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xN1QxNDowNTowMCswMDowMCJ9&start=2026-09-17T00%3A00%3A00.000Z&end=2026-09-18T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:57.154Z",
+      "sha256": "66ade058bba15cc09ad8d9c2508560cd0e0a5b3cf6b2e953b2ebe24ccac7f2fc",
+      "body_file": "snapshot-10.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xN1QwNjoyNTowMCswMDowMCJ9&start=2026-09-17T00%3A00%3A00.000Z&end=2026-09-18T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:57.508Z",
+      "sha256": "3be5eec0d4105231de39ae8d265087301552fedea615d4007227975ba598a5f2",
+      "body_file": "snapshot-11.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xN1QwMDowMDowMCswMDowMCJ9&start=2026-09-17T00%3A00%3A00.000Z&end=2026-09-18T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:57.666Z",
+      "sha256": "a59a1df06b9b1bd3629d880e75e40784a40d5c9c7be28a87a9bd4c48ad39169e",
+      "body_file": "snapshot-12.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?start=2026-09-18T00%3A00%3A00.000Z&end=2026-09-19T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:57.694Z",
+      "sha256": "3bc4f05a96693b2769aa96cbbe5d052418568e7e1610db5b05d47888b226ad69",
+      "body_file": "snapshot-13.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xOFQxMzo1MTowMCswMDowMCJ9&start=2026-09-18T00%3A00%3A00.000Z&end=2026-09-19T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:58.078Z",
+      "sha256": "0ea60fb3729156dd296adc126e73db627d6409580c6cc91a5679b329492187c2",
+      "body_file": "snapshot-14.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xOFQwNjoxMDowMCswMDowMCJ9&start=2026-09-18T00%3A00%3A00.000Z&end=2026-09-19T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:58.435Z",
+      "sha256": "81e22dc3a95a6aac422ef0e1b8550830b0900d70db9b6776e60d972f19c7d4bf",
+      "body_file": "snapshot-15.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xOFQwMDowMDowMCswMDowMCJ9&start=2026-09-18T00%3A00%3A00.000Z&end=2026-09-19T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:58.619Z",
+      "sha256": "a59a1df06b9b1bd3629d880e75e40784a40d5c9c7be28a87a9bd4c48ad39169e",
+      "body_file": "snapshot-16.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?start=2026-09-19T00%3A00%3A00.000Z&end=2026-09-20T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:58.661Z",
+      "sha256": "455cec16a55ae09ec44294d856b29caeab41fb01af6b9a23156b182e7fa8dea9",
+      "body_file": "snapshot-17.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xOVQxNTo1MDowMCswMDowMCJ9&start=2026-09-19T00%3A00%3A00.000Z&end=2026-09-20T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:58.910Z",
+      "sha256": "dbbd9941d6396e755609495b22b766e40ddb7c439189eff48e53a7b09003bf27",
+      "body_file": "snapshot-18.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xOVQwMDo1MDowMCswMDowMCJ9&start=2026-09-19T00%3A00%3A00.000Z&end=2026-09-20T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:59.077Z",
+      "sha256": "a59a1df06b9b1bd3629d880e75e40784a40d5c9c7be28a87a9bd4c48ad39169e",
+      "body_file": "snapshot-19.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?start=2026-09-20T00%3A00%3A00.000Z&end=2026-09-21T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:59.445Z",
+      "sha256": "c074f9a51901947a06e9b5d9306301f8acc87aad017c4d0c0699a623a07c3bee",
+      "body_file": "snapshot-20.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0yMFQxNjo0MDowMCswMDowMCJ9&start=2026-09-20T00%3A00%3A00.000Z&end=2026-09-21T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:45:59.820Z",
+      "sha256": "81d6a89e3e628289df3231450940b31b8e3340987f7bf822f7923813cd1defb0",
+      "body_file": "snapshot-21.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0yMFQwODo1NTowMCswMDowMCJ9&start=2026-09-20T00%3A00%3A00.000Z&end=2026-09-21T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:46:00.215Z",
+      "sha256": "e32f404a95eaf5e6ee8bf6f90b7920dcd6f07a02256c9d839bf5760ad83ab0de",
+      "body_file": "snapshot-22.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0yMFQwMToxNTowMCswMDowMCJ9&start=2026-09-20T00%3A00%3A00.000Z&end=2026-09-21T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:46:00.406Z",
+      "sha256": "724c2d8f7633f1feda071761fb82563326e694629eec7415233300eda2512f7c",
+      "body_file": "snapshot-23.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0yMFQwMDowMDowMCswMDowMCJ9&start=2026-09-20T00%3A00%3A00.000Z&end=2026-09-21T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:46:00.557Z",
+      "sha256": "a59a1df06b9b1bd3629d880e75e40784a40d5c9c7be28a87a9bd4c48ad39169e",
+      "body_file": "snapshot-24.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?start=2026-09-21T00%3A00%3A00.000Z&end=2026-09-22T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:46:00.998Z",
+      "sha256": "6d867f06562a4cd74bbb3beae3392fe8f2e23c2a66c986d6a3dbff3414535723",
+      "body_file": "snapshot-25.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0yMVQxNjoyMDowMCswMDowMCJ9&start=2026-09-21T00%3A00%3A00.000Z&end=2026-09-22T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:46:01.377Z",
+      "sha256": "88b731f498b7a9631523ca6ec6e186e77ae4eed37232d4be248c7cc610e8102d",
+      "body_file": "snapshot-26.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0yMVQwODo0MDowMCswMDowMCJ9&start=2026-09-21T00%3A00%3A00.000Z&end=2026-09-22T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:46:01.777Z",
+      "sha256": "517317451e87403a32d42ea6f28373f33a9374fbe1740cbddc4df7d28443713c",
+      "body_file": "snapshot-27.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0yMVQwMDo1NTowMCswMDowMCJ9&start=2026-09-21T00%3A00%3A00.000Z&end=2026-09-22T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:46:01.975Z",
+      "sha256": "36f49119f15fa1354ad788117048d1ca29980879c532c76adb0fc48d91adf568",
+      "body_file": "snapshot-28.json"
+    },
+    {
+      "url": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0yMVQwMDowMDowMCswMDowMCJ9&start=2026-09-21T00%3A00%3A00.000Z&end=2026-09-22T00%3A00%3A00.000Z&limit=100",
+      "captured_at": "2026-09-22T11:46:02.223Z",
+      "sha256": "a59a1df06b9b1bd3629d880e75e40784a40d5c9c7be28a87a9bd4c48ad39169e",
+      "body_file": "snapshot-29.json"
+    }
+  ],
+  "evidence": {
+    "schema_version": 1,
+    "collected_at": "2026-09-22T11:46:02.261Z",
+    "sources": [
+      {
+        "id": "weather",
+        "url": "https://api.weather.gov/stations/KJFK/observations?start=2026-09-12T00%3A00%3A00.000Z&end=2026-09-13T00%3A00%3A00.000Z&limit=100",
+        "title": "NOAA National Weather Service live snapshot",
+        "text": "{\n  \"source\": \"NOAA National Weather Service\",\n  \"time_semantics\": \"Observation timestamp is measurement time, not publication time. The API does not provide a first-publication timestamp for each row. captured_at records this retrieval only.\",\n  \"limitations\": [\n    \"Short recent climatology ignores seasonality and forecast dynamics.\",\n    \"Incomplete days are excluded explicitly. This is a reported-temperature event, not certified daily climatology.\",\n    \"NWS observations may arrive late or be revised. This live snapshot cannot prove historical availability.\"\n  ],\n  \"summary\": {\n    \"station\": \"KJFK\",\n    \"observation_window\": {\n      \"start\": \"2026-09-12T00:00:00.000Z\",\n      \"end\": \"2026-09-22T00:00:00.000Z\"\n    },\n    \"eligible_days\": [\n      {\n        \"date\": \"2026-09-16\",\n        \"max_c\": 24.4,\n        \"hours\": 24\n      },\n      {\n        \"date\": \"2026-09-17\",\n        \"max_c\": 26.7,\n        \"hours\": 24\n      },\n      {\n        \"date\": \"2026-09-18\",\n        \"max_c\": 28.3,\n        \"hours\": 24\n      },\n      {\n        \"date\": \"2026-09-19\",\n        \"max_c\": 23.3,\n        \"hours\": 24\n      },\n      {\n        \"date\": \"2026-09-20\",\n        \"max_c\": 22.2,\n        \"hours\": 24\n      },\n      {\n        \"date\": \"2026-09-21\",\n        \"max_c\": 22.2,\n        \"hours\": 24\n      }\n    ],\n    \"baseline\": {\n      \"probability\": 0.35714285714285715,\n      \"description\": \"Jeffreys-smoothed exceedance frequency: (2 + 0.5) / (6 + 1) from eligible days in the previous 10 UTC days. A short-window comparator, not an NWS probability forecast.\"\n    }\n  }\n}",
+        "fetched_at": "2026-09-22T11:46:02.223Z",
+        "published_at": null,
+        "publication_basis": "unknown",
+        "kind": "structured",
+        "content_sha256": "b61b9f7de9517ccf4ffd18fae412edc8cf1909d4528079d4d1aba1e2921777f3",
+        "snapshot_sha256": "dd965b5e20a9262379d6090ade25deed2eb2d81759a66a2a5ffe063f81ae4af2"
+      }
+    ],
+    "failures": [],
+    "sha256": "546c55e136c6fa6307ffbef0d0876e732c129e0292b069e3487a045c82db2658"
+  }
+}

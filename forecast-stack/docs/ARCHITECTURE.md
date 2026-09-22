@@ -2,7 +2,7 @@
 
 ## One public home, two independent packages
 
-`forecast-stack` is the contributor and source home. Python ships data adapters, baselines, scoring and records. `forecast-core` ships the TypeScript probability engine and event-contract/review harness. The two packages share principles and examples, not runtime state or an implied interchangeable API.
+`forecast-stack` is the contributor and source home. Python ships data adapters, baselines, scoring and records. `forecast-core` ships the TypeScript probability engine, event-contract/review harness and version 0.2 reference workflow. Its `vati` CLI composes source collection, metered streaming execution, immutable history, data packs and frozen paired evaluation; each layer is also importable. The two packages share principles and examples, not runtime state or an implied interchangeable API.
 
 ```text
 Public sources or user evidence

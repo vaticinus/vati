@@ -1,0 +1,3987 @@
+{
+    "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+            "@version": "1.1",
+            "wx": "https://api.weather.gov/ontology#",
+            "s": "https://schema.org/",
+            "geo": "http://www.opengis.net/ont/geosparql#",
+            "unit": "http://codes.wmo.int/common/unit/",
+            "@vocab": "https://api.weather.gov/ontology#",
+            "geometry": {
+                "@id": "s:GeoCoordinates",
+                "@type": "geo:wktLiteral"
+            },
+            "city": "s:addressLocality",
+            "state": "s:addressRegion",
+            "distance": {
+                "@id": "s:Distance",
+                "@type": "s:QuantitativeValue"
+            },
+            "bearing": {
+                "@type": "s:QuantitativeValue"
+            },
+            "value": {
+                "@id": "s:value"
+            },
+            "unitCode": {
+                "@id": "s:unitCode",
+                "@type": "@id"
+            },
+            "forecastOffice": {
+                "@type": "@id"
+            },
+            "forecastGridData": {
+                "@type": "@id"
+            },
+            "publicZone": {
+                "@type": "@id"
+            },
+            "county": {
+                "@type": "@id"
+            }
+        }
+    ],
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T15:45:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T15:45:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T15:45:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 19,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 10,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 110,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 7.416,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 31.5,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102302.8,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 55.910188768411,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1371.6
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T15:05:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T15:05:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T15:05:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 20,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 9,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102302.8,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 49.128249109205,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1371.6
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T14:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T14:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T14:51:00+00:00",
+                "rawMessage": "KJFK 191451Z 08010KT 10SM FEW045 BKN150 BKN250 19/09 A3021 RMK AO2 SLP230 T01890089 50010 $",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 18.9,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 8.9,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 80,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 18.36,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102300,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102300,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 52.251869957855,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1370
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 4570
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 7620
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T14:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T14:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T14:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Mostly Clear",
+                "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 18,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 8,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 80,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 18.504,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 31.5,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102302.8,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 52.013467849557,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1371.6
+                        },
+                        "amount": "FEW"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T14:45:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T14:45:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T14:45:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Mostly Clear",
+                "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 18,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 8,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 80,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 18.504,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 31.5,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102302.8,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 52.013467849557,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1371.6
+                        },
+                        "amount": "FEW"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T13:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T13:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T13:51:00+00:00",
+                "rawMessage": "KJFK 191351Z 08013KT 10SM FEW045 BKN150 BKN250 18/08 A3021 RMK AO2 SLP230 T01830078 $",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 18.3,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 7.8,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 80,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 24.12,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102300,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102300,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 50.353119617443,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1370
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 4570
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 7620
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T13:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T13:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T13:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Mostly Clear",
+                "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 18,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 7,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 80,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 24.084,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 31.5,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102302.8,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 48.582347990729,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1371.6
+                        },
+                        "amount": "FEW"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T13:45:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T13:45:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T13:45:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Mostly Clear",
+                "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 18,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 7,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 80,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 24.084,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 31.5,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102302.8,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 48.582347990729,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1371.6
+                        },
+                        "amount": "FEW"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T12:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T12:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T12:51:00+00:00",
+                "rawMessage": "KJFK 191251Z 05010KT 10SM SCT050 BKN180 BKN250 18/08 A3019 RMK AO2 SLP223 T01780083 $",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 17.8,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 8.3,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 50,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 18.36,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102240,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102230,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 53.755806654503,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1520
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 5490
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 7620
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T12:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T12:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T12:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 17,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 8,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 50,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 18.504,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 31.5,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102235.08,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 55.401523057365,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1524
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T12:45:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T12:45:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T12:45:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 17,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 8,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 50,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 18.504,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 31.5,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102268.94,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 55.401523057365,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1524
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T11:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T11:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T11:51:00+00:00",
+                "rawMessage": "KJFK 191151Z 06012KT 10SM SCT050 BKN140 BKN250 18/07 A3018 RMK AO2 SLP220 7//// T01780072 51017 $",
+                "textDescription": "",
+                "icon": null,
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 17.8,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 7.2,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 60,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 22.32,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102200,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102200,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 49.875731701621,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": []
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T11:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T11:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T11:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 17,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 7,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 60,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 22.212,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 31.5,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102201.21,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 51.746906785263,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1524
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T11:45:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T11:45:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T11:45:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 17,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 7,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 60,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 22.212,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 31.5,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102201.21,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 51.746906785263,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1524
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T10:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T10:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T10:51:00+00:00",
+                "rawMessage": "KJFK 191051Z 01013G17KT 10SM BKN050 BKN150 BKN250 18/08 A3017 RMK AO2 SLP215 T01780078 $",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 17.8,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 7.8,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 10,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 24.12,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 31.68,
+                    "qualityControl": "C"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102170,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102150,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 51.960296485397,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1520
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 4570
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 7620
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T10:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T10:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T10:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 17,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 7,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 10,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 24.084,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 31.5,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102167.34,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 51.746906785263,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1524
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T09:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T09:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T09:51:00+00:00",
+                "rawMessage": "KJFK 190951Z 05013KT 10SM FEW060 BKN170 BKN250 18/09 A3015 RMK AO2 SLP209 T01780089 $",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 17.8,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 8.9,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 50,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 24.12,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102100,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102090,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 55.982539923928,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1830
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 5180
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 7620
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T09:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T09:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T09:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Mostly Clear",
+                "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 17,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 8,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 50,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 24.084,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 33.336,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102099.62,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 55.401523057365,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1828.8
+                        },
+                        "amount": "FEW"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T08:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T08:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T08:51:00+00:00",
+                "rawMessage": "KJFK 190851Z 05009KT 10SM FEW065 BKN180 BKN250 18/12 A3013 RMK AO2 SLP204 T01830122 53005 $",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 18.3,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 12.2,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 50,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 16.56,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102030,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102040,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 67.588946723231,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1980
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 5490
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 7620
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T08:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T08:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T08:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Mostly Clear",
+                "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 18,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 12,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 50,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 16.668,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 33.336,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102031.89,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 67.97370121525,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1981.2
+                        },
+                        "amount": "FEW"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T07:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T07:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T07:51:00+00:00",
+                "rawMessage": "",
+                "textDescription": "",
+                "icon": null,
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 18.9,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 12.2,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 60,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 22.32,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102000,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102000,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 65.098376179697,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": []
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T07:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T07:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T07:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 18,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 12,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 60,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 22.212,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 33.336,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101998.03,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 67.97370121525,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1981.2
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T06:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T06:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T06:51:00+00:00",
+                "rawMessage": "KJFK 190651Z 03012KT 10SM BKN065 BKN200 BKN250 19/13 A3012 RMK AO2 SLP200 T01940128 $",
+                "textDescription": "",
+                "icon": null,
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 19.4,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 12.8,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 30,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 22.32,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102000,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102000,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 65.6345401749,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": []
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T06:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T06:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T06:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 19,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 12,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 30,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 22.212,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 38.88,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101998.03,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 63.847544203513,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1981.2
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T05:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T05:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T05:51:00+00:00",
+                "rawMessage": "KJFK 190551Z 03013G21KT 10SM BKN065 BKN250 20/12 A3012 RMK AO2 SLP198 T02000122 51005 $",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 20,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 12.2,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 30,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 24.12,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 38.88,
+                    "qualityControl": "C"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102000,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101980,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 60.795284486152,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1980
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 7620
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T05:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T05:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T05:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 20,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 12,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 30,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 24.084,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 38.88,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101998.03,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 60.000416407888,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1981.2
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T04:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T04:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T04:51:00+00:00",
+                "rawMessage": "",
+                "textDescription": "",
+                "icon": null,
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 21.1,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 11.7,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 20,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 22.32,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 102000,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101970,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 54.968147523953,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": []
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T04:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T04:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T04:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 21,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 11,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 20,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 22.212,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 46.296,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101998.03,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 52.802638324228,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1828.8
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T03:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T03:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T03:51:00+00:00",
+                "rawMessage": "KJFK 190351Z 02012KT 10SM BKN060 BKN250 22/12 A3011 RMK AO2 SLP195 T02170122 $",
+                "textDescription": "",
+                "icon": null,
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 21.7,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 12.2,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 20,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 22.32,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101970,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101950,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 54.758930085835,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 21.355372063352224,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": []
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T03:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T03:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T03:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Mostly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 21,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 12,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 20,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 22.212,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 46.296,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101964.16,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 56.411645702143,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1828.8
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T02:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T02:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T02:51:00+00:00",
+                "rawMessage": "",
+                "textDescription": "",
+                "icon": null,
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22.2,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 12.8,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 40,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 11.16,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101930,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101930,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 55.246107413012,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 21.918092804673332,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": []
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T02:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T02:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T02:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 12,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 40,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 11.124,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 46.296,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101930.3,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 53.062217933001,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 21.64106902380611,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1828.8
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T01:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T01:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T01:51:00+00:00",
+                "rawMessage": "",
+                "textDescription": "",
+                "icon": null,
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22.8,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 15.6,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 20,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 18.36,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101930,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101910,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 63.854514058556,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22.802867867084444,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": []
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T01:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T01:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T01:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 15,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 20,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 18.504,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 46.296,
+                    "qualityControl": "S"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101896.44,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 64.504431334078,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 21.939837929278887,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1981.2
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T00:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T00:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T00:51:00+00:00",
+                "rawMessage": "KJFK 190051Z 05007KT 10SM SCT065 SCT250 23/15 A3008 RMK AO2 SLP187 T02330150 $",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.3,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 15,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 50,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 12.96,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101860,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101870,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 59.611438312283,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.242076444820555,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1980
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 7620
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T00:50:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.78,
+                    40.65
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KJFK/observations/2026-09-19T00:50:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 7
+                },
+                "station": "https://api.weather.gov/stations/KJFK",
+                "stationId": "KJFK",
+                "stationName": "New York, Kennedy International Airport",
+                "timestamp": "2026-09-19T00:50:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 15,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 50,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 12.96,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 46.296,
+                    "qualityControl": "C"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101862.57,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 60.702422779033,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22.940563261452777,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 1981.2
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        }
+    ],
+    "pagination": {
+        "next": "https://api.weather.gov/stations/KJFK/observations?cursor=eyJzIjoiMjAyNi0wOS0xOVQwMDo1MDowMCswMDowMCJ9"
+    }
+}
