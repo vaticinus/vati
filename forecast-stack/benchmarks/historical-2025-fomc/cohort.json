@@ -1,0 +1,92 @@
+{
+  "study": "historical-2025-fomc",
+  "issued_date": "2025-01-15",
+  "selection": "All eight regularly scheduled 2025 FOMC decisions in the August 9, 2024 calendar. One correlated policy-year cluster. Retrospectively selected before these model calls; operator knows outcomes.",
+  "resolution_policy": "YES if the original policy statement released at the specified scheduled meeting announces a lower federal-funds target upper bound than immediately before that meeting. NO if unchanged or increased. This concerns the action AT that meeting, not a cumulative cut by that date. Unscheduled actions, subsequent meetings and later interpretations do not settle this question. An unavailable or cancelled original statement is unresolved, not NO.",
+  "evidence_policy": "Use only supplied factual evidence plus explicitly labeled judgmental probabilistic assumptions. No retrieval, tools, prior answers or known later outcomes. The event is future relative to the registered issue date.",
+  "sources": [
+    {
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm",
+      "published_date": "2024-12-18",
+      "retrieved_reader_text_sha256": "9f6491aaaa2bd5e21e0fc98367493fa832810e448dfff79a9a7b61e45983e95e"
+    },
+    {
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm",
+      "published_date": "2024-12-18",
+      "retrieved_reader_text_sha256": "f6e36c1f3d1aa88f4202e9352a3ed2da6b1600c67bd4c4e5b89d4b18fdcbab66",
+      "reader_output_truncated": true
+    },
+    {
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240809a.htm",
+      "published_date": "2024-08-09",
+      "retrieved_reader_text_sha256": "31d66f926b30b2b2532f52f70cd05fae5abd4fe861ce3ece96837acb8fbc4e1f",
+      "reader_output_truncated": false
+    }
+  ],
+  "cases": [
+    {
+      "id": "fomc-2025-01-29",
+      "question": "Will the FOMC lower the upper bound of its federal-funds target range at its scheduled decision on 2025-01-29, relative to the target immediately before that meeting?",
+      "resolution_date": "2025-01-29",
+      "scheduled_release_utc": "2025-01-29T19:00:00Z",
+      "release_cluster": "US-FOMC-2025",
+      "packet": "Evidence available before the forecast issue date 2025-01-15; this is a deliberately sparse supplied packet, not all information then available.\nFederal Reserve statement published 2024-12-18: economic activity was expanding at a solid pace; labor market conditions had generally eased since earlier in the year; unemployment had moved up but remained low; inflation had progressed toward 2% but remained somewhat elevated. Risks to employment and inflation goals were roughly in balance. The FOMC cut the target range by 0.25 percentage point to 4.25–4.50%. Future adjustments would depend on incoming data, the outlook and risks. One voter preferred no change. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm\nDecember 18, 2024 Summary of Economic Projections: median projected end-2025 federal-funds midpoint 3.9% (rounded), versus current midpoint 4.375%; projected 2025 real GDP growth 2.1%, Q4 unemployment 4.3%, Q4-to-Q4 PCE inflation 2.5%, core PCE inflation 2.5%. These are conditional participant projections, not observations or a promised meeting-by-meeting policy path. Source: https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm\nThe calendar announced on 2024-08-09 lists eight 2025 scheduled decisions: January 29, March 19, May 7, June 18, July 30, September 17, October 29 and December 10. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20240809a.htm\nNo 2025 decision outcomes or later observations are supplied. Estimate the probability for the specified meeting from this issue date; do not condition on unobserved earlier 2025 decisions. Label any judgmental assumptions."
+    },
+    {
+      "id": "fomc-2025-03-19",
+      "question": "Will the FOMC lower the upper bound of its federal-funds target range at its scheduled decision on 2025-03-19, relative to the target immediately before that meeting?",
+      "resolution_date": "2025-03-19",
+      "scheduled_release_utc": "2025-03-19T18:00:00Z",
+      "release_cluster": "US-FOMC-2025",
+      "packet": "Evidence available before the forecast issue date 2025-01-15; this is a deliberately sparse supplied packet, not all information then available.\nFederal Reserve statement published 2024-12-18: economic activity was expanding at a solid pace; labor market conditions had generally eased since earlier in the year; unemployment had moved up but remained low; inflation had progressed toward 2% but remained somewhat elevated. Risks to employment and inflation goals were roughly in balance. The FOMC cut the target range by 0.25 percentage point to 4.25–4.50%. Future adjustments would depend on incoming data, the outlook and risks. One voter preferred no change. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm\nDecember 18, 2024 Summary of Economic Projections: median projected end-2025 federal-funds midpoint 3.9% (rounded), versus current midpoint 4.375%; projected 2025 real GDP growth 2.1%, Q4 unemployment 4.3%, Q4-to-Q4 PCE inflation 2.5%, core PCE inflation 2.5%. These are conditional participant projections, not observations or a promised meeting-by-meeting policy path. Source: https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm\nThe calendar announced on 2024-08-09 lists eight 2025 scheduled decisions: January 29, March 19, May 7, June 18, July 30, September 17, October 29 and December 10. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20240809a.htm\nNo 2025 decision outcomes or later observations are supplied. Estimate the probability for the specified meeting from this issue date; do not condition on unobserved earlier 2025 decisions. Label any judgmental assumptions."
+    },
+    {
+      "id": "fomc-2025-05-07",
+      "question": "Will the FOMC lower the upper bound of its federal-funds target range at its scheduled decision on 2025-05-07, relative to the target immediately before that meeting?",
+      "resolution_date": "2025-05-07",
+      "scheduled_release_utc": "2025-05-07T18:00:00Z",
+      "release_cluster": "US-FOMC-2025",
+      "packet": "Evidence available before the forecast issue date 2025-01-15; this is a deliberately sparse supplied packet, not all information then available.\nFederal Reserve statement published 2024-12-18: economic activity was expanding at a solid pace; labor market conditions had generally eased since earlier in the year; unemployment had moved up but remained low; inflation had progressed toward 2% but remained somewhat elevated. Risks to employment and inflation goals were roughly in balance. The FOMC cut the target range by 0.25 percentage point to 4.25–4.50%. Future adjustments would depend on incoming data, the outlook and risks. One voter preferred no change. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm\nDecember 18, 2024 Summary of Economic Projections: median projected end-2025 federal-funds midpoint 3.9% (rounded), versus current midpoint 4.375%; projected 2025 real GDP growth 2.1%, Q4 unemployment 4.3%, Q4-to-Q4 PCE inflation 2.5%, core PCE inflation 2.5%. These are conditional participant projections, not observations or a promised meeting-by-meeting policy path. Source: https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm\nThe calendar announced on 2024-08-09 lists eight 2025 scheduled decisions: January 29, March 19, May 7, June 18, July 30, September 17, October 29 and December 10. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20240809a.htm\nNo 2025 decision outcomes or later observations are supplied. Estimate the probability for the specified meeting from this issue date; do not condition on unobserved earlier 2025 decisions. Label any judgmental assumptions."
+    },
+    {
+      "id": "fomc-2025-06-18",
+      "question": "Will the FOMC lower the upper bound of its federal-funds target range at its scheduled decision on 2025-06-18, relative to the target immediately before that meeting?",
+      "resolution_date": "2025-06-18",
+      "scheduled_release_utc": "2025-06-18T18:00:00Z",
+      "release_cluster": "US-FOMC-2025",
+      "packet": "Evidence available before the forecast issue date 2025-01-15; this is a deliberately sparse supplied packet, not all information then available.\nFederal Reserve statement published 2024-12-18: economic activity was expanding at a solid pace; labor market conditions had generally eased since earlier in the year; unemployment had moved up but remained low; inflation had progressed toward 2% but remained somewhat elevated. Risks to employment and inflation goals were roughly in balance. The FOMC cut the target range by 0.25 percentage point to 4.25–4.50%. Future adjustments would depend on incoming data, the outlook and risks. One voter preferred no change. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm\nDecember 18, 2024 Summary of Economic Projections: median projected end-2025 federal-funds midpoint 3.9% (rounded), versus current midpoint 4.375%; projected 2025 real GDP growth 2.1%, Q4 unemployment 4.3%, Q4-to-Q4 PCE inflation 2.5%, core PCE inflation 2.5%. These are conditional participant projections, not observations or a promised meeting-by-meeting policy path. Source: https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm\nThe calendar announced on 2024-08-09 lists eight 2025 scheduled decisions: January 29, March 19, May 7, June 18, July 30, September 17, October 29 and December 10. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20240809a.htm\nNo 2025 decision outcomes or later observations are supplied. Estimate the probability for the specified meeting from this issue date; do not condition on unobserved earlier 2025 decisions. Label any judgmental assumptions."
+    },
+    {
+      "id": "fomc-2025-07-30",
+      "question": "Will the FOMC lower the upper bound of its federal-funds target range at its scheduled decision on 2025-07-30, relative to the target immediately before that meeting?",
+      "resolution_date": "2025-07-30",
+      "scheduled_release_utc": "2025-07-30T18:00:00Z",
+      "release_cluster": "US-FOMC-2025",
+      "packet": "Evidence available before the forecast issue date 2025-01-15; this is a deliberately sparse supplied packet, not all information then available.\nFederal Reserve statement published 2024-12-18: economic activity was expanding at a solid pace; labor market conditions had generally eased since earlier in the year; unemployment had moved up but remained low; inflation had progressed toward 2% but remained somewhat elevated. Risks to employment and inflation goals were roughly in balance. The FOMC cut the target range by 0.25 percentage point to 4.25–4.50%. Future adjustments would depend on incoming data, the outlook and risks. One voter preferred no change. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm\nDecember 18, 2024 Summary of Economic Projections: median projected end-2025 federal-funds midpoint 3.9% (rounded), versus current midpoint 4.375%; projected 2025 real GDP growth 2.1%, Q4 unemployment 4.3%, Q4-to-Q4 PCE inflation 2.5%, core PCE inflation 2.5%. These are conditional participant projections, not observations or a promised meeting-by-meeting policy path. Source: https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm\nThe calendar announced on 2024-08-09 lists eight 2025 scheduled decisions: January 29, March 19, May 7, June 18, July 30, September 17, October 29 and December 10. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20240809a.htm\nNo 2025 decision outcomes or later observations are supplied. Estimate the probability for the specified meeting from this issue date; do not condition on unobserved earlier 2025 decisions. Label any judgmental assumptions."
+    },
+    {
+      "id": "fomc-2025-09-17",
+      "question": "Will the FOMC lower the upper bound of its federal-funds target range at its scheduled decision on 2025-09-17, relative to the target immediately before that meeting?",
+      "resolution_date": "2025-09-17",
+      "scheduled_release_utc": "2025-09-17T18:00:00Z",
+      "release_cluster": "US-FOMC-2025",
+      "packet": "Evidence available before the forecast issue date 2025-01-15; this is a deliberately sparse supplied packet, not all information then available.\nFederal Reserve statement published 2024-12-18: economic activity was expanding at a solid pace; labor market conditions had generally eased since earlier in the year; unemployment had moved up but remained low; inflation had progressed toward 2% but remained somewhat elevated. Risks to employment and inflation goals were roughly in balance. The FOMC cut the target range by 0.25 percentage point to 4.25–4.50%. Future adjustments would depend on incoming data, the outlook and risks. One voter preferred no change. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm\nDecember 18, 2024 Summary of Economic Projections: median projected end-2025 federal-funds midpoint 3.9% (rounded), versus current midpoint 4.375%; projected 2025 real GDP growth 2.1%, Q4 unemployment 4.3%, Q4-to-Q4 PCE inflation 2.5%, core PCE inflation 2.5%. These are conditional participant projections, not observations or a promised meeting-by-meeting policy path. Source: https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm\nThe calendar announced on 2024-08-09 lists eight 2025 scheduled decisions: January 29, March 19, May 7, June 18, July 30, September 17, October 29 and December 10. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20240809a.htm\nNo 2025 decision outcomes or later observations are supplied. Estimate the probability for the specified meeting from this issue date; do not condition on unobserved earlier 2025 decisions. Label any judgmental assumptions."
+    },
+    {
+      "id": "fomc-2025-10-29",
+      "question": "Will the FOMC lower the upper bound of its federal-funds target range at its scheduled decision on 2025-10-29, relative to the target immediately before that meeting?",
+      "resolution_date": "2025-10-29",
+      "scheduled_release_utc": "2025-10-29T18:00:00Z",
+      "release_cluster": "US-FOMC-2025",
+      "packet": "Evidence available before the forecast issue date 2025-01-15; this is a deliberately sparse supplied packet, not all information then available.\nFederal Reserve statement published 2024-12-18: economic activity was expanding at a solid pace; labor market conditions had generally eased since earlier in the year; unemployment had moved up but remained low; inflation had progressed toward 2% but remained somewhat elevated. Risks to employment and inflation goals were roughly in balance. The FOMC cut the target range by 0.25 percentage point to 4.25–4.50%. Future adjustments would depend on incoming data, the outlook and risks. One voter preferred no change. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm\nDecember 18, 2024 Summary of Economic Projections: median projected end-2025 federal-funds midpoint 3.9% (rounded), versus current midpoint 4.375%; projected 2025 real GDP growth 2.1%, Q4 unemployment 4.3%, Q4-to-Q4 PCE inflation 2.5%, core PCE inflation 2.5%. These are conditional participant projections, not observations or a promised meeting-by-meeting policy path. Source: https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm\nThe calendar announced on 2024-08-09 lists eight 2025 scheduled decisions: January 29, March 19, May 7, June 18, July 30, September 17, October 29 and December 10. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20240809a.htm\nNo 2025 decision outcomes or later observations are supplied. Estimate the probability for the specified meeting from this issue date; do not condition on unobserved earlier 2025 decisions. Label any judgmental assumptions."
+    },
+    {
+      "id": "fomc-2025-12-10",
+      "question": "Will the FOMC lower the upper bound of its federal-funds target range at its scheduled decision on 2025-12-10, relative to the target immediately before that meeting?",
+      "resolution_date": "2025-12-10",
+      "scheduled_release_utc": "2025-12-10T19:00:00Z",
+      "release_cluster": "US-FOMC-2025",
+      "packet": "Evidence available before the forecast issue date 2025-01-15; this is a deliberately sparse supplied packet, not all information then available.\nFederal Reserve statement published 2024-12-18: economic activity was expanding at a solid pace; labor market conditions had generally eased since earlier in the year; unemployment had moved up but remained low; inflation had progressed toward 2% but remained somewhat elevated. Risks to employment and inflation goals were roughly in balance. The FOMC cut the target range by 0.25 percentage point to 4.25–4.50%. Future adjustments would depend on incoming data, the outlook and risks. One voter preferred no change. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm\nDecember 18, 2024 Summary of Economic Projections: median projected end-2025 federal-funds midpoint 3.9% (rounded), versus current midpoint 4.375%; projected 2025 real GDP growth 2.1%, Q4 unemployment 4.3%, Q4-to-Q4 PCE inflation 2.5%, core PCE inflation 2.5%. These are conditional participant projections, not observations or a promised meeting-by-meeting policy path. Source: https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm\nThe calendar announced on 2024-08-09 lists eight 2025 scheduled decisions: January 29, March 19, May 7, June 18, July 30, September 17, October 29 and December 10. Source: https://www.federalreserve.gov/newsevents/pressreleases/monetary20240809a.htm\nNo 2025 decision outcomes or later observations are supplied. Estimate the probability for the specified meeting from this issue date; do not condition on unobserved earlier 2025 decisions. Label any judgmental assumptions."
+    }
+  ]
+}

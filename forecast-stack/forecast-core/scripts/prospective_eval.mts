@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Prospective issue-only pilot. Outcomes are never inferred or graded here.
+// Issue-only evaluator: prospective or explicitly registered historical replay.
 // Post-run safety fix: the registered historical version is commit 581be0a.
 // Its protocol remains immutable; changed source requires a new registration.
 import fs from 'node:fs';
@@ -11,20 +11,28 @@ import {prepareForecastContract,forecastContractBlock,finalizeForecastAnswer,typ
 import {readForecastSnapshot} from '../src/lib/forecastSnapshot.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
-const study=path.join(root,'benchmarks/prospective-2026-09-22');
-const protocol=JSON.parse(fs.readFileSync(path.join(study,'protocol.json'),'utf8'));
-const cohort=JSON.parse(fs.readFileSync(path.join(study,'cohort.json'),'utf8'));
 const args=process.argv.slice(2);
 const arg=(name:string)=>{const i=args.indexOf(name);if(i<0||!args[i+1])throw new Error(`Missing ${name}`);return args[i+1];};
+const study=path.resolve(root,args.includes('--study')?arg('--study'):'benchmarks/prospective-2026-09-22');
+const protocol=JSON.parse(fs.readFileSync(path.join(study,'protocol.json'),'utf8'));
+const cohort=JSON.parse(fs.readFileSync(path.join(study,'cohort.json'),'utf8'));
 const sha=(p:string)=>createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 for(const [name,expected] of Object.entries(protocol.source_sha256)) if(sha(path.join(root,name))!==expected)throw new Error(`Frozen source changed: ${name}`);
-for(const model of protocol.models) if(typeof protocol.reasoning_mandatory?.[model]!=='boolean')throw new Error(`Register reasoning_mandatory from provider capabilities for ${model} before inference`);
+for(const model of protocol.models){
+ if(typeof protocol.reasoning_mandatory?.[model]!=='boolean'||typeof protocol.reasoning_supported?.[model]!=='boolean')throw new Error(`Register reasoning capabilities for ${model} before inference`);
+ if(protocol.reasoning_mandatory[model]&&!protocol.reasoning_supported[model])throw new Error(`Contradictory reasoning capabilities for ${model}`);
+}
 if(!args.includes('--run')) {console.log(JSON.stringify({models:protocol.models,cases:cohort.cases.length,arms:protocol.arms,limits:protocol.limits,paid:false},null,2));process.exit(0);}
 const ledgerPath=path.resolve(arg('--ledger')),out=path.resolve(arg('--out'));
 if(fs.existsSync(out))throw new Error('Refusing to overwrite issued forecasts');
-const now=new Date();
-if(now.toISOString().slice(0,10)!==cohort.issued_date)throw new Error('Issue date changed; preregister a new packet before inference');
-if(cohort.cases.some((c:any)=>Date.parse(c.scheduled_release_utc)<=now.getTime()))throw new Error('An outcome release is no longer prospective');
+const wallNow=new Date(),historical=protocol.mode==='historical';
+const now=historical?new Date(cohort.issued_date+'T00:00:00Z'):wallNow;
+if(!historical&&now.toISOString().slice(0,10)!==cohort.issued_date)throw new Error('Issue date changed; preregister a new packet before inference');
+if(cohort.cases.some((c:any)=>!Number.isFinite(Date.parse(c.scheduled_release_utc))||Date.parse(c.scheduled_release_utc)<=now.getTime()))throw new Error('An outcome release is not after the registered issue date');
+if(historical){
+ if(protocol.models.some((m:string)=>!Number.isFinite(Date.parse(protocol.checkpoint_release_dates?.[m]))||Date.parse(protocol.checkpoint_release_dates[m])>=now.getTime()))throw new Error('Historical replay requires documented checkpoint releases before issuance');
+ if(cohort.cases.some((c:any)=>Date.parse(c.scheduled_release_utc)>=wallNow.getTime()))throw new Error('Historical replay requires already elapsed events');
+}
 loadRepoEnv();
 const key=process.env.OPENROUTER_API_KEY;if(!key)throw new Error('OpenRouter key missing');
 const lockPath=ledgerPath+'.lock';const lock=fs.openSync(lockPath,'wx');
@@ -35,7 +43,7 @@ try {
  if(sha(ledgerPath)!==protocol.starting_ledger_sha256)throw new Error('Shared ledger changed since registration; do not reset or silently rebase it');
 } catch(e){fs.closeSync(lock);fs.unlinkSync(lockPath);throw e;}
 const checkpoint=()=>{fs.writeFileSync(ledgerPath+'.tmp',JSON.stringify(ledger,null,2),{mode:0o600});fs.renameSync(ledgerPath+'.tmp',ledgerPath);};
-const report:any={protocol_sha256:sha(path.join(study,'protocol.json')),started_at:now.toISOString(),outcomes:'unresolved',rows:[]};
+const report:any={protocol_sha256:sha(path.join(study,'protocol.json')),started_at:wallNow.toISOString(),issue_date:cohort.issued_date,mode:historical?'historical':'prospective',outcomes:historical?'withheld; score separately':'unresolved',rows:[]};
 const save=()=>{fs.writeFileSync(out+'.tmp',JSON.stringify(report,null,2),{mode:0o600});fs.renameSync(out+'.tmp',out);};
 const originalFetch=globalThis.fetch;
 globalThis.fetch=(async()=>{throw new Error('Unmetered network request blocked');}) as typeof fetch;
@@ -61,8 +69,8 @@ try {
      if(bytes>protocol.limits.message_bytes_per_call)throw new Error('Registered input bound exceeded');
      const reserve=(bytes+2048)*rate.prompt/1e6+max*rate.completion/1e6;
      if(ledger.spent_upper_usd+reserve>protocol.cumulative_ceiling_usd){terminal=true;throw new Error('Shared dollar ceiling reached before request');}
-     const body={model,messages,max_tokens:max,temperature:0,reasoning:{enabled:protocol.reasoning_mandatory[model]||stage==='draft'||stage==='direct'},provider:{allow_fallbacks:false,require_parameters:true,max_price:rate},...(['direct','forecast_contract','forecast_review','forecast_correct'].includes(stage)?{response_format:{type:'json_object'}}:{})};
-     const entry:any={study:'prospective-2026-09-22',case_id:c.id,arm,stage,at:new Date().toISOString(),model,request:body,reserved_usd:reserve,cost_upper_usd:reserve};
+     const body={model,messages,max_tokens:max,temperature:0,...(protocol.reasoning_supported[model]?{reasoning:{enabled:protocol.reasoning_mandatory[model]||stage==='draft'||stage==='direct'}}:{}),provider:{only:protocol.providers?.[model],allow_fallbacks:false,require_parameters:true,max_price:rate},...(['direct','forecast_contract','forecast_review','forecast_correct'].includes(stage)?{response_format:{type:'json_object'}}:{})};
+     const entry:any={study:path.basename(study),case_id:c.id,arm,stage,at:new Date().toISOString(),model,request:body,reserved_usd:reserve,cost_upper_usd:reserve};
      ledger.spent_upper_usd+=reserve;ledger.calls.push(entry);checkpoint();
      const begin=Date.now();
      let bodyRead=false;

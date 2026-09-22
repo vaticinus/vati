@@ -1,0 +1,109 @@
+{
+  "study": "historical-2025-fomc",
+  "mode": "historical",
+  "status": "Freeze before model inference; retrospective outcomes already known to operator, not a prospective preregistration",
+  "models": [
+    "meta-llama/llama-3.1-8b-instruct",
+    "qwen/qwen-2.5-7b-instruct"
+  ],
+  "arms": [
+    "direct",
+    "harness"
+  ],
+  "reasoning_supported": {
+    "meta-llama/llama-3.1-8b-instruct": false,
+    "qwen/qwen-2.5-7b-instruct": false
+  },
+  "reasoning_mandatory": {
+    "meta-llama/llama-3.1-8b-instruct": false,
+    "qwen/qwen-2.5-7b-instruct": false
+  },
+  "providers": {
+    "meta-llama/llama-3.1-8b-instruct": [
+      "groq"
+    ],
+    "qwen/qwen-2.5-7b-instruct": [
+      "phala"
+    ]
+  },
+  "rates_per_million": {
+    "meta-llama/llama-3.1-8b-instruct": {
+      "prompt": 0.05,
+      "completion": 0.08
+    },
+    "qwen/qwen-2.5-7b-instruct": {
+      "prompt": 0.1,
+      "completion": 0.2
+    }
+  },
+  "checkpoint_release_dates": {
+    "meta-llama/llama-3.1-8b-instruct": "2024-09-25",
+    "qwen/qwen-2.5-7b-instruct": "2025-01-12"
+  },
+  "provenance": {
+    "meta-llama/llama-3.1-8b-instruct": {
+      "public_release": "2024-07-23",
+      "documented_pretraining_cutoff": "2023-12",
+      "reference_repo": "meta-llama/Llama-3.1-8B-Instruct",
+      "reference_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "reference_repo_last_modified": "2024-09-25T17:00:57Z",
+      "sources": [
+        "https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3_1/MODEL_CARD.md",
+        "https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct"
+      ]
+    },
+    "qwen/qwen-2.5-7b-instruct": {
+      "public_release": "2024-09-19",
+      "documented_pretraining_cutoff": null,
+      "reference_repo": "Qwen/Qwen2.5-7B-Instruct",
+      "reference_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "reference_repo_last_modified": "2025-01-12T02:10:10.000Z",
+      "sources": [
+        "https://qwenlm.github.io/blog/qwen2.5/",
+        "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/raw/main/README.md",
+        "https://huggingface.co/api/models/Qwen/Qwen2.5-7B-Instruct"
+      ]
+    }
+  },
+  "provenance_limit": "checkpoint_release_dates conservatively use reference-repository last-modified dates, not invented training cutoffs. All reference revisions predate 2025-01-15 issuance and every scored event. OpenRouter routes do not independently attest served weight hashes or hidden provider transformations; historical interpretation is conditional on serving the named original checkpoints. No recall probe can certify absence of leakage.",
+  "starting_ledger_sha256": "6dda1f8f28fca9cf96b87cd8cf84f69bf99099a335eef27a272145ee6606cb2f",
+  "starting_upper_usd": 1.3230358499999983,
+  "additional_ceiling_usd": 0.2,
+  "cumulative_ceiling_usd": 1.5230358499999983,
+  "limits": {
+    "direct_output_tokens": 8192,
+    "harness_output_tokens": 8192,
+    "stage_output_tokens": {
+      "forecast_contract": 1024,
+      "draft": 2048,
+      "forecast_review": 1024,
+      "forecast_correct": 2048
+    },
+    "message_bytes_per_call": 32768,
+    "max_paid_attempts": 112,
+    "request_timeout_seconds": 90
+  },
+  "budget_policy": "One shared locked ledger; reserve UTF-8 message bytes plus 2048 overhead at capped input price and maximum output before each call. Retain unknown charges. Stop globally on incomplete response bodies, transport failure, 401/402/403, or budget boundary. Other failures remain missing rows; no HTTP retries, provider fallbacks, tools or search. No destructive ledger reset.",
+  "ordering": "Rotate model order by event index; alternate direct/harness order by event plus model position. Fresh independent context for every row; no earlier meeting outcomes or model responses shared between rows.",
+  "comparison": "Same sparse issue-date evidence and aggregate maximum output allowance; actual compute, latency and spend are not matched. Production event-preserving harness uses the registered issue date; scorer and outcome file are never loaded by inference.",
+  "baseline_probabilities": [
+    0.5,
+    0.25
+  ],
+  "baseline_rationale": "0.5 is an uninformative reference. 0.25 is a naive uniform allocation of two quarter-point cuts across eight meetings suggested approximately by the pre-issue SEP median; it is not a market probability or a calibrated policy model.",
+  "scoring": "Brier and log loss on issued rows with issued coverage, all-case Brier bounds allowing missing loss [0,1], and paired complete-case harness-minus-direct Brier. No imputation or reruns. Classify YES at p>0.5, ties NO, as secondary accuracy only. Hypothetical action utility y-t when p>t, otherwise zero, t=0.25/0.5/0.75; missing rows excluded with coverage explicit. Infinite log losses preserved as the string Infinity in JSON.",
+  "uncertainty": "Eight correlated scheduled decisions from one policy year; no independent-cluster confidence interval, significance claim, calibration guarantee, model leaderboard placement or 9/10 general-decision rating. Known-outcome retrospective study and operator-selected year remain limitations. Do not tune on these rows then call them holdout.",
+  "source_sha256": {
+    "forecast-core/scripts/prospective_eval.mts": "beabd5b6d76ced82e68d191d64288132e6c0d53eea09eb23916bc0ffef5483ab",
+    "forecast-core/src/lib/model.ts": "68849de6066807577346b49a9bd654fb4d8300c18e8c23b329efd8bbdb32951e",
+    "forecast-core/src/lib/coherence.ts": "fa0a12b344c044e1815b9db7b9a7189698c6cad976f56c3041f9abe8ea276e2a",
+    "forecast-core/src/lib/forecastEngine.ts": "d8689c935408240c5d6658b9c8b12a4bac6e34a4ebf3b0191803138b308cbb3d",
+    "forecast-core/src/lib/forecastSnapshot.ts": "44d1d2b5c464659af63ae1c87c59376130fce125d86035fc3c17815fc190d1e1",
+    "forecast-core/src/lib/byokContext.ts": "15af366bf82cdccdc18ab5b5b9c28c0e390b6e57f070155e16c537d53b7687d8",
+    "forecast-core/src/lib/mc.ts": "07e4815be1ca1bdcdfcab5786673e34a73d6bbfaf6fcf7b9a2247ffaf71f00e6",
+    "benchmarks/historical-2025-fomc/cohort.json": "0955e983b52e3e1ea9303b3c97a6f5bd2b3b9d6c8bd07abf25d7205ce92e8b70",
+    "benchmarks/historical-2025-fomc/resolutions.json": "93b91e74398fff586e040d236e9cb957ea4d0ffd7497f4195857f54be043786a",
+    "benchmarks/historical-2025-fomc/score.py": "afcdfeb0262fc6da544be8f90408f70f6ef632e297ed8b0cfa6586e33a5dc5cc"
+  },
+  "ai_disclosure": "AI-assisted protocol, source extraction, code and analysis; no independent human endorsement."
+}

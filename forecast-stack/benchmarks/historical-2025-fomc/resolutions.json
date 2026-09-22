@@ -1,0 +1,78 @@
+{
+  "status": "Known historical outcomes, withheld from inference",
+  "records": [
+    {
+      "date": "2025-01-29",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250129a.htm",
+      "retrieved_at": "2026-09-22T11:07:03.109161+00:00",
+      "retrieved_reader_text_sha256": "f2f936447643d78934bd5addd31f6a985ef52e652016ff938c9d90b2048d6c9d",
+      "decision_paragraph": "In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 4-1/4 to 4-1/2 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage‑backed securities. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective.",
+      "id": "fomc-2025-01-29",
+      "outcome": 0
+    },
+    {
+      "date": "2025-03-19",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250319a.htm",
+      "retrieved_at": "2026-09-22T11:07:02.661915+00:00",
+      "retrieved_reader_text_sha256": "21f7b6bcb90f12c5398d5a73772812f0c90181ca7039d8bd87eb1c3a0b9b6472",
+      "decision_paragraph": "In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 4-1/4 to 4-1/2 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage‑backed securities. Beginning in April, the Committee will slow the pace of decline of its securities holdings by reducing the monthly redemption cap on Treasury securities from $25 billion to $5 billion. The Committee will maintain the monthly redemption cap on agency debt and agency mortgage-backed securities at $35 billion. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective.",
+      "id": "fomc-2025-03-19",
+      "outcome": 0
+    },
+    {
+      "date": "2025-05-07",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250507a.htm",
+      "retrieved_at": "2026-09-22T11:07:03.108643+00:00",
+      "retrieved_reader_text_sha256": "41365d5538b7aaf22599ef4e15bc7bd7699c0ed7ebf8dbb2ef9fad38fa494803",
+      "decision_paragraph": "In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 4-1/4 to 4-1/2 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage‑backed securities. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective.",
+      "id": "fomc-2025-05-07",
+      "outcome": 0
+    },
+    {
+      "date": "2025-06-18",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250618a.htm",
+      "retrieved_at": "2026-09-22T11:07:03.108985+00:00",
+      "retrieved_reader_text_sha256": "914931936c194e36ed1397aaaf8911b2aac2b9b349e102e8311d691b4d9d90cf",
+      "decision_paragraph": "In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 4-1/4 to 4-1/2 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage‑backed securities. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective.",
+      "id": "fomc-2025-06-18",
+      "outcome": 0
+    },
+    {
+      "date": "2025-07-30",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250730a.htm",
+      "retrieved_at": "2026-09-22T11:07:03.133693+00:00",
+      "retrieved_reader_text_sha256": "003917a691b2c87fc54d9606092fed7d2aeec4de346b2554aa67fdd5f15c57ce",
+      "decision_paragraph": "In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 4-1/4 to 4-1/2 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage‑backed securities. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective.",
+      "id": "fomc-2025-07-30",
+      "outcome": 0
+    },
+    {
+      "date": "2025-09-17",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm",
+      "retrieved_at": "2026-09-22T11:07:03.134003+00:00",
+      "retrieved_reader_text_sha256": "ab8dd93b12c4d52d54c2c72f2462f8619ad2794f6192e30f5dd2d93a5d9409a0",
+      "decision_paragraph": "In support of its goals and in light of the shift in the balance of risks, the Committee decided to lower the target range for the federal funds rate by 1/4 percentage point to 4 to 4‑1/4 percent. In considering additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage‑backed securities. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective.",
+      "id": "fomc-2025-09-17",
+      "outcome": 1
+    },
+    {
+      "date": "2025-10-29",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251029a.htm",
+      "retrieved_at": "2026-09-22T11:07:03.150272+00:00",
+      "retrieved_reader_text_sha256": "2ebf203e1cb0d571acee374ae29e1855be883dccd0acbebd802e9d97af49c5bb",
+      "decision_paragraph": "In support of its goals and in light of the shift in the balance of risks, the Committee decided to lower the target range for the federal funds rate by 1/4 percentage point to 3-3/4 to 4 percent. In considering additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee decided to conclude the reduction of its aggregate securities holdings on December 1. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective.",
+      "id": "fomc-2025-10-29",
+      "outcome": 1
+    },
+    {
+      "date": "2025-12-10",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251210a.htm",
+      "retrieved_at": "2026-09-22T11:07:03.110385+00:00",
+      "retrieved_reader_text_sha256": "a283ff846fb67bf9b21334125c37c5f8ace5568038aa7de5deb3e82e2d2bb9cc",
+      "decision_paragraph": "In support of its goals and in light of the shift in the balance of risks, the Committee decided to lower the target range for the federal funds rate by 1/4 percentage point to 3-1/2 to 3‑3/4 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective.",
+      "id": "fomc-2025-12-10",
+      "outcome": 1
+    }
+  ],
+  "archival_limit": "Reader-text snapshots retrieved in 2026, not independently timestamped original publication bytes."
+}
