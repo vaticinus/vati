@@ -49,6 +49,8 @@ def encompassing_regression(p_f, p_ref, y, question_id=None) -> Encompass:
     it (this is the honest choice whenever multiple forecasters share questions).
     If the reference prior has no variation (the data-track ``p_ref == 0.5``
     case), the ref term is dropped and flagged.
+    Rank-deficient designs cannot identify separate contributions and raise
+    ``ValueError`` rather than reporting arbitrary coefficients or p-values.
     """
     p_f = np.asarray(p_f, dtype=float)
     p_ref = np.asarray(p_ref, dtype=float)
@@ -64,6 +66,8 @@ def encompassing_regression(p_f, p_ref, y, question_id=None) -> Encompass:
     if has_ref:
         cols["logit_ref"] = lref
     X = pd.DataFrame(cols)
+    if np.linalg.matrix_rank(X.to_numpy()) < X.shape[1]:
+        raise ValueError("forecast-encompassing coefficients are not identifiable: rank-deficient design")
 
     fit_kw = {}
     if question_id is not None:

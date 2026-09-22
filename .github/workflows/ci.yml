@@ -60,5 +60,5 @@ jobs:
       - run: docker build -t forecast-stack-space forecast-stack
       - run: |
           docker run -d --name workbench -p 7860:7860 forecast-stack-space
-          curl --retry 10 --retry-connrefused --retry-delay 1 --fail http://localhost:7860/
+          curl --retry 10 --retry-all-errors --retry-delay 1 --max-time 5 --fail http://localhost:7860/
           curl --fail -H 'Content-Type: application/json' -d '{"kind":"binary","p_yes":0.25}' http://localhost:7860/api/compute

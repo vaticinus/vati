@@ -21,17 +21,15 @@ def test_recovers_unpriced_signal():
 
 
 def test_copier_has_no_unpriced_signal():
-    # forecaster == price (a copier): b_fc should not be distinguishable as
-    # *additional* signal beyond the (collinear) price.
+    # A copier's separate coefficient is unidentifiable, not a significance test.
     rng = np.random.default_rng(1)
     n = 2000
     z = rng.normal(size=n)
     y = (rng.uniform(size=n) < expit(z)).astype(float)
     p_ref = expit(z + rng.normal(0, 0.3, n))
     p_f = p_ref.copy()
-    enc = encompassing_regression(p_f, p_ref, y)
-    # with perfect collinearity the unpriced contribution is not significant
-    assert enc.p_fc > 0.05 or not np.isfinite(enc.p_fc) or enc.b_fc <= enc.b_ref
+    with pytest.raises(ValueError, match="not identifiable"):
+        encompassing_regression(p_f, p_ref, y)
 
 
 def test_constant_prior_drops_ref_term():
