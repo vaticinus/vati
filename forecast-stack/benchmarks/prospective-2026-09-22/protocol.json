@@ -1,0 +1,79 @@
+{
+  "study": "prospective-2026-09-22",
+  "status": "preregistered-before-pilot-inference",
+  "models": [
+    "xiaomi/mimo-v2.6-pro",
+    "google/gemini-3.8-flash",
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "arms": [
+    "direct",
+    "harness"
+  ],
+  "rates_per_million": {
+    "xiaomi/mimo-v2.6-pro": {
+      "prompt": 0.5,
+      "completion": 0.9
+    },
+    "google/gemini-3.8-flash": {
+      "prompt": 0.75,
+      "completion": 3.75
+    },
+    "deepseek/deepseek-v4.1-flash": {
+      "prompt": 0.3,
+      "completion": 1.2
+    }
+  },
+  "starting_ledger_sha256": "ce14cdcd96aaf60eb5fdecd16d199d50727fd085c1177a11e9297f87322aaaf6",
+  "starting_upper_usd": 1.1881630999999981,
+  "additional_ceiling_usd": 0.5,
+  "cumulative_ceiling_usd": 1.6881630999999981,
+  "limits": {
+    "direct_output_tokens": 10240,
+    "harness_output_tokens": 10240,
+    "stage_output_tokens": {
+      "forecast_contract": 1024,
+      "draft": 4096,
+      "forecast_review": 1024,
+      "forecast_correct": 2048
+    },
+    "message_bytes_per_call": 65536,
+    "max_calls": 63
+  },
+  "source_sha256": {
+    "benchmarks/prospective-2026-09-22/cohort.json": "79e9a5f5a3b337367c93622cc780363ce4fd8e9ba0d4d9feef4af0d2e01ec52c",
+    "forecast-core/scripts/prospective_eval.mts": "516e16a4a00f9d467fb92be958039529ec2dcfd5d3d17840457f26048e8cf2f8",
+    "forecast-core/src/lib/model.ts": "68849de6066807577346b49a9bd654fb4d8300c18e8c23b329efd8bbdb32951e",
+    "forecast-core/src/lib/coherence.ts": "fa0a12b344c044e1815b9db7b9a7189698c6cad976f56c3041f9abe8ea276e2a",
+    "forecast-core/src/lib/forecastEngine.ts": "d8689c935408240c5d6658b9c8b12a4bac6e34a4ebf3b0191803138b308cbb3d",
+    "forecast-core/src/lib/forecastSnapshot.ts": "44d1d2b5c464659af63ae1c87c59376130fce125d86035fc3c17815fc190d1e1",
+    "forecast-core/src/lib/byokContext.ts": "15af366bf82cdccdc18ab5b5b9c28c0e390b6e57f070155e16c537d53b7687d8",
+    "forecast-core/src/lib/mc.ts": "07e4815be1ca1bdcdfcab5786673e34a73d6bbfaf6fcf7b9a2247ffaf71f00e6"
+  },
+  "comparison": "Same evidence and model in paired direct/harness arms; direct ceiling equals maximum aggregate harness output. Actual compute, latency and cost will differ. This is a separately registered reduced-token harness configuration, not a rerun of the synthetic benchmark.",
+  "ordering": "Case order fixed in cohort; rotate model order by case; alternate arm order by case plus model position.",
+  "budget_policy": "Reserve UTF-8 message bytes plus 2048 input overhead and all allowed output at bounded routing rates before each request. No retries, alternate providers, tools or search. Stop entire run on network transport errors, HTTP 401/402/403, or a spending boundary. Other HTTP and output/format failures remain missing rows and subsequent registered rows proceed. No failed row is rerun. The hard dollar cap can prevent matrix completion; retain and disclose partial results.",
+  "resolution_and_scoring": {
+    "outcomes_at_issue": "unresolved",
+    "primary": "Paired Brier differences at resolution, separately by model and arm; compare with declared 0.5 baseline.",
+    "missingness": "Report issued coverage on all planned 18 rows and paired complete-case Brier together. Never impute a missing probability as 0.5. Additionally bound all-case Brier by allowing each missing case loss anywhere in [0,1]. No superiority claim based only on survivor scores.",
+    "secondary": [
+      "log loss with infinities retained",
+      "cost per attempted and issued forecast",
+      "latency",
+      "original-event preservation audit",
+      "hypothetical decision realized utility at predeclared action thresholds 0.25, 0.5 and 0.75: act utility y-threshold, abstain utility zero; not investment returns"
+    ],
+    "uncertainty": "Only three purposively selected, correlated macro events. No meaningful calibration claim, significance test or 9/10 rating from this pilot. No post-outcome question selection.",
+    "independence": "Public GitHub commit/API reception before inference is a third-party receipt of the registered bytes, not independent scientific replication or an irrevocable timestamp service."
+  },
+  "model_alias_limit": "Public API model aliases are recorded along with returned provider/model metadata; immutable served weight versions are not independently verified.",
+  "sources": [
+    "https://www.bls.gov/news.release/jolts.nr0.htm",
+    "https://www.bls.gov/news.release/empsit.nr0.htm",
+    "https://www.bea.gov/news/2026/personal-income-and-outlays-july-2026",
+    "https://www.bea.gov/news/schedule",
+    "https://www.bls.gov/schedule/2026/09_sched.htm"
+  ],
+  "ai_disclosure": "Protocol, evidence extracts and analysis tooling were prepared with AI assistance. No independent human accuracy endorsement."
+}
