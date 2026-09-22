@@ -111,6 +111,8 @@ The suggested historical design is sound only with independently documented chec
 
 Reconstruct evidence as it was available at the issue time. Preserve publication and reference dates separately, include archived initial releases rather than today's revised series, and audit retrieval for later snippets or outcome reveals. Use temporal development/validation/test blocks and keep all rows of the same event together. The `cutoff` recall probes can detect knowledge; failing a probe cannot prove its absence. Neither an `asof` prompt nor `outcome_after_checkpoint` performs this complete audit.
 
+The completed [2025 FOMC historical replay](../benchmarks/historical-2025-fomc/RESULTS.md) applies this distinction to older Llama 3.1 8B and Qwen 2.5 7B checkpoints: 32/32 forecasts, about $0.0155 conservative cost, mixed harness score changes and material semantic failures. Reference revisions predate outcomes, but third-party served weights are not independently attested. The report preserves the retrospective nature of the study and does not establish a ForecastBench gain.
+
 ## External proof and the route to 9/10
 
 ### ForecastBench
