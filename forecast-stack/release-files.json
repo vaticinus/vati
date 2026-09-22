@@ -230,6 +230,11 @@
     "forecast-core/examples/packs/weather/snapshot-26.json",
     "forecast-core/WORKFLOW.md",
     "forecast-core/test/space.test.ts",
+    "benchmarks/gemma-27b-2025-fomc/manifest.json",
+    "benchmarks/gemma-27b-2025-fomc/protocol.json",
+    "benchmarks/gemma-27b-2025-fomc/run.mts",
+    "benchmarks/gemma-27b-2025-fomc/outcomes.json",
+    "benchmarks/gemma-27b-2025-fomc/resolutions.json",
     "forecast-core/scripts/install-smoke.mjs"
   ],
   "space": [
