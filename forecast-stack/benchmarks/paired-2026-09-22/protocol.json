@@ -1,0 +1,240 @@
+{
+  "study": "paired-2026-09-22",
+  "status": "preregistered-before-pilot-inference",
+  "models": [
+    "xiaomi/mimo-v2.6-flash",
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "arms": [
+    "direct",
+    "harness"
+  ],
+  "rates_per_million": {
+    "xiaomi/mimo-v2.6-flash": {
+      "prompt": 0.14,
+      "completion": 0.28
+    },
+    "deepseek/deepseek-v4.1-flash": {
+      "prompt": 0.15,
+      "completion": 0.6
+    }
+  },
+  "starting_ledger_sha256": "15c2c2bc378701a40250495e2010688f99a97b7a5d83779fc519b3f1dbdfe2e9",
+  "starting_upper_usd": 1.3391870999999986,
+  "additional_ceiling_usd": 0.6608129000000014,
+  "cumulative_ceiling_usd": 2.0,
+  "limits": {
+    "direct_output_tokens": 21392,
+    "harness_output_tokens": 21392,
+    "stage_output_tokens": {
+      "forecast_contract": 2200,
+      "draft": 8192,
+      "forecast_review": 3000,
+      "forecast_correct": 5000
+    },
+    "message_bytes_per_call": 65536,
+    "max_calls": 42
+  },
+  "source_sha256": {
+    "benchmarks/paired-2026-09-22/cohort.json": "1f099efcf0eb2b7a39a0acac9f4f406b35c1d8d04e780325551c5b907e2784c8",
+    "forecast-core/scripts/prospective_eval.mts": "beabd5b6d76ced82e68d191d64288132e6c0d53eea09eb23916bc0ffef5483ab",
+    "forecast-core/src/lib/dataPacks.ts": "4721f57a42183e6070e4e07b2c1dddaef2c2b9490bf5b6aa07873231875576f3",
+    "forecast-core/src/lib/evidence.ts": "bc01a1291d73b48eefb9b6dce8fe8a086868cf496cbe20820baaf42c25fb4e4f",
+    "forecast-core/src/lib/runtime.ts": "a375def6d1e21f8e12cba0ffea7d79676c72367ae7fc45e803c5caec1f9c2786",
+    "forecast-core/src/lib/workflow.ts": "b44045788bb69f3e9e77ac230d3827ba0fde40c76e704a1c89371dda92fcffcd",
+    "forecast-core/src/lib/benchmark.ts": "9802d72b28ec58bb53f5bcefb2a9f44aa44ba17ebd561a025c4707adf8e4f789",
+    "forecast-core/src/lib/cli.ts": "2f69a556bbea42e82fb965c8343ed3c434629c362002575a8a67d5dfce877025",
+    "forecast-core/src/lib/forecastSnapshot.ts": "44d1d2b5c464659af63ae1c87c59376130fce125d86035fc3c17815fc190d1e1",
+    "forecast-core/src/lib/forecastUnits.ts": "6aaaad3fb5ed1176d8dcc58a8b10fb1dc891927228f855f5826fc75fe0b88b67",
+    "forecast-core/src/lib/mc.ts": "07e4815be1ca1bdcdfcab5786673e34a73d6bbfaf6fcf7b9a2247ffaf71f00e6",
+    "forecast-core/src/lib/metering.ts": "eeb04b320088a53909de7a699cb7f26ab362724bf142d49399b62bd4eb7852e0",
+    "forecast-core/src/lib/model.ts": "68849de6066807577346b49a9bd654fb4d8300c18e8c23b329efd8bbdb32951e",
+    "forecast-core/src/lib/needle.ts": "c9b561e0c6d2804fb5f172a27f56acc74062bda11a1d71f4444a41ee81ec0493",
+    "forecast-core/src/lib/byokContext.ts": "15af366bf82cdccdc18ab5b5b9c28c0e390b6e57f070155e16c537d53b7687d8",
+    "forecast-core/src/lib/coherence.ts": "fa0a12b344c044e1815b9db7b9a7189698c6cad976f56c3041f9abe8ea276e2a",
+    "forecast-core/src/lib/forecastEngine.ts": "d8689c935408240c5d6658b9c8b12a4bac6e34a4ebf3b0191803138b308cbb3d"
+  },
+  "comparison": "Six paired comparisons: two models by three events. Same evidence and model within each pair; full existing harness stage allowances, with direct output ceiling equal to maximum aggregate harness output (2200 contract + 8192 draft + 3000 review + 5000 correction + 3000 second review). This matches a ceiling, not realized tokens, latency or cost. No web research, prompt adaptation or rerunning failed rows.",
+  "ordering": "Case order fixed in cohort; rotate model order by case; alternate arm order by case plus model position.",
+  "budget_policy": "Reserve UTF-8 message bytes plus 2048 input overhead and all allowed output at bounded routing rates before each request. No retries, alternate providers, tools or search. Stop entire run on network transport errors, HTTP 401/402/403, or a spending boundary. Other HTTP and output/format failures remain missing rows and subsequent registered rows proceed. No failed row is rerun. The hard dollar cap can prevent matrix completion; retain and disclose partial results.",
+  "resolution_and_scoring": {
+    "outcomes_at_issue": "unresolved",
+    "primary": "Paired Brier differences at resolution, separately by model and arm; compare with declared 0.5 baseline.",
+    "missingness": "Report issued coverage on all planned 12 rows and paired complete-case Brier together. Never impute missing probabilities as 0.5. Bound all-case Brier allowing each missing loss in [0,1]. Both models share the same three event outcomes; six pairs are not six independent events. No superiority claim from survivors alone.",
+    "secondary": [
+      "log loss with infinities retained",
+      "cost per attempted and issued forecast",
+      "latency",
+      "original-event preservation audit",
+      "hypothetical decision realized utility at predeclared action thresholds 0.25, 0.5 and 0.75: act utility y-threshold, abstain utility zero; not investment returns"
+    ],
+    "uncertainty": "Three purposively selected correlated macro events already exposed during an earlier pilot. Future outcomes remain unknown. This rerun tests delivery after transport/reasoning compatibility repairs and larger stage allowances; it cannot isolate which repair matters or support significance, calibration, independent replication or a 9/10 readiness rating.",
+    "independence": "Public GitHub commit/API reception before inference is a third-party receipt of the registered bytes, not independent scientific replication or an irrevocable timestamp service."
+  },
+  "model_alias_limit": "Public API model aliases are recorded along with returned provider/model metadata; immutable served weight versions are not independently verified.",
+  "sources": [
+    "https://www.bls.gov/news.release/jolts.nr0.htm",
+    "https://www.bls.gov/news.release/empsit.nr0.htm",
+    "https://www.bea.gov/news/2026/personal-income-and-outlays-july-2026",
+    "https://www.bea.gov/news/schedule",
+    "https://www.bls.gov/schedule/2026/09_sched.htm"
+  ],
+  "ai_disclosure": "Protocol, evidence extracts and analysis tooling were prepared with AI assistance. No independent human accuracy endorsement.",
+  "reasoning_mandatory": {
+    "xiaomi/mimo-v2.6-flash": false,
+    "deepseek/deepseek-v4.1-flash": false
+  },
+  "reasoning_supported": {
+    "xiaomi/mimo-v2.6-flash": true,
+    "deepseek/deepseek-v4.1-flash": true
+  },
+  "catalog_checked_at": "2026-09-22T13:12:12.277364+00:00",
+  "catalog_snapshot": [
+    {
+      "id": "xiaomi/mimo-v2.6-flash",
+      "pricing": {
+        "prompt": "0.00000014",
+        "completion": "0.00000028",
+        "input_cache_read": "0.0000000028"
+      },
+      "reasoning": {
+        "mandatory": false
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "max_tokens",
+        "presence_penalty",
+        "reasoning",
+        "response_format",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_p"
+      ]
+    },
+    {
+      "id": "deepseek/deepseek-v4.1-flash",
+      "pricing": {
+        "prompt": "0.00000015",
+        "completion": "0.0000006",
+        "input_cache_read": "0.000000003",
+        "overrides": [
+          {
+            "utc_days": [
+              "saturday",
+              "sunday"
+            ],
+            "prompt": "0.00000015",
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000003"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 0,
+            "utc_end": 100,
+            "prompt": "0.00000015",
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000003"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 100,
+            "utc_end": 400,
+            "prompt": "0.0000003",
+            "completion": "0.0000012",
+            "input_cache_read": "0.000000006"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 400,
+            "utc_end": 600,
+            "prompt": "0.00000015",
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000003"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 600,
+            "utc_end": 1000,
+            "prompt": "0.0000003",
+            "completion": "0.0000012",
+            "input_cache_read": "0.000000006"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 1000,
+            "utc_end": 0,
+            "prompt": "0.00000015",
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000003"
+          }
+        ]
+      },
+      "reasoning": {
+        "mandatory": false,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "high"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ]
+    }
+  ]
+}

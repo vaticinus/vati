@@ -9,6 +9,8 @@
     "benchmarks/historical-2025-fomc/protocol.json",
     "benchmarks/historical-2025-fomc/resolutions.json",
     "benchmarks/historical-2025-fomc/score.py",
+    "benchmarks/paired-2026-09-22/cohort.json",
+    "benchmarks/paired-2026-09-22/protocol.json",
     "benchmarks/prospective-2026-09-22/cohort.json",
     "benchmarks/prospective-2026-09-22/protocol.json",
     "benchmarks/prospective-2026-09-22/issued.json",
