@@ -1,0 +1,271 @@
+{
+  "name": "gemma-2025-fomc",
+  "mode": "historical_replay",
+  "models": [
+    "google/gemma-3-12b-it"
+  ],
+  "arms": [
+    "direct",
+    "harness"
+  ],
+  "cases": [
+    {
+      "question": {
+        "id": "fomc-2025-05-07",
+        "question": "Will the FOMC lower the upper bound of its federal funds target range at the scheduled 2025-05-07 meeting relative to the target immediately before that meeting?",
+        "resolution_date": "2025-05-07",
+        "dated_metric": "Use the first official FOMC policy statement for the scheduled 2025-05-07 meeting. YES if that statement lowers the target range upper bound relative to immediately before the meeting; NO if unchanged or raised. A cut at an earlier meeting alone does not satisfy this event. If no identifiable decision exists for this meeting, leave unresolved rather than impute NO.",
+        "event_type": "occurrence",
+        "conditions": [
+          "At this specific meeting, not cumulative cuts by this date",
+          "First official statement; compare with immediately preceding target"
+        ],
+        "baseline": {
+          "probability": 0.5,
+          "description": "Declared constant reference; not a market price"
+        }
+      },
+      "evidence": {
+        "schema_version": 1,
+        "collected_at": "2026-09-22T13:48:02.220955+00:00",
+        "sources": [
+          {
+            "id": "fed-2025-03-19-cc",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250319a.htm",
+            "title": "FOMC statement, March 19, 2025; Common Crawl capture April 22",
+            "text": "Recent indicators suggest that economic activity has continued to expand at a solid pace. The unemployment rate has stabilized at a low level in recent months, and labor market conditions remain solid. Inflation remains somewhat elevated. The Committee seeks to achieve maximum employment and inflation at the rate of 2 percent over the longer run. Uncertainty around the economic outlook has increased. The Committee is attentive to the risks to both sides of its dual mandate. In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 4-1/4 to 4-1/2 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage‑backed securities. Beginning in April, the Committee will slow the pace of decline of its securities holdings by reducing the monthly redemption cap on Treasury securities from $25 billion to $5 billion. The Committee will maintain the monthly redemption cap on agency debt and agency mortgage-backed securities at $35 billion. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective. In assessing the appropriate stance of monetary policy, the Committee will continue to monitor the implications of incoming information for the economic outlook. The Committee would be prepared to adjust the stance of monetary policy as appropriate if risks emerge that could impede the attainment of the Committee's goals. The Committee's assessments will take into account a wide range of information, including readings on labor market conditions, inflation pressures and inflation expectations, and financial and international developments. Voting for the monetary policy action were Jerome H. Powell, Chair; John C. Williams, Vice Chair; Michael S. Barr; Michelle W. Bowman; Susan M. Collins; Lisa D. Cook; Austan D. Goolsbee; Philip N. Jefferson; Adriana D. Kugler; Alberto G. Musalem; and Jeffrey R. Schmid. Voting against this action was Christopher J. Waller, who supported no change for the federal funds target range but preferred to continue the current pace of decline in securities holdings.",
+            "fetched_at": "2025-04-22T03:27:33Z",
+            "published_at": "2025-03-19T18:00:00Z",
+            "publication_basis": "source_metadata",
+            "content_sha256": "4de2de3ce9c20a5d0ff4a3de721159a5baa3bc4cec8802d93449028c73aa7f2d",
+            "snapshot_sha256": "a50f52ca7d50721b4527c11828baadbaa0e5128d1f252e470e2d38ddff525f9e",
+            "kind": "page"
+          }
+        ],
+        "failures": [],
+        "sha256": "b1dd6ff4b56ad05d6779cad07a31bf9de18e546b2f5c20195240ec0b2c93d91d"
+      },
+      "as_of": "2025-05-01T00:00:00Z",
+      "cluster": "us-policy-2025"
+    },
+    {
+      "question": {
+        "id": "fomc-2025-06-18",
+        "question": "Will the FOMC lower the upper bound of its federal funds target range at the scheduled 2025-06-18 meeting relative to the target immediately before that meeting?",
+        "resolution_date": "2025-06-18",
+        "dated_metric": "Use the first official FOMC policy statement for the scheduled 2025-06-18 meeting. YES if that statement lowers the target range upper bound relative to immediately before the meeting; NO if unchanged or raised. A cut at an earlier meeting alone does not satisfy this event. If no identifiable decision exists for this meeting, leave unresolved rather than impute NO.",
+        "event_type": "occurrence",
+        "conditions": [
+          "At this specific meeting, not cumulative cuts by this date",
+          "First official statement; compare with immediately preceding target"
+        ],
+        "baseline": {
+          "probability": 0.5,
+          "description": "Declared constant reference; not a market price"
+        }
+      },
+      "evidence": {
+        "schema_version": 1,
+        "collected_at": "2026-09-22T13:48:02.220955+00:00",
+        "sources": [
+          {
+            "id": "fed-2025-03-19-cc",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250319a.htm",
+            "title": "FOMC statement, March 19, 2025; Common Crawl capture April 22",
+            "text": "Recent indicators suggest that economic activity has continued to expand at a solid pace. The unemployment rate has stabilized at a low level in recent months, and labor market conditions remain solid. Inflation remains somewhat elevated. The Committee seeks to achieve maximum employment and inflation at the rate of 2 percent over the longer run. Uncertainty around the economic outlook has increased. The Committee is attentive to the risks to both sides of its dual mandate. In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 4-1/4 to 4-1/2 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage‑backed securities. Beginning in April, the Committee will slow the pace of decline of its securities holdings by reducing the monthly redemption cap on Treasury securities from $25 billion to $5 billion. The Committee will maintain the monthly redemption cap on agency debt and agency mortgage-backed securities at $35 billion. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective. In assessing the appropriate stance of monetary policy, the Committee will continue to monitor the implications of incoming information for the economic outlook. The Committee would be prepared to adjust the stance of monetary policy as appropriate if risks emerge that could impede the attainment of the Committee's goals. The Committee's assessments will take into account a wide range of information, including readings on labor market conditions, inflation pressures and inflation expectations, and financial and international developments. Voting for the monetary policy action were Jerome H. Powell, Chair; John C. Williams, Vice Chair; Michael S. Barr; Michelle W. Bowman; Susan M. Collins; Lisa D. Cook; Austan D. Goolsbee; Philip N. Jefferson; Adriana D. Kugler; Alberto G. Musalem; and Jeffrey R. Schmid. Voting against this action was Christopher J. Waller, who supported no change for the federal funds target range but preferred to continue the current pace of decline in securities holdings.",
+            "fetched_at": "2025-04-22T03:27:33Z",
+            "published_at": "2025-03-19T18:00:00Z",
+            "publication_basis": "source_metadata",
+            "content_sha256": "4de2de3ce9c20a5d0ff4a3de721159a5baa3bc4cec8802d93449028c73aa7f2d",
+            "snapshot_sha256": "a50f52ca7d50721b4527c11828baadbaa0e5128d1f252e470e2d38ddff525f9e",
+            "kind": "page"
+          }
+        ],
+        "failures": [],
+        "sha256": "b1dd6ff4b56ad05d6779cad07a31bf9de18e546b2f5c20195240ec0b2c93d91d"
+      },
+      "as_of": "2025-05-01T00:00:00Z",
+      "cluster": "us-policy-2025"
+    },
+    {
+      "question": {
+        "id": "fomc-2025-07-30",
+        "question": "Will the FOMC lower the upper bound of its federal funds target range at the scheduled 2025-07-30 meeting relative to the target immediately before that meeting?",
+        "resolution_date": "2025-07-30",
+        "dated_metric": "Use the first official FOMC policy statement for the scheduled 2025-07-30 meeting. YES if that statement lowers the target range upper bound relative to immediately before the meeting; NO if unchanged or raised. A cut at an earlier meeting alone does not satisfy this event. If no identifiable decision exists for this meeting, leave unresolved rather than impute NO.",
+        "event_type": "occurrence",
+        "conditions": [
+          "At this specific meeting, not cumulative cuts by this date",
+          "First official statement; compare with immediately preceding target"
+        ],
+        "baseline": {
+          "probability": 0.5,
+          "description": "Declared constant reference; not a market price"
+        }
+      },
+      "evidence": {
+        "schema_version": 1,
+        "collected_at": "2026-09-22T13:48:02.220955+00:00",
+        "sources": [
+          {
+            "id": "fed-2025-03-19-cc",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250319a.htm",
+            "title": "FOMC statement, March 19, 2025; Common Crawl capture April 22",
+            "text": "Recent indicators suggest that economic activity has continued to expand at a solid pace. The unemployment rate has stabilized at a low level in recent months, and labor market conditions remain solid. Inflation remains somewhat elevated. The Committee seeks to achieve maximum employment and inflation at the rate of 2 percent over the longer run. Uncertainty around the economic outlook has increased. The Committee is attentive to the risks to both sides of its dual mandate. In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 4-1/4 to 4-1/2 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage‑backed securities. Beginning in April, the Committee will slow the pace of decline of its securities holdings by reducing the monthly redemption cap on Treasury securities from $25 billion to $5 billion. The Committee will maintain the monthly redemption cap on agency debt and agency mortgage-backed securities at $35 billion. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective. In assessing the appropriate stance of monetary policy, the Committee will continue to monitor the implications of incoming information for the economic outlook. The Committee would be prepared to adjust the stance of monetary policy as appropriate if risks emerge that could impede the attainment of the Committee's goals. The Committee's assessments will take into account a wide range of information, including readings on labor market conditions, inflation pressures and inflation expectations, and financial and international developments. Voting for the monetary policy action were Jerome H. Powell, Chair; John C. Williams, Vice Chair; Michael S. Barr; Michelle W. Bowman; Susan M. Collins; Lisa D. Cook; Austan D. Goolsbee; Philip N. Jefferson; Adriana D. Kugler; Alberto G. Musalem; and Jeffrey R. Schmid. Voting against this action was Christopher J. Waller, who supported no change for the federal funds target range but preferred to continue the current pace of decline in securities holdings.",
+            "fetched_at": "2025-04-22T03:27:33Z",
+            "published_at": "2025-03-19T18:00:00Z",
+            "publication_basis": "source_metadata",
+            "content_sha256": "4de2de3ce9c20a5d0ff4a3de721159a5baa3bc4cec8802d93449028c73aa7f2d",
+            "snapshot_sha256": "a50f52ca7d50721b4527c11828baadbaa0e5128d1f252e470e2d38ddff525f9e",
+            "kind": "page"
+          }
+        ],
+        "failures": [],
+        "sha256": "b1dd6ff4b56ad05d6779cad07a31bf9de18e546b2f5c20195240ec0b2c93d91d"
+      },
+      "as_of": "2025-05-01T00:00:00Z",
+      "cluster": "us-policy-2025"
+    },
+    {
+      "question": {
+        "id": "fomc-2025-09-17",
+        "question": "Will the FOMC lower the upper bound of its federal funds target range at the scheduled 2025-09-17 meeting relative to the target immediately before that meeting?",
+        "resolution_date": "2025-09-17",
+        "dated_metric": "Use the first official FOMC policy statement for the scheduled 2025-09-17 meeting. YES if that statement lowers the target range upper bound relative to immediately before the meeting; NO if unchanged or raised. A cut at an earlier meeting alone does not satisfy this event. If no identifiable decision exists for this meeting, leave unresolved rather than impute NO.",
+        "event_type": "occurrence",
+        "conditions": [
+          "At this specific meeting, not cumulative cuts by this date",
+          "First official statement; compare with immediately preceding target"
+        ],
+        "baseline": {
+          "probability": 0.5,
+          "description": "Declared constant reference; not a market price"
+        }
+      },
+      "evidence": {
+        "schema_version": 1,
+        "collected_at": "2026-09-22T13:48:02.220955+00:00",
+        "sources": [
+          {
+            "id": "fed-2025-03-19-cc",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250319a.htm",
+            "title": "FOMC statement, March 19, 2025; Common Crawl capture April 22",
+            "text": "Recent indicators suggest that economic activity has continued to expand at a solid pace. The unemployment rate has stabilized at a low level in recent months, and labor market conditions remain solid. Inflation remains somewhat elevated. The Committee seeks to achieve maximum employment and inflation at the rate of 2 percent over the longer run. Uncertainty around the economic outlook has increased. The Committee is attentive to the risks to both sides of its dual mandate. In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 4-1/4 to 4-1/2 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage‑backed securities. Beginning in April, the Committee will slow the pace of decline of its securities holdings by reducing the monthly redemption cap on Treasury securities from $25 billion to $5 billion. The Committee will maintain the monthly redemption cap on agency debt and agency mortgage-backed securities at $35 billion. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective. In assessing the appropriate stance of monetary policy, the Committee will continue to monitor the implications of incoming information for the economic outlook. The Committee would be prepared to adjust the stance of monetary policy as appropriate if risks emerge that could impede the attainment of the Committee's goals. The Committee's assessments will take into account a wide range of information, including readings on labor market conditions, inflation pressures and inflation expectations, and financial and international developments. Voting for the monetary policy action were Jerome H. Powell, Chair; John C. Williams, Vice Chair; Michael S. Barr; Michelle W. Bowman; Susan M. Collins; Lisa D. Cook; Austan D. Goolsbee; Philip N. Jefferson; Adriana D. Kugler; Alberto G. Musalem; and Jeffrey R. Schmid. Voting against this action was Christopher J. Waller, who supported no change for the federal funds target range but preferred to continue the current pace of decline in securities holdings.",
+            "fetched_at": "2025-04-22T03:27:33Z",
+            "published_at": "2025-03-19T18:00:00Z",
+            "publication_basis": "source_metadata",
+            "content_sha256": "4de2de3ce9c20a5d0ff4a3de721159a5baa3bc4cec8802d93449028c73aa7f2d",
+            "snapshot_sha256": "a50f52ca7d50721b4527c11828baadbaa0e5128d1f252e470e2d38ddff525f9e",
+            "kind": "page"
+          }
+        ],
+        "failures": [],
+        "sha256": "b1dd6ff4b56ad05d6779cad07a31bf9de18e546b2f5c20195240ec0b2c93d91d"
+      },
+      "as_of": "2025-05-01T00:00:00Z",
+      "cluster": "us-policy-2025"
+    },
+    {
+      "question": {
+        "id": "fomc-2025-10-29",
+        "question": "Will the FOMC lower the upper bound of its federal funds target range at the scheduled 2025-10-29 meeting relative to the target immediately before that meeting?",
+        "resolution_date": "2025-10-29",
+        "dated_metric": "Use the first official FOMC policy statement for the scheduled 2025-10-29 meeting. YES if that statement lowers the target range upper bound relative to immediately before the meeting; NO if unchanged or raised. A cut at an earlier meeting alone does not satisfy this event. If no identifiable decision exists for this meeting, leave unresolved rather than impute NO.",
+        "event_type": "occurrence",
+        "conditions": [
+          "At this specific meeting, not cumulative cuts by this date",
+          "First official statement; compare with immediately preceding target"
+        ],
+        "baseline": {
+          "probability": 0.5,
+          "description": "Declared constant reference; not a market price"
+        }
+      },
+      "evidence": {
+        "schema_version": 1,
+        "collected_at": "2026-09-22T13:48:02.220955+00:00",
+        "sources": [
+          {
+            "id": "fed-2025-03-19-cc",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250319a.htm",
+            "title": "FOMC statement, March 19, 2025; Common Crawl capture April 22",
+            "text": "Recent indicators suggest that economic activity has continued to expand at a solid pace. The unemployment rate has stabilized at a low level in recent months, and labor market conditions remain solid. Inflation remains somewhat elevated. The Committee seeks to achieve maximum employment and inflation at the rate of 2 percent over the longer run. Uncertainty around the economic outlook has increased. The Committee is attentive to the risks to both sides of its dual mandate. In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 4-1/4 to 4-1/2 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage‑backed securities. Beginning in April, the Committee will slow the pace of decline of its securities holdings by reducing the monthly redemption cap on Treasury securities from $25 billion to $5 billion. The Committee will maintain the monthly redemption cap on agency debt and agency mortgage-backed securities at $35 billion. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective. In assessing the appropriate stance of monetary policy, the Committee will continue to monitor the implications of incoming information for the economic outlook. The Committee would be prepared to adjust the stance of monetary policy as appropriate if risks emerge that could impede the attainment of the Committee's goals. The Committee's assessments will take into account a wide range of information, including readings on labor market conditions, inflation pressures and inflation expectations, and financial and international developments. Voting for the monetary policy action were Jerome H. Powell, Chair; John C. Williams, Vice Chair; Michael S. Barr; Michelle W. Bowman; Susan M. Collins; Lisa D. Cook; Austan D. Goolsbee; Philip N. Jefferson; Adriana D. Kugler; Alberto G. Musalem; and Jeffrey R. Schmid. Voting against this action was Christopher J. Waller, who supported no change for the federal funds target range but preferred to continue the current pace of decline in securities holdings.",
+            "fetched_at": "2025-04-22T03:27:33Z",
+            "published_at": "2025-03-19T18:00:00Z",
+            "publication_basis": "source_metadata",
+            "content_sha256": "4de2de3ce9c20a5d0ff4a3de721159a5baa3bc4cec8802d93449028c73aa7f2d",
+            "snapshot_sha256": "a50f52ca7d50721b4527c11828baadbaa0e5128d1f252e470e2d38ddff525f9e",
+            "kind": "page"
+          }
+        ],
+        "failures": [],
+        "sha256": "b1dd6ff4b56ad05d6779cad07a31bf9de18e546b2f5c20195240ec0b2c93d91d"
+      },
+      "as_of": "2025-05-01T00:00:00Z",
+      "cluster": "us-policy-2025"
+    },
+    {
+      "question": {
+        "id": "fomc-2025-12-10",
+        "question": "Will the FOMC lower the upper bound of its federal funds target range at the scheduled 2025-12-10 meeting relative to the target immediately before that meeting?",
+        "resolution_date": "2025-12-10",
+        "dated_metric": "Use the first official FOMC policy statement for the scheduled 2025-12-10 meeting. YES if that statement lowers the target range upper bound relative to immediately before the meeting; NO if unchanged or raised. A cut at an earlier meeting alone does not satisfy this event. If no identifiable decision exists for this meeting, leave unresolved rather than impute NO.",
+        "event_type": "occurrence",
+        "conditions": [
+          "At this specific meeting, not cumulative cuts by this date",
+          "First official statement; compare with immediately preceding target"
+        ],
+        "baseline": {
+          "probability": 0.5,
+          "description": "Declared constant reference; not a market price"
+        }
+      },
+      "evidence": {
+        "schema_version": 1,
+        "collected_at": "2026-09-22T13:48:02.220955+00:00",
+        "sources": [
+          {
+            "id": "fed-2025-03-19-cc",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250319a.htm",
+            "title": "FOMC statement, March 19, 2025; Common Crawl capture April 22",
+            "text": "Recent indicators suggest that economic activity has continued to expand at a solid pace. The unemployment rate has stabilized at a low level in recent months, and labor market conditions remain solid. Inflation remains somewhat elevated. The Committee seeks to achieve maximum employment and inflation at the rate of 2 percent over the longer run. Uncertainty around the economic outlook has increased. The Committee is attentive to the risks to both sides of its dual mandate. In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 4-1/4 to 4-1/2 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage‑backed securities. Beginning in April, the Committee will slow the pace of decline of its securities holdings by reducing the monthly redemption cap on Treasury securities from $25 billion to $5 billion. The Committee will maintain the monthly redemption cap on agency debt and agency mortgage-backed securities at $35 billion. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective. In assessing the appropriate stance of monetary policy, the Committee will continue to monitor the implications of incoming information for the economic outlook. The Committee would be prepared to adjust the stance of monetary policy as appropriate if risks emerge that could impede the attainment of the Committee's goals. The Committee's assessments will take into account a wide range of information, including readings on labor market conditions, inflation pressures and inflation expectations, and financial and international developments. Voting for the monetary policy action were Jerome H. Powell, Chair; John C. Williams, Vice Chair; Michael S. Barr; Michelle W. Bowman; Susan M. Collins; Lisa D. Cook; Austan D. Goolsbee; Philip N. Jefferson; Adriana D. Kugler; Alberto G. Musalem; and Jeffrey R. Schmid. Voting against this action was Christopher J. Waller, who supported no change for the federal funds target range but preferred to continue the current pace of decline in securities holdings.",
+            "fetched_at": "2025-04-22T03:27:33Z",
+            "published_at": "2025-03-19T18:00:00Z",
+            "publication_basis": "source_metadata",
+            "content_sha256": "4de2de3ce9c20a5d0ff4a3de721159a5baa3bc4cec8802d93449028c73aa7f2d",
+            "snapshot_sha256": "a50f52ca7d50721b4527c11828baadbaa0e5128d1f252e470e2d38ddff525f9e",
+            "kind": "page"
+          }
+        ],
+        "failures": [],
+        "sha256": "b1dd6ff4b56ad05d6779cad07a31bf9de18e546b2f5c20195240ec0b2c93d91d"
+      },
+      "as_of": "2025-05-01T00:00:00Z",
+      "cluster": "us-policy-2025"
+    }
+  ],
+  "checkpoint": {
+    "google/gemma-3-12b-it": {
+      "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "released_at": "2025-03-21T20:28:56.000Z",
+      "provenance": "https://huggingface.co/api/models/google/gemma-3-12b-it ; reference repository lastModified 2025-03-21. OpenRouter alias is NOT independently attested to serve these exact weights; historical interpretation is conditional on alias fidelity."
+    }
+  },
+  "implementation": {
+    "benchmark": "9802d72b28ec58bb53f5bcefb2a9f44aa44ba17ebd561a025c4707adf8e4f789",
+    "workflow": "b44045788bb69f3e9e77ac230d3827ba0fde40c76e704a1c89371dda92fcffcd",
+    "runtime": "a375def6d1e21f8e12cba0ffea7d79676c72367ae7fc45e803c5caec1f9c2786",
+    "coherence": "fa0a12b344c044e1815b9db7b9a7189698c6cad976f56c3041f9abe8ea276e2a",
+    "model": "68849de6066807577346b49a9bd654fb4d8300c18e8c23b329efd8bbdb32951e",
+    "evidence": "bc01a1291d73b48eefb9b6dce8fe8a086868cf496cbe20820baaf42c25fb4e4f",
+    "forecastEngine": "d8689c935408240c5d6658b9c8b12a4bac6e34a4ebf3b0191803138b308cbb3d",
+    "forecastSnapshot": "44d1d2b5c464659af63ae1c87c59376130fce125d86035fc3c17815fc190d1e1",
+    "forecastUnits": "6aaaad3fb5ed1176d8dcc58a8b10fb1dc891927228f855f5826fc75fe0b88b67",
+    "mc": "07e4815be1ca1bdcdfcab5786673e34a73d6bbfaf6fcf7b9a2247ffaf71f00e6"
+  },
+  "schema_version": 1,
+  "created_at": "2026-09-22T13:48:02.494Z",
+  "primary_metric": "paired_brier",
+  "missingness": "coverage_and_bounds",
+  "sha256": "48568f949fde57de5eae7b316022dabeee41d57c0a31f8f59e0690fbdeaf3189"
+}

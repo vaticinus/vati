@@ -1,0 +1,47 @@
+{
+  "study": "gemma-2025-fomc",
+  "registered_before_inference": true,
+  "retrospective_selection": "All six remaining scheduled 2025 meetings after May 1. Previously exposed FOMC events, not a fresh holdout. Labels are stored separately and not loaded by the execution command.",
+  "archive": {
+    "timestamp": "20250422032733",
+    "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250319a.htm",
+    "length": 14147,
+    "offset": 772533380,
+    "filename": "crawl-data/CC-MAIN-2025-18/segments/1744889135796.50/warc/CC-MAIN-20250422020618-20250422050618-00953.warc.gz",
+    "warc_record_id": "urn:uuid:cad4e312-8a92-4473-a536-307547710973",
+    "retrieved_at": "2026-09-22T13:48:02.220955+00:00",
+    "sha256": "a50f52ca7d50721b4527c11828baadbaa0e5128d1f252e470e2d38ddff525f9e",
+    "fetched_at_semantics": "Evidence fetched_at records Common Crawl original capture, independently stated in the WARC-Date. Our retrieval time is recorded separately; no backdating of this run."
+  },
+  "evidence_limit": "One sparse archived policy statement; not a complete May 1 information set. No intervening outcomes or later evidence are added.",
+  "rates_usd_per_million": {
+    "input": 0.05,
+    "output": 0.15
+  },
+  "reasoning": false,
+  "provider_policy": "OpenRouter, bounded pricing, require_parameters, no fallbacks; route is not pinned to a specific provider.",
+  "limits": {
+    "additional_usd": 0.1,
+    "shared_ceiling_usd": 2,
+    "starting_shared_upper_usd": 1.3506102299999987,
+    "starting_shared_ledger_sha256": "a7bc1ca269e7aa743f3eb6f24973452a8be41bdcced6068df475bfd2a4e8b3b7",
+    "default_runtime_output_cap": 8400,
+    "direct_max_calls_per_row": 1,
+    "harness_max_calls_per_row": 4,
+    "total_timeout_ms": 240000,
+    "idle_timeout_ms": 60000
+  },
+  "comparison": "Both arms use the same caller-supplied authoritative event and typed-output draft prompt. Direct receives deterministic validation; harness additionally receives model review and at most one correction and re-review. No extraction call. Realized compute and dollars are not matched; report their differences.",
+  "stop": "Runtime stops on uncertain/partial transport charges and authentication/rate-limit failures. No retries. Budget exhaustion prevents new calls. All planned rows remain in the report.",
+  "metrics": [
+    "coverage across all 12 rows",
+    "paired Brier difference and issued-only log loss",
+    "all-case Brier bounds for missing forecasts",
+    "declared 0.5 baseline",
+    "cost and latency",
+    "post-hoc event/support/prose consistency audit"
+  ],
+  "inference_limits": "Only one correlated policy-year cluster; no meaningful confidence interval, calibration estimate, independent replication, or 9/10 claim. No tuning or replacement after exposure.",
+  "manifest_sha256": "84501a05c03161e16fb6dc943d1c4a9effd5a8435193df4b2fe61eec66c6f954",
+  "ai_disclosure": "AI-assisted protocol, extraction, execution and analysis; not independent human review."
+}
