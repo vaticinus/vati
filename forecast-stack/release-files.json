@@ -238,6 +238,14 @@
     "benchmarks/gemma-27b-2025-fomc/issued.json",
     "benchmarks/gemma-27b-2025-fomc/scores.json",
     "benchmarks/gemma-27b-2025-fomc/RESULTS.md",
+    "benchmarks/performance-2026-09-22/protocol.json",
+    "benchmarks/performance-2026-09-22/inputs.json",
+    "benchmarks/performance-2026-09-22/development.json",
+    "benchmarks/performance-2026-09-22/replay.py",
+    "benchmarks/performance-2026-09-22/scores.json",
+    "benchmarks/performance-2026-09-22/harness_benchmark.mts",
+    "benchmarks/performance-2026-09-22/harness-before.json",
+    "benchmarks/performance-2026-09-22/harness-after.json",
     "forecast-core/scripts/install-smoke.mjs"
   ],
   "space": [

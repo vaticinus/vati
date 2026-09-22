@@ -55,3 +55,21 @@ test('numeric resolution enforces the exact comparator',async()=>{
       source:{url:'https://example.org/source',text:'10',sha256:sha256('10')},value:10,unit:'units',note:'first release'}),/comparator/);
   }finally{fs.rmSync(root,{recursive:true});}
 });
+
+test('scoring baselines cannot influence inference, while admitted evidence remains available', async()=>{
+  for(const arm of ['direct','harness'] as const){
+    const requests:string[][]=[];
+    for(const probability of [.01,.99]){
+      const seen:string[]=[];
+      const run=await runForecast({...q,baseline:{probability,description:`SCORING-ONLY-${probability}`}},evidence,
+        async(system,user,stage,maxTokens)=>{seen.push(system+'\n'+user);return completion(system,user,stage,maxTokens);},
+        {...options,arm});
+      assert.equal(run.status,'issued');
+      requests.push(seen);
+    }
+    assert.ok(requests[0].length===requests[1].length && requests[0].every((request,i)=>request===requests[1][i]),
+      'Changing a scoring comparator must not change the information sent to inference');
+    assert.ok(requests[0].every(request=>!request.includes('SCORING-ONLY')));
+    assert.ok(requests[0][0].includes(text));
+  }
+});

@@ -74,7 +74,7 @@ export function validateProbabilityModel(value: unknown): ProbabilityModel {
       const model = { kind: "bayes" as const, prior: probability(s.prior, "prior"),
         likelihood_yes: probability(s.likelihood_yes, "likelihood_yes"),
         likelihood_no: probability(s.likelihood_no, "likelihood_no"), observation: text(s.observation, "observation") };
-      if (model.prior * model.likelihood_yes + (1 - model.prior) * model.likelihood_no === 0) {
+      if ((model.prior === 0 || model.likelihood_yes === 0) && (model.prior === 1 || model.likelihood_no === 0)) {
         throw new Error("the supplied observation has zero probability under both hypotheses");
       }
       return model;
@@ -129,9 +129,13 @@ export function computeForecast(value: unknown): ForecastResult {
     probability: Math.max(0, Math.min(1, m.branches.reduce((sum, b) => sum + b.weight * b.p_yes, 0))),
     method: "Total probability across the stated partition. Branch weights and conditional estimates are assumptions, not independent votes." };
   if (m.kind === "bayes") {
-    const yes = m.prior * ("likelihood_ratio" in m ? m.likelihood_ratio : m.likelihood_yes);
-    const no = (1 - m.prior) * ("likelihood_ratio" in m ? 1 : m.likelihood_no);
-    return { ok: true, engine: "bayesian_update", probability: yes / (yes + no),
+    // Log odds preserve possible evidence when prior × likelihood underflows.
+    const ratio = "likelihood_ratio" in m ? m.likelihood_ratio : m.likelihood_yes / m.likelihood_no;
+    const logLikelihood = "likelihood_ratio" in m || (ratio > 0 && Number.isFinite(ratio)) ? Math.log(ratio) :
+      Math.log(m.likelihood_yes) - Math.log(m.likelihood_no);
+    const logOdds = Math.log(m.prior) - Math.log1p(-m.prior) + logLikelihood;
+    const small = Math.exp(-Math.abs(logOdds));
+    return { ok: true, engine: "bayesian_update", probability: logOdds >= 0 ? 1 / (1 + small) : small / (1 + small),
       method: "Bayes' rule for one joint observation. Repeated reports of that observation are not additional evidence." };
   }
   const shared = { ok: true as const, engine: "normal_distribution" as const, threshold: m.threshold,

@@ -1,3 +1,10 @@
+# Unreleased
+
+- Fixed Bayesian likelihood underflow without probability floors: 1,398/1,398 high-precision synthetic cases pass, versus 1,339 before. Impossible observations still fail; old saved forecasts remain unchanged.
+- Separated scoring-only question baselines from inference. Dated baseline evidence remains available when explicitly supplied in the evidence packet.
+- Indexed benchmark rows and resampled cluster sufficient statistics. The 10,000-row synthetic scorer ran 11.5 times faster in the recorded measurement; all score fields agreed within 8.2e-16.
+- Published a zero-cost, 131-forecast historical calibration comparison with source/event exclusion and full numerical inputs. The residual candidate failed its promotion criteria; calibration defaults are unchanged. See [measurements and limits](docs/SUPERFORECASTING.md#measured-improvement-and-rejected-calibration-22-september).
+
 # 0.2.0 reference workflow (2026-09-22)
 
 - Added installable `vati` CLI, metered streaming execution, evidence collection, immutable lifecycle, frozen model/harness evaluation, real government-data starter packs and installed-artifact acceptance. Existing registered studies remain unchanged. See `forecast-core/WORKFLOW.md`. Python package remains 0.1.0.

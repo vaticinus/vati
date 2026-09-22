@@ -14,6 +14,62 @@ Do not average these into a flattering single number. A correct 30% estimate att
 
 The local experiment and explicit acceptance rubric are in [`benchmarks/2026-09-22/protocol.json`](../benchmarks/2026-09-22/protocol.json). Ten project gates make the desired “9/10” inspectable. They are acceptance requirements, not an official leaderboard or an estimated probability that the system is safe.
 
+## Measured improvement and rejected calibration, 22 September
+
+The probability engine now handles positive Bayesian likelihoods that previously underflowed to zero. The scorer avoids repeatedly searching the same rows and rebuilding sampled arrays. The workflow keeps scoring-only baselines out of inference prompts. These changes cost no model credits.
+
+| Component diagnostic | Before | After |
+|---|---:|---:|
+| Bayesian cases within 1e-12 of a high-precision oracle | 1,339 / 1,398 | 1,398 / 1,398 |
+| Valid Bayesian cases rejected as impossible | 31 | 0 |
+| Largest absolute probability error among returned values | 0.333333 | 1.76e-14 |
+| Scoring-baseline isolation, direct and reviewed arms | 0 / 2 | 2 / 2 |
+| Median scoring time, 2,000 rows | 70.68 ms | 18.05 ms |
+| Median scoring time, 10,000 rows | 613.65 ms | 53.43 ms |
+
+The arithmetic grid uses 1,200-digit Decimal calculations on the exact binary floating-point inputs. It deliberately stresses rare evidence; its pass rate does not estimate the prevalence of failures in ordinary forecasts. Timing uses five warmed repetitions on one arm64 machine, with 100 event clusters. Every score field agrees within 8.2e-16, including missingness bounds and bootstrap endpoints. Timing is machine dependent. The baseline-isolation checks use injected synthetic completions, not a claim that a real model now ignores misleading evidence.
+
+Receipts: [`harness-before.json`](../benchmarks/performance-2026-09-22/harness-before.json), [`harness-after.json`](../benchmarks/performance-2026-09-22/harness-after.json), and the [executable benchmark](../benchmarks/performance-2026-09-22/harness_benchmark.mts).
+
+### Historical policy comparison
+
+Nine development policies covered raw crowd probabilities, the incumbent calibration, a fitted source map, partial blends, shrinkage toward source frequencies, and small residual offsets. The selected offset policy was frozen before loading the August evaluation rounds. It did not qualify for adoption.
+
+| August evaluation: 131 forecasts, 104 event IDs | Brier | Log loss |
+|---|---:|---:|
+| Raw frozen crowd reference | 0.088924 | 0.292385 |
+| Incumbent calibration | 0.092506 | 0.304440 |
+| Frozen residual candidate | 0.092038 | 0.303089 |
+
+Candidate minus incumbent Brier was -0.000467, with an event-cluster bootstrap 95% interval of [-0.001989, +0.001135]. That misses the declared 0.002 minimum improvement and includes harm. Raw crowd also has a better point score, but its interval against the incumbent crosses zero. Neither result justifies selecting a new default after seeing this sample. The existing calibration is unchanged.
+
+The evaluation uses the August 2, 16 and 30 ForecastBench rounds at a pinned upstream commit. Of 720 market rows, 512 were unresolved and 77 had an ID already exposed in the earlier archive; all remaining 131 were scored. An extraction audit corrected the exclusion set to include earlier unresolved questions too. No candidate probability was changed after evaluation began. The local freeze is not an independent preregistration witness. Nominal settlement dates do not prove when historical training labels first became available, and distinct IDs can still concern related events.
+
+This is a crowd-aware mechanical replay, not a test of a new LLM, a crowd-free result, or an official ForecastBench score. Earlier old-checkpoint Llama, Qwen and Gemma studies remain unchanged. Inputs and transformations derived from [ForecastBench](https://github.com/forecastingresearch/forecastbench-datasets) retain [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); the code license does not replace the data license. Protocol, numerical inputs, development data and scores are in [`benchmarks/performance-2026-09-22/`](../benchmarks/performance-2026-09-22/).
+
+### What earns the next improvement claim
+
+| Target | Required evidence |
+|---|---|
+| Forecast accuracy | At least 0.002 lower mean Brier against the declared incumbent, paired cluster interval wholly below zero, no log-loss regression, consistent temporal signs, then fresh replication. Compare the same events and permitted information; include a strong direct model and an allowed crowd/reference policy. |
+| Harness reliability | At least 99% issued coverage on the registered cohort, zero critical event/arithmetic/source failures in the declared adversarial suite, and every rejection/error retained. Synthetic passes alone cannot establish 99% real-world reliability. |
+| Extra inference or research | Better paired scores or fewer substantive failures at the same total cost ceiling. Report actual cost and latency per attempted and issued forecast. A probability change or an approving reviewer is insufficient. |
+| Decision usefulness | Lower regret under explicit utilities and constraints, including acquisition cost. This run did not measure business-decision quality. |
+| External standing | A separately authorized official submission and its published rank, followed by replication across domains and issue windows. No top-rank claim follows from this release. |
+
+These are project targets, not established achievements or universal sample-size rules. Set the next cohort size from development variance and the smallest useful effect. For the next judgment experiment, use a checkpoint released before its historical issue dates with auditable served-weight provenance and genuinely dated evidence. Freeze the direct control and evidence-selection treatment separately; keep the scoring comparator out of both unless it is explicitly permitted evidence. Do not spend on another calibration search over this exposed August cohort.
+
+Reproduce the released measurements from `forecast-stack/`, with new output paths:
+
+```sh
+python benchmarks/performance-2026-09-22/replay.py --out /tmp/vati-policy-replay.json
+python benchmarks/performance-2026-09-22/replay.py --arithmetic-cases --out /tmp/vati-arithmetic.json
+node --experimental-strip-types benchmarks/performance-2026-09-22/harness_benchmark.mts \
+  --cases /tmp/vati-arithmetic.json --out /tmp/vati-harness.json
+```
+
+For the before comparison, the three source hashes in `harness-before.json` identify `forecastEngine.ts`, `benchmark.ts` and `workflow.ts` at commit `9e0e7d1`. Place those unmodified files beside the current modules under `.before-`-prefixed names and pass `--prefix .before-` to the benchmark; remove the temporary copies afterward. This compares the named components, not a deployment of the entire old stack. Analysis and documentation were AI-assisted.
+
 ## Keep development moving without waiting for outcomes
 
 Use already-resolved historical events with an older, pinned checkpoint and evidence available at each simulated issue date. Keep prospective forecasts running as a background audit, not as a prerequisite for the next engineering experiment. A historical score is available immediately; its credibility depends on checkpoint provenance, dated evidence and separation between development and held-out cases.

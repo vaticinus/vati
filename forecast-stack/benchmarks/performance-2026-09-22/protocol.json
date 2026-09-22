@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "name": "zero-cost-calibration-and-harness-ablation",
+  "registered_at": "2026-09-22T15:06:41.517061+00:00",
+  "cost_ceiling_usd": 0,
+  "model_calls": 0,
+  "dataset_commit": "c1360cb34bdf2d6b77f86f800af436c9ebbc649b",
+  "evaluation_rounds": [
+    "2026-08-02",
+    "2026-08-16",
+    "2026-08-30"
+  ],
+  "selection": "Every resolved single market event with a finite frozen crowd probability in the registered rounds; exclude every source/question ID exposed in the local archive through July 5. Keep repeated eligible event/round forecasts, cluster intervals by source/question; report round signs too.",
+  "training": "Earliest forecast per source/question, issued and resolved before 2026-01-01 in the available archive. Development: new source/question IDs issued January-June 2026 and resolved before July. Nominal settlement dates are not independently attested label-publication times; this remains a retrospective mechanical replay.",
+  "forecast_track": "crowd-aware deterministic calibration, not an LLM or crowd-free skill test",
+  "methods": {
+    "raw": "frozen crowd probability",
+    "incumbent": "existing market.calibrate_market_probability",
+    "candidate": "existing source-offset fitter on incumbent, min_n=25, shrink_n=75; frozen residual logit offsets, no refit"
+  },
+  "candidate_offsets": {
+    "manifold": -0.1928,
+    "metaculus": -0.0267,
+    "polymarket": 0.0443
+  },
+  "candidate_weight": 1,
+  "primary": "candidate minus incumbent mean Brier on matched eligible forecasts, lower is better",
+  "promotion": {
+    "minimum_brier_improvement": 0.002,
+    "event_cluster_bootstrap_upper_below": 0,
+    "bootstrap_draws": 10000,
+    "seed": 20260922,
+    "all_round_signs_nonpositive": true,
+    "no_missing": true,
+    "log_loss_noninferior": true,
+    "fresh_replication_required_before_default": true
+  },
+  "development": {
+    "train_distinct_events": 790,
+    "rows": 853,
+    "events": 547,
+    "tested_brier": {
+      "raw": 0.11901417964464715,
+      "legacy": 0.11586626943012278,
+      "fitted": 0.12059334440246432,
+      "half_fitted": 0.11896491601853837,
+      "quarter_fitted": 0.11877983633033844,
+      "half_to_base": 0.14724396744506243
+    },
+    "residual_candidate_brier": 0.11542281198084528,
+    "candidate_fitting_exposure": "9 candidate policies inspected on development; not an unseen result."
+  },
+  "harness_checks": [
+    "scoring-only baselines must not enter any inference-stage prompt",
+    "valid positive Bayesian likelihoods must not become impossible by floating-point underflow",
+    "all registered benchmark rows and event clusters must be retained",
+    "score throughput at 1000/5000 cases with exact score and bootstrap agreement"
+  ],
+  "limits": [
+    "No paid or local LLM inference; no old-checkpoint judgment claim.",
+    "Existing archived old-checkpoint studies remain unmodified.",
+    "A public dataset commit is a reproducibility pin, not an independent preregistration witness.",
+    "Public round question sets may repeat semantically related events; ID exclusion does not remove all dependence.",
+    "Dataset-derived numerical inputs retain ForecastBench CC BY-SA 4.0; code MIT.",
+    "No leaderboard submission or top-rank claim."
+  ]
+}
