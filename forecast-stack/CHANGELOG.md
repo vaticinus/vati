@@ -4,6 +4,8 @@
 - Reworked the public Space as a Vaticinus forecasting workbench with guided scenario inputs, OpenRouter personal-key forecasting, per-attempt spending limits, cancellation and downloadable success/failure records. Reuses the metered runtime; no hosted-key fallback or automatic retries. Added HTTP regressions for credential rejection, pre-request budget refusal and typed issuance.
 - Rewrote the repository landing page around the forecasting mission, linked the live workbench, and moved the original Beyond Brier study documentation to `BEYOND_BRIER.md`. Its Python package metadata points to that document; code and licenses are unchanged.
 - Repaired forecast packaging after the Gemma historical diagnostic: typed generic JSON blocks enter the same validation path, complete corrected forecast blocks are revalidated and reviewed, and mixed-format duplicate candidates fail closed. No kind, probability or event is inferred to rescue an output. The registered Gemma result remains unchanged; saved-response replay is not a new accuracy score.
+- Published the registered [Gemma 27B comparison](benchmarks/gemma-27b-2025-fomc/RESULTS.md): 11/12 forecasts issued; paired Brier difference −0.0195 on five pairs, with one missing harness forecast and only one event cluster. Semantic failures survive review; no major-decision readiness claim follows.
+- Fixed Markdown URL-label citation extraction: `[URL](URL)` no longer creates a spurious unprovided URL, while an unprovided destination behind a supplied-looking label still fails admission. Saved-response replay reaches semantic review but cannot issue without it. The registered 27B outcomes and scores remain unchanged.
 
 # Changelog
 

@@ -179,7 +179,9 @@ function citationUrl(value: string): string | null {
 /** URL identity only: presence never proves retrieval, relevance, or claim support. */
 function citationUrls(text: string): Set<string> {
   const urls = new Set<string>();
-  for (const match of text.matchAll(/https?:\/\/[^\s<>"'`\\]+/gi)) {
+  // A URL may be the link label too: [https://source](https://destination).
+  // Keep both identities rather than swallowing the Markdown separator.
+  for (const match of text.matchAll(/https?:\/\/(?:(?!\]\()[^\s<>"'`\\])+/gi)) {
     let value = match[0].replace(/[.,;:!?]+$/, "");
     // Remove prose/Markdown closers, but retain balanced parentheses inside URL paths.
     for (const [open, close] of [["(", ")"], ["[", "]"], ["{", "}"]]) {

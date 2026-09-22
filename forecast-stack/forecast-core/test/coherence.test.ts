@@ -122,6 +122,18 @@ test('exact supplied citations survive markdown punctuation and URL normalizatio
   assert.ok(result.spec);
 });
 
+test('URL-labelled Markdown links admit the supplied URL but not a concealed destination', async () => {
+  const source = 'https://agency.example/report_(2035)';
+  for (const destination of [source, 'https://unprovided.example/report']) {
+    const result = await finalizeForecastAnswer(`See [${source}](${destination}).\n` + fence(spec), {
+      request:contract.request, contract, grounding:[source],
+      complete:async (_system, _user, stage) => stage === 'forecast_review'
+        ? JSON.stringify({valid:true, issues:[]}) : null,
+    });
+    assert.equal(result.spec !== null, destination === source);
+  }
+});
+
 test('a reviewed identified range is a complete answer without a fabricated point card', async () => {
   const answer = 'The marginals identify only a 50–70% range. A conditional probability is needed for a point estimate.';
   const result = await finalizeForecastAnswer(answer, {
