@@ -1,6 +1,6 @@
 # From a working forecaster to a defensible forecasting claim
 
-The target is not an impressive answer. It is a lower error rate, better decisions and fewer material failures on questions selected before the answers were known. This repository does not yet establish general superforecaster-level performance.
+The target is lower forecast error, better decisions and fewer material failures on a declared evaluation cohort. Historical testing drives development; prospective records provide a separate check against hindsight and contamination. This repository does not yet establish general superforecaster-level performance.
 
 ## Three measurements, not one score
 
@@ -8,11 +8,25 @@ The target is not an impressive answer. It is a lower error rate, better decisio
 |---|---|---|---|
 | Model | Question, information packet, issue time, sampling settings | Proper score, calibration, discrimination, factual and decision errors | That tools or orchestration improve it |
 | Harness | The same model and permitted information | Contract preservation, evidence support, correct computation, useful abstention, record integrity, failures, cost and latency | That plausible assumptions predict reality |
-| Whole system | A prospective cohort, baseline policy and budget | Paired forecast skill and decision value after all costs | Expert replacement in untested domains |
+| Whole system | A declared historical or prospective cohort, baseline policy and budget | Paired forecast skill and decision value after all costs | Expert replacement in untested domains |
 
 Do not average these into a flattering single number. A correct 30% estimate attached to the wrong event is a failed answer. A sound forecast paired with the wrong payoff arithmetic is a failed decision. A technically clean harness can preserve a bad model's prediction perfectly.
 
 The local experiment and explicit acceptance rubric are in [`benchmarks/2026-09-22/protocol.json`](../benchmarks/2026-09-22/protocol.json). Ten project gates make the desired “9/10” inspectable. They are acceptance requirements, not an official leaderboard or an estimated probability that the system is safe.
+
+## Keep development moving without waiting for outcomes
+
+Use already-resolved historical events with an older, pinned checkpoint and evidence available at each simulated issue date. Keep prospective forecasts running as a background audit, not as a prerequisite for the next engineering experiment. A historical score is available immediately; its credibility depends on checkpoint provenance, dated evidence and separation between development and held-out cases.
+
+Run these comparisons separately:
+
+- **Forecasting:** the same model and information, scored against actual outcomes and a declared baseline.
+- **Harness reliability:** event preservation, evidence support, arithmetic, missing answers and cost.
+- **Decision quality:** inventory allocation, capital budgets, scheduling or information purchases with explicit constraints and an executable payoff model. Measure regret against the best feasible action, not whether an evaluator likes the prose. Synthetic business cases establish bounded competence, not real-world profitability.
+
+A forecast moving from 40% to 42% is not a two-point accuracy gain. More model calls earn their place only through better scores, fewer substantive failures or useful decision improvements on held-out cases.
+
+Start a new ablation from the existing [structured workflow](../forecast-core/WORKFLOW.md). Its caller supplies the event definition; `runForecast` constructs the contract without asking a model to rewrite it. The older experimental runner extracts a contract with a model. Equality to that extraction cannot prove preservation of the original request. Compare direct generation with deterministic validation, then add review or better evidence as separate interventions. Keep previously registered runners and results unchanged.
 
 ## Run the free path first
 
@@ -75,7 +89,7 @@ Every output includes cohort and source hashes, raw visible answers, numerical r
 4. **Diagnose failures before adding agents.** Classify event substitution, unsupported evidence, math errors, unjustified precision, decision mistakes, provider failures and unhelpful abstention separately. Do not count a provider error as a correct refusal. Do not hide it by substituting 50% in the forecast record.
 5. **Change one component.** First repair the demonstrated defect. Then compare at fixed model and evidence. A review step earns its cost only if it reduces substantive failures or adds measured workflow value. More reviewers seeing the same evidence are not independent experts.
 6. **Freeze again and run transfer once.** Retain the full result, including nulls and regressions. Do not “adapt until passing” on the same holdout. Failure means a new hypothesis and a genuinely new cohort, not a renamed retry.
-7. **Move to prospective scoring.** Publish a pre-outcome manifest through an independent witness, issue immutable predictions, and score every eligible resolution under the frozen missingness rule. Local hashes and git timestamps alone are not independent timing evidence.
+7. **Maintain prospective scoring in parallel.** Publish a pre-outcome manifest through an independent witness, issue immutable predictions, and score every eligible resolution under the frozen missingness rule. Continue historical and executable-decision experiments while those outcomes mature. Local hashes and git timestamps alone are not independent timing evidence.
 
 Useful model-side work includes selecting a better base model, evaluating the evidence-selection policy, and fitting a calibration map using only earlier development data. Fine-tuning should follow a replicated failure diagnosis and a frozen baseline, not precede them. Publish the raw adapter and any residual/blending policy as different systems. An adapter mixed at 10% with a base model has not demonstrated that the adapter alone is better. Parent-model rights, training-data rights and checkpoint hashes are separate release requirements.
 
@@ -95,6 +109,8 @@ In the synthetic evaluator, `oracle:null` means that the stipulated inputs do **
 
 The [22 September prospective pilot](../benchmarks/prospective-2026-09-22/RESULTS.md) records three future US macro events across MiMo v2.6 Pro, Gemini 3.8 Flash and DeepSeek v4.1 Flash. Nine direct forecasts issued; all nine harness rows failed. Outcomes remain unresolved. A disclosed stop-policy deviation makes the run exploratory, and zero complete arm pairs means no paired harness accuracy estimate. Its runner safety repair does not retroactively repair the experiment.
 
+The [subsequent paired run](../benchmarks/paired-2026-09-22/RESULTS.md) issued one MiMo Flash pair: 40% direct and 42% harness for August job openings. DeepSeek's draft timed out and the repaired global stop prevented subsequent requests. Two of twelve planned rows issued; only one of six planned pairs is complete, and it remains unresolved. Reviewed text still contained deadline ambiguity and unsupported historical claims.
+
 **Uncertainty:** use paired bootstrap intervals with clusters for shared events, source series or issue periods. Repeated horizons are not independent questions. Report the number of clusters and the cohort selection rule. Wilson intervals on pass rates describe finite samples under assumptions, not cross-domain guarantees. At 16/16 passes, even an ordinary two-sided 95% Wilson interval has a lower endpoint around 81%; that is not proof of 99% reliability. A small bootstrap with no observed failures cannot manufacture evidence about unobserved failure modes.
 
 **Calibration:** report reliability by probability range with counts, uncertainty, sharpness and tail errors. Calibration is not merely a small average calibration error: predicting the base rate for everything can be calibrated but uninformative. Fit calibration on earlier data, freeze it, and evaluate later. Do not fit and score on the same resolved pool.
@@ -112,6 +128,10 @@ The suggested historical design is sound only with independently documented chec
 Reconstruct evidence as it was available at the issue time. Preserve publication and reference dates separately, include archived initial releases rather than today's revised series, and audit retrieval for later snippets or outcome reveals. Use temporal development/validation/test blocks and keep all rows of the same event together. The `cutoff` recall probes can detect knowledge; failing a probe cannot prove its absence. Neither an `asof` prompt nor `outcome_after_checkpoint` performs this complete audit.
 
 The completed [2025 FOMC historical replay](../benchmarks/historical-2025-fomc/RESULTS.md) applies this distinction to older Llama 3.1 8B and Qwen 2.5 7B checkpoints: 32/32 forecasts, about $0.0155 conservative cost, mixed harness score changes and material semantic failures. Reference revisions predate outcomes, but third-party served weights are not independently attested. The report preserves the retrospective nature of the study and does not establish a ForecastBench gain.
+
+Gemma 3 is another candidate for this design. Google's [model card](https://ai.google.dev/gemma/docs/core/model_card_3) documents an August 2024 training-data cutoff; its [release announcement](https://blog.google/technology/developers/gemma-3/) is dated March 12, 2025. Prefer an original pinned checkpoint and simulated issue dates after its release, with later resolved outcomes. This is a provenance-based candidate choice, not a measured Gemma forecasting result.
+
+Self-hosting can provide exact weight control and credit-funded bulk inference, but it is not inherently free or cheaper than an API. Record the checkpoint, tokenizer, quantization, serving version, billed GPU time, storage and achieved throughput. Verify current credit eligibility and require a spending ceiling and automatic shutdown before launch. A neutral endpoint name changes neither model knowledge nor cost.
 
 ## External proof and the route to 9/10
 
