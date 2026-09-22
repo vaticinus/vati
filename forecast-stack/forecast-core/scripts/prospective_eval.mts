@@ -18,6 +18,7 @@ const args=process.argv.slice(2);
 const arg=(name:string)=>{const i=args.indexOf(name);if(i<0||!args[i+1])throw new Error(`Missing ${name}`);return args[i+1];};
 const sha=(p:string)=>createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 for(const [name,expected] of Object.entries(protocol.source_sha256)) if(sha(path.join(root,name))!==expected)throw new Error(`Frozen source changed: ${name}`);
+for(const model of protocol.models) if(typeof protocol.reasoning_mandatory?.[model]!=='boolean')throw new Error(`Register reasoning_mandatory from provider capabilities for ${model} before inference`);
 if(!args.includes('--run')) {console.log(JSON.stringify({models:protocol.models,cases:cohort.cases.length,arms:protocol.arms,limits:protocol.limits,paid:false},null,2));process.exit(0);}
 const ledgerPath=path.resolve(arg('--ledger')),out=path.resolve(arg('--out'));
 if(fs.existsSync(out))throw new Error('Refusing to overwrite issued forecasts');
@@ -60,7 +61,7 @@ try {
      if(bytes>protocol.limits.message_bytes_per_call)throw new Error('Registered input bound exceeded');
      const reserve=(bytes+2048)*rate.prompt/1e6+max*rate.completion/1e6;
      if(ledger.spent_upper_usd+reserve>protocol.cumulative_ceiling_usd){terminal=true;throw new Error('Shared dollar ceiling reached before request');}
-     const body={model,messages,max_tokens:max,temperature:0,reasoning:{enabled:stage==='draft'||stage==='direct'},provider:{allow_fallbacks:false,require_parameters:true,max_price:rate},...(['direct','forecast_contract','forecast_review','forecast_correct'].includes(stage)?{response_format:{type:'json_object'}}:{})};
+     const body={model,messages,max_tokens:max,temperature:0,reasoning:{enabled:protocol.reasoning_mandatory[model]||stage==='draft'||stage==='direct'},provider:{allow_fallbacks:false,require_parameters:true,max_price:rate},...(['direct','forecast_contract','forecast_review','forecast_correct'].includes(stage)?{response_format:{type:'json_object'}}:{})};
      const entry:any={study:'prospective-2026-09-22',case_id:c.id,arm,stage,at:new Date().toISOString(),model,request:body,reserved_usd:reserve,cost_upper_usd:reserve};
      ledger.spent_upper_usd+=reserve;ledger.calls.push(entry);checkpoint();
      const begin=Date.now();
@@ -70,6 +71,7 @@ try {
       entry.status=response.status;
       const data=await response.json() as any;entry.returned_model=data.model;entry.returned_provider=data.provider;entry.usage=data.usage;entry.response=data.choices?.[0]?.message?.content;entry.finish_reason=data.choices?.[0]?.finish_reason;
       bodyRead=true;
+      if(data.error)entry.provider_error=data.error;
       const u=data.usage;
       if(u&&Number.isFinite(u.prompt_tokens)&&u.prompt_tokens>=0&&Number.isFinite(u.completion_tokens)&&u.completion_tokens>=0){
        const actual=Math.max((u.prompt_tokens*rate.prompt+u.completion_tokens*rate.completion)/1e6,Number.isFinite(u.cost)&&u.cost>=0?u.cost:0);
