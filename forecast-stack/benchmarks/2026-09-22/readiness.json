@@ -1,0 +1,22 @@
+{
+  "rating_type": "Demonstrated project-gate coverage, not forecasting accuracy, probability of safety or an independent certification.",
+  "high_stakes_promotion": false,
+  "current_mimo_real_world_forecasting_grade": null,
+  "model_gate_result": "Unrated: this study supplies no independent prospective matched resolved cohort for either current MiMo variant. Synthetic performance and archived runs of different models cannot fill those gates.",
+  "harness_confirmed_gates_out_of_ten": 6,
+  "partial_credit_counted_as_pass": false,
+  "harness_gates": [
+    {"gate":"Typed arithmetic boundary","status":"demonstrated_within_scope","evidence":"Typed-engine and snapshot regressions plus live provider runs. Arithmetic is conditional on supplied model inputs; extracting the correct inputs remains fallible."},
+    {"gate":"Exact event and resolution preservation","status":"partial","evidence":"Mechanical contract mismatches and selected injection cases are rejected. LLM contract extraction can still introduce unsupported missing inputs or alter meaning."},
+    {"gate":"Unknown-dependence and abstention handling","status":"partial","evidence":"Explicit no_point approval and valid range paths are exercised; unnecessary withholding, false bounds and incorrect dependence explanations remain."},
+    {"gate":"Citation and date provenance boundaries","status":"partial","evidence":"URL identity and future-date guards are exercised. They do not prove retrieval, source support, archived availability or publication-vintage validity."},
+    {"gate":"Injection and duplicate-evidence resistance","status":"demonstrated_within_scope","evidence":"Selected synthetic injection, stakeholder-pressure and repeated-dossier cases. Not a general prompt-injection security guarantee; transfer delivery errors remain separately counted."},
+    {"gate":"Fail-closed transport and honest missingness","status":"demonstrated_within_scope","evidence":"Provider failures and rejected drafts remain missing and scored as such, not replaced by fabricated probabilities. Critic diagnostics are explicitly unverified."},
+    {"gate":"Durable cumulative spending cap","status":"demonstrated_within_scope","evidence":"The evaluator reserves before network I/O, rejects malformed ledgers, retains ambiguous charges across restart, locks shared state and caps routes. This does not budget an arbitrary caller's default transport."},
+    {"gate":"Immutable snapshot and ledger verification","status":"demonstrated_within_scope","evidence":"Saved-result and ledger lifecycle checks pass, including installed packages. Local hash verification is tamper evidence relative to a retained head, not an independent pre-outcome timestamp."},
+    {"gate":"Current-format source-aware scorer","status":"demonstrated_within_scope","evidence":"Current ForecastBench-style records, source collisions, missing categories and invalid labels/probabilities are exercised. Local raw scoring is not the official difficulty-adjusted leaderboard."},
+    {"gate":"Held-out semantic/decision and matched-budget increment","status":"not_established","evidence":"Transfer retains substantive errors and delivery failures. Output ceilings are matched in one direct control, not actual consumed compute or dollars. No positive robust harness increment established."}
+  ],
+  "conclusion": "Useful research code, not an autonomous major-decision forecaster. The desired 9/10 readiness claim has not been earned. No amount of arithmetic pass-rate relabeling supplies absent prospective forecasting evidence.",
+  "required_next_evidence": "Preregister an independently witnessed prospective cohort and comparator policy, resolve every eligible event, audit source vintages and decision utilities, estimate paired uncertainty clustered by event, and obtain untouched independent replication. See the walkthrough and original project gates; the proposed 200-event target is not an official rule or a power calculation."
+}

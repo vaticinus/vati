@@ -1,0 +1,64 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  beyond-brier:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install -e '.[dev]'
+      - run: python -m pytest -q
+      - run: python examples/quickstart.py
+  forecast-python:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: forecast-stack
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.13']
+    env:
+      FORECAST_STACK_MOCK: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install -e '.[dev]' build
+      - run: python -m pytest
+      - run: python examples/quickstart.py
+      - run: forecast-stack providers && forecast-stack feeds list
+      - run: python scripts/release.py --check
+      - run: python -m build
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.22.0'
+      - run: npm ci
+        working-directory: forecast-stack/forecast-core
+      - run: npm test && npm run example && npm run eval:list && npm run build
+        working-directory: forecast-stack/forecast-core
+      - run: npm pack --dry-run
+        working-directory: forecast-stack/forecast-core
+  space:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t forecast-stack-space forecast-stack
+      - run: |
+          docker run -d --name workbench -p 7860:7860 forecast-stack-space
+          curl --retry 10 --retry-connrefused --retry-delay 1 --fail http://localhost:7860/
+          curl --fail -H 'Content-Type: application/json' -d '{"kind":"binary","p_yes":0.25}' http://localhost:7860/api/compute

@@ -1,0 +1,33 @@
+{
+  "registered_on_local_date": "2026-09-22",
+  "registered_before_transfer_inference": true,
+  "original_protocol_unchanged": true,
+  "reasons": [
+    "Actual development outputs contained correct calculations but inconsistent JSON representations: bounds objects instead of arrays, calculation fields at the root, or an evaluation reference string. These remain strict delivery failures in their original records, not mislabeled arithmetic errors.",
+    "The contract planner sometimes asked permission to perform an explicitly requested closed-world calculation. Generic routing guidance now distinguishes non-forecast classification from missing information.",
+    "The completed DeepSeek decision run had six HTTP 429 failures among twelve attempted rows. The following adversarial run was stopped after four saved rows, with one in-flight reservation retained. Repeated provider unavailability must not be rerun until a flattering result appears.",
+    "A pre-inference oracle audit made the causal-policy packet's within-stress exchangeability assumption explicit. Without that statement, the requested observational probability would not follow from the interventional rates alone. Expected values and tolerances are unchanged; the final transfer freeze records the amended fixture hash."
+  ],
+  "changes": [
+    "Add exact evaluation JSON value types without exposing expected values, to both arms' request text. Strengthen the direct arm's evaluation-object instruction.",
+    "Keep every oracle, tolerance, scored field and probability-loss definition unchanged. Do not retrospectively overwrite prior grades.",
+    "Repeat the six decision and nine adversarial DEVELOPMENT cases with both MiMo variants; select a candidate by substantive correctness, then conservative cost, then latency.",
+    "Run both MiMo variants once on the untouched 16-case transfer fixture, each with direct_thinking, direct_budget and harness arms. This replaces the unavailable DeepSeek transfer reference explicitly, rather than presenting missing reference outputs as a complete comparison."
+  ],
+  "spending": {
+    "same_cumulative_ledger": "budget.json",
+    "user_ceiling_usd": 2,
+    "runner_ceiling_usd": 1.8,
+    "conservative_charges_at_reference_stop_usd": 0.5361890000000001,
+    "terminated_process_pid": 37428,
+    "reservation_refunds_on_termination": false,
+    "unknown_cost_reservation_retained": true
+  },
+  "limits": [
+    "These amendments are based on exposed development results, not prospective evidence.",
+    "The incomplete DeepSeek adversarial run is excluded from complete-run rankings and retained in the availability audit.",
+    "No rate-limited attempt is called a mathematical error, and no provider failure is called a correct abstention.",
+    "The 21,600-token direct_budget arm is an output-ceiling control, not equal consumed compute or equal dollars.",
+    "No transfer result has been inspected or used to change code, cases or selection. No external registration or submission is authorized by this amendment."
+  ]
+}

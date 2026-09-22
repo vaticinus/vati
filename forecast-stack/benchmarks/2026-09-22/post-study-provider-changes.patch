@@ -1,0 +1,171 @@
+--- a/forecast-core/src/lib/model.ts
++++ b/forecast-core/src/lib/model.ts
+@@ -1,7 +1,7 @@
+ import fs from "node:fs";
+ import path from "node:path";
+ 
+-import { currentByok } from "./byokContext.ts";
++import { currentByok, hasModelKey, OPENROUTER_DEFAULT_MODEL } from "./byokContext.ts";
+ 
+ // --- env loader -------------------------------------------------------------
+ // In production (Cloudflare Workers / Vercel) keys come from the platform env and
+@@ -64,7 +64,7 @@
+       key,
+       model: process.env.VATI_OPENROUTER_MODEL ||
+         (process.env.VATI_CHAT_PROVIDER === "openrouter" ? process.env.VATI_CHAT_MODEL : undefined) ||
+-        "deepseek/deepseek-v4.1-flash",
++        OPENROUTER_DEFAULT_MODEL,
+       extraHeaders: {
+         "HTTP-Referer": "https://vaticinus.com",
+         "X-Title": "Vaticinus",
+@@ -104,11 +104,15 @@
+   };
+ }
+ 
+-export function resolveProvider(): Resolved {
+-  loadRepoEnv();
+-  // The primary is whatever resolveProviderChain puts first (a BYOK key when present, else
+-  // DeepSeek when keyed, else Fireworks).
+-  return resolveProviderChain()[0];
++export function resolveProvider(hostedModelOverride?: string): Resolved {
++  const provider = resolveProviderChain()[0];
++  // Workflow overrides are operator settings, never permission to replace a personal key/model.
++  if (!hostedModelOverride || hasModelKey(currentByok())) return provider;
++  if (hostedModelOverride.includes("/")) {
++    const routed = provider.url.includes("openrouter.ai") ? provider : buildProvider("openrouter");
++    return { ...routed, model: hostedModelOverride };
++  }
++  return provider.url.includes("deepseek.com") ? { ...provider, model: hostedModelOverride } : provider;
+ }
+ 
+ /** Build a provider from an explicit (BYOK) key rather than the platform env. */
+@@ -117,7 +121,7 @@
+     return {
+       url: "https://openrouter.ai/api/v1/chat/completions",
+       key,
+-      model: model || "openai/gpt-oss-120b",
++      model: model || OPENROUTER_DEFAULT_MODEL,
+       extraHeaders: { "HTTP-Referer": "https://vaticinus.com", "X-Title": "Vaticinus" },
+     };
+   }
+@@ -137,19 +141,20 @@
+ }
+ 
+ /**
+- * BYOK keys first, then configured platform providers: DeepSeek, Fireworks, OpenRouter.
+- * A configured key does not guarantee a working provider; callers try each in order.
+- * Dedupe is by url+key. An explicit VATI_CHAT_PROVIDER pins the platform leg.
++ * Personal model keys form an isolated chain: OpenRouter, DeepSeek, Fireworks.
++ * A rejected personal key must never cause platform-funded requests.
++ * Without personal model keys, an explicit VATI_CHAT_PROVIDER pins the hosted leg.
+  */
+ export function resolveProviderChain(): Resolved[] {
+   loadRepoEnv();
+   const out: Resolved[] = [];
+-  // BYOK model keys take precedence; a search-only TinyFish key does not affect the model chain.
++  // A search-only key does not change model funding.
+   const byok = currentByok();
+-  for (const name of ["deepseek", "fireworks", "openrouter"] as const) {
++  for (const name of ["openrouter", "deepseek", "fireworks"] as const) {
+     const entry = byok[name];
+     if (entry?.key) out.push(providerFromKey(name, entry.key, entry.model));
+   }
++  if (out.length) return out;
+   const explicit = process.env.VATI_CHAT_PROVIDER as ProviderName | undefined;
+   const names: ProviderName[] = explicit
+     ? [explicit]
+@@ -234,24 +239,19 @@
+ /** The main-answer model for a provider + turn kind. Centralizes the DeepSeek tier logic so the
+  *  provider-fallback loop can recompute it for whichever provider actually answered. */
+ export function quickModelFor(provider: Resolved, trivial: boolean): string {
+-  return provider.url.includes("deepseek.com")
+-    ? trivial
+-      ? process.env.VATI_CHAT_TRIVIAL_MODEL || MODEL_FLASH
+-      : process.env.VATI_CHAT_QUICK_MODEL || MODEL_REASONER
+-    : provider.model;
++  return stageModel(provider, trivial ? "flash" : "reasoner",
++    trivial ? process.env.VATI_CHAT_TRIVIAL_MODEL : process.env.VATI_CHAT_QUICK_MODEL);
+ }
+ 
+ /** The fact-repair model for a provider. */
+ export function verifyModelFor(provider: Resolved): string {
+-  return provider.url.includes("deepseek.com") ? process.env.VATI_CHAT_VERIFY_MODEL || MODEL_REASONER : provider.model;
+-}
+-
+-/** The model id for a given stage against a resolved provider. DeepSeek has named tiers; every
+- *  other provider (Fireworks, OpenRouter, MiniMax) exposes a single model, which is what we use
+- *  for every stage. Centralizes the `provider.url.includes("deepseek.com")` checks that were
+- *  copy-pasted across the call sites. */
+-export function stageModel(provider: Resolved, stage: "flash" | "reasoner" = "flash"): string {
+-  return provider.url.includes("deepseek.com") ? (stage === "reasoner" ? MODEL_REASONER : MODEL_FLASH) : provider.model;
++  return stageModel(provider, "reasoner", process.env.VATI_CHAT_VERIFY_MODEL);
++}
++
++/** Personal model selection wins at every stage. Native DeepSeek stage overrides are hosted-only. */
++export function stageModel(provider: Resolved, stage: "flash" | "reasoner" = "flash", nativeOverride?: string): string {
++  if (hasModelKey(currentByok()) || !provider.url.includes("deepseek.com")) return provider.model;
++  return nativeOverride || (stage === "reasoner" ? MODEL_REASONER : MODEL_FLASH);
+ }
+ 
+ // --- the persona: this is what makes it OUR model, not a generic chatbot -----
+--- a/forecast-core/src/lib/byokContext.ts
++++ b/forecast-core/src/lib/byokContext.ts
+@@ -8,28 +8,31 @@
+ export type ByokEntry = { key: string; model?: string };
+ export type ByokKeys = Partial<Record<ByokProvider, ByokEntry>>;
+ 
++export const OPENROUTER_DEFAULT_MODEL = "xiaomi/mimo-v2.6-flash";
++
+ export const BYOK_PROVIDERS: Record<
+   ByokProvider,
+-  { label: string; hint: string; covers: "model" | "model+research" | "search" }
++  { label: string; hint: string; covers: "model" | "model+research" | "search"; defaultModel?: string }
+ > = {
++  openrouter: {
++    label: "OpenRouter",
++    hint: "Start here: MiMo 2.6 Flash is the low-cost default. Your key also pays for Sonar when a workflow uses it.",
++    covers: "model+research",
++    defaultModel: OPENROUTER_DEFAULT_MODEL,
++  },
+   deepseek: {
+     label: "DeepSeek",
+-    hint: "platform.deepseek.com API key (sk-...). Covers the chat model, council, scan, board.",
++    hint: "A native DeepSeek key. Used after OpenRouter if both personal keys are saved.",
+     covers: "model",
+   },
+   fireworks: {
+     label: "Fireworks",
+-    hint: "fireworks.ai key (fw_...). Serves the same DeepSeek weights; good fallback.",
++    hint: "A Fireworks key. Last personal model fallback; never a fallback to our balance.",
+     covers: "model",
+-  },
+-  openrouter: {
+-    label: "OpenRouter",
+-    hint: "openrouter.ai key (sk-or-...). Covers the model AND the Perplexity Sonar research leg.",
+-    covers: "model+research",
+   },
+   tinyfish: {
+     label: "TinyFish",
+-    hint: "tinyfish.ai key (sk-tinyfish-...). Covers live web search and page fetch (free tier).",
++    hint: "Optional personal search key. Covers web search and page fetch, not model generation.",
+     covers: "search",
+   },
+ };
+@@ -56,12 +59,11 @@
+   return Object.values(keys).some((v) => Boolean(v?.key));
+ }
+ 
+-// Tiers whose only real cost is model tokens + our (free) search: with a BYOK model key there is
+-// nothing left for us to charge for, so they run free within the normal rolling limits. Tiers that
+-// spend real external money (Exa Websets for contacts/capture, equity feeds for play) keep their
+-// credit cost: BYOK does not cover those.
+-const MODEL_ONLY_TIERS = new Set(["council", "deep", "scan", "board"]);
++// These tiers waive app credits with a personal model key; the provider still bills the user.
++// Sonar is skipped unless that user also supplies an OpenRouter key. Shared free search remains
++// available. External-data tiers and the separately hosted board retain their app credit cost.
++const MODEL_ONLY_TIERS: Record<string, true> = { council: true, deep: true, scan: true };
+ 
+ export function byokWaivesCredits(tier: string, keys: ByokKeys): boolean {
+-  return MODEL_ONLY_TIERS.has(tier) && hasModelKey(keys);
++  return Object.hasOwn(MODEL_ONLY_TIERS, tier) && hasModelKey(keys);
+ }

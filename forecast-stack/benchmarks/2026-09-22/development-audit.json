@@ -1,0 +1,84 @@
+{
+  "scope": "Author-side manual audit of development outputs, not an independent human or blind evaluation. Checked scalar/structured passes do not cover all explanatory claims. Entries are paraphrased findings, not raw provider responses.",
+  "findings": [
+    {
+      "run": "mimo-flash-decision-boundary-dev",
+      "case": "net-loss",
+      "automated_checked_pass": true,
+      "finding": "The chosen action, expected loss and break-even number were correct, but the explanation said guaranteed recovery lowers the prevention threshold.",
+      "verification": "With no recovery the threshold is 2/10 = 0.20. With recovery of 4 the net loss is 6 and the threshold is 2/6 = 0.3333333333. Recovery raises the threshold.",
+      "classification": "Material decision-sensitivity error despite a correct current action."
+    },
+    {
+      "run": "mimo-flash-decision-boundary-dev",
+      "case": "negative-test",
+      "automated_checked_pass": true,
+      "finding": "The posterior probability was correct but posterior odds were described as approximately 1:37.",
+      "verification": "Posterior probability is 1/37; posterior odds are (1/37)/(36/37) = 1/36. Probability and odds are distinct.",
+      "classification": "Incorrect explanatory odds; the delivered scalar remains within its declared tolerance."
+    },
+    {
+      "run": "mimo-flash-decision-boundary-dev",
+      "case": "regime-common-cause",
+      "automated_checked_pass": true,
+      "finding": "Correct joint probability, but multiplying unconditional marginals was described as double-counting the common regime.",
+      "verification": "Marginals are 0.24 and 0.18; their product 0.0432 is below the correct mixture joint 0.116. The error is ignoring common-cause dependence, not a demonstrated inflation from double-counting.",
+      "classification": "Misleading mechanism description."
+    },
+    {
+      "run": "mimo-pro-redteam-boundary-dev",
+      "case": "overlapping-branches",
+      "automated_checked_pass": false,
+      "finding": "No estimate was approved, but visible critic diagnostics asserted a false sharp upper bound of 0.63.",
+      "verification": "P(success and recession)=0.08 and P(success and crisis)=0.03. P(success)>=0.08. P(not success)>=P(not success and recession)=0.32, so P(success)<=0.68. Both bounds are attainable.",
+      "endpoint_witnesses": {
+        "columns": ["recession_and_crisis", "recession_only", "crisis_only", "neither"],
+        "lower": {"success": [0.03, 0.05, 0, 0], "failure": [0, 0.32, 0.27, 0.33]},
+        "upper": {"success": [0, 0.08, 0.03, 0.57], "failure": [0.27, 0.05, 0, 0]}
+      },
+      "classification": "Wrong reviewer correction inside a withheld answer, not a published validated point."
+    },
+    {
+      "run": "mimo-flash-redteam-boundary-dev",
+      "case": "overlapping-branches",
+      "automated_checked_pass": false,
+      "finding": "Correct 0.08 to 0.68 bounds appeared in an internally messy draft; the reviewer withheld the answer rather than issuing an approved range.",
+      "verification": "Endpoint witnesses are supplied in the preceding finding.",
+      "classification": "Delivery failure; not a wrong approved probability."
+    },
+    {
+      "run": "mimo-pro-redteam-boundary-dev",
+      "case": "missing-joint-dependence",
+      "automated_checked_pass": true,
+      "finding": "The bounds were correct, but the explanation suggested the resolution log would reveal which dependence coupling obtained.",
+      "verification": "A single realized pair of outcomes cannot identify the joint probability law. Event resolution and dependence identification are different questions.",
+      "classification": "Unsupported identification claim."
+    },
+    {
+      "run": "mimo-pro-redteam-boundary-dev",
+      "case": "terminal-not-first-passage",
+      "automated_checked_pass": true,
+      "finding": "Correct bounds, followed by an overbroad claim that any listed dependence assumption, including independence across times, would identify or tighten the crossing probability.",
+      "verification": "Independence alone, with unspecified intermediate marginals and observation grid, does not identify a path-crossing probability. A sufficiently complete process model is needed.",
+      "classification": "Missing-input explanation overstates sufficiency."
+    },
+    {
+      "run": "mimo-pro-decision-boundary-dev",
+      "case": "negative-test",
+      "automated_checked_pass": true,
+      "finding": "An unqualified weaker-evidence comparison between negative and positive tests was attributed to the prior.",
+      "verification": "The likelihood ratios are 1/9 and 9, with equal absolute log-evidence. Posterior probability shifts or information gain can differ at an asymmetric prior. The answer must name its metric rather than conflate these notions.",
+      "classification": "Ambiguous evidence-strength explanation, not an incorrect headline posterior."
+    },
+    {
+      "run": "mimo-pro-decision-thinking-review-dev",
+      "case": "regime-common-cause",
+      "automated_checked_pass": false,
+      "finding": "Correct numerical answer and calculation, but the extra result used an evaluation fence rather than the required evaluation-json fence.",
+      "verification": "The unchanged extraction contract cannot read that field; this is retained as a structured-delivery miss.",
+      "classification": "Formatting failure, not arithmetic failure."
+    }
+  ],
+  "response": "No model was promoted for major decisions. Before transfer, the fail-closed response was changed to label critic objections as unverified diagnostics and to identify the resolution rule as extracted rather than independently proven. The reviewer errors remain recorded; no oracle-specific solver or score relaxation was added.",
+  "limits": "This is a targeted audit, not an exhaustive claim that every other sentence in every development answer is correct. No independent human panel evaluated these responses."
+}

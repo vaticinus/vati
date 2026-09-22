@@ -30,12 +30,15 @@ plot = ["matplotlib>=3.4"]
 dev = ["pytest>=7", "matplotlib>=3.4"]
 
 [project.urls]
-Homepage = "https://github.com/vaticinus/beyond-brier"
-Paper = "https://github.com/vaticinus/beyond-brier/blob/main/docs/paper.pdf"
-Issues = "https://github.com/vaticinus/beyond-brier/issues"
+Homepage = "https://github.com/vaticinus/vati"
+Paper = "https://github.com/vaticinus/vati/blob/main/docs/paper.pdf"
+Issues = "https://github.com/vaticinus/vati/issues"
 
 [project.scripts]
 beyond-brier = "beyond_brier.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["beyond_brier*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,32 @@
+# data and local state
+data/
+*.db
+*.sqlite3
+*.db-wal
+*.db-shm
+
+# secrets — never commit
+.env*
+!.env.example
+*.pem
+cookies.csv
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+
+# os / editors
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+*.tgz
+*.log
+release/

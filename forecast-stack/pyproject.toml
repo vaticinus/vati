@@ -1,0 +1,43 @@
+[project]
+name = "forecast-stack"
+version = "0.1.0"
+description = "Open forecasting tools: public-data collectors, baselines, evaluation and tamper-evident records."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Toni Zemani" }]
+keywords = ["forecasting", "prediction", "calibration", "brier", "evaluation", "llm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+# Zero runtime dependencies: the harness, the model, and every collector run on
+# the standard library alone. LLM calls go over plain urllib to any provider.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+forecast-stack = "forecast_stack.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/vaticinus/vati/tree/main/forecast-stack"
+Issues = "https://github.com/vaticinus/vati/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["forecast_stack"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/forecast_stack", "/tests", "/examples", "/scripts/release.py", "/pyproject.toml", "/README.md", "/LICENSE", "/CONTRIBUTING.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

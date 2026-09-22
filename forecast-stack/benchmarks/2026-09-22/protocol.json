@@ -1,0 +1,28 @@
+{
+  "registered_at": "2026-09-22",
+  "purpose": "Separate exact-world reasoning, harness integrity, prospective forecasting and decision usefulness. No synthetic pass rate is a future-event accuracy score.",
+  "authorization": {"provider":"openrouter", "user_ceiling_usd":2, "runner_ceiling_usd":1.8, "opus":false, "public_submission":false},
+  "models": ["deepseek/deepseek-v4.1-flash", "xiaomi/mimo-v2.6-flash", "xiaomi/mimo-v2.6-pro"],
+  "price_ceiling_per_million": {"prompt":0.5,"completion":1.2},
+  "comparison": "Identical fixed evidence, direct reasoning-enabled model versus production typed contract/draft/review functions. Direct same-model baselines remain visible. Per-stage output ceilings are reported; this is not a claim of matched total compute.",
+  "rounds": [
+    "Baseline: existing ten development cases, all three models, both arms. Existing cases are development diagnostics, never unseen evidence.",
+    "Red team: existing nine adversarial cases plus new decision and uncertainty mechanisms. Retain all failures; change only demonstrated defects. Choose final model by substantive correctness, then conservative cost, then latency.",
+    "Freeze source, configuration and new transfer fixture hashes before inference. Run the chosen model and DeepSeek reference once on transfer. No tuning against transfer results. Fresh parameter transfer is not held-out mechanism transfer."
+  ],
+  "primary_metrics": ["All-case numerical correctness including missing outputs", "Expected excess Brier loss (p minus known oracle probability squared), not realized Brier", "Valid no-point response and separately checked sharp bounds", "Expected decision regret from stipulated payoffs", "Material explanation errors", "Execution failures and withholding", "Actual reported cost, conservative accounting and latency"],
+  "uncertainty": "Report Wilson intervals for finite pass rates and paired bootstrap intervals grouped by mechanism family; small selected synthetic cohorts do not estimate broad real-world reliability. Readiness ratings below are gate-coverage rubrics, not calibrated population scores.",
+  "nine_of_ten_gates": {
+    "model": ["Independent prospective matched cohort", "Immutable pre-outcome witness", "At least 200 resolved distinct events across at least three domains and two issue windows", "Paired proper-score interval beats declared naive baseline", "Paired interval beats contemporaneous allowed crowd or named strong AI baseline", "Stable calibration and log-loss tail audit", "No material domain-specific regression", "Fresh untouched replication", "Cost and coverage gates pass", "Independent reproduction"],
+    "harness": ["Typed arithmetic boundary", "Exact event and resolution preservation", "Unknown-dependence/abstention handling", "Citation/date provenance boundaries", "Injection and duplicate-evidence resistance", "Fail-closed transport and honest missingness", "Durable cumulative spending cap", "Immutable snapshot and ledger verification", "Current-format source-aware scorer", "Held-out semantic/decision and matched-budget increment"],
+    "critical_veto": "A catastrophic unsupported action, score corruption, spending escape or substituted event blocks high-stakes readiness irrespective of the numerical gate count.",
+    "threshold_note": "200 events and the nine-of-ten rubric are conservative project acceptance targets, not universal statistical laws or official leaderboard rules. Power depends on effect size and event correlation."
+  },
+  "historical_policy": "Existing pre-outcome forecasts may be rescored without new model judgments. New historical LLM judgments count only with a documented frozen checkpoint predating outcomes and genuinely point-in-time evidence. Recall probes and as-of instructions cannot certify absence of parametric leakage.",
+  "external_standards": [
+    "https://www.forecastbench.org/about/",
+    "https://www.forecastbench.org/leaderboards/",
+    "https://github.com/forecastingresearch/forecastbench/wiki/How-to-submit-to-ForecastBench"
+  ],
+  "publication_policy": "Update the maintained standalone OSS candidate and stage a reviewed release. Do not publish private history, credentials or licensed benchmark dumps. No outreach or benchmark upload in this experiment."
+}

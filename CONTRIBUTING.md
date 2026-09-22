@@ -1,10 +1,10 @@
 # Contributing
 
-Thanks for taking a look. This is a small, focused project and it intends to stay that way. The fastest way to get a change merged is to know what belongs here and what does not.
+This repository contains two independent packages. The guidance below applies to **Beyond Brier** (`beyond_brier`, root tests, paper and evaluation). For forecasting tools, collectors, the typed core or the workbench, use the [Forecast Stack contribution guide](forecast-stack/CONTRIBUTING.md). Keep changes and empirical claims scoped to the component they affect.
 
 ## What belongs here
 
-This is a **ruler, not a racehorse**. It scores forecasters against a prior. It does not forecast anything itself. Good contributions:
+Beyond Brier is a **ruler, not a racehorse**. It scores forecasters against a prior. It does not forecast anything itself. Good contributions:
 
 - bug fixes, especially anything that makes a reported number wrong
 - better tests, more adversarial tests, edge cases that break the math
@@ -14,7 +14,7 @@ This is a **ruler, not a racehorse**. It scores forecasters against a prior. It 
 
 ## What does not belong here
 
-- a forecasting model, data feeds, or anything that helps you *be* a better forecaster. That is out of scope on purpose.
+- a forecasting model or data feed inside `beyond_brier`. Propose those in the separate `forecast-stack/` component instead.
 - a new metric that is not strictly proper, or a skill-score *ratio* (we aggregate the difference of two proper scores for a reason, see `edge.py`).
 
 If you are not sure, open an issue before writing code.
@@ -23,7 +23,7 @@ If you are not sure, open an issue before writing code.
 
 ```bash
 git clone <your fork>
-cd beyond-brier
+cd vati
 pip install -e ".[dev]"
 pytest -q
 ```
@@ -35,6 +35,8 @@ python -m data.fetch
 pytest -q                       # now runs the integration test too
 python examples/make_figures.py
 ```
+
+Root `pytest` collects Beyond Brier's `tests/` only. Forecast Stack has separate Python and Node checks; run its [release gate](forecast-stack/docs/RELEASE.md#local-gate) from `forecast-stack/`. The root CI workflow runs both components.
 
 ## Before you open a PR
 
@@ -49,4 +51,4 @@ These are the most valuable reports. Include the smallest input that reproduces 
 
 ## License
 
-By contributing you agree your work is licensed under Apache-2.0, the same as the rest of the project.
+Beyond Brier and shared repository files remain Apache-2.0. Contributions under `forecast-stack/` are MIT, as specified by that component's `LICENSE`. By contributing, you agree to the license of the component you change; adding a component does not relicense existing work.

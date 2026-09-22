@@ -1,0 +1,22 @@
+name: Forecast Stack bug
+description: A behavior that fails, with the smallest usable reproduction.
+title: "forecast-stack: "
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction command or minimal input
+      description: Remove keys, private records and copyrighted data. Include version and runtime.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact and evidence
+      description: Include errors or computed results. Report exploitable security issues privately.

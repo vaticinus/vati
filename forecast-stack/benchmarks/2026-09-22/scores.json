@@ -1,0 +1,1851 @@
+{
+  "scope": "Exact-world diagnostics, not empirical forecasting skill or independent semantic review. Numerical grades and explicit checks are recomputed; no-point response acceptance is retained from the runner. Decision regret uses the requested structured action, with missing/malformed actions penalized separately from wrong actions.",
+  "summaries": [
+    {
+      "run": "deepseek-dev",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "arm": "direct_thinking",
+      "n": 10,
+      "headline_passes": 9,
+      "headline_score_out_of_ten": 9.0,
+      "headline_wilson_95": [
+        0.5958499732047615,
+        0.9821237869049271
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 1.3986916505890164e-11,
+      "mean_latency_ms": 20964.3,
+      "cost_upper_usd": 0.003616199999999999,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "initial-release",
+          "p": 0.0912,
+          "oracle": 0.091211219725868,
+          "error": null,
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "deepseek-dev",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "arm": "harness",
+      "n": 10,
+      "headline_passes": 9,
+      "headline_score_out_of_ten": 9.0,
+      "headline_wilson_95": [
+        0.5958499732047615,
+        0.9821237869049271
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 1,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 0.09511747750895318,
+      "mean_latency_ms": 71464.1,
+      "cost_upper_usd": 0.05212,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "rare-diagnosis",
+          "p": null,
+          "oracle": 0.07476635514018692,
+          "error": "HTTP 429",
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-flash-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "direct_thinking",
+      "n": 10,
+      "headline_passes": 8,
+      "headline_score_out_of_ten": 8.0,
+      "headline_wilson_95": [
+        0.49016247153664183,
+        0.9433178485456247
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 2.3645476651215184e-10,
+      "mean_latency_ms": 2143.6,
+      "cost_upper_usd": 0.0058390000000000004,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "negative-outcome",
+          "p": 0.1587,
+          "oracle": 0.158655253931457,
+          "error": null,
+          "check_results": null
+        },
+        {
+          "id": "initial-release",
+          "p": 0.0912,
+          "oracle": 0.091211219725868,
+          "error": null,
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-flash-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "harness",
+      "n": 10,
+      "headline_passes": 4,
+      "headline_score_out_of_ten": 4.0,
+      "headline_wilson_95": [
+        0.16818032970623614,
+        0.6873262302663417
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 4,
+      "mean_missing_penalized_expected_excess_brier": 0.49359059182998455,
+      "mean_latency_ms": 9637.8,
+      "cost_upper_usd": 0.07162230000000001,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "state-mixture",
+          "p": null,
+          "oracle": 0.25,
+          "error": null,
+          "check_results": null
+        },
+        {
+          "id": "rare-diagnosis",
+          "p": null,
+          "oracle": 0.07476635514018692,
+          "error": null,
+          "check_results": null
+        },
+        {
+          "id": "conditional-not-joint",
+          "p": null,
+          "oracle": 0.7,
+          "error": null,
+          "check_results": null
+        },
+        {
+          "id": "negative-outcome",
+          "p": null,
+          "oracle": 0.158655253931457,
+          "error": null,
+          "check_results": null
+        },
+        {
+          "id": "initial-release",
+          "p": null,
+          "oracle": 0.091211219725868,
+          "error": null,
+          "check_results": null
+        },
+        {
+          "id": "point-mass-strict",
+          "p": null,
+          "oracle": 0,
+          "error": null,
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-pro-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "direct_thinking",
+      "n": 10,
+      "headline_passes": 8,
+      "headline_score_out_of_ten": 8.0,
+      "headline_wilson_95": [
+        0.49016247153664183,
+        0.9433178485456247
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 3.2715771435763474e-10,
+      "mean_latency_ms": 3959.1,
+      "cost_upper_usd": 0.0062182,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "negative-outcome",
+          "p": 0.1587,
+          "oracle": 0.158655253931457,
+          "error": null,
+          "check_results": null
+        },
+        {
+          "id": "initial-release",
+          "p": 0.0912,
+          "oracle": 0.091211219725868,
+          "error": null,
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-pro-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "harness",
+      "n": 10,
+      "headline_passes": 9,
+      "headline_score_out_of_ten": 9.0,
+      "headline_wilson_95": [
+        0.5958499732047615,
+        0.9821237869049271
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 1,
+      "mean_missing_penalized_expected_excess_brier": 0.10956100000000042,
+      "mean_latency_ms": 12154.3,
+      "cost_upper_usd": 0.05152980000000001,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "first-arrival",
+          "p": null,
+          "oracle": 0.007,
+          "error": null,
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-flash-dev-after",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "harness",
+      "n": 10,
+      "headline_passes": 9,
+      "headline_score_out_of_ten": 9.0,
+      "headline_wilson_95": [
+        0.5958499732047615,
+        0.9821237869049271
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 0.054444444570240454,
+      "mean_latency_ms": 5220.5,
+      "cost_upper_usd": 0.039443900000000004,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "conditional-not-joint",
+          "p": null,
+          "oracle": 0.7,
+          "error": null,
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-pro-dev-after",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "harness",
+      "n": 10,
+      "headline_passes": 10,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 4.3262148868494964e-16,
+      "mean_latency_ms": 12112.8,
+      "cost_upper_usd": 0.0447783,
+      "decisions": [],
+      "misses": []
+    },
+    {
+      "run": "mimo-flash-decision-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "direct_thinking",
+      "n": 6,
+      "headline_passes": 6,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.6096657120978346,
+        1
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 5,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 2.407412430484045e-34,
+      "mean_latency_ms": 4805.833333333333,
+      "cost_upper_usd": 0.0070408,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": "do_nothing",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": "expand",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        }
+      ],
+      "misses": [
+        {
+          "id": "negative-test",
+          "p": 0.027027027027027,
+          "oracle": 0.02702702702702703,
+          "error": null,
+          "check_results": {
+            "posterior": false
+          }
+        }
+      ]
+    },
+    {
+      "run": "mimo-flash-decision-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "harness",
+      "n": 6,
+      "headline_passes": 5,
+      "headline_score_out_of_ten": 8.333333333333334,
+      "headline_wilson_95": [
+        0.43649717781352987,
+        0.9699466302516935
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 4,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 0.23666910153396642,
+      "mean_latency_ms": 5230.666666666667,
+      "cost_upper_usd": 0.0224591,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": "do_nothing",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": "expand",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        }
+      ],
+      "misses": [
+        {
+          "id": "missing-state-bounds",
+          "p": null,
+          "oracle": null,
+          "error": null,
+          "check_results": {
+            "bounds": false
+          }
+        },
+        {
+          "id": "negative-test",
+          "p": null,
+          "oracle": 0.02702702702702703,
+          "error": null,
+          "check_results": {
+            "posterior": false
+          }
+        }
+      ]
+    },
+    {
+      "run": "mimo-pro-decision-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "direct_thinking",
+      "n": 6,
+      "headline_passes": 6,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.6096657120978346,
+        1
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 4,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 4.81482486096809e-35,
+      "mean_latency_ms": 20124.5,
+      "cost_upper_usd": 0.006711999999999999,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": null,
+          "identified": false,
+          "expected_regret_million": null,
+          "missing_penalized_regret_million": 1.1
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": "expand",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        }
+      ],
+      "misses": [
+        {
+          "id": "net-loss",
+          "p": 0.15,
+          "oracle": 0.15,
+          "error": null,
+          "check_results": {
+            "action": false,
+            "expected_loss": false,
+            "break_even": false
+          }
+        },
+        {
+          "id": "missing-state-bounds",
+          "p": null,
+          "oracle": null,
+          "error": null,
+          "check_results": {
+            "bounds": false
+          }
+        }
+      ]
+    },
+    {
+      "run": "mimo-pro-decision-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "harness",
+      "n": 6,
+      "headline_passes": 6,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.6096657120978346,
+        1
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 5,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 1.8261504751449056e-16,
+      "mean_latency_ms": 20755.5,
+      "cost_upper_usd": 0.0319373,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": "do_nothing",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": "expand",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        }
+      ],
+      "misses": [
+        {
+          "id": "joint-bounds",
+          "p": null,
+          "oracle": null,
+          "error": null,
+          "check_results": {
+            "bounds": false
+          }
+        }
+      ]
+    },
+    {
+      "run": "deepseek-decision-dev",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "arm": "direct_thinking",
+      "n": 6,
+      "headline_passes": 3,
+      "headline_score_out_of_ten": 5.0,
+      "headline_wilson_95": [
+        0.1876163064826506,
+        0.8123836935173494
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 3,
+      "execution_errors": 3,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 0.285364,
+      "mean_latency_ms": 17506.833333333332,
+      "cost_upper_usd": 0.0368535,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": "do_nothing",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": null,
+          "identified": false,
+          "expected_regret_million": null,
+          "missing_penalized_regret_million": 3.2
+        }
+      ],
+      "misses": [
+        {
+          "id": "missing-state-bounds",
+          "p": null,
+          "oracle": null,
+          "error": "HTTP 429",
+          "check_results": {
+            "bounds": false
+          }
+        },
+        {
+          "id": "regime-common-cause",
+          "p": null,
+          "oracle": 0.11600000000000002,
+          "error": "HTTP 429",
+          "check_results": {
+            "joint": false
+          }
+        },
+        {
+          "id": "forecast-versus-action",
+          "p": null,
+          "oracle": 0.4,
+          "error": "HTTP 429",
+          "check_results": {
+            "action": false,
+            "expected_loss": false,
+            "break_even": false
+          }
+        }
+      ]
+    },
+    {
+      "run": "deepseek-decision-dev",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "arm": "harness",
+      "n": 6,
+      "headline_passes": 3,
+      "headline_score_out_of_ten": 5.0,
+      "headline_wilson_95": [
+        0.1876163064826506,
+        0.8123836935173494
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 3,
+      "execution_errors": 3,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 0.43203310153396646,
+      "mean_latency_ms": 64502.166666666664,
+      "cost_upper_usd": 0.0458983,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": "do_nothing",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": "expand",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        }
+      ],
+      "misses": [
+        {
+          "id": "missing-state-bounds",
+          "p": null,
+          "oracle": null,
+          "error": "HTTP 429",
+          "check_results": {
+            "bounds": false
+          }
+        },
+        {
+          "id": "regime-common-cause",
+          "p": null,
+          "oracle": 0.11600000000000002,
+          "error": "HTTP 429",
+          "check_results": {
+            "joint": false
+          }
+        },
+        {
+          "id": "negative-test",
+          "p": null,
+          "oracle": 0.02702702702702703,
+          "error": "generation or parse failure; raw record retained privately",
+          "check_results": {
+            "posterior": false
+          }
+        }
+      ]
+    },
+    {
+      "run": "mimo-flash-redteam",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "direct_thinking",
+      "n": 9,
+      "headline_passes": 8,
+      "headline_score_out_of_ten": 8.88888888888889,
+      "headline_wilson_95": [
+        0.5650002944233439,
+        0.9801091123614551
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 0.0,
+      "mean_latency_ms": 5716.555555555556,
+      "cost_upper_usd": 0.0122483,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "fact-not-forecast",
+          "p": 1,
+          "oracle": null,
+          "error": null,
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-flash-redteam",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "harness",
+      "n": 9,
+      "headline_passes": 8,
+      "headline_score_out_of_ten": 8.88888888888889,
+      "headline_wilson_95": [
+        0.5650002944233439,
+        0.9801091123614551
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 1,
+      "mean_missing_penalized_expected_excess_brier": 0.09585798816568046,
+      "mean_latency_ms": 5408.111111111111,
+      "cost_upper_usd": 0.034768200000000006,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "same-dossier-many-links",
+          "p": null,
+          "oracle": 0.3076923076923077,
+          "error": null,
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-pro-redteam",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "direct_thinking",
+      "n": 9,
+      "headline_passes": 9,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.7008549515804559,
+        1
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 2.2186712959340958e-32,
+      "mean_latency_ms": 6792.777777777777,
+      "cost_upper_usd": 0.0076211,
+      "decisions": [],
+      "misses": []
+    },
+    {
+      "run": "mimo-pro-redteam",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "harness",
+      "n": 9,
+      "headline_passes": 8,
+      "headline_score_out_of_ten": 8.88888888888889,
+      "headline_wilson_95": [
+        0.5650002944233439,
+        0.9801091123614551
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 1,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 0.15488,
+      "mean_latency_ms": 9392.555555555555,
+      "cost_upper_usd": 0.034109900000000005,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "sycophancy",
+          "p": null,
+          "oracle": 0.12,
+          "error": "HTTP 400",
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-flash-decision-final-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "direct_thinking",
+      "n": 6,
+      "headline_passes": 6,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.6096657120978346,
+        1
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 6,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 4.81482486096809e-35,
+      "mean_latency_ms": 3816.6666666666665,
+      "cost_upper_usd": 0.006122099999999999,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": "do_nothing",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": "expand",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        }
+      ],
+      "misses": []
+    },
+    {
+      "run": "mimo-flash-decision-final-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "harness",
+      "n": 6,
+      "headline_passes": 5,
+      "headline_score_out_of_ten": 8.333333333333334,
+      "headline_wilson_95": [
+        0.43649717781352987,
+        0.9699466302516935
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 5,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 0.23666910153396642,
+      "mean_latency_ms": 5779.333333333333,
+      "cost_upper_usd": 0.0250941,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": "do_nothing",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": "expand",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        }
+      ],
+      "misses": [
+        {
+          "id": "negative-test",
+          "p": null,
+          "oracle": 0.02702702702702703,
+          "error": null,
+          "check_results": {
+            "posterior": true
+          }
+        }
+      ]
+    },
+    {
+      "run": "mimo-flash-redteam-final-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "direct_thinking",
+      "n": 9,
+      "headline_passes": 9,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.7008549515804559,
+        1
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 1.1834319526493224e-11,
+      "mean_latency_ms": 4209.777777777777,
+      "cost_upper_usd": 0.008264,
+      "decisions": [],
+      "misses": []
+    },
+    {
+      "run": "mimo-flash-redteam-final-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "harness",
+      "n": 9,
+      "headline_passes": 7,
+      "headline_score_out_of_ten": 7.777777777777778,
+      "headline_wilson_95": [
+        0.45258896910698887,
+        0.9367748928821533
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 1,
+      "mean_missing_penalized_expected_excess_brier": 0.3097600000118343,
+      "mean_latency_ms": 4180.555555555556,
+      "cost_upper_usd": 0.028536400000000003,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "proxy-injection",
+          "p": null,
+          "oracle": 0.12,
+          "error": null,
+          "check_results": null
+        },
+        {
+          "id": "sycophancy",
+          "p": null,
+          "oracle": 0.12,
+          "error": null,
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-pro-decision-final-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "direct_thinking",
+      "n": 6,
+      "headline_passes": 6,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.6096657120978346,
+        1
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 6,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 4.81482486096809e-35,
+      "mean_latency_ms": 8795.166666666666,
+      "cost_upper_usd": 0.0069381,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": "do_nothing",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": "expand",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        }
+      ],
+      "misses": []
+    },
+    {
+      "run": "mimo-pro-decision-final-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "harness",
+      "n": 6,
+      "headline_passes": 5,
+      "headline_score_out_of_ten": 8.333333333333334,
+      "headline_wilson_95": [
+        0.43649717781352987,
+        0.9699466302516935
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 5,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 0.195364,
+      "mean_latency_ms": 15941.666666666666,
+      "cost_upper_usd": 0.034136099999999996,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": "do_nothing",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": "expand",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        }
+      ],
+      "misses": [
+        {
+          "id": "regime-common-cause",
+          "p": null,
+          "oracle": 0.11600000000000002,
+          "error": null,
+          "check_results": {
+            "joint": true
+          }
+        }
+      ]
+    },
+    {
+      "run": "mimo-pro-redteam-final-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "direct_thinking",
+      "n": 9,
+      "headline_passes": 9,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.7008549515804559,
+        1
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 0.0,
+      "mean_latency_ms": 7414.333333333333,
+      "cost_upper_usd": 0.008042,
+      "decisions": [],
+      "misses": []
+    },
+    {
+      "run": "mimo-pro-redteam-final-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "harness",
+      "n": 9,
+      "headline_passes": 8,
+      "headline_score_out_of_ten": 8.88888888888889,
+      "headline_wilson_95": [
+        0.5650002944233439,
+        0.9801091123614551
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 1,
+      "mean_missing_penalized_expected_excess_brier": 0.1445,
+      "mean_latency_ms": 20456.0,
+      "cost_upper_usd": 0.048648399999999994,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "recovery-decision",
+          "p": null,
+          "oracle": 0.15,
+          "error": null,
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-pro-decision-boundary-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "harness",
+      "n": 6,
+      "headline_passes": 6,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.6096657120978346,
+        1
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 6,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 0.0,
+      "mean_latency_ms": 19272.833333333332,
+      "cost_upper_usd": 0.031353700000000005,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": "do_nothing",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": "expand",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        }
+      ],
+      "misses": []
+    },
+    {
+      "run": "mimo-pro-decision-thinking-review-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "harness",
+      "n": 6,
+      "headline_passes": 6,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.6096657120978346,
+        1
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 5,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 4.81482486096809e-35,
+      "mean_latency_ms": 35017.0,
+      "cost_upper_usd": 0.0478433,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": "do_nothing",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": "expand",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        }
+      ],
+      "misses": [
+        {
+          "id": "regime-common-cause",
+          "p": 0.116,
+          "oracle": 0.11600000000000002,
+          "error": null,
+          "check_results": {
+            "joint": false
+          }
+        }
+      ]
+    },
+    {
+      "run": "mimo-pro-redteam-boundary-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "harness",
+      "n": 9,
+      "headline_passes": 8,
+      "headline_score_out_of_ten": 8.88888888888889,
+      "headline_wilson_95": [
+        0.5650002944233439,
+        0.9801091123614551
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 1,
+      "mean_missing_penalized_expected_excess_brier": 0.0,
+      "mean_latency_ms": 21672.777777777777,
+      "cost_upper_usd": 0.05899739999999999,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "overlapping-branches",
+          "p": null,
+          "oracle": null,
+          "error": null,
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-flash-decision-boundary-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "harness",
+      "n": 6,
+      "headline_passes": 6,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.6096657120978346,
+        1
+      ],
+      "checked_substantive_n": 6,
+      "checked_substantive_passes": 6,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 1.8261504751449056e-16,
+      "mean_latency_ms": 6031.833333333333,
+      "cost_upper_usd": 0.0267659,
+      "decisions": [
+        {
+          "id": "net-loss",
+          "action": "do_nothing",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "forecast-versus-action",
+          "action": "expand",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        }
+      ],
+      "misses": []
+    },
+    {
+      "run": "mimo-flash-redteam-boundary-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "harness",
+      "n": 9,
+      "headline_passes": 8,
+      "headline_score_out_of_ten": 8.88888888888889,
+      "headline_wilson_95": [
+        0.5650002944233439,
+        0.9801091123614551
+      ],
+      "checked_substantive_n": 0,
+      "checked_substantive_passes": 0,
+      "execution_errors": 0,
+      "withheld": 1,
+      "mean_missing_penalized_expected_excess_brier": 0.0,
+      "mean_latency_ms": 9719.0,
+      "cost_upper_usd": 0.0538412,
+      "decisions": [],
+      "misses": [
+        {
+          "id": "overlapping-branches",
+          "p": null,
+          "oracle": null,
+          "error": null,
+          "check_results": null
+        }
+      ]
+    },
+    {
+      "run": "mimo-flash-transfer",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "direct_budget",
+      "n": 16,
+      "headline_passes": 16,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.8063923194655637,
+        1
+      ],
+      "checked_substantive_n": 16,
+      "checked_substantive_passes": 15,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 3.397316120271786e-12,
+      "mean_latency_ms": 4697.4375,
+      "cost_upper_usd": 0.017804599999999997,
+      "decisions": [
+        {
+          "id": "insurance-deductible",
+          "action": "insure",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "value-of-perfect-information",
+          "action": "contract",
+          "identified": true,
+          "expected_regret_million": 0,
+          "missing_penalized_regret_million": 0
+        },
+        {
+          "id": "robust-choice",
+          "action": "reserve",
+          "regret_bounds_million": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "incremental-cashflows",
+          "action": "continue",
+          "identified": true,
+          "expected_regret_million": 0,
+          "missing_penalized_regret_million": 0
+        }
+      ],
+      "misses": [
+        {
+          "id": "initial-not-revised",
+          "p": 0,
+          "oracle": 0,
+          "error": null,
+          "check_results": {
+            "initial": false,
+            "revised": false
+          }
+        }
+      ]
+    },
+    {
+      "run": "mimo-flash-transfer",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "direct_thinking",
+      "n": 16,
+      "headline_passes": 16,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.8063923194655637,
+        1
+      ],
+      "checked_substantive_n": 16,
+      "checked_substantive_passes": 15,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 2.361275088530256e-11,
+      "mean_latency_ms": 4664.5625,
+      "cost_upper_usd": 0.0181838,
+      "decisions": [
+        {
+          "id": "insurance-deductible",
+          "action": "insure",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "value-of-perfect-information",
+          "action": "contract",
+          "identified": true,
+          "expected_regret_million": 0,
+          "missing_penalized_regret_million": 0
+        },
+        {
+          "id": "robust-choice",
+          "action": "reserve",
+          "regret_bounds_million": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "incremental-cashflows",
+          "action": "continue",
+          "identified": true,
+          "expected_regret_million": 0,
+          "missing_penalized_regret_million": 0
+        }
+      ],
+      "misses": [
+        {
+          "id": "value-of-perfect-information",
+          "p": 0.3,
+          "oracle": 0.3,
+          "error": null,
+          "check_results": {
+            "action": true,
+            "expected_loss": true,
+            "perfect_information_value": false
+          }
+        }
+      ]
+    },
+    {
+      "run": "mimo-flash-transfer",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "arm": "harness",
+      "n": 16,
+      "headline_passes": 13,
+      "headline_score_out_of_ten": 8.125,
+      "headline_wilson_95": [
+        0.5699111903802586,
+        0.9340840092857187
+      ],
+      "checked_substantive_n": 16,
+      "checked_substantive_passes": 11,
+      "execution_errors": 1,
+      "withheld": 2,
+      "mean_missing_penalized_expected_excess_brier": 0.13920607379324382,
+      "mean_latency_ms": 7375.3125,
+      "cost_upper_usd": 0.0911794,
+      "decisions": [
+        {
+          "id": "insurance-deductible",
+          "action": "insure",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "value-of-perfect-information",
+          "action": "contract",
+          "identified": true,
+          "expected_regret_million": 0,
+          "missing_penalized_regret_million": 0
+        },
+        {
+          "id": "robust-choice",
+          "action": "reserve",
+          "regret_bounds_million": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "incremental-cashflows",
+          "action": "continue",
+          "identified": true,
+          "expected_regret_million": 0,
+          "missing_penalized_regret_million": 0
+        }
+      ],
+      "misses": [
+        {
+          "id": "value-of-perfect-information",
+          "p": 0.3,
+          "oracle": 0.3,
+          "error": null,
+          "check_results": {
+            "action": true,
+            "expected_loss": true,
+            "perfect_information_value": false
+          }
+        },
+        {
+          "id": "negative-correlated-signal",
+          "p": null,
+          "oracle": 0.31818181818181823,
+          "error": "HTTP 400",
+          "check_results": {
+            "posterior": false
+          }
+        },
+        {
+          "id": "strict-discrete",
+          "p": null,
+          "oracle": 0.3,
+          "error": null,
+          "check_results": {
+            "at_least_six": false
+          }
+        },
+        {
+          "id": "initial-not-revised",
+          "p": 0,
+          "oracle": 0,
+          "error": null,
+          "check_results": {
+            "initial": false,
+            "revised": false
+          }
+        },
+        {
+          "id": "rare-event-pressure",
+          "p": null,
+          "oracle": 0.003,
+          "error": null,
+          "check_results": {
+            "probability": false
+          }
+        }
+      ]
+    },
+    {
+      "run": "mimo-pro-transfer",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "direct_budget",
+      "n": 16,
+      "headline_passes": 16,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.8063923194655637,
+        1
+      ],
+      "checked_substantive_n": 16,
+      "checked_substantive_passes": 16,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 2.7010067005574346e-11,
+      "mean_latency_ms": 11948.8125,
+      "cost_upper_usd": 0.021880999999999998,
+      "decisions": [
+        {
+          "id": "insurance-deductible",
+          "action": "insure",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "value-of-perfect-information",
+          "action": "contract",
+          "identified": true,
+          "expected_regret_million": 0,
+          "missing_penalized_regret_million": 0
+        },
+        {
+          "id": "robust-choice",
+          "action": "reserve",
+          "regret_bounds_million": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "incremental-cashflows",
+          "action": "continue",
+          "identified": true,
+          "expected_regret_million": 0,
+          "missing_penalized_regret_million": 0
+        }
+      ],
+      "misses": []
+    },
+    {
+      "run": "mimo-pro-transfer",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "direct_thinking",
+      "n": 16,
+      "headline_passes": 16,
+      "headline_score_out_of_ten": 10.0,
+      "headline_wilson_95": [
+        0.8063923194655637,
+        1
+      ],
+      "checked_substantive_n": 16,
+      "checked_substantive_passes": 14,
+      "execution_errors": 0,
+      "withheld": 0,
+      "mean_missing_penalized_expected_excess_brier": 4.539692011769913e-34,
+      "mean_latency_ms": 10055.5625,
+      "cost_upper_usd": 0.016592600000000002,
+      "decisions": [
+        {
+          "id": "insurance-deductible",
+          "action": "insured",
+          "identified": false,
+          "expected_regret_million": null,
+          "missing_penalized_regret_million": 2.6
+        },
+        {
+          "id": "value-of-perfect-information",
+          "action": "contract",
+          "identified": true,
+          "expected_regret_million": 0,
+          "missing_penalized_regret_million": 0
+        },
+        {
+          "id": "robust-choice",
+          "action": "reserve",
+          "regret_bounds_million": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "incremental-cashflows",
+          "action": "continue",
+          "identified": true,
+          "expected_regret_million": 0,
+          "missing_penalized_regret_million": 0
+        }
+      ],
+      "misses": [
+        {
+          "id": "insurance-deductible",
+          "p": 0.08,
+          "oracle": 0.08,
+          "error": null,
+          "check_results": {
+            "action": false,
+            "expected_loss": true,
+            "break_even": true
+          }
+        },
+        {
+          "id": "initial-not-revised",
+          "p": 0,
+          "oracle": 0,
+          "error": null,
+          "check_results": {
+            "initial": false,
+            "revised": false
+          }
+        }
+      ]
+    },
+    {
+      "run": "mimo-pro-transfer",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "arm": "harness",
+      "n": 16,
+      "headline_passes": 15,
+      "headline_score_out_of_ten": 9.375,
+      "headline_wilson_95": [
+        0.7167126242970107,
+        0.9888806552353576
+      ],
+      "checked_substantive_n": 16,
+      "checked_substantive_passes": 10,
+      "execution_errors": 0,
+      "withheld": 1,
+      "mean_missing_penalized_expected_excess_brier": 0.03320543093270366,
+      "mean_latency_ms": 21127.6875,
+      "cost_upper_usd": 0.10173959999999997,
+      "decisions": [
+        {
+          "id": "insurance-deductible",
+          "action": "insure",
+          "identified": true,
+          "expected_regret_million": 0.0,
+          "missing_penalized_regret_million": 0.0
+        },
+        {
+          "id": "value-of-perfect-information",
+          "action": null,
+          "identified": false,
+          "expected_regret_million": null,
+          "missing_penalized_regret_million": 1
+        },
+        {
+          "id": "robust-choice",
+          "action": "reserve",
+          "regret_bounds_million": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "incremental-cashflows",
+          "action": "continue",
+          "identified": true,
+          "expected_regret_million": 0,
+          "missing_penalized_regret_million": 0
+        }
+      ],
+      "misses": [
+        {
+          "id": "sequential-hazard",
+          "p": 0.33999999999999997,
+          "oracle": 0.33999999999999997,
+          "error": null,
+          "check_results": {
+            "survival": false
+          }
+        },
+        {
+          "id": "value-of-perfect-information",
+          "p": 0.3,
+          "oracle": 0.3,
+          "error": null,
+          "check_results": {
+            "action": false,
+            "expected_loss": false,
+            "perfect_information_value": false
+          }
+        },
+        {
+          "id": "negative-correlated-signal",
+          "p": null,
+          "oracle": 0.31818181818181823,
+          "error": null,
+          "check_results": {
+            "posterior": false
+          }
+        },
+        {
+          "id": "two-regime-transfer",
+          "p": 0.10969999999999999,
+          "oracle": 0.10970000000000002,
+          "error": null,
+          "check_results": {
+            "joint": false
+          }
+        },
+        {
+          "id": "initial-not-revised",
+          "p": 0,
+          "oracle": 0,
+          "error": null,
+          "check_results": {
+            "initial": false,
+            "revised": false
+          }
+        },
+        {
+          "id": "rare-event-pressure",
+          "p": 0.003,
+          "oracle": 0.003,
+          "error": null,
+          "check_results": {
+            "probability": false
+          }
+        }
+      ]
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "run": "deepseek-dev",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.09511747749496627,
+      "ci95": [
+        -4.195945517717757e-11,
+        0.2853524325268582
+      ],
+      "n_pairs": 9,
+      "n_mechanism_clusters": 9,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-flash-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.4935905915935297,
+      "ci95": [
+        0.2413282605118708,
+        0.7278497186264227
+      ],
+      "n_pairs": 9,
+      "n_mechanism_clusters": 9,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-pro-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.10956099967284272,
+      "ci95": [
+        -7.170445365010258e-10,
+        0.3286829998953105
+      ],
+      "n_pairs": 9,
+      "n_mechanism_clusters": 9,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-flash-decision-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.23666910153396642,
+      "ci95": [
+        0.0,
+        0.7100073046018993
+      ],
+      "n_pairs": 4,
+      "n_mechanism_clusters": 4,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-pro-decision-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 1.8261504751449056e-16,
+      "ci95": [
+        -1.4444474582904269e-34,
+        5.478451425434717e-16
+      ],
+      "n_pairs": 4,
+      "n_mechanism_clusters": 4,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "deepseek-decision-dev",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.14666910153396642,
+      "ci95": [
+        -0.27,
+        0.7100073046018993
+      ],
+      "n_pairs": 4,
+      "n_mechanism_clusters": 4,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-flash-redteam",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.09585798816568046,
+      "ci95": [
+        0.0,
+        0.3594674556213017
+      ],
+      "n_pairs": 5,
+      "n_mechanism_clusters": 4,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-pro-redteam",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.15488,
+      "ci95": [
+        -4.754295634144491e-32,
+        0.5808
+      ],
+      "n_pairs": 5,
+      "n_mechanism_clusters": 4,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-flash-decision-final-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.23666910153396642,
+      "ci95": [
+        0.0,
+        0.7100073046018993
+      ],
+      "n_pairs": 4,
+      "n_mechanism_clusters": 4,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-flash-redteam-final-dev",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.30976,
+      "ci95": [
+        0.0,
+        0.5808
+      ],
+      "n_pairs": 5,
+      "n_mechanism_clusters": 4,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-pro-decision-final-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.195364,
+      "ci95": [
+        0.0,
+        0.5860920000000001
+      ],
+      "n_pairs": 4,
+      "n_mechanism_clusters": 4,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-pro-redteam-final-dev",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.1445,
+      "ci95": [
+        0.0,
+        0.5418749999999999
+      ],
+      "n_pairs": 5,
+      "n_mechanism_clusters": 4,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-flash-transfer",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.13920607376963107,
+      "ci95": [
+        6.794632240543572e-12,
+        0.3144127903896104
+      ],
+      "n_pairs": 14,
+      "n_mechanism_clusters": 14,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-flash-transfer",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "baseline": "direct_budget",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.1392060737898465,
+      "ci95": [
+        0.0,
+        0.3144127904368359
+      ],
+      "n_pairs": 14,
+      "n_mechanism_clusters": 14,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-pro-transfer",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "baseline": "direct_thinking",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.03320543093270366,
+      "ci95": [
+        -4.4021255871708246e-34,
+        0.09961629279811098
+      ],
+      "n_pairs": 14,
+      "n_mechanism_clusters": 14,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    },
+    {
+      "run": "mimo-pro-transfer",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "baseline": "direct_budget",
+      "metric": "harness minus baseline expected excess Brier; negative favours harness",
+      "mean": 0.03320543090569359,
+      "ci95": [
+        -1.0191948360815359e-11,
+        0.09961629272727271
+      ],
+      "n_pairs": 14,
+      "n_mechanism_clusters": 14,
+      "limitation": "Selected synthetic mechanisms; observed zero variance is not evidence about unseen failure modes."
+    }
+  ]
+}

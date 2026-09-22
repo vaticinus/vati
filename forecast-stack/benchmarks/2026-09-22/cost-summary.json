@@ -1,0 +1,66 @@
+{
+  "provider": "OpenRouter",
+  "user_ceiling_usd": 2,
+  "runner_ceiling_usd": 1.8,
+  "spent_upper_usd": 1.188152699999998,
+  "provider_reported_known_cost_usd": 0.4303927370000001,
+  "attempts": 712,
+  "status_counts": {
+    "200": 702,
+    "429": 6,
+    "400": 2,
+    "legacy_unknown_cost_error": 1,
+    "legacy_interrupted_reservation": 1
+  },
+  "models": {
+    "deepseek/deepseek-v4.1-flash": {
+      "attempts": 65,
+      "cost_upper_usd": 0.1598608,
+      "reported_cost_usd": 0.014900193600000004,
+      "calls_with_reported_cost": 57,
+      "returned_providers": [
+        "Morph"
+      ],
+      "returned_models": [
+        "deepseek/deepseek-v4.1-flash"
+      ]
+    },
+    "xiaomi/mimo-v2.6-flash": {
+      "attempts": 310,
+      "cost_upper_usd": 0.46921309999999994,
+      "reported_cost_usd": 0.08726239759999996,
+      "calls_with_reported_cost": 309,
+      "returned_providers": [
+        "Xiaomi"
+      ],
+      "returned_models": [
+        "xiaomi/mimo-v2.6-flash"
+      ]
+    },
+    "xiaomi/mimo-v2.6-pro": {
+      "attempts": 337,
+      "cost_upper_usd": 0.5590787999999998,
+      "reported_cost_usd": 0.3282301458000001,
+      "calls_with_reported_cost": 336,
+      "returned_providers": [
+        "Xiaomi"
+      ],
+      "returned_models": [
+        "xiaomi/mimo-v2.6-pro"
+      ]
+    }
+  },
+  "transfer_arms": [
+    {"model":"xiaomi/mimo-v2.6-flash","arm":"direct_thinking","attempted_calls":16,"reported_cost_usd":0.0041383776,"calls_without_reported_cost":0,"cost_upper_usd":0.0181838,"prompt_tokens_reported":6058,"completion_tokens_reported":12629},
+    {"model":"xiaomi/mimo-v2.6-flash","arm":"direct_budget","attempted_calls":16,"reported_cost_usd":0.003900624,"calls_without_reported_cost":0,"cost_upper_usd":0.0178046,"prompt_tokens_reported":6058,"completion_tokens_reported":12313},
+    {"model":"xiaomi/mimo-v2.6-flash","arm":"harness","attempted_calls":51,"reported_cost_usd":0.0135067744,"calls_without_reported_cost":1,"cost_upper_usd":0.0911794,"prompt_tokens_reported":120336,"completion_tokens_reported":18082},
+    {"model":"xiaomi/mimo-v2.6-pro","arm":"direct_thinking","attempted_calls":16,"reported_cost_usd":0.0115301136,"calls_without_reported_cost":0,"cost_upper_usd":0.0165926,"prompt_tokens_reported":6058,"completion_tokens_reported":11303},
+    {"model":"xiaomi/mimo-v2.6-pro","arm":"direct_budget","attempted_calls":16,"reported_cost_usd":0.0148672308,"calls_without_reported_cost":0,"cost_upper_usd":0.021881,"prompt_tokens_reported":6058,"completion_tokens_reported":15710},
+    {"model":"xiaomi/mimo-v2.6-pro","arm":"harness","attempted_calls":52,"reported_cost_usd":0.0587803644,"calls_without_reported_cost":0,"cost_upper_usd":0.1017396,"prompt_tokens_reported":130776,"completion_tokens_reported":30293}
+  ],
+  "shared_ledger_sha256": "7a4bb1270f393a5cd5c035e377ff2e80ddbf359dddbdc3e922c0d399c5f33b2e",
+  "no_opus_calls": true,
+  "all_paid_processes_finished": true,
+  "outstanding_lock": false,
+  "limitations": "Provider-reported known cost is not a reconciled invoice and omits unknown-cost attempts. Conservative accounting retains failed/ambiguous reservations and uses route price ceilings without cache discounts. Two legacy calls lack a status field: a timeout and the interrupted request retain their full reservations; labels here are derived, not changes to the original ledger. No charges were refunded merely because a run was stopped. Raw requests/responses and the ledger remain private."
+}

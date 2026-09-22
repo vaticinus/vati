@@ -1,4 +1,19 @@
-# beyond-brier
+# Vati
+
+Forecasting tools and reference-relative evaluation from Vaticinus.
+
+| Component | Purpose | License |
+|---|---|---|
+| [Forecast Stack](forecast-stack/README.md) | Public-data collectors, baselines, a typed probability engine, event-preserving LLM review, and forecast records | MIT |
+| [Beyond Brier](#beyond-brier) | Measure a forecaster's contribution beyond a declared prior, using differences of proper scores | Apache-2.0 |
+
+**Start with [Forecast Stack](forecast-stack/README.md) to build or inspect forecasts.** Its offline examples and browser probability workbench need no keys. Read the [model-versus-harness evaluation](forecast-stack/docs/SUPERFORECASTING.md) before paying for model calls: the frozen synthetic study did not establish an accuracy advantage for the harness, and real-world forecasting skill remains unmeasured.
+
+The two packages are independent. Installing the root Python project installs Beyond Brier, not Forecast Stack. Existing Beyond Brier code, paper, data and history are retained; this is not a relicensing or replacement of that project.
+
+## Beyond Brier
+
+The material below describes Beyond Brier's original published study. It does not evaluate the current chat service or the Forecast Stack harness.
 
 **A lot of "AI beats the crowd" results are smaller than a statistical artifact. Here is the one-line check, and a reorder of the only public board.**
 
@@ -116,7 +131,7 @@ For the full treatment, including the prior art we build on (skill scores, Murph
 
 ## What this is, and what it is not
 
-This is a ruler, not a racehorse. It tells you how to score a forecaster against the market. There's no forecasting model in here, no data feeds, no alpha. Nothing helps you *be* a better forecaster, only measure one honestly. That's on purpose. Better measurement is a public good, so it's free.
+Beyond Brier is a ruler, not a racehorse. It tells you how to score a forecaster against the market. The `beyond_brier` package contains no forecasting model or data feeds. Nothing in that package helps you *be* a better forecaster, only measure one honestly. That's on purpose. Better measurement is a public good, so it's free. The separate [Forecast Stack component](forecast-stack/README.md) contains the forecasting tools.
 
 A note on scope, because it matters. The obvious target is the LLM leaderboard, and we can't touch it from public data today: ForecastBench releases per-question forecasts only for humans, on one round. So we show the result on humans and pre-register the LLM version as a forward, falsifiable prediction, using this exact code as the fixed instrument. See [`docs/PROTOCOL.md`](docs/PROTOCOL.md).
 
@@ -125,8 +140,8 @@ A note on scope, because it matters. The obvious target is the LLM leaderboard, 
 ## Install from source
 
 ```bash
-git clone https://github.com/vaticinus/beyond-brier
-cd beyond-brier
+git clone https://github.com/vaticinus/vati
+cd vati
 pip install -e ".[dev]"
 pytest -q          # 40 tests
 ```
@@ -138,8 +153,8 @@ pytest -q          # 40 tests
   title  = {Beyond Brier: A Marginal-Edge Skill Score for Forecasting, and What It Does to a Leaderboard},
   author = {Vaticinus T.},
   year   = {2026},
-  note   = {https://github.com/vaticinus/beyond-brier}
+  note   = {https://github.com/vaticinus/vati}
 }
 ```
 
-Apache-2.0. Contributions, replications, and adversarial bug reports are all welcome.
+Beyond Brier remains Apache-2.0; Forecast Stack has its own [MIT license](forecast-stack/LICENSE). Contributions, replications, and adversarial bug reports are welcome.

@@ -4,7 +4,7 @@ message: "If you use this software or metric, please cite the paper."
 type: software
 authors:
   - name: "Vaticinus"
-repository-code: "https://github.com/vaticinus/beyond-brier"
+repository-code: "https://github.com/vaticinus/vati"
 license: Apache-2.0
 version: 0.1.0
 preferred-citation:
