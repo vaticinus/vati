@@ -1,0 +1,149 @@
+{
+  "study": "evidence-selection-2026-09-22",
+  "rows": [
+    {
+      "id": "bls-2025-03-payroll",
+      "outcome": 1,
+      "original_value": 228000,
+      "threshold": 150000,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_04042025.htm",
+      "source_narrative_sha256": "39a2c167fda930007a1e336627c972a4f0f35e7130140a6e8982a096c4a9c42d"
+    },
+    {
+      "id": "bls-2025-03-unemployment",
+      "outcome": 1,
+      "original_value": 4.2,
+      "threshold": 4.2,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_04042025.htm",
+      "source_narrative_sha256": "39a2c167fda930007a1e336627c972a4f0f35e7130140a6e8982a096c4a9c42d"
+    },
+    {
+      "id": "bls-2025-03-earnings",
+      "outcome": 1,
+      "original_value": 0.3,
+      "threshold": 0.3,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_04042025.htm",
+      "source_narrative_sha256": "39a2c167fda930007a1e336627c972a4f0f35e7130140a6e8982a096c4a9c42d"
+    },
+    {
+      "id": "bls-2025-04-payroll",
+      "outcome": 1,
+      "original_value": 177000,
+      "threshold": 150000,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_05022025.htm",
+      "source_narrative_sha256": "9a25b93226cbe6c51297f6576fc89ebc6e7ba4a230d9fc61cf6e9af12329b147"
+    },
+    {
+      "id": "bls-2025-04-unemployment",
+      "outcome": 1,
+      "original_value": 4.2,
+      "threshold": 4.2,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_05022025.htm",
+      "source_narrative_sha256": "9a25b93226cbe6c51297f6576fc89ebc6e7ba4a230d9fc61cf6e9af12329b147"
+    },
+    {
+      "id": "bls-2025-04-earnings",
+      "outcome": 0,
+      "original_value": 0.2,
+      "threshold": 0.3,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_05022025.htm",
+      "source_narrative_sha256": "9a25b93226cbe6c51297f6576fc89ebc6e7ba4a230d9fc61cf6e9af12329b147"
+    },
+    {
+      "id": "bls-2025-05-payroll",
+      "outcome": 0,
+      "original_value": 139000,
+      "threshold": 150000,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_06062025.htm",
+      "source_narrative_sha256": "6ec9cb1e9b0f98e83b290233bc39657f06845b7867abdf632e34182fd787f600"
+    },
+    {
+      "id": "bls-2025-05-unemployment",
+      "outcome": 1,
+      "original_value": 4.2,
+      "threshold": 4.2,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_06062025.htm",
+      "source_narrative_sha256": "6ec9cb1e9b0f98e83b290233bc39657f06845b7867abdf632e34182fd787f600"
+    },
+    {
+      "id": "bls-2025-05-earnings",
+      "outcome": 1,
+      "original_value": 0.4,
+      "threshold": 0.3,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_06062025.htm",
+      "source_narrative_sha256": "6ec9cb1e9b0f98e83b290233bc39657f06845b7867abdf632e34182fd787f600"
+    },
+    {
+      "id": "bls-2025-06-payroll",
+      "outcome": 0,
+      "original_value": 147000,
+      "threshold": 150000,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_07032025.htm",
+      "source_narrative_sha256": "1325978fd4e8b401173d0ddce7a6fc12f70853eff68bd5f6032bdb2fbcb34702"
+    },
+    {
+      "id": "bls-2025-06-unemployment",
+      "outcome": 0,
+      "original_value": 4.1,
+      "threshold": 4.2,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_07032025.htm",
+      "source_narrative_sha256": "1325978fd4e8b401173d0ddce7a6fc12f70853eff68bd5f6032bdb2fbcb34702"
+    },
+    {
+      "id": "bls-2025-06-earnings",
+      "outcome": 0,
+      "original_value": 0.2,
+      "threshold": 0.3,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_07032025.htm",
+      "source_narrative_sha256": "1325978fd4e8b401173d0ddce7a6fc12f70853eff68bd5f6032bdb2fbcb34702"
+    },
+    {
+      "id": "bls-2025-07-payroll",
+      "outcome": 0,
+      "original_value": 73000,
+      "threshold": 150000,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_08012025.htm",
+      "source_narrative_sha256": "14d6d63c4b2f8d80b6fa98c3c250f5b729d006198b6305022ed42fd6db2635bf"
+    },
+    {
+      "id": "bls-2025-07-unemployment",
+      "outcome": 1,
+      "original_value": 4.2,
+      "threshold": 4.2,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_08012025.htm",
+      "source_narrative_sha256": "14d6d63c4b2f8d80b6fa98c3c250f5b729d006198b6305022ed42fd6db2635bf"
+    },
+    {
+      "id": "bls-2025-07-earnings",
+      "outcome": 1,
+      "original_value": 0.3,
+      "threshold": 0.3,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_08012025.htm",
+      "source_narrative_sha256": "14d6d63c4b2f8d80b6fa98c3c250f5b729d006198b6305022ed42fd6db2635bf"
+    },
+    {
+      "id": "bls-2025-08-payroll",
+      "outcome": 0,
+      "original_value": 22000,
+      "threshold": 150000,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_09052025.htm",
+      "source_narrative_sha256": "fe34684dd19f955b7981c51797700d98c48a5c8f3d9f0d761e610dc194a1309e"
+    },
+    {
+      "id": "bls-2025-08-unemployment",
+      "outcome": 1,
+      "original_value": 4.3,
+      "threshold": 4.2,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_09052025.htm",
+      "source_narrative_sha256": "fe34684dd19f955b7981c51797700d98c48a5c8f3d9f0d761e610dc194a1309e"
+    },
+    {
+      "id": "bls-2025-08-earnings",
+      "outcome": 1,
+      "original_value": 0.3,
+      "threshold": 0.3,
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_09052025.htm",
+      "source_narrative_sha256": "fe34684dd19f955b7981c51797700d98c48a5c8f3d9f0d761e610dc194a1309e"
+    }
+  ]
+}

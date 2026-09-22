@@ -1,0 +1,466 @@
+{
+  "synthetic": true,
+  "model_calls": 0,
+  "cost_usd": 0,
+  "node": "v22.22.0",
+  "architecture": "arm64",
+  "sources": {
+    "forecastEngine": "499329c958aeeeeb90965a0b691363fcb7109c4743485f839731b215af303125",
+    "benchmark": "5618683288ccc62f612cd6bf52a0d84e06b8722bf1785f4a7008921a811ee6cd",
+    "workflow": "4ae0f596386fc37c7fa0d71d21715e7b9534f5599007d5245f15752e9c0312a8"
+  },
+  "numeric": {
+    "cases": 1398,
+    "passed": 1398,
+    "errors": 0,
+    "max_absolute_error": 1.7569279364693102e-14,
+    "tolerance": 1e-12
+  },
+  "baseline_isolation": {
+    "arms": 2,
+    "passed": 2,
+    "issued_fixture_runs": 4
+  },
+  "throughput": [
+    {
+      "cases": 1000,
+      "rows": 2000,
+      "clusters": 100,
+      "median_ms": 18.05404200000001,
+      "min_ms": 17.11695800000001,
+      "max_ms": 21.160999999999987,
+      "scores": {
+        "mode": "fixture_replay",
+        "groups": [
+          {
+            "model": "fixture",
+            "arm": "direct",
+            "registered": 1000,
+            "attempted": 1000,
+            "resolved": 1000,
+            "issued": 972,
+            "missing": 28,
+            "issued_only_brier": 0.33166666666666744,
+            "matched_baseline_brier": 0.25,
+            "issued_only_log_loss": 0.8817248661498096,
+            "calibration": [
+              {
+                "lower": 0,
+                "upper": 0.1,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 162,
+                "mean_probability": 0.1999999999999995,
+                "observed_frequency": 1
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 162,
+                "mean_probability": 0.2999999999999994,
+                "observed_frequency": 0
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 162,
+                "mean_probability": 0.399999999999999,
+                "observed_frequency": 0
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 162,
+                "mean_probability": 0.5,
+                "observed_frequency": 1
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 162,
+                "mean_probability": 0.5999999999999988,
+                "observed_frequency": 0
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 162,
+                "mean_probability": 0.7000000000000018,
+                "observed_frequency": 0
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              }
+            ],
+            "status_counts": {
+              "issued": 972,
+              "abstained": 0,
+              "rejected": 0,
+              "error": 28,
+              "not_attempted": 0
+            },
+            "all_case_brier_bounds": [
+              0.3223800000000007,
+              0.35038000000000075
+            ],
+            "elapsed_ms": 10000,
+            "accounted_cost_usd": 0
+          },
+          {
+            "model": "fixture",
+            "arm": "harness",
+            "registered": 1000,
+            "attempted": 1000,
+            "resolved": 1000,
+            "issued": 972,
+            "missing": 28,
+            "issued_only_brier": 0.2391666666666667,
+            "matched_baseline_brier": 0.25,
+            "issued_only_log_loss": 0.671840046135604,
+            "calibration": [
+              {
+                "lower": 0,
+                "upper": 0.1,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 243,
+                "mean_probability": 0.25,
+                "observed_frequency": 0.3333333333333333
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 243,
+                "mean_probability": 0.34999999999999937,
+                "observed_frequency": 0.3333333333333333
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 243,
+                "mean_probability": 0.45000000000000184,
+                "observed_frequency": 0.3333333333333333
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 243,
+                "mean_probability": 0.5499999999999986,
+                "observed_frequency": 0.3333333333333333
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              }
+            ],
+            "status_counts": {
+              "issued": 972,
+              "abstained": 0,
+              "rejected": 0,
+              "error": 28,
+              "not_attempted": 0
+            },
+            "all_case_brier_bounds": [
+              0.23247000000000004,
+              0.26047000000000003
+            ],
+            "elapsed_ms": 10000,
+            "accounted_cost_usd": 0
+          }
+        ],
+        "paired": [
+          {
+            "model": "fixture",
+            "pairs": 972,
+            "clusters": 100,
+            "harness_minus_direct_brier": -0.09249999999999997,
+            "cluster_bootstrap_95": [
+              -0.10572497420020643,
+              -0.0791102564102564
+            ]
+          }
+        ],
+        "interpretation": "Lower Brier is better. Negative paired difference favors the harness. Exposed fixtures are engineering diagnostics; unmatched missing forecasts cannot establish an accuracy win. Intervals require at least five event clusters and remain uncertain for small samples."
+      }
+    },
+    {
+      "cases": 5000,
+      "rows": 10000,
+      "clusters": 100,
+      "median_ms": 53.43004199999996,
+      "min_ms": 46.784583,
+      "max_ms": 55.073500000000024,
+      "scores": {
+        "mode": "fixture_replay",
+        "groups": [
+          {
+            "model": "fixture",
+            "arm": "direct",
+            "registered": 5000,
+            "attempted": 5000,
+            "resolved": 5000,
+            "issued": 4864,
+            "missing": 136,
+            "issued_only_brier": 0.33171875000000134,
+            "matched_baseline_brier": 0.25,
+            "issued_only_log_loss": 0.8818398901893015,
+            "calibration": [
+              {
+                "lower": 0,
+                "upper": 0.1,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 811,
+                "mean_probability": 0.19999999999999918,
+                "observed_frequency": 1
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 811,
+                "mean_probability": 0.3000000000000043,
+                "observed_frequency": 0
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 810,
+                "mean_probability": 0.3999999999999984,
+                "observed_frequency": 0
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 810,
+                "mean_probability": 0.5,
+                "observed_frequency": 1
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 811,
+                "mean_probability": 0.6000000000000086,
+                "observed_frequency": 0
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 811,
+                "mean_probability": 0.6999999999999973,
+                "observed_frequency": 0
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              }
+            ],
+            "status_counts": {
+              "issued": 4864,
+              "abstained": 0,
+              "rejected": 0,
+              "error": 136,
+              "not_attempted": 0
+            },
+            "all_case_brier_bounds": [
+              0.32269600000000126,
+              0.34989600000000126
+            ],
+            "elapsed_ms": 50000,
+            "accounted_cost_usd": 0
+          },
+          {
+            "model": "fixture",
+            "arm": "harness",
+            "registered": 5000,
+            "attempted": 5000,
+            "resolved": 5000,
+            "issued": 4864,
+            "missing": 136,
+            "issued_only_brier": 0.23913240131578672,
+            "matched_baseline_brier": 0.25,
+            "issued_only_log_loss": 0.6717635905838808,
+            "calibration": [
+              {
+                "lower": 0,
+                "upper": 0.1,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 1216,
+                "mean_probability": 0.25,
+                "observed_frequency": 0.33305921052631576
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 1216,
+                "mean_probability": 0.35000000000000664,
+                "observed_frequency": 0.33305921052631576
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 1216,
+                "mean_probability": 0.44999999999999546,
+                "observed_frequency": 0.3338815789473684
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 1216,
+                "mean_probability": 0.5499999999999955,
+                "observed_frequency": 0.33305921052631576
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1,
+                "count": 0,
+                "mean_probability": null,
+                "observed_frequency": null
+              }
+            ],
+            "status_counts": {
+              "issued": 4864,
+              "abstained": 0,
+              "rejected": 0,
+              "error": 136,
+              "not_attempted": 0
+            },
+            "all_case_brier_bounds": [
+              0.23262799999999734,
+              0.25982799999999734
+            ],
+            "elapsed_ms": 50000,
+            "accounted_cost_usd": 0
+          }
+        ],
+        "paired": [
+          {
+            "model": "fixture",
+            "pairs": 4864,
+            "clusters": 100,
+            "harness_minus_direct_brier": -0.0925863486842113,
+            "cluster_bootstrap_95": [
+              -0.10529010063668105,
+              -0.07960385878489327
+            ]
+          }
+        ],
+        "interpretation": "Lower Brier is better. Negative paired difference favors the harness. Exposed fixtures are engineering diagnostics; unmatched missing forecasts cannot establish an accuracy win. Intervals require at least five event clusters and remain uncertain for small samples."
+      }
+    }
+  ]
+}

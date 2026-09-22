@@ -1,0 +1,165 @@
+{
+  "study": "evidence-selection-2026-09-22",
+  "manifest_sha256": "9d568335ae4ad512e98749c1532f25f237038f5564149579a9956ba316d42f15",
+  "issued_sha256": "e66f0b18a471da17e4a5d2fac65cdc2e3dde7559b1ee201fe4c26672597bd91b",
+  "outcomes_sha256": "5fdf5bb6038a18dce94809f9142ff7c31515eb39d76cb4f3f086fca84d55c32b",
+  "planned_events": 18,
+  "resolved_events": 18,
+  "release_months": 6,
+  "arms": {
+    "recency": {
+      "planned": 18,
+      "issued": 18,
+      "scored": 18,
+      "coverage": 1.0,
+      "brier": 0.3079166666666666,
+      "log_loss": 2.062714420998377,
+      "all_case_brier_bounds": [
+        0.3079166666666666,
+        0.30791666666666667
+      ],
+      "accounted_usd": 0.0020632499999999987,
+      "calls": 18,
+      "input_tokens": 17955,
+      "output_tokens": 1393,
+      "total_elapsed_ms": 53879.57495599997,
+      "status_counts": {
+        "issued": 18
+      }
+    },
+    "selected": {
+      "planned": 18,
+      "issued": 18,
+      "scored": 18,
+      "coverage": 1.0,
+      "brier": 0.26694444444444443,
+      "log_loss": 0.7081751840260103,
+      "all_case_brier_bounds": [
+        0.26694444444444443,
+        0.26694444444444443
+      ],
+      "accounted_usd": 0.006054719999999998,
+      "calls": 36,
+      "input_tokens": 62859,
+      "output_tokens": 2280,
+      "total_elapsed_ms": 104784.472084,
+      "status_counts": {
+        "issued": 18
+      }
+    },
+    "recency_long": {
+      "planned": 18,
+      "issued": 18,
+      "scored": 18,
+      "coverage": 1.0,
+      "brier": 0.31027777777777776,
+      "log_loss": 2.0675483863866897,
+      "all_case_brier_bounds": [
+        0.31027777777777776,
+        0.3102777777777778
+      ],
+      "accounted_usd": 0.0020650499999999975,
+      "calls": 18,
+      "input_tokens": 17955,
+      "output_tokens": 1397,
+      "total_elapsed_ms": 52179.72354299999,
+      "status_counts": {
+        "issued": 18
+      }
+    }
+  },
+  "constant_half_brier": 0.25,
+  "accounted_usd": 0.010183019999999994,
+  "comparisons": {
+    "recency": {
+      "paired_events": 18,
+      "paired_months": 6,
+      "brier_delta_selected_minus_control": -0.04097222222222222,
+      "exploratory_month_bootstrap_ci95": [
+        -0.10611111111111111,
+        0.031944444444444435
+      ],
+      "all_case_delta_bounds": [
+        -0.04097222222222223,
+        -0.04097222222222223
+      ],
+      "log_loss_delta": -1.3545392369723668,
+      "early_delta": -0.03777777777777778,
+      "late_delta": -0.044166666666666674,
+      "by_metric": {
+        "payroll": 0.03208333333333332,
+        "unemployment": -0.065,
+        "earnings": -0.09000000000000001
+      },
+      "by_month": {
+        "2025-03": 0.11333333333333333,
+        "2025-04": -0.1466666666666667,
+        "2025-05": -0.07999999999999997,
+        "2025-06": -0.1166666666666667,
+        "2025-07": -0.015833333333333328,
+        "2025-08": 0.0
+      },
+      "leave_one_month_out": {
+        "2025-03": -0.07183333333333335,
+        "2025-04": -0.019833333333333335,
+        "2025-05": -0.03316666666666668,
+        "2025-06": -0.025833333333333333,
+        "2025-07": -0.04600000000000001,
+        "2025-08": -0.04916666666666667
+      }
+    },
+    "recency_long": {
+      "paired_events": 18,
+      "paired_months": 6,
+      "brier_delta_selected_minus_control": -0.043333333333333335,
+      "exploratory_month_bootstrap_ci95": [
+        -0.10847222222222223,
+        0.030000000000000002
+      ],
+      "all_case_delta_bounds": [
+        -0.04333333333333334,
+        -0.04333333333333334
+      ],
+      "log_loss_delta": -1.3593732023606795,
+      "early_delta": -0.03777777777777778,
+      "late_delta": -0.0488888888888889,
+      "by_metric": {
+        "payroll": 0.024999999999999984,
+        "unemployment": -0.065,
+        "earnings": -0.09000000000000001
+      },
+      "by_month": {
+        "2025-03": 0.11333333333333333,
+        "2025-04": -0.1466666666666667,
+        "2025-05": -0.07999999999999997,
+        "2025-06": -0.13083333333333336,
+        "2025-07": -0.015833333333333328,
+        "2025-08": 0.0
+      },
+      "leave_one_month_out": {
+        "2025-03": -0.07466666666666667,
+        "2025-04": -0.02266666666666667,
+        "2025-05": -0.03600000000000001,
+        "2025-06": -0.025833333333333333,
+        "2025-07": -0.04883333333333335,
+        "2025-08": -0.052000000000000005
+      }
+    }
+  },
+  "selection": {
+    "completed_selections": 18,
+    "changed_packet_sets": 18,
+    "document_kind_counts": {
+      "empsit": 36
+    }
+  },
+  "numerical_replication_gate_passed": false,
+  "production_promotion": false,
+  "interpretation_limits": [
+    "Six consecutive months in one economy, not 18 independent macro shocks.",
+    "Provider served weights and pre-issue evidence captures are not independently attested.",
+    "Equal spending ceilings, unequal realized input/output compute and cost.",
+    "Sparse BLS-only catalog and short-horizon nowcasts; no broad-domain or frontier-model inference.",
+    "Retrospective AI-assisted design, not an independently administered or external-scoreboard evaluation."
+  ]
+}

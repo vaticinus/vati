@@ -75,23 +75,34 @@ export async function runBenchmark(manifest:BenchmarkManifest,adapter:(model:str
 function mean(values:number[]):number|null{return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
 /** Cluster bootstrap is descriptive on exposed fixtures; it cannot create independent events. */
 function pairedInterval(rows:{cluster:string;delta:number}[]):[number,number]|null{
-  const clusters=[...new Set(rows.map(r=>r.cluster))];if(clusters.length<5)return null;
-  const groups=clusters.map(id=>rows.filter(r=>r.cluster===id).map(r=>r.delta));
+  const byCluster=new Map<string,{sum:number;count:number}>();
+  for(const row of rows){
+    const group=byCluster.get(row.cluster);
+    if(group){group.sum+=row.delta;group.count++;}
+    else byCluster.set(row.cluster,{sum:row.delta,count:1});
+  }
+  if(byCluster.size<5)return null;
+  const groups=[...byCluster.values()];
   let seed=48271;const random=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};
   const samples:number[]=[];
-  for(let i=0;i<2000;i++){const sampled:number[]=[];for(let j=0;j<groups.length;j++)sampled.push(...groups[Math.floor(random()*groups.length)]);samples.push(mean(sampled)!);}
+  for(let i=0;i<2000;i++){
+    let sum=0,count=0;
+    for(let j=0;j<groups.length;j++){const group=groups[Math.floor(random()*groups.length)];sum+=group.sum;count+=group.count;}
+    samples.push(sum/count);
+  }
   samples.sort((a,b)=>a-b);return [samples[50],samples[1949]];
 }
 export function scoreBenchmark(report:BenchmarkReport,outcomes:Record<string,0|1>){
   verifyBenchmark(report.manifest);
-  for(const [id,y]of Object.entries(outcomes))if(!report.manifest.cases.some(c=>c.question.id===id)||typeof y!=='number'||![0,1].includes(y))throw new Error('Outcomes must name registered cases and contain only 0/1');
-  const keys=new Set<string>();
+  const cases=new Map(report.manifest.cases.map(c=>[c.question.id,c]));
+  for(const [id,y]of Object.entries(outcomes))if(!cases.has(id)||typeof y!=='number'||![0,1].includes(y))throw new Error('Outcomes must name registered cases and contain only 0/1');
+  const byKey=new Map<string,BenchmarkRow>();
   for(const row of report.rows){
-    const c=report.manifest.cases.find(c=>c.question.id===row.case_id);
+    const c=cases.get(row.case_id);
     if(!c||c.cluster!==row.cluster||!report.manifest.models.includes(row.model)||!report.manifest.arms.includes(row.arm))throw new Error('Unregistered benchmark row');
     if(!['issued','abstained','rejected','error','not_attempted'].includes(row.status)||!Number.isFinite(row.elapsed_ms)||row.elapsed_ms<0||row.cost_usd!==null&&(!Number.isFinite(row.cost_usd)||row.cost_usd<0))throw new Error('Invalid benchmark status/cost/time');
     if(row.status==='issued' ? typeof row.probability!=='number'||!Number.isFinite(row.probability)||row.probability<0||row.probability>1 : row.probability!==null)throw new Error('Invalid benchmark probability/status');
-    const k=canonical([row.case_id,row.model,row.arm]);if(keys.has(k))throw new Error('Duplicate benchmark row');keys.add(k);
+    const k=canonical([row.case_id,row.model,row.arm]);if(byKey.has(k))throw new Error('Duplicate benchmark row');byKey.set(k,row);
   }
   const expected=report.manifest.cases.length*report.manifest.models.length*report.manifest.arms.length;
   if(report.rows.length!==expected)throw new Error('Benchmark report omits registered attempts');
@@ -100,7 +111,7 @@ export function scoreBenchmark(report:BenchmarkReport,outcomes:Record<string,0|1
     const rows=report.rows.filter(r=>r.model===model&&r.arm===arm),resolved=rows.filter(r=>Object.hasOwn(outcomes,r.case_id));
     const issued=resolved.filter(r=>r.status==='issued'&&typeof r.probability==='number'&&Number.isFinite(r.probability)&&r.probability>=0&&r.probability<=1);
     const losses=issued.map(r=>(r.probability!-outcomes[r.case_id])**2),sum=losses.reduce((a,b)=>a+b,0),missing=resolved.length-issued.length;
-    const baselines=issued.flatMap(r=>{const c=report.manifest.cases.find(c=>c.question.id===r.case_id)!;return c.question.baseline?[(c.question.baseline.probability-outcomes[r.case_id])**2]:[];});
+    const baselines=issued.flatMap(r=>{const c=cases.get(r.case_id)!;return c.question.baseline?[(c.question.baseline.probability-outcomes[r.case_id])**2]:[];});
     const logloss=issued.map(r=>-Math.log(outcomes[r.case_id]?r.probability!:1-r.probability!));
     const calibration=Array.from({length:10},(_,i)=>{
       const bin=issued.filter(r=>Math.min(9,Math.floor(r.probability!*10))===i);
@@ -117,8 +128,8 @@ export function scoreBenchmark(report:BenchmarkReport,outcomes:Record<string,0|1
     const differences:{cluster:string;delta:number}[]=[];
     for(const c of report.manifest.cases){
       if(!Object.hasOwn(outcomes,c.question.id))continue;
-      const direct=report.rows.find(r=>r.case_id===c.question.id&&r.model===model&&r.arm==='direct');
-      const harness=report.rows.find(r=>r.case_id===c.question.id&&r.model===model&&r.arm==='harness');
+      const direct=byKey.get(canonical([c.question.id,model,'direct']));
+      const harness=byKey.get(canonical([c.question.id,model,'harness']));
       if(direct?.status==='issued'&&harness?.status==='issued'&&direct.probability!==null&&harness.probability!==null)
         differences.push({cluster:c.cluster,delta:(harness.probability-outcomes[c.question.id])**2-(direct.probability-outcomes[c.question.id])**2});
     }

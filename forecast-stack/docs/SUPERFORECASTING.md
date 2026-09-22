@@ -14,6 +14,62 @@ Do not average these into a flattering single number. A correct 30% estimate att
 
 The local experiment and explicit acceptance rubric are in [`benchmarks/2026-09-22/protocol.json`](../benchmarks/2026-09-22/protocol.json). Ten project gates make the desired “9/10” inspectable. They are acceptance requirements, not an official leaderboard or an estimated probability that the system is safe.
 
+## Measured improvement and rejected calibration, 22 September
+
+The probability engine now handles positive Bayesian likelihoods that previously underflowed to zero. The scorer avoids repeatedly searching the same rows and rebuilding sampled arrays. The workflow keeps scoring-only baselines out of inference prompts. These changes cost no model credits.
+
+| Component diagnostic | Before | After |
+|---|---:|---:|
+| Bayesian cases within 1e-12 of a high-precision oracle | 1,339 / 1,398 | 1,398 / 1,398 |
+| Valid Bayesian cases rejected as impossible | 31 | 0 |
+| Largest absolute probability error among returned values | 0.333333 | 1.76e-14 |
+| Scoring-baseline isolation, direct and reviewed arms | 0 / 2 | 2 / 2 |
+| Median scoring time, 2,000 rows | 70.68 ms | 18.05 ms |
+| Median scoring time, 10,000 rows | 613.65 ms | 53.43 ms |
+
+The arithmetic grid uses 1,200-digit Decimal calculations on the exact binary floating-point inputs. It deliberately stresses rare evidence; its pass rate does not estimate the prevalence of failures in ordinary forecasts. Timing uses five warmed repetitions on one arm64 machine, with 100 event clusters. Every score field agrees within 8.2e-16, including missingness bounds and bootstrap endpoints. Timing is machine dependent. The baseline-isolation checks use injected synthetic completions, not a claim that a real model now ignores misleading evidence.
+
+Receipts: [`harness-before.json`](../benchmarks/performance-2026-09-22/harness-before.json), [`harness-after.json`](../benchmarks/performance-2026-09-22/harness-after.json), and the [executable benchmark](../benchmarks/performance-2026-09-22/harness_benchmark.mts).
+
+### Historical policy comparison
+
+Nine development policies covered raw crowd probabilities, the incumbent calibration, a fitted source map, partial blends, shrinkage toward source frequencies, and small residual offsets. The selected offset policy was frozen before loading the August evaluation rounds. It did not qualify for adoption.
+
+| August evaluation: 131 forecasts, 104 event IDs | Brier | Log loss |
+|---|---:|---:|
+| Raw frozen crowd reference | 0.088924 | 0.292385 |
+| Incumbent calibration | 0.092506 | 0.304440 |
+| Frozen residual candidate | 0.092038 | 0.303089 |
+
+Candidate minus incumbent Brier was -0.000467, with an event-cluster bootstrap 95% interval of [-0.001989, +0.001135]. That misses the declared 0.002 minimum improvement and includes harm. Raw crowd also has a better point score, but its interval against the incumbent crosses zero. Neither result justifies selecting a new default after seeing this sample. The existing calibration is unchanged.
+
+The evaluation uses the August 2, 16 and 30 ForecastBench rounds at a pinned upstream commit. Of 720 market rows, 512 were unresolved and 77 had an ID already exposed in the earlier archive; all remaining 131 were scored. An extraction audit corrected the exclusion set to include earlier unresolved questions too. No candidate probability was changed after evaluation began. The local freeze is not an independent preregistration witness. Nominal settlement dates do not prove when historical training labels first became available, and distinct IDs can still concern related events.
+
+This is a crowd-aware mechanical replay, not a test of a new LLM, a crowd-free result, or an official ForecastBench score. Earlier old-checkpoint Llama, Qwen and Gemma studies remain unchanged. Inputs and transformations derived from [ForecastBench](https://github.com/forecastingresearch/forecastbench-datasets) retain [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); the code license does not replace the data license. Protocol, numerical inputs, development data and scores are in [`benchmarks/performance-2026-09-22/`](../benchmarks/performance-2026-09-22/).
+
+### What earns the next improvement claim
+
+| Target | Required evidence |
+|---|---|
+| Forecast accuracy | At least 0.002 lower mean Brier against the declared incumbent, paired cluster interval wholly below zero, no log-loss regression, consistent temporal signs, then fresh replication. Compare the same events and permitted information; include a strong direct model and an allowed crowd/reference policy. |
+| Harness reliability | At least 99% issued coverage on the registered cohort, zero critical event/arithmetic/source failures in the declared adversarial suite, and every rejection/error retained. Synthetic passes alone cannot establish 99% real-world reliability. |
+| Extra inference or research | Better paired scores or fewer substantive failures at the same total cost ceiling. Report actual cost and latency per attempted and issued forecast. A probability change or an approving reviewer is insufficient. |
+| Decision usefulness | Lower regret under explicit utilities and constraints, including acquisition cost. This run did not measure business-decision quality. |
+| External standing | A separately authorized official submission and its published rank, followed by replication across domains and issue windows. No top-rank claim follows from this release. |
+
+These are project targets, not established achievements or universal sample-size rules. Set the next cohort size from development variance and the smallest useful effect. For the next judgment experiment, use a checkpoint released before its historical issue dates with auditable served-weight provenance and genuinely dated evidence. Freeze the direct control and evidence-selection treatment separately; keep the scoring comparator out of both unless it is explicitly permitted evidence. Do not spend on another calibration search over this exposed August cohort.
+
+Reproduce the released measurements from `forecast-stack/`, with new output paths:
+
+```sh
+python benchmarks/performance-2026-09-22/replay.py --out /tmp/vati-policy-replay.json
+python benchmarks/performance-2026-09-22/replay.py --arithmetic-cases --out /tmp/vati-arithmetic.json
+node --experimental-strip-types benchmarks/performance-2026-09-22/harness_benchmark.mts \
+  --cases /tmp/vati-arithmetic.json --out /tmp/vati-harness.json
+```
+
+For the before comparison, the three source hashes in `harness-before.json` identify `forecastEngine.ts`, `benchmark.ts` and `workflow.ts` at commit `9e0e7d1`. Place those unmodified files beside the current modules under `.before-`-prefixed names and pass `--prefix .before-` to the benchmark; remove the temporary copies afterward. This compares the named components, not a deployment of the entire old stack. Analysis and documentation were AI-assisted.
+
 ## Keep development moving without waiting for outcomes
 
 Use already-resolved historical events with an older, pinned checkpoint and evidence available at each simulated issue date. Keep prospective forecasts running as a background audit, not as a prerequisite for the next engineering experiment. A historical score is available immediately; its credibility depends on checkpoint provenance, dated evidence and separation between development and held-out cases.
@@ -132,6 +188,37 @@ The completed [2025 FOMC historical replay](../benchmarks/historical-2025-fomc/R
 Gemma 3 is another candidate for this design. Google's [model card](https://ai.google.dev/gemma/docs/core/model_card_3) documents an August 2024 training-data cutoff; its [release announcement](https://blog.google/technology/developers/gemma-3/) is dated March 12, 2025. Prefer an original pinned checkpoint and simulated issue dates after its release, with later resolved outcomes. This is a provenance-based candidate choice, not a measured Gemma forecasting result.
 
 Self-hosting can provide exact weight control and credit-funded bulk inference, but it is not inherently free or cheaper than an API. Record the checkpoint, tokenizer, quantization, serving version, billed GPU time, storage and achieved throughput. Verify current credit eligibility and require a spending ceiling and automatic shutdown before launch. A neutral endpoint name changes neither model knowledge nor cost.
+
+## Evidence selection pilot: lower point score, failed success gate
+
+The [18-contract Gemma 27B experiment](../benchmarks/evidence-selection-2026-09-22/protocol.json) compared evidence policies on six consecutive US employment releases, March–August 2025 reference months. All 54 forecasts issued. The same model, forecast prompt, sampling settings and two-document packet limit were used. Each case supplied a catalog of the last three employment and three CPI releases available before its issue time. Selection cost counted toward the same $0.004 per-contract, per-arm ceiling; total authorization was $0.25.
+
+| Policy | Binary-event Brier ↓ | Clipped log loss ↓ | Accounted cost, 18 contracts |
+|---|---:|---:|---:|
+| Latest two releases | 0.307917 | 2.062714 | $0.002063 |
+| Model selects two releases | 0.266944 | 0.708175 | $0.006055 |
+| Latest two, doubled forecast output allowance | 0.310278 | 2.067548 | $0.002065 |
+| Constant 50% reference | 0.250000 | — | No inference |
+
+Selection-minus-recency Brier was **−0.040972**, with an exploratory month-cluster interval of **[−0.106111, +0.031944]**. The doubled-output comparator gave **−0.043333**, interval **[−0.108472, +0.030000]**. Both intervals cross zero; all model arms lost to constant 50%. The registered success gate failed. No production forecasting policy changed.
+
+The useful diagnosis is narrower than “LLM selection works”:
+
+- The selector chose the latest two **employment** reports in all 18 cases. A free topic-and-recency filter would have produced identical packets on this catalog. This is a post-hoc packet-equivalence check, not another forecasting run. The experiment does not establish an advantage over that stronger mechanical comparator.
+- Post-hoc review found six clear reference-month substitutions in each recency arm and two in the selected arm. Models sometimes treated last month's observation as resolving this month's question, despite an explicit instruction against it. Four of the six recency substitutions happened to predict the eventual outcome correctly; their Brier scores conceal the semantic error.
+- Each recency arm made two wrong 100% predictions. Their unclipped log loss is infinite; the table uses the preregistered `1e-6` scoring clip, without changing issued probabilities. Selection made no wrong absolute-certainty predictions but still lost to the naive Brier baseline.
+- Selection improved unemployment and earnings point scores but worsened payroll forecasting. Realized cost was about 2.9 times recency. Doubling the forecast output allowance did not meaningfully improve results; that control is an allowance comparison, not equal consumed compute.
+
+Total accounted cost was **$0.010183** across 72 calls. This was a sparse, retrospective, short-horizon diagnostic in one economy—not a domain-balanced holdout or an external leaderboard result. Google's documented March 12, 2025 release predates the simulated issues; Parasail's exact served weights are not independently attested. Evidence uses dated BLS original-release archives retrieved later, without independently witnessed pre-issue captures. Neither limitation is repaired by an as-of prompt.
+
+[Manifest and excerpts](../benchmarks/evidence-selection-2026-09-22/manifest.json), [all forecasts and completion traces](../benchmarks/evidence-selection-2026-09-22/issued.json), [original-release outcomes](../benchmarks/evidence-selection-2026-09-22/outcomes.json), [scores](../benchmarks/evidence-selection-2026-09-22/scores.json), and [prompt/semantic audit](../benchmarks/evidence-selection-2026-09-22/audit.json) are preserved. From `forecast-stack/`, reproduce the scores without inference:
+
+```bash
+python benchmarks/evidence-selection-2026-09-22/score.py
+node --experimental-strip-types benchmarks/evidence-selection-2026-09-22/run.mts
+```
+
+The second command checks registration without spending. `--run` requires explicit credentials, the registered starting ledger and a new output path; an independent paid replication needs its own authorization and separately named registration. Do not reset the original ledger or tune on these now-exposed contracts. The next hypothesis is explicit reference-period handling and a mechanical relevance baseline, not more selector agents.
 
 ## External proof and the route to 9/10
 

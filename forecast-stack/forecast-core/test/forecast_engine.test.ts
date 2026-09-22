@@ -27,6 +27,16 @@ test('Bayes uses the false-positive rate and rejects an impossible observation',
   assert.throws(() => computeForecast({kind:'bayes', prior:.2, likelihood_yes:0, likelihood_no:0, observation:'impossible'}), /zero probability/);
 });
 
+test('Bayesian updates preserve rare but possible evidence under common likelihood rescaling', () => {
+  const prior = .5, observation = 'A precise joint observation with tiny absolute likelihood';
+  const scaled = computeForecast({kind:'bayes', prior, likelihood_yes:1e-323, likelihood_no:2e-323, observation});
+  close(scaled.probability, 1/3, 1e-14);
+  const rare = computeForecast({kind:'bayes', prior:1e-300, likelihood_yes:1e-300, likelihood_no:0, observation});
+  assert.equal(rare.probability, 1);
+  const balanced = computeForecast({kind:'bayes', prior:1e-300, likelihood_ratio:1e300, observation});
+  close(balanced.probability, .5, 1e-14);
+});
+
 test('a likelihood ratio updates odds once without inventing absolute likelihoods', () => {
   const model = {kind:'bayes', prior:.2, likelihood_ratio:3, observation:'One dossier, four syndicated copies'};
   close(computeForecast(model).probability, 3/7);

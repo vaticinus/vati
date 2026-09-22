@@ -1,0 +1,167 @@
+{
+  "protocol_sha256": "fdf496913815153cfc6ace28d8eb6c4977e8736b4a8b85223352b5cdae27780b",
+  "inputs_sha256": "2dce7f96096c06581c309f084dc71e962442e9bd914a949c2e0b58882df60e61",
+  "development_sha256": "cf2c0acc897a274ab2a6338cfbf6c9fca9f2e370487145af1aed63c274777c31",
+  "replay_sha256": "dff28520e661e725e6b52d0baae9655c47b5e917f6e12936d75db6753ab64122",
+  "market_source_sha256": "5eb2e91f9d7bf53bbc5f16cb05481558f91ea447e99d765faebfb8382716a4f2",
+  "cost_usd": 0,
+  "model_calls": 0,
+  "rows": 131,
+  "events": 104,
+  "scores": {
+    "raw": {
+      "brier": 0.08892443150877352,
+      "log_loss": 0.29238518911163414
+    },
+    "incumbent": {
+      "brier": 0.09250558014156954,
+      "log_loss": 0.3044395826099771
+    },
+    "candidate": {
+      "brier": 0.09203833927691699,
+      "log_loss": 0.30308928792425616
+    }
+  },
+  "by_round": {
+    "2026-08-02": {
+      "n": 51,
+      "scores": {
+        "raw": {
+          "brier": 0.06012831719932675,
+          "log_loss": 0.2044155316643389
+        },
+        "incumbent": {
+          "brier": 0.06082210020289143,
+          "log_loss": 0.21120960539219147
+        },
+        "candidate": {
+          "brier": 0.060516433309891496,
+          "log_loss": 0.21010717351847405
+        }
+      }
+    },
+    "2026-08-16": {
+      "n": 44,
+      "scores": {
+        "raw": {
+          "brier": 0.07237445454927842,
+          "log_loss": 0.2405536035759335
+        },
+        "incumbent": {
+          "brier": 0.07617450086950135,
+          "log_loss": 0.2535294139810589
+        },
+        "candidate": {
+          "brier": 0.07616896975134786,
+          "log_loss": 0.2523183622059566
+        }
+      }
+    },
+    "2026-08-30": {
+      "n": 36,
+      "scores": {
+        "raw": {
+          "brier": 0.14994667639765044,
+          "log_loss": 0.4803585861500477
+        },
+        "incumbent": {
+          "brier": 0.1573507180538913,
+          "log_loss": 0.49873892310385126
+        },
+        "candidate": {
+          "brier": 0.1560902688170098,
+          "log_loss": 0.49686730365481346
+        }
+      }
+    }
+  },
+  "by_source": {
+    "kalshi": {
+      "n": 19,
+      "scores": {
+        "raw": {
+          "brier": 0.09896926315789474,
+          "log_loss": 0.3373585982576533
+        },
+        "incumbent": {
+          "brier": 0.09896926315789474,
+          "log_loss": 0.3373585982576533
+        },
+        "candidate": {
+          "brier": 0.09896926315789474,
+          "log_loss": 0.3373585982576533
+        }
+      }
+    },
+    "manifold": {
+      "n": 20,
+      "scores": {
+        "raw": {
+          "brier": 0.048187490883887296,
+          "log_loss": 0.18820149274910303
+        },
+        "incumbent": {
+          "brier": 0.04822410781457122,
+          "log_loss": 0.1893630007751989
+        },
+        "candidate": {
+          "brier": 0.05034586930043581,
+          "log_loss": 0.19268104452622842
+        }
+      }
+    },
+    "metaculus": {
+      "n": 39,
+      "scores": {
+        "raw": {
+          "brier": 0.07555210153773297,
+          "log_loss": 0.25095818864959085
+        },
+        "incumbent": {
+          "brier": 0.0755905630761945,
+          "log_loss": 0.2522597747347214
+        },
+        "candidate": {
+          "brier": 0.07462336208457114,
+          "log_loss": 0.24971564052763137
+        }
+      }
+    },
+    "polymarket": {
+      "n": 53,
+      "scores": {
+        "raw": {
+          "brier": 0.11053590094339623,
+          "log_loss": 0.34606126781910485
+        },
+        "incumbent": {
+          "brier": 0.11934529966570943,
+          "log_loss": 0.37446001367648074
+        },
+        "candidate": {
+          "brier": 0.11810147052771953,
+          "log_loss": 0.37174249962414996
+        }
+      }
+    }
+  },
+  "candidate_minus_incumbent_brier": -0.00046724086465255166,
+  "cluster_bootstrap_95": [
+    -0.0019886623970148468,
+    0.0011351621663987035
+  ],
+  "raw_minus_incumbent_brier": -0.0035811486327960163,
+  "raw_minus_incumbent_interval": [
+    -0.008301635941398124,
+    0.0004067815264427195
+  ],
+  "promotion_gates": {
+    "effect": false,
+    "interval": false,
+    "round_signs": true,
+    "log_loss": true,
+    "fresh_replication": false
+  },
+  "promote": false,
+  "interpretation": "Mechanical crowd-aware retrospective evaluation, not new LLM judgment, official leaderboard scoring, or prospective timing proof. Raw is a reference, not a post-hoc promoted policy."
+}
