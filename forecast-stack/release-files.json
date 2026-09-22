@@ -235,6 +235,9 @@
     "benchmarks/gemma-27b-2025-fomc/run.mts",
     "benchmarks/gemma-27b-2025-fomc/outcomes.json",
     "benchmarks/gemma-27b-2025-fomc/resolutions.json",
+    "benchmarks/gemma-27b-2025-fomc/issued.json",
+    "benchmarks/gemma-27b-2025-fomc/scores.json",
+    "benchmarks/gemma-27b-2025-fomc/RESULTS.md",
     "forecast-core/scripts/install-smoke.mjs"
   ],
   "space": [
