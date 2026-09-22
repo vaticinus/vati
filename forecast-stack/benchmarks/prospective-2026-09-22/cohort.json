@@ -1,0 +1,45 @@
+{
+  "issued_date": "2026-09-22",
+  "selection": "Small purposive US macro release pilot: job openings, core consumer inflation, and payroll growth. Three distinct releases, one correlated domain, not a representative benchmark. Selected before any pilot model call. No substitutions after exposure.",
+  "evidence_policy": "Only the supplied dated public-source extracts may be used as factual evidence. These concise packets are not exhaustive information sets. Model forecasts may use explicitly labelled judgmental distributional assumptions; a future outcome is not an arithmetic oracle.",
+  "common_baseline_probability": 0.5,
+  "resolution_policy": "Use the first official publication for the specified reference month, preserving its originally published values and rounding; exclude subsequent corrections, revisions and later vintage series. Archive the original release bytes when resolving. If publication is delayed, keep the question pending for 30 calendar days after its scheduled release, then mark unresolved/void rather than NO. Any ambiguous, withdrawn or unavailable original record remains unresolved. No outcomes are assigned at issuance.",
+  "cases": [
+    {
+      "id": "us-jolts-august-openings",
+      "release_cluster": "jolts-2026-09-29",
+      "resolution_date": "2026-09-29",
+      "question": "Will the first BLS Job Openings and Labor Turnover release for August 2026 report seasonally adjusted total nonfarm job openings of at least 7,300 thousand in table 1?",
+      "threshold": 7300,
+      "comparator": ">=",
+      "unit": "thousand job openings",
+      "scheduled_release_utc": "2026-09-29T14:00:00Z",
+      "outcome_source": "https://www.bls.gov/news.release/jolts.t01.htm",
+      "packet": "BLS Job Openings and Labor Turnover Summary for July 2026, published 2026-09-01 at 10:00 ET: job openings were little changed at 7.3 million; openings rate 4.4%; hires and total separations both 5.1 million; quits 3.1 million; layoffs/discharges 1.7 million. June openings were revised down by 177,000 to 7.2 million. Headline millions are rounded and must not be treated as exact table counts. The same release schedules August estimates for 2026-09-29 at 10:00 ET. Source: https://www.bls.gov/news.release/jolts.nr0.htm . No August value is supplied or known in this packet."
+    },
+    {
+      "id": "us-core-pce-august",
+      "release_cluster": "pio-2026-09-30",
+      "resolution_date": "2026-09-30",
+      "question": "Will the first BEA Personal Income and Outlays release for August 2026 report that the seasonally adjusted PCE price index excluding food and energy increased by at least 0.3 percent from the preceding month, using the published one-decimal monthly percent change?",
+      "threshold": 0.3,
+      "comparator": ">=",
+      "unit": "percent month over month",
+      "scheduled_release_utc": "2026-09-30T12:30:00Z",
+      "outcome_source": "https://www.bea.gov/news/current-releases",
+      "packet": "BEA Personal Income and Outlays for July 2026, published 2026-08-26 at 08:30 EDT: core PCE monthly price changes were +0.1% in June and +0.2% in July; headline PCE monthly changes were -0.1% and +0.2%. July year-over-year core inflation was 3.3%, headline 3.7%. July nominal personal income rose 0.4%, nominal PCE 0.2%, real PCE 0.0% at published rounding. BEA schedules August PIO for 2026-09-30 at 08:30 EDT, simultaneously with an annual national-accounts update. The initial August print may use revised prior-month data; resolve on the monthly change printed in that first release, not a recomputation against today's July series. Sources: https://www.bea.gov/news/2026/personal-income-and-outlays-july-2026 and https://www.bea.gov/news/schedule . No August PCE inflation outcome is supplied."
+    },
+    {
+      "id": "us-payrolls-september",
+      "release_cluster": "employment-2026-10-02",
+      "resolution_date": "2026-10-02",
+      "question": "Will the first BLS Employment Situation release for September 2026 report a seasonally adjusted increase in total nonfarm payroll employment of at least 100,000 jobs from the preceding month?",
+      "threshold": 100000,
+      "comparator": ">=",
+      "unit": "jobs",
+      "scheduled_release_utc": "2026-10-02T12:30:00Z",
+      "outcome_source": "https://www.bls.gov/news.release/empsit.nr0.htm",
+      "packet": "BLS Employment Situation for August 2026, published 2026-09-04 at 08:30 ET: total nonfarm payrolls rose 162,000; unemployment stayed at 4.1%. The preceding 12-month average payroll gain was 31,000. June growth was revised from +20,000 to +31,000 and July from -23,000 to +21,000. August gains included food services/drinking places +59,000 and local government education +42,000, the latter largely offsetting a prior-month decline; information lost 23,000. Average hourly earnings increased 0.3% monthly and 3.1% yearly; workweek 34.4 hours. September release is scheduled for 2026-10-02 at 08:30 ET. Resolve on September's first reported monthly payroll change, not later revisions and not the unemployment rate. Source: https://www.bls.gov/news.release/empsit.nr0.htm . No September outcome is supplied."
+    }
+  ]
+}
