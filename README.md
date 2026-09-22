@@ -6,8 +6,6 @@ We're working on forecasts that help people decide what to build, where to inves
 
 **[Vaticinus.com](https://vaticinus.com)** · [Try the workbench](https://huggingface.co/spaces/vaticinus/forecast-stack) · [Run the code](#run-it-yourself) · [Results](#what-weve-learned-so-far)
 
-![Blue signal lines across a dark layered surface](https://vaticinus.com/images/vaticinus-harness-dark.webp)
-
 ## Why work on this now?
 
 In July 2026, the Forecasting Research Institute reported that several AI systems were statistically indistinguishable from its superforecaster reference on ForecastBench. The comparison has limits: the human forecasts date from 2024, and the results support parity more strongly than outperformance. [Their report explains both the progress and the uncertainty.](https://forecastingresearch.substack.com/p/ai-models-have-likely-reached-parity)
