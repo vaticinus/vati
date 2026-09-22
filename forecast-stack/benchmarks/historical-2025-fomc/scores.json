@@ -1,0 +1,212 @@
+{
+  "cohort": "historical-2025-fomc",
+  "groups": [
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "arm": "direct",
+      "issued": 8,
+      "planned": 8,
+      "coverage": 1.0,
+      "brier_issued_only": 0.23500000000000001,
+      "brier_skill_vs_half": 0.05999999999999994,
+      "all_case_brier_bounds": [
+        0.23500000000000001,
+        0.2350000000000001
+      ],
+      "log_loss": 0.6628750393065523,
+      "accuracy_at_half_ties_no": 0.625,
+      "hypothetical_utility_issued_only": {
+        "0.25": {
+          "actions": 8,
+          "mean": 0.125
+        },
+        "0.5": {
+          "actions": 0,
+          "mean": 0.0
+        },
+        "0.75": {
+          "actions": 0,
+          "mean": 0.0
+        }
+      }
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "arm": "harness",
+      "issued": 8,
+      "planned": 8,
+      "coverage": 1.0,
+      "brier_issued_only": 0.2129591836734694,
+      "brier_skill_vs_half": 0.14816326530612245,
+      "all_case_brier_bounds": [
+        0.2129591836734694,
+        0.21295918367346944
+      ],
+      "log_loss": 0.6182906713142108,
+      "accuracy_at_half_ties_no": 0.75,
+      "hypothetical_utility_issued_only": {
+        "0.25": {
+          "actions": 8,
+          "mean": 0.125
+        },
+        "0.5": {
+          "actions": 1,
+          "mean": 0.0625
+        },
+        "0.75": {
+          "actions": 0,
+          "mean": 0.0
+        }
+      }
+    },
+    {
+      "model": "qwen/qwen-2.5-7b-instruct",
+      "arm": "direct",
+      "issued": 8,
+      "planned": 8,
+      "coverage": 1.0,
+      "brier_issued_only": 0.23500000000000001,
+      "brier_skill_vs_half": 0.05999999999999994,
+      "all_case_brier_bounds": [
+        0.23500000000000001,
+        0.2350000000000001
+      ],
+      "log_loss": 0.6628750393065523,
+      "accuracy_at_half_ties_no": 0.625,
+      "hypothetical_utility_issued_only": {
+        "0.25": {
+          "actions": 8,
+          "mean": 0.125
+        },
+        "0.5": {
+          "actions": 0,
+          "mean": 0.0
+        },
+        "0.75": {
+          "actions": 0,
+          "mean": 0.0
+        }
+      }
+    },
+    {
+      "model": "qwen/qwen-2.5-7b-instruct",
+      "arm": "harness",
+      "issued": 8,
+      "planned": 8,
+      "coverage": 1.0,
+      "brier_issued_only": 0.25,
+      "brier_skill_vs_half": 0.0,
+      "all_case_brier_bounds": [
+        0.25,
+        0.25
+      ],
+      "log_loss": 0.696257887462683,
+      "accuracy_at_half_ties_no": 0.625,
+      "hypothetical_utility_issued_only": {
+        "0.25": {
+          "actions": 6,
+          "mean": 0.0625
+        },
+        "0.5": {
+          "actions": 0,
+          "mean": 0.0
+        },
+        "0.75": {
+          "actions": 0,
+          "mean": 0.0
+        }
+      }
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "complete_pairs": 8,
+      "mean_brier_harness_minus_direct": -0.02204081632653062,
+      "per_event_differences": {
+        "fomc-2025-01-29": 0.0,
+        "fomc-2025-03-19": 0.0,
+        "fomc-2025-05-07": 0.0,
+        "fomc-2025-06-18": 0.0,
+        "fomc-2025-07-30": 0.0,
+        "fomc-2025-09-17": 0.0,
+        "fomc-2025-10-29": -0.17632653061224496,
+        "fomc-2025-12-10": 0.0
+      }
+    },
+    {
+      "model": "qwen/qwen-2.5-7b-instruct",
+      "complete_pairs": 8,
+      "mean_brier_harness_minus_direct": 0.015,
+      "per_event_differences": {
+        "fomc-2025-01-29": 0.0,
+        "fomc-2025-03-19": -0.15000000000000002,
+        "fomc-2025-05-07": 0.0,
+        "fomc-2025-06-18": -0.07000000000000003,
+        "fomc-2025-07-30": -0.07000000000000003,
+        "fomc-2025-09-17": 0.0,
+        "fomc-2025-10-29": 0.28000000000000014,
+        "fomc-2025-12-10": 0.12999999999999995
+      }
+    }
+  ],
+  "baselines": [
+    {
+      "probability": 0.5,
+      "issued": 8,
+      "planned": 8,
+      "coverage": 1.0,
+      "brier_issued_only": 0.25,
+      "brier_skill_vs_half": 0.0,
+      "all_case_brier_bounds": [
+        0.25,
+        0.25
+      ],
+      "log_loss": 0.6931471805599453,
+      "accuracy_at_half_ties_no": 0.625,
+      "hypothetical_utility_issued_only": {
+        "0.25": {
+          "actions": 8,
+          "mean": 0.125
+        },
+        "0.5": {
+          "actions": 0,
+          "mean": 0.0
+        },
+        "0.75": {
+          "actions": 0,
+          "mean": 0.0
+        }
+      }
+    },
+    {
+      "probability": 0.25,
+      "issued": 8,
+      "planned": 8,
+      "coverage": 1.0,
+      "brier_issued_only": 0.25,
+      "brier_skill_vs_half": 0.0,
+      "all_case_brier_bounds": [
+        0.25,
+        0.25
+      ],
+      "log_loss": 0.699661680702322,
+      "accuracy_at_half_ties_no": 0.625,
+      "hypothetical_utility_issued_only": {
+        "0.25": {
+          "actions": 0,
+          "mean": 0.0
+        },
+        "0.5": {
+          "actions": 0,
+          "mean": 0.0
+        },
+        "0.75": {
+          "actions": 0,
+          "mean": 0.0
+        }
+      }
+    }
+  ],
+  "limits": "Descriptive retrospective replay, eight correlated meetings in one policy year. No independent-cluster confidence interval, calibration claim, cross-domain readiness grade or verified served-weight attestation."
+}
