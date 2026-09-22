@@ -5,7 +5,7 @@ colorTo: gray
 sdk: docker
 app_port: 7860
 license: mit
-short_description: Inspect probability models and export computed snapshots. No API key.
+short_description: Compute probability models and export snapshots. No API key.
 ---
 
 # Forecast Stack probability workbench

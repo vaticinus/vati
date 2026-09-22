@@ -4,7 +4,7 @@
 
 **GitHub:** the allowlisted `forecast-stack/` component in the existing [`vaticinus/vati`](https://github.com/vaticinus/vati) repository: Python package, typed core, tests, examples, community policies, roadmap, release tooling and workbench. No private monorepo history or private data. Beyond Brier remains at the repository root under Apache-2.0; this component is MIT.
 
-**Hugging Face:** a separate Docker Space assembled from the same core and workbench. This is a CPU keyless demo, not a model checkpoint. GitHub remains the source of truth; update the Space from a reviewed release, not independent edits.
+**Hugging Face:** the [Forecast Stack Docker Space](https://huggingface.co/spaces/vaticinus/forecast-stack), assembled from the same core and workbench. This is a CPU keyless demo, not a model checkpoint. GitHub remains the source of truth; update the Space from a reviewed release, not independent edits.
 
 **Package artifacts:** a Python wheel/sdist and compiled npm tarball. Build and install-test locally. Publishing to PyPI/npm is a separate action requiring namespace ownership and release credentials; this run does not assume either.
 
@@ -46,7 +46,7 @@ The exporter scans the static allowlists, rejects symlinks/private paths and wri
 1. Review `forecast-stack/` and any shared-root changes against the existing `vaticinus/vati` history. Confirm MIT rights for the component, attribution, release contents and security-reporting channel. Preserve Beyond Brier's code, paper, data and Apache-2.0 license.
 2. Commit on a branch descended from that repository; do **not** create a replacement repository, initialize new root history, or force-push. Integrate the component's CI and community templates at the parent root. Protect main and require CI/review as appropriate for the maintainer workflow. Tag `forecast-stack-v0.1.0` only after remote CI and a clean-clone smoke pass.
 3. Attach the wheel, sdist, npm tarball and component source manifest to that GitHub release. Check package contents, not just source contents. Publish registries only after account/scope ownership is confirmed. Never put tokens in commands committed to the repo.
-4. Create a public **Docker Space on CPU Basic** in the chosen Hugging Face owner. Upload only the staged Space directory, including its root README metadata, Dockerfile, core and `space/`. The container listens on 7860 as UID 1000. Set no keys and no paid hardware. Verify the live calculation, invalid-input rejection and download in the iframe.
+4. Create a public **Docker Space on CPU Basic** in the chosen Hugging Face owner. As observed on September 22, 2026, Hugging Face requires a PRO subscription even for Docker Spaces on CPU Basic; do not purchase one or upgrade hardware without owner approval. Upload only the staged Space directory, including its root README metadata, Dockerfile, core and `space/`. Keep `short_description` within Hugging Face's 60-character limit. The container listens on 7860 as UID 1000. Set no keys and no upgraded hardware. Verify the live calculation, invalid-input rejection and download in the iframe; record explicitly when browser verification is deferred.
 5. Keep repository URLs pointed at `vaticinus/vati`, with component paths where appropriate. Open reviewed issue briefs and post the walkthrough only after copy/recipient approval where outreach is involved.
 
 No automatic publish workflow is installed. CI on pull requests has read-only repository permissions and receives no production model or cloud secrets.
