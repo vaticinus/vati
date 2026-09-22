@@ -55,7 +55,7 @@ The record keeps the question and evidence alongside the estimate. Revisions lin
 
 ## Try it on a question you know well
 
-In the **[live workbench](https://huggingface.co/spaces/vaticinus/forecast-stack)**, you can change a scenario's assumptions and download the resulting calculation. The scenario tools need no API key.
+The **[live workbench](https://huggingface.co/spaces/vaticinus/forecast-stack)** can make a forecast from your question and evidence using your own OpenRouter key, with a spending limit you set. The free scenario lab lets you change assumptions without model credits. Both paths produce a record you can download.
 
 The [model-backed workflow](forecast-stack/forecast-core/WORKFLOW.md) uses your own OpenRouter key and a spending limit. It supports evidence packets, forecast revisions, and comparisons between a direct model and the harness. You can run it on your own machine.
 
